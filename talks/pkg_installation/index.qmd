@@ -226,7 +226,7 @@ library(gt)
 3. Instalar desde GitHub el paquete [knox](https://github.com/thanhleviet/knox) test
 
 
-## [Univero de Vectores en R]{style="color:#003300;"}
+## [Universo de Vectores en R]{style="color:#003300;"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
 ```{r universo_vbd, echo=FALSE, out.width='100%', fig.align='center'}
@@ -308,5 +308,5 @@ DiagrammeR::grViz("digraph {
 
 -   ***celular*** : [9999580167]()
 
--   ***slides***: [https://rococo-pothos-8ae204.netlify.app/talks/mia_mx/#/]()
+-   ***slides***: [https://calm-hummingbird-41cb33.netlify.app/talks/pkg_installation/#/]()
 

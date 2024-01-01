@@ -28,71 +28,6 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-    /* CSS for syntax highlighting */
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-      }
-    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-    div.sourceCode
-      { color: #24292e;  }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span { color: #24292e; } /* Normal */
-    code span.al { color: #ff5555; font-weight: bold; } /* Alert */
-    code span.an { color: #6a737d; } /* Annotation */
-    code span.at { color: #d73a49; } /* Attribute */
-    code span.bn { color: #005cc5; } /* BaseN */
-    code span.bu { color: #d73a49; } /* BuiltIn */
-    code span.cf { color: #d73a49; } /* ControlFlow */
-    code span.ch { color: #032f62; } /* Char */
-    code span.cn { color: #005cc5; } /* Constant */
-    code span.co { color: #6a737d; } /* Comment */
-    code span.cv { color: #6a737d; } /* CommentVar */
-    code span.do { color: #6a737d; } /* Documentation */
-    code span.dt { color: #d73a49; } /* DataType */
-    code span.dv { color: #005cc5; } /* DecVal */
-    code span.er { color: #ff5555; text-decoration: underline; } /* Error */
-    code span.ex { color: #d73a49; font-weight: bold; } /* Extension */
-    code span.fl { color: #005cc5; } /* Float */
-    code span.fu { color: #6f42c1; } /* Function */
-    code span.im { color: #032f62; } /* Import */
-    code span.in { color: #6a737d; } /* Information */
-    code span.kw { color: #d73a49; } /* Keyword */
-    code span.op { color: #24292e; } /* Operator */
-    code span.ot { color: #6f42c1; } /* Other */
-    code span.pp { color: #d73a49; } /* Preprocessor */
-    code span.re { color: #6a737d; } /* RegionMarker */
-    code span.sc { color: #005cc5; } /* SpecialChar */
-    code span.ss { color: #032f62; } /* SpecialString */
-    code span.st { color: #032f62; } /* String */
-    code span.va { color: #e36209; } /* Variable */
-    code span.vs { color: #032f62; } /* VerbatimString */
-    code span.wa { color: #ff5555; } /* Warning */
   </style>
   <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto.css">
   <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -398,7 +333,7 @@
 <section class="slide level2">
 
 <h2>
-Instalación de Paquetes en R <br>
+Datos Espaciales <br>
 </h2>
 <h2>
 </h2>
@@ -421,180 +356,51 @@ Update: 2024-01-01
 </h4>
 <p><br></p>
 <h4>
-<p><img data-src="logo_curso_2024.png" class="absolute" style="top: 170px; left: 650px; width: 450px; "></p>
+<p><img data-src="https://www.rayshader.com/reference/figures/smallhobart.gif" class="absolute" style="top: 170px; left: 650px; width: 450px; "></p>
 </h4></section>
 <section id="temario" class="slide level2">
 <h2><span style="color:#003300;">Temario</span></h2>
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+<div class="columns">
+<div class="column" style="width:50%;">
 <ul>
-<li>Instalación de <a href="https://www.r-project.org">R</a></li>
-<li>Instalación de <a href="https://posit.co">RStudio</a></li>
-<li>Instalación de paquetes en CRAN</li>
-<li>Instalación de paquetes en <a href="https://github.com">GitHub</a></li>
-<li>Instalación de paquetes tar.gz</li>
-<li>Instalación de paquetes <a href="https://cran.r-project.org/web/views/">Cran Task View</a>.</li>
-</ul>
-</section>
-<section id="temarios" class="slide level2">
-<h2><span style="color:#003300;">Temarios</span></h2>
-<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+<li>Datos Espaciales</li>
+<li>Tipos de Mapas</li>
+<li>Mapas estáticos en R
 <ul>
-<li><a href="https://wiki.archlinux.org/title/Meta_package_and_package_group">Metapaquetes</a>, <a href="https://ropensci.org/r-universe/">Universos</a> y Rverses</li>
-<li>ETVerse, IVAverse, dengueverse</li>
-<li>dengueverse
-<ul>
-<li>rgeomex</li>
-<li>deneggs</li>
-<li>dehotspots</li>
-<li>dencontrol</li>
-<li>denepikit</li>
+<li>Base R</li>
+<li>ggplot2</li>
+<li>tmap</li>
+<li>mapsf</li>
 </ul></li>
 </ul>
-</section>
-<section id="instalación-de-r" class="slide level2">
-<h2><span style="color:#003300;">Instalación de R</span></h2>
-<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
-<ol type="1">
-<li><p>Ir a la página oficial de <a href="https://www.r-project.org">R</a></p></li>
-<li><p>click en <a href="">download R</a> para el Sistema Operativo (winOS, macOS, Linux)</p></li>
-<li><p>Seleccionar el CRAN Mirrors</p></li>
-<li><p>Guardar Archivo</p></li>
-<li><p>Ir a la carpeta de descargas</p></li>
-<li><p>Instalar R</p></li>
-</ol>
-</section>
-<section id="instalación-de-rstudio" class="slide level2">
-<h2><span style="color:#003300;">Instalación de RStudio</span></h2>
-<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
-<ol type="1">
-<li><p>Ir a la página oficial de <a href="https://posit.co">RStudio</a></p></li>
-<li><p>click en <a href="">download RStudio</a></p></li>
-<li><p>download RStudio desktop for OS</p></li>
-<li><p>Guardar Archivo</p></li>
-<li><p>Ir a la carpeta de descargas</p></li>
-<li><p>Instalar RStudio</p></li>
-</ol>
-</section>
-<section id="instalación-de-paquetes-desde-cran" class="slide level2">
-<h2><span style="color:#003300;">Instalación de paquetes desde CRAN</span></h2>
-<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
-<div class="panel-tabset">
-<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Un paquete</a></li><li><a href="#tabset-1-2">Varios paquetes</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Instalamos el paquete</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">install.packages</span>(<span class="st">"ggplot2"</span>, </span>
-<span id="cb1-3"><a href="#cb1-3"></a>                 <span class="at">repos =</span> <span class="st">"http://cran.us.r-project.org"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-The downloaded binary packages are in
-    /var/folders/z5/ncncnvys0gd9c6g6sqc_jdc40000gn/T//Rtmpkvlibl/downloaded_packages</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># Verificamos la instalación</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-<div id="tabset-1-2">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># Instalamos el paquete</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"sf"</span>, <span class="st">"tmap"</span>, <span class="st">"ggspatial"</span>), </span>
-<span id="cb4-3"><a href="#cb4-3"></a>                 <span class="at">repos =</span> <span class="st">"http://cran.us.r-project.org"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-The downloaded binary packages are in
-    /var/folders/z5/ncncnvys0gd9c6g6sqc_jdc40000gn/T//Rtmpkvlibl/downloaded_packages</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># Verificamos la instalación</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="fu">library</span>(sf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="instalación-de-paquete-desde-github" class="slide level2">
-<h2><span style="color:#003300;">Instalación de paquete desde GitHub</span></h2>
-<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
-<div class="panel-tabset">
-<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">devtools</a></li><li><a href="#tabset-2-2">remotes</a></li><li><a href="#tabset-2-3">pak</a></li></ul>
-<div class="tab-content">
-<div id="tabset-2-1">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># Instalamos el paquete</span></span>
-<span id="cb7-2"><a href="#cb7-2"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"fdzul/dendata"</span>)</span>
-<span id="cb7-3"><a href="#cb7-3"></a></span>
-<span id="cb7-4"><a href="#cb7-4"></a>pak<span class="sc">::</span><span class="fu">pkg_install</span>(<span class="st">"fdzul/covid19mx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-<div id="tabset-2-2">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># Instalamos el paquete</span></span>
-<span id="cb8-2"><a href="#cb8-2"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"fdzul/rhealthdiag"</span>)</span>
-<span id="cb8-3"><a href="#cb8-3"></a><span class="co"># Verificamos la instalacion</span></span>
-<span id="cb8-4"><a href="#cb8-4"></a><span class="fu">library</span>(rhealthdiag)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-<div id="tabset-2-3">
-
-</div>
-</div>
-</div>
-</section>
-<section id="instalación-de-paquete-con-task-view" class="slide level2">
-<h2><span style="color:#003300;">Instalación de paquete con Task View</span></h2>
-<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
-<ol type="1">
-<li>Primero Instalamos el paquete <a href="https://cran.r-project.org/web/views/">ctv</a></li>
-</ol>
-<ol start="2" type="1">
-<li><p>Seleccionamos el tópico.</p></li>
-<li><p>Instalamos el tópico.</p></li>
-</ol>
-</section>
-<section id="instalación-de-paquete-binario" class="slide level2">
-<h2><span style="color:#003300;">Instalación de paquete binario</span></h2>
-<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
-<p>para winOS</p>
-<p>para macOS</p>
-</section>
-<section id="desafio" class="slide level2">
-<h2><span style="color:#003300;">Desafio</span></h2>
-<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
-<ol type="1">
-<li>Instalar todos los paquetes para el análisis espacial</li>
-</ol>
+</div><div class="column" style="width:50%;">
 <ul>
-<li><a href="https://cran.r-project.org/web/views/Spatial.html">Spatial</a></li>
-</ul>
-<ol start="2" type="1">
-<li>Instalar todos los paquetes para el análisis espacio-temporal</li>
-</ol>
+<li><p>Mapas Interactivos en R</p>
 <ul>
-<li><a href="https://cran.r-project.org/web/views/SpatioTemporal.html">SpatioTemporal</a></li>
+<li>leaflet</li>
+<li>mapview</li>
+<li>tmap</li>
+<li>plotly</li>
+</ul></li>
+<li><p>Mapas Animados</p></li>
+<li><p>Mapas en 3D</p>
+<ul>
+<li><a href="https://www.rayshader.com">rayshader</a></li>
+</ul></li>
 </ul>
-<ol start="3" type="1">
-<li>Instalar desde GitHub el paquete <a href="https://github.com/thanhleviet/knox">knox</a> test</li>
-</ol>
+</div>
+</div>
 </section>
-<section id="univero-de-vectores-en-r" class="slide level2">
-<h2><span style="color:#003300;">Univero de Vectores en R</span></h2>
+<section id="clasificación-de-los-datos-espaciales" class="slide level2">
+<h2>Clasificación de los Datos Espaciales</h2>
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div class="grViz html-widget html-fill-item" id="htmlwidget-c6e217cb27b48e6347b3" style="width:100%;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-c6e217cb27b48e6347b3">{"x":{"diagram":"digraph {\n                  # graph definitions\n  graph [layout = dot, rankdir = TB]\n  \n  # node definitions\n  node [shape = rectangle, \n  style = filled, \n  color = grey, \n  nodesep = .5,\n  fixedsize = true, \n  width = 2] \n  \n  # edge definition\n  edge [color = grey, arrowhead = normal, arrowtail = dot]\n  \n  ##### Spatial Data\n  \n  \n  vectores [label = \"Vectores\", fillcolor =  \" #0F9D58\", color = \"white\", fontcolor = \"white\"]\n  \n # \n etverse [label = \"ETVerse\",  fillcolor =  \"#F4B400\", color = \"white\", fontcolor = \"black\"]\n ivaverse [label = \"IVAverse\",  fillcolor =  \"#F4B400\", color = \"white\", fontcolor = \"black\"]\n \n transverse [label = \"transverse\",  fillcolor =  \"#F4B400\", color = \"white\", fontcolor = \"black\"]\n \n # ETVerse\n \n dengueverse  [label = \"dengueverse\",  fillcolor =  \"#4285F4\", color = \"white\", fontcolor = \"white\"]\n leisverse  [label = \"leisverse\",  fillcolor =  \"#4285F4\", color = \"white\", fontcolor = \"white\"]\n chagasverse  [label = \"chagasverse\",  fillcolor =  \"#4285F4\", color = \"white\", fontcolor = \"white\"]\n malverse  [label = \"malverse\",  fillcolor =  \"#4285F4\", color = \"white\", fontcolor = \"white\"]\n \n # IVAverse\n \n alaverse  [label = \"alacverse\",  fillcolor =  \"#4285F4\", color = \"white\", fontcolor = \"white\"]\n araverse  [label = \"araverse\",  fillcolor =  \"#4285F4\", color = \"white\", fontcolor = \"white\"]\n \n #\n \n denhotspots [label = \"denhotspots*\",  fillcolor =  \" #0F9D58\", color = \"white\", fontcolor = \"white\"]\n deneggs [label = \"deneggs*\",  fillcolor =  \" #0F9D58\", color = \"white\", fontcolor = \"white\"]\n denepikit [label = \"denepikit*\",  fillcolor =  \" #0F9D58\", color = \"white\", fontcolor = \"white\"]\n dencontrol [label = \"dencontrol\",  fillcolor =  \" #0F9D58\", color = \"white\", fontcolor = \"white\"]\n \n # \n \n # transverse\n rgeomex [label = \"rgeomex*\",  fillcolor =  \"#DB4437\", color = \"white\", fontcolor = \"white\"]\n climatemx [label = \"climatemx\",  fillcolor =  \"#DB4437\", color = \"white\", fontcolor = \"white\"]\n popmx [label = \"popmex\",  fillcolor =  \"#DB4437\", color = \"white\", fontcolor = \"white\"]\n \n ##### define the relation\n \n #\n vectores -> {etverse ivaverse  transverse} \n etverse -> {dengueverse chagasverse leisverse malverse}\n ivaverse -> {alaverse araverse}\n dengueverse -> {denhotspots deneggs denepikit dencontrol}\n transverse -> {rgeomex climatemx popmx}  \n  \n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-4c9d5fe84f4a501061b2" style="width:100%;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-4c9d5fe84f4a501061b2">{"x":{"diagram":"digraph {\n                  # graph definitions\n  graph [layout = dot, rankdir = TB]\n  \n  # node definitions\n  node [shape = rectangle, \n  style = filled, \n  color = grey, \n  nodesep = .5,\n  fixedsize = true, \n  width = 2] \n  \n  # edge definition\n  edge [color = grey, arrowhead = normal, arrowtail = dot]\n  \n  ##### Spatial Data\n  \n  areal [label = \"Areal Data\",  fillcolor =  \" #0F9D58\", color = \"white\", fontcolor = \"white\"]\n  lattice_data [label = \"Lattice Data\",  fillcolor =  \" #0F9D58\", color = \"white\", fontcolor = \"white\"]\n  pp_data [label = \"Point Pattern Data\",  fillcolor =  \" #0F9D58\", color = \"white\", fontcolor = \"white\"]\n  geo_data [label = \"Geostatistical Data\",  fillcolor =  \" #0F9D58\", color = \"white\", fontcolor = \"white\"]\n  spatial_data [label = \"Spatial Data\",  fillcolor =  \" #0F9D58\", color = \"white\", fontcolor = \"white\"]\n  \n  \n  \n  #####\n \n  \n # \n continuo [label = \"Continuo\",  fillcolor =  \"#F4B400\", color = \"white\", fontcolor = \"black\"]\n discrete [label = \"Discreto\",  fillcolor =  \"#F4B400\", color = \"white\", fontcolor = \"black\"]\n \n #\n fixed  [label = \"Fijo\",  fillcolor =  \"#4285F4\", color = \"white\", fontcolor = \"white\"]\n random  [label = \"Aleatorio\",  fillcolor =  \"#4285F4\", color = \"white\", fontcolor = \"white\"]\n \n regular  [label = \"Regular\",  fillcolor =  \"#4285F4\", color = \"white\", fontcolor = \"white\"]\n irregular  [label = \"Irregular\",  fillcolor =  \"#4285F4\", color = \"white\", fontcolor = \"white\"]\n \n # examples\n cases [label = \"Casos\",  fillcolor =  \"#DB4437\", color = \"white\", fontcolor = \"white\"]\n ovitraps [label = \"Ovitrampas\",  fillcolor =  \"#DB4437\", color = \"white\", fontcolor = \"white\"]\n ageb [label = \"Casos/colonia/ageb\",  fillcolor =  \"#DB4437\", color = \"white\", fontcolor = \"white\"]\n grid [label = \"Casos/areas geométricas\",  fillcolor =  \"#DB4437\", color = \"white\", fontcolor = \"white\"]\n \n ##### define the relation\n \n #\n spatial_data -> {continuo discrete} \n continuo -> {fixed random}\n discrete -> {regular, irregular}\n fixed -> geo_data\n random -> pp_data\n irregular -> areal\n regular -> lattice_data\n pp_data -> cases\n geo_data -> ovitraps\n areal -> ageb\n lattice_data -> grid\n\n \n \n  \n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
-</section>
-<section id="dios-botic" class="slide level2">
-<h2><span style="color:#003300;">Dios Botic</span></h2>
-<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
-<ul>
-<li><p><strong><em>Bio</em></strong> : <a href="">https://fdzul.github.io/web_site_fadm/</a></p></li>
-<li><p><strong><em>email</em></strong> : <a href="">felipe.dzul.m@gmail.com</a></p></li>
-<li><p><strong><em>celular</em></strong> : <a href="">9999580167</a></p></li>
-<li><p><strong><em>slides</em></strong>: <a href="">https://calm-hummingbird-41cb33.netlify.app/talks/pkg_installation/#/</a></p></li>
-</ul>
 
 <img src="logo_cenaprece.jpeg" class="slide-logo r-stretch"><div class="footer footer-default">
 <p><a href="https://github.com/fdzul">github.com/fdzul</a></p>
