@@ -239,9 +239,6 @@ DiagrammeR::grViz("digraph {
 
 
 
-
-
-
 ## Datos Espaciales
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
@@ -360,15 +357,324 @@ l |>
 
 ```
 
-
-
 ### Areal Data
+```{r bump_map_mun_2022}
 
+source("~/Library/CloudStorage/Dropbox/r_developments/r_new_functions/3.Functions/static_bump_map.R")
+path_dengue <- "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/DGE/denv/2023/DENGUE2_.txt"
+x <- denhotspots::read_dengue_dataset(path = path_dengue,
+                                      spatial_resolution = "country",
+                                      status_caso = c(1, 2))
+static_bump_map(dataset = x,
+                year = "2023",
+                state = FALSE,
+                cve_edo = "14",
+                country_text_x = .01,
+                country_text_y = 0.024,
+                axis_start = 1,
+                value_text = 0.37,
+                size_text_value = 4,
+                line_size = 2,
+                size_text_country = 4,
+                pal_vir = "viridis") 
+    #ggplot2::coord_sf(xlim = c(-90.5, -86))
+```
+:::
+
+## Areal Data-Irregular
+
+::: {.panel-tabset}
+
+### Delaunay Triangulation
+
+```{r delaunay_triangulation_grid, out.width='100%', warning=FALSE, message=FALSE}
+# Step 1. load the dataset ####
+load("~/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
+
+# Step 2. extract the locality boundary ####
+gua <- rgeomex::extract_locality(locality =  c("Guadalajara", "Tlaquepaque", 
+                                               "Zapopan", "Tonalá"),
+                                 cve_edo = "14") 
+
+# Step 3. extract the dengue cases by locality ####
+
+# Step 3.1 transform the dengue cases geocoded in sf object ####
+z <- z |>
+    dplyr::filter(ESTATUS_CASO %in% c(2)) |>
+    sf::st_as_sf(coords = c("long", "lat"),
+                 crs = 4326)
+
+# Step 3.2 extract the dengue cases in the locality of guadalajara ####
+z_cases <- z[gua, ] |>
+    dplyr::mutate(lon = sf::st_coordinates(geometry)[,1],
+                  lat = sf::st_coordinates(geometry)[,2])
+
+
+bb_box <- sf::st_bbox(gua)
+
+#This creates the voronoi line segments
+voronoi <- deldir::deldir(x = z_cases$lon, 
+                          y = z_cases$lat,
+                          rw = c(bb_box[1],
+                                 bb_box[3],
+                                 bb_box[2],
+                                 bb_box[4]))
+# Now we can make a plot
+ggplot2::ggplot() +
+    ggplot2::geom_sf(data = gua,
+                     linewidth = 1,
+                     fill = NA,
+                     col = "gray")  +
+    ggplot2::geom_segment(size = 2,
+                          ggplot2::aes(x = x1, y = y1, xend = x2, yend = y2),
+                          data = voronoi$delsgs, #voronoi$dirsgs,
+                          linetype = 1,
+                          linewidth = .7,
+                          color= "#63C1A0") +
+    ggplot2::geom_sf(data = z_cases,
+                     col = "#63C1A0",
+                     fill = "#E01A59",
+                     pch=  21,
+                     size = 2) +
+    cowplot::theme_map()
+```
+
+### Dirichlet tessellation
+
+```{r dirichlet_tessellation_grid, out.width='100%', warning=FALSE, message=FALSE}
+# Step 1. load the dataset ####
+load("~/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
+
+# Step 2. extract the locality boundary ####
+gua <- rgeomex::extract_locality(locality =  c("Guadalajara", "Tlaquepaque", 
+                                               "Zapopan", "Tonalá"),
+                                 cve_edo = "14") 
+
+# Step 3. extract the dengue cases by locality ####
+
+# Step 3.1 transform the dengue cases geocoded in sf object ####
+z <- z |>
+    dplyr::filter(ESTATUS_CASO %in% c(2)) |>
+    sf::st_as_sf(coords = c("long", "lat"),
+                 crs = 4326)
+
+# Step 3.2 extract the dengue cases in the locality of guadalajara ####
+z_cases <- z[gua, ] |>
+    dplyr::mutate(lon = sf::st_coordinates(geometry)[,1],
+                  lat = sf::st_coordinates(geometry)[,2])
+
+
+bb_box <- sf::st_bbox(gua)
+
+#This creates the voronoi line segments
+voronoi <- deldir::deldir(x = z_cases$lon, 
+                          y = z_cases$lat,
+                          rw = c(bb_box[1],
+                                 bb_box[3],
+                                 bb_box[2],
+                                 bb_box[4]))
+# Now we can make a plot
+ggplot2::ggplot() +
+    ggplot2::geom_sf(data = gua,
+                     linewidth = 1,
+                     fill = NA,
+                     col = "gray")  +
+    ggplot2::geom_segment(size = 2,
+                          ggplot2::aes(x = x1, y = y1, xend = x2, yend = y2),
+                          data = voronoi$dirsgs,
+                          linetype = 1,
+                          linewidth = .7,
+                          color= "#63C1A0") +
+    ggplot2::geom_sf(data = z_cases,
+                     col = "#63C1A0",
+                     fill = "#E01A59",
+                     pch=  21,
+                     size = 2) +
+    cowplot::theme_map()
+```
+
+:::
+
+## Areal Data-Regular
+
+::: {.panel-tabset}
+### Square Grid
+```{r square_grid, out.width='100%', warning=FALSE, message=FALSE}
+# Step 1. load the locality ####
+loc <- rgeomex::extract_ageb(locality = c("Guadalajara",
+                                          "Zapopan",
+                                          "Tlaquepaque",
+                                          "Tonalá"),
+                             cve_edo = "14")
+
+
+# Step 2. make the grid #####
+grid_square = sf::st_make_grid(x = loc$locality,
+                                    square = TRUE,
+                                    cellsize = 0.01)
+grid_square <- grid_square[loc$locality]
+
+
+# Step 3. plot the grid ####
+ggplot2::ggplot() +
+  #ggmap::ggmap(ggmap_sf) +
+    ggplot2::geom_sf(data = loc$locality,
+                     fill = NA,
+                     col = "#4285F4") +
+    ggplot2::geom_sf(data = grid_square,
+                     fill = NA, 
+                     col = "#DB4437") +
+    cowplot::theme_map()
+
+```
+
+### Hexagonal Grid
+```{r hexagonal_grid, out.width='100%', warning=FALSE, message=FALSE}
+# Step 2. make the grid #####
+grid_hexagonal = sf::st_make_grid(x = loc$locality,
+                                    square = FALSE,
+                                    cellsize = 0.01)
+grid_hexagonal <-grid_hexagonal[loc$locality]
+
+
+# Step 3. plot the grid ####
+ggplot2::ggplot() +
+    ggplot2::geom_sf(data = loc$locality,
+                     fill = NA,
+                     col = "#4285F4") +
+    ggplot2::geom_sf(data = grid_hexagonal,
+                     fill = NA, 
+                     col = "#DB4437") +
+    cowplot::theme_map()
+
+```
+
+### Triangular Grid
 
 :::
 
 
+## [Mapas Estáticos]{style="color:#003300;"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
+::: {.panel-tabset}
+
+### Base R
+```{r base_r, warning=FALSE, message=FALSE}
+#| echo: true
+#| output: false
+# step 1. load municipality & add the dengue cases ####
+library(sf)
+x <- rgeomex::AGEM_inegi19_mx |>
+    dplyr::filter(CVE_ENT %in% c("30")) |>
+    dplyr::mutate(casos = rpois(n = dplyr::n(), 
+                                lambda = 4))
+# Step 2. plot the map with R base ####
+plot(x["casos"], 
+     key.pos = 4,
+     axes = TRUE, 
+     graticule = TRUE,
+     key.width = .2,
+     key.length = .8)
+```
+
+### Mapa
+```{r mapa_base_r, warning=FALSE, message=FALSE}
+#| echo: false
+#| output: true
+
+# step 1. load municipality & add the dengue cases ####
+library(sf)
+x <- rgeomex::AGEM_inegi19_mx |>
+    dplyr::filter(CVE_ENT %in% c("30")) |>
+    dplyr::mutate(casos = rpois(n = dplyr::n(), 
+                                lambda = 4))
+# Step 2. plot the map with R base ####
+plot(x["casos"], 
+     key.pos = 4,
+     axes = TRUE, 
+     graticule = TRUE,
+     key.width = .2,
+     key.length = .8)
+```
+
+### ggplot2
+```{r ggplot_2, warning=FALSE, message=FALSE}
+#| echo: true
+#| output: false
+# step 1. load municipality & add the dengue cases ####
+library(sf)
+x <- rgeomex::AGEM_inegi19_mx |>
+    dplyr::filter(CVE_ENT %in% c("30")) |>
+    dplyr::mutate(casos = rpois(n = dplyr::n(), 
+                                lambda = 4)) 
+
+# Step 2. plot the map with ggplot2 ####
+ggplot2::ggplot() +
+    ggplot2::geom_sf(data = x,
+                     ggplot2::aes(fill = casos)) +
+    fishualize::scale_fill_fish() +
+    ggspatial::annotation_scale(location = "bl") +
+    ggspatial::annotation_north_arrow(location = "tr")
+```
+
+### Mapa
+```{r map_ggplot_2, warning=FALSE, message=FALSE}
+#| echo: false
+#| output: true
+# step 1. load municipality & add the dengue cases ####
+library(sf)
+x <- rgeomex::AGEM_inegi19_mx |>
+    dplyr::filter(CVE_ENT %in% c("30")) |>
+    dplyr::mutate(casos = rpois(n = dplyr::n(), 
+                                lambda = 4)) 
+
+# Step 2. plot the map with ggplot2 ####
+ggplot2::ggplot() +
+    ggplot2::geom_sf(data = x,
+                     ggplot2::aes(fill = casos)) +
+    fishualize::scale_fill_fish() +
+    ggspatial::annotation_scale(location = "bl") +
+    ggspatial::annotation_north_arrow(location = "tr")
+```
+
+### tmap
+```{r tmap, warning=FALSE, message=FALSE}
+#| echo: true
+#| output: false
+# step 1. load municipality & add the dengue cases ####
+library(sf)
+x <- rgeomex::AGEM_inegi19_mx |>
+    dplyr::filter(CVE_ENT %in% c("30")) |>
+    dplyr::mutate(casos = rpois(n = dplyr::n(), 
+                                lambda = 4))
+# Step 2. plot the map with tmap ####
+library(tmap)
+tmap::tm_shape(x) +
+    tmap::tm_polygons(col = "casos") +
+    tmap::tm_compass(position = c(.2, .9)) +
+    tmap::tm_scale_bar(position = c(.1, .02))
+```
+
+### map
+```{r map_tmap, warning=FALSE, message=FALSE}
+#| echo: false
+#| output: true
+# step 1. load municipality & add the dengue cases ####
+library(sf)
+x <- rgeomex::AGEM_inegi19_mx |>
+    dplyr::filter(CVE_ENT %in% c("30")) |>
+    dplyr::mutate(casos = rpois(n = dplyr::n(), 
+                                lambda = 4))
+# Step 2. plot the map with tmap ####
+library(tmap)
+tmap::tm_shape(x) +
+    tmap::tm_polygons(col = "casos") +
+    tmap::tm_compass(position = c(.2, .9)) +
+    tmap::tm_scale_bar(position = c(.1, .02))
+```
+
+:::
 
 ## [Dios Botic]{style="color:#003300;"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
