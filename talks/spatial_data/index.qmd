@@ -684,7 +684,53 @@ tmap::tm_shape(x) +
 
 ## [Mapas Estatico vs Interactivo]{style="color:#003300;"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+::: panel-tabset
 
+### Mapa Estático
+```{r mapa_interactivo_estatico1}
+#| echo: false
+#| output: true
+# Step 1. load the dengue dataset geocoded ####
+load("/Users/fdzul/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2024/8.RData/denmex_2024.RData")
+
+# step 2. apply the function ####
+densnv::mp_heatmap(geocoded_dataset = z,
+                   cve_edo = "31",
+                   locality = c("Mérida", 
+                                "Kanasin", 
+                                "Uman",
+                                "Cholul",
+                                "Caucel"),
+                   status_caso = c(1,2),
+                   week = 1:3,
+                   alpha = 0.6,
+                   zoom = 12,
+                   map_type = "satellite",
+                   static = TRUE,
+                   palette = viridis::turbo)
+```
+
+### Mapa Interactivo
+```{r mapa_interactivo_estatico2}
+#| echo: false
+#| output: true
+# Step 2. load the dengue dataset geocoded ####
+load("/Users/fdzul/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2024/8.RData/denmex_2024.RData")
+
+# step 3. apply the function ####
+####
+densnv::mp_heatmap(geocoded_dataset = z,
+                   cve_edo = "31",
+                   locality = c("Mérida"),
+                   status_caso = c(1,2),
+                   week = 1:3,
+                   alpha = 0.6,
+                   static = FALSE,
+                   palette = viridis::turbo)
+
+```
+
+:::
 
 
 
