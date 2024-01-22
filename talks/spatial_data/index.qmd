@@ -679,7 +679,9 @@ tmap::tm_shape(x) +
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
 ```{r}
-
+densnv::mp_serotype(path_sinave = "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2024/1.data/current_week/DENGUE2_.txt",
+                    cve_edo = "27",
+                    palette = viridis::viridis)
 ```
 
 ## [Mapas Estatico vs Interactivo]{style="color:#003300;"}
