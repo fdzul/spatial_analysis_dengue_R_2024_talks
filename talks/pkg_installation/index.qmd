@@ -380,14 +380,17 @@ Para instalar el paquete [deneggs](https://fdzul.github.io/deneggs/) primero ins
 ```{r}
 #| echo: true
 #| output: true
-#install.packages("INLA",repos=c(getOption("repos"),INLA="https://inla.r-inla-download.org/R/stable"), dep=TRUE)
+#install.packages("INLA",
+#                 repos=c(getOption("repos"),
+#                         INLA="https://inla.r-inla-download.org/R/stable"), 
+#                dep=TRUE)
 ```
 
 [deneggs](https://fdzul.github.io/deneggs/)
 ```{r}
 #| echo: true
 #| output: true
-# pak::pkg_install("fdzul/densnv")
+# pak::pkg_install("fdzul/deneggs")
 ```
 
 ## [Dios Botic]{style="color:#003300;"}
