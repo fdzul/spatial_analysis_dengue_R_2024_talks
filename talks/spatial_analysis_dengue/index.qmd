@@ -574,6 +574,38 @@ DiagrammeR::grViz("digraph {
 ```
 
 
+## [Análisis Espacial del Vector del Dengue]{.r-fit-text style="color:#003300;"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+
+:::: {.columns}
+
+::: {.column style="width: 50%"}
+![](guadalajara_sample.jpg)
+:::
+
+::: {.column style="width: 50%; font-size: 60%"}
+$s{_i}$ sitios de colecta con coordenadas geográficas (longitud. latitud).
+&nbsp;
+
+$D$ area de estudio (zona metropolitana de Guadalajara).
+&nbsp;
+
+$Y{_i}$ es la variable de respuesta (Número de Huevos por Ovitrampa o Manzana).
+&nbsp;
+
+$y{_i}$ tiene una distribución (binomial negativa ó zibn).
+&nbsp;
+
+$U{_s{_i}}$ el efecto espacial & el proceso ocurre en un campo gaussiano continuo (Gaussian Field).
+
+Se usa SPDE & Elemento Finito para aproximar la matriz de covarianzas de $U{_s{_i}}$
+
+$\color{#2ECC40}{el \space proceso \space se \space encuentra \space implementado \space en \space INLA}$
+:::
+
+
+::::
 
 ## [Dios Botic]{style="color:#003300;"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
