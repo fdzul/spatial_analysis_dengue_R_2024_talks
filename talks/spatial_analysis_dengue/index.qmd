@@ -280,6 +280,10 @@ DiagrammeR::grViz("digraph {
 
 ::::
 
+::: aside
+[Dzul-Manzanilla et al 2021](https://www.thelancet.com/journals/lanplh/article/PIIS2542-5196(21)00030-9/fulltext)
+:::
+
 
 ## [Estadístico Espacial Local $\color{#2ECC40}G_{\color{#2ECC40}i}^{\color{#2ECC40}*}$ (Hotspots)]{.r-fit-text style="color:#003300;"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
@@ -302,6 +306,10 @@ $\color{#FF4136}\sum_{\color{#FF4136}j \color{#FF4136}= \color{#FF4136}1}^\color
 **Hotspots** 
 son las áreas o las unidades espaciales con valores altos de $\color{#2ECC40}G_{\color{#2ECC40}i}^{\color{#2ECC40}*}$ y homogéneos de la unidad espaciales de interes $x_{ij}$. En otras palabras el estadístico espacial, identifica las unidades espaciales $x_{ij}$ con valores altos comparados con el valor promedio de todas la unidades espaciales en la localidad de interes.
 
+::: aside
+
+[Getis & Ord 1992](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1538-4632.1992.tb00261.x); [Ord & Getis 1995](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1538-4632.1995.tb00912.x)
+:::
 
 :::
 
