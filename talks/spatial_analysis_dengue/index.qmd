@@ -1,0 +1,67 @@
+---
+format: 
+  revealjs:
+    code-block-bg: true
+    code-block-background: true
+    code-copy: true
+    chalkboard: true
+    highlight-style: github
+    slide-number: c/t
+    logo: logo_cenaprece.jpeg
+    footer: "[github.com/fdzul](https://github.com/fdzul)"
+    center-title-slide: true
+---
+
+<h2>Análisis Espacial del Dengue en R
+<br> para focalizar el control del vectores
+</h2>
+
+<h2>
+
+</h2>
+
+<hr>
+
+<br>
+
+
+<h3>Dr. Felipe Dzul Manzanilla</h3>
+
+<h3>Dr. Fabián Correa-Morales</h3>
+
+<h3>
+
+</h3>
+<br>
+<h4>Date: 2024-01-24 </h4>
+
+<h4> Update: 2024-01-24</h4>
+
+<br>
+
+<h4>
+
+
+![](logo_curso_2024.png){.absolute top="170" left="650" width="450"}
+
+## [Temario]{style="color:#003300;"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+- Instalación de [R](https://www.r-project.org)
+- Instalación de [Rtools](https://cloud.r-project.org) (solo para WINOS)
+- Instalación de [RStudio](https://posit.co)
+- Instalación de paquetes en CRAN 
+- Instalación de paquetes en [GitHub](https://github.com)
+- Instalación de paquetes tar.gz
+
+
+## [Dios Botic]{style="color:#003300;"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+-   ***Bio*** : [https://fdzul.github.io/web_site_fadm/]()
+
+-   ***email*** : [felipe.dzul.m@gmail.com]()
+
+-   ***celular*** : [9999580167]()
+
+-   ***slides***: [https://calm-hummingbird-41cb33.netlify.app/talks/spatial_analysis_dengue/#/]()
