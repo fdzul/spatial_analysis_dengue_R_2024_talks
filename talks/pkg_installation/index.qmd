@@ -35,7 +35,7 @@ format:
 <br>
 <h4>Date: 2024-01-01 </h4>
 
-<h4> Update: 2024-01-01</h4>
+<h4> Update: 2024-01-24</h4>
 
 <br>
 
@@ -48,6 +48,7 @@ format:
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
 - Instalación de [R](https://www.r-project.org)
+- Instalación de [Rtools](https://cloud.r-project.org) (solo para WINOS)
 - Instalación de [RStudio](https://posit.co)
 - Instalación de paquetes en CRAN 
 - Instalación de paquetes en [GitHub](https://github.com)
@@ -115,9 +116,11 @@ library(ggplot2)
 ```
 
 ### Varios paquetes
-```{r, echo=TRUE, warning=FALSE, message=FALSE, error=FALSE}
-
+```{r}
+#| echo: true
+#| output: true
 # Instalamos el paquete
+
 install.packages(c("sf", "tmap", "ggspatial"), 
                  repos = "http://cran.us.r-project.org")
 
@@ -137,25 +140,31 @@ library(sf)
 
 ```{r, echo=TRUE, warning=FALSE, message=FALSE, error=FALSE}
 # Instalamos el paquete
-devtools::install_github("fdzul/dendata")
+#| echo: true
+#| output: true
+# devtools::install_github("fdzul/dendata")
 
-pak::pkg_install("fdzul/covid19mx")
 ```
 
 ### remotes
 ```{r, echo=TRUE, warning=FALSE, message=FALSE, error=FALSE}
+#| echo: true
+#| output: true
 # Instalamos el paquete
-remotes::install_github("fdzul/rhealthdiag")
+# remotes::install_github("fdzul/rhealthdiag")
 # Verificamos la instalacion
 library(rhealthdiag)
 ```
 
 ### pak
 ```{r}
+#| echo: true
+#| output: true
+
 # Instalamos el paquete
-pak::pkg_install("fdzul/covid19mx")
+pak::pkg_install("hughjonesd/ggmagnify")
 # Verificamos la instalacion
-library(covid19mx)
+library(ggmagnify)
 ```
 
 :::
@@ -167,9 +176,10 @@ library(covid19mx)
 1. Primero Instalamos el paquete [ctv](https://cran.r-project.org/web/views/)
 
 ```{r}
-# 
-# install.packages("ctv",
-#                 repos = "http://cran.us.r-project.org")
+#| echo: true
+#| output: false
+ install.packages("ctv",
+                 repos = "http://cran.us.r-project.org")
 ```
 
 2. Seleccionamos el tópico.
@@ -178,6 +188,8 @@ library(covid19mx)
 3. Instalamos el tópico.
 
 ```{r}
+#| echo: true
+#| output: true
 # no 
 # ctv::install.views("Epidemiology",
 #                   repos = "http://cran.us.r-project.org")
@@ -190,6 +202,8 @@ library(covid19mx)
 para winOS
 
 ```{r}
+#| echo: true
+#| output: true
 #install.packages("C:/Users/felip/Downloads/ggplot2_3.3.5.zip", 
 #                 repos = NULL, 
 #                 type = "win.binary")
@@ -198,6 +212,8 @@ para winOS
 
 para macOS
 ```{r gt_mac}
+#| echo: true
+#| output: true
 install.packages("/Users/fdzul/Downloads/gt_0.10.1.tar", 
                  repos = NULL, 
                  type = "source")
@@ -208,22 +224,23 @@ library(gt)
 ## [Desafio]{style="color:#003300;"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
-1. Instalar todos los paquetes para el análisis espacial
+Instalar los siguiente paquetes para el análisis espacial
 
-  - [Spatial](https://cran.r-project.org/web/views/Spatial.html)
+- [Spatial](https://cran.r-project.org/web/views/Spatial.html)
 
 ```{r}
+#| echo: true
+#| output: true
 # ctv::install.views("Spatial")
 ```
 
-2. Instalar todos los paquetes para el análisis espacio-temporal
-
-  - [SpatioTemporal](https://cran.r-project.org/web/views/SpatioTemporal.html)
+- [SpatioTemporal](https://cran.r-project.org/web/views/SpatioTemporal.html)
+  
 ```{r}
+#| echo: true
+#| output: true
 #ctv::install.views("SpatioTemporal")
 ```
-
-3. Instalar desde GitHub el paquete [knox](https://github.com/thanhleviet/knox) test
 
 
 ## [Universo de Vectores en R]{style="color:#003300;"}
@@ -252,35 +269,35 @@ DiagrammeR::grViz("digraph {
   vectores [label = 'Vectores', fillcolor =  ' #0F9D58', color = 'white', fontcolor = 'white']
   
  # 
- etverse [label = 'ETVerse',  fillcolor =  '#F4B400', color = 'white', fontcolor = 'black']
+ etverse [label = 'ETVerse*',  fillcolor =  '#F4B400', color = 'white', fontcolor = 'black']
  ivaverse [label = 'IVAverse',  fillcolor =  '#F4B400', color = 'white', fontcolor = 'black']
  
  transverse [label = 'transverse',  fillcolor =  '#F4B400', color = 'white', fontcolor = 'black']
  
  # ETVerse
  
- dengueverse  [label = 'dengueverse',  fillcolor =  '#4285F4', color = 'white', fontcolor = 'white']
+ dengueverse  [label = 'dengueverse*',  fillcolor =  '#4285F4', color = 'white', fontcolor = 'white']
  leisverse  [label = 'leisverse',  fillcolor =  '#4285F4', color = 'white', fontcolor = 'white']
  chagasverse  [label = 'chagasverse',  fillcolor =  '#4285F4', color = 'white', fontcolor = 'white']
  malverse  [label = 'malverse',  fillcolor =  '#4285F4', color = 'white', fontcolor = 'white']
  
  # IVAverse
  
- alaverse  [label = 'alacverse',  fillcolor =  '#4285F4', color = 'white', fontcolor = 'white']
+ alaverse  [label = 'alaverse',  fillcolor =  '#4285F4', color = 'white', fontcolor = 'white']
  araverse  [label = 'araverse',  fillcolor =  '#4285F4', color = 'white', fontcolor = 'white']
  
  #
  
  denhotspots [label = 'denhotspots*',  fillcolor =  ' #0F9D58', color = 'white', fontcolor = 'white']
  deneggs [label = 'deneggs*',  fillcolor =  ' #0F9D58', color = 'white', fontcolor = 'white']
- denepikit [label = 'denepikit*',  fillcolor =  ' #0F9D58', color = 'white', fontcolor = 'white']
+ denepikit [label = 'densnv*',  fillcolor =  ' #0F9D58', color = 'white', fontcolor = 'white']
  dencontrol [label = 'dencontrol',  fillcolor =  ' #0F9D58', color = 'white', fontcolor = 'white']
  
  # 
  
  # transverse
  rgeomex [label = 'rgeomex*',  fillcolor =  '#DB4437', color = 'white', fontcolor = 'white']
- climatemx [label = 'climatemx',  fillcolor =  '#DB4437', color = 'white', fontcolor = 'white']
+ climatemx [label = 'climex',  fillcolor =  '#DB4437', color = 'white', fontcolor = 'white']
  popmx [label = 'popmex',  fillcolor =  '#DB4437', color = 'white', fontcolor = 'white']
  
  ##### define the relation
@@ -298,6 +315,80 @@ DiagrammeR::grViz("digraph {
 
 
 
+## [Instalación del dengueverse]{style="color:#003300;"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+1. Instalar el paquete [knox](https://github.com/thanhleviet/knox)
+
+```{r}
+#| echo: true
+#| output: true
+# pak::pkg_install("thanhleviet/knox")
+```
+
+2. Instalar el paquete [similiars](https://github.com/davidsjoberg/similiar)
+
+```{r}
+#| echo: true
+#| output: true
+# pak::pkg_install("davidsjoberg/similiar")
+```
+
+3. Instalar [SATScan](https://www.satscan.org) y el paquete *rsatscan*
+```{r}
+#| echo: true
+#| output: true
+# install.packages("rstatscan")
+```
+
+
+
+## [Instalación del dengueverse]{style="color:#003300;"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+[rgeomex](https://fdzul.github.io/rgeomex/)
+
+```{r}
+#| echo: true
+#| output: true
+# pak::pkg_install("fdzul/rgeomex")
+```
+
+[denhotspots](https://fdzul.github.io/denhotspots/)
+
+```{r}
+#| echo: true
+#| output: true
+# pak::pkg_install("fdzul/rgeomex")
+```
+
+[bolder](https://fdzul.github.io/boldenr/) & [densnv](https://fdzul.github.io/densnv/)
+
+```{r}
+#| echo: true
+#| output: true
+# pak::pkg_install("fdzul/densnv")
+```
+
+
+## [Instalación de lo paquetes del dengueverse]{style="color:#003300;"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+Para instalar el paquete [deneggs](https://fdzul.github.io/deneggs/) primero instalamos [INLA](https://www.r-inla.org).
+
+[INLA](https://www.r-inla.org)
+```{r}
+#| echo: true
+#| output: true
+#install.packages("INLA",repos=c(getOption("repos"),INLA="https://inla.r-inla-download.org/R/stable"), dep=TRUE)
+```
+
+[deneggs](https://fdzul.github.io/deneggs/)
+```{r}
+#| echo: true
+#| output: true
+# pak::pkg_install("fdzul/densnv")
+```
 
 ## [Dios Botic]{style="color:#003300;"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
