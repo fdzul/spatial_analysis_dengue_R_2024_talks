@@ -198,7 +198,7 @@ para winOS
 
 para macOS
 ```{r gt_mac}
-install.packages("/Users/fdzul/Desktop/gt_0.10.0.tar", 
+install.packages("/Users/fdzul/Downloads/gt_0.10.1.tar", 
                  repos = NULL, 
                  type = "source")
 library(gt)

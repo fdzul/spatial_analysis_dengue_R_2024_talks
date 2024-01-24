@@ -8,7 +8,7 @@
 <link href="index_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="index_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="index_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.3.450">
+  <meta name="generator" content="quarto-1.4.544">
 
   <title>index</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -30,7 +30,7 @@
     }
     /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span { line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -222,7 +222,8 @@
   }
 
   .callout.callout-titled .callout-body > .callout-content > :last-child {
-    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
   }
 
   .callout.callout-titled .callout-icon::before {
@@ -483,30 +484,30 @@ Update: 2024-01-01
 <div class="tab-content">
 <div id="tabset-1-1">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Instalamos el paquete</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">install.packages</span>(<span class="st">"ggplot2"</span>, </span>
-<span id="cb1-3"><a href="#cb1-3"></a>                 <span class="at">repos =</span> <span class="st">"http://cran.us.r-project.org"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="co"># Instalamos el paquete</span></span>
+<span id="cb1-2"><a href=""></a><span class="fu">install.packages</span>(<span class="st">"ggplot2"</span>, </span>
+<span id="cb1-3"><a href=""></a>                 <span class="at">repos =</span> <span class="st">"http://cran.us.r-project.org"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 The downloaded binary packages are in
-    /var/folders/z5/ncncnvys0gd9c6g6sqc_jdc40000gn/T//Rtmpkvlibl/downloaded_packages</code></pre>
+    /var/folders/2z/8jfl18fd4gv1c9jldxgq4xnw0000gn/T//RtmpexZIrv/downloaded_packages</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># Verificamos la instalación</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="co"># Verificamos la instalación</span></span>
+<span id="cb3-2"><a href=""></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-1-2">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># Instalamos el paquete</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"sf"</span>, <span class="st">"tmap"</span>, <span class="st">"ggspatial"</span>), </span>
-<span id="cb4-3"><a href="#cb4-3"></a>                 <span class="at">repos =</span> <span class="st">"http://cran.us.r-project.org"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="co"># Instalamos el paquete</span></span>
+<span id="cb4-2"><a href=""></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"sf"</span>, <span class="st">"tmap"</span>, <span class="st">"ggspatial"</span>), </span>
+<span id="cb4-3"><a href=""></a>                 <span class="at">repos =</span> <span class="st">"http://cran.us.r-project.org"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 The downloaded binary packages are in
-    /var/folders/z5/ncncnvys0gd9c6g6sqc_jdc40000gn/T//Rtmpkvlibl/downloaded_packages</code></pre>
+    /var/folders/2z/8jfl18fd4gv1c9jldxgq4xnw0000gn/T//RtmpexZIrv/downloaded_packages</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># Verificamos la instalación</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="fu">library</span>(sf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="co"># Verificamos la instalación</span></span>
+<span id="cb6-2"><a href=""></a><span class="fu">library</span>(sf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -520,18 +521,18 @@ The downloaded binary packages are in
 <div class="tab-content">
 <div id="tabset-2-1">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># Instalamos el paquete</span></span>
-<span id="cb7-2"><a href="#cb7-2"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"fdzul/dendata"</span>)</span>
-<span id="cb7-3"><a href="#cb7-3"></a></span>
-<span id="cb7-4"><a href="#cb7-4"></a>pak<span class="sc">::</span><span class="fu">pkg_install</span>(<span class="st">"fdzul/covid19mx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="co"># Instalamos el paquete</span></span>
+<span id="cb7-2"><a href=""></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"fdzul/dendata"</span>)</span>
+<span id="cb7-3"><a href=""></a></span>
+<span id="cb7-4"><a href=""></a>pak<span class="sc">::</span><span class="fu">pkg_install</span>(<span class="st">"fdzul/covid19mx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-2-2">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># Instalamos el paquete</span></span>
-<span id="cb8-2"><a href="#cb8-2"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"fdzul/rhealthdiag"</span>)</span>
-<span id="cb8-3"><a href="#cb8-3"></a><span class="co"># Verificamos la instalacion</span></span>
-<span id="cb8-4"><a href="#cb8-4"></a><span class="fu">library</span>(rhealthdiag)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a><span class="co"># Instalamos el paquete</span></span>
+<span id="cb8-2"><a href=""></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"fdzul/rhealthdiag"</span>)</span>
+<span id="cb8-3"><a href=""></a><span class="co"># Verificamos la instalacion</span></span>
+<span id="cb8-4"><a href=""></a><span class="fu">library</span>(rhealthdiag)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-2-3">
@@ -576,13 +577,13 @@ The downloaded binary packages are in
 <li>Instalar desde GitHub el paquete <a href="https://github.com/thanhleviet/knox">knox</a> test</li>
 </ol>
 </section>
-<section id="univero-de-vectores-en-r" class="slide level2">
-<h2><span style="color:#003300;">Univero de Vectores en R</span></h2>
+<section id="universo-de-vectores-en-r" class="slide level2">
+<h2><span style="color:#003300;">Universo de Vectores en R</span></h2>
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div class="grViz html-widget html-fill-item" id="htmlwidget-c6e217cb27b48e6347b3" style="width:100%;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-c6e217cb27b48e6347b3">{"x":{"diagram":"digraph {\n                  # graph definitions\n  graph [layout = dot, rankdir = TB]\n  \n  # node definitions\n  node [shape = rectangle, \n  style = filled, \n  color = grey, \n  nodesep = .5,\n  fixedsize = true, \n  width = 2] \n  \n  # edge definition\n  edge [color = grey, arrowhead = normal, arrowtail = dot]\n  \n  ##### Spatial Data\n  \n  \n  vectores [label = \"Vectores\", fillcolor =  \" #0F9D58\", color = \"white\", fontcolor = \"white\"]\n  \n # \n etverse [label = \"ETVerse\",  fillcolor =  \"#F4B400\", color = \"white\", fontcolor = \"black\"]\n ivaverse [label = \"IVAverse\",  fillcolor =  \"#F4B400\", color = \"white\", fontcolor = \"black\"]\n \n transverse [label = \"transverse\",  fillcolor =  \"#F4B400\", color = \"white\", fontcolor = \"black\"]\n \n # ETVerse\n \n dengueverse  [label = \"dengueverse\",  fillcolor =  \"#4285F4\", color = \"white\", fontcolor = \"white\"]\n leisverse  [label = \"leisverse\",  fillcolor =  \"#4285F4\", color = \"white\", fontcolor = \"white\"]\n chagasverse  [label = \"chagasverse\",  fillcolor =  \"#4285F4\", color = \"white\", fontcolor = \"white\"]\n malverse  [label = \"malverse\",  fillcolor =  \"#4285F4\", color = \"white\", fontcolor = \"white\"]\n \n # IVAverse\n \n alaverse  [label = \"alacverse\",  fillcolor =  \"#4285F4\", color = \"white\", fontcolor = \"white\"]\n araverse  [label = \"araverse\",  fillcolor =  \"#4285F4\", color = \"white\", fontcolor = \"white\"]\n \n #\n \n denhotspots [label = \"denhotspots*\",  fillcolor =  \" #0F9D58\", color = \"white\", fontcolor = \"white\"]\n deneggs [label = \"deneggs*\",  fillcolor =  \" #0F9D58\", color = \"white\", fontcolor = \"white\"]\n denepikit [label = \"denepikit*\",  fillcolor =  \" #0F9D58\", color = \"white\", fontcolor = \"white\"]\n dencontrol [label = \"dencontrol\",  fillcolor =  \" #0F9D58\", color = \"white\", fontcolor = \"white\"]\n \n # \n \n # transverse\n rgeomex [label = \"rgeomex*\",  fillcolor =  \"#DB4437\", color = \"white\", fontcolor = \"white\"]\n climatemx [label = \"climatemx\",  fillcolor =  \"#DB4437\", color = \"white\", fontcolor = \"white\"]\n popmx [label = \"popmex\",  fillcolor =  \"#DB4437\", color = \"white\", fontcolor = \"white\"]\n \n ##### define the relation\n \n #\n vectores -> {etverse ivaverse  transverse} \n etverse -> {dengueverse chagasverse leisverse malverse}\n ivaverse -> {alaverse araverse}\n dengueverse -> {denhotspots deneggs denepikit dencontrol}\n transverse -> {rgeomex climatemx popmx}  \n  \n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-cbb7b16181a856f8238d" style="width:100%;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-cbb7b16181a856f8238d">{"x":{"diagram":"digraph {\n                  # graph definitions\n  graph [layout = dot, rankdir = TB]\n  \n  # node definitions\n  node [shape = rectangle, \n  style = filled, \n  color = grey, \n  nodesep = .5,\n  fixedsize = true, \n  width = 2] \n  \n  # edge definition\n  edge [color = grey, arrowhead = normal, arrowtail = dot]\n  \n  ##### Spatial Data\n  \n  \n  vectores [label = \"Vectores\", fillcolor =  \" #0F9D58\", color = \"white\", fontcolor = \"white\"]\n  \n # \n etverse [label = \"ETVerse\",  fillcolor =  \"#F4B400\", color = \"white\", fontcolor = \"black\"]\n ivaverse [label = \"IVAverse\",  fillcolor =  \"#F4B400\", color = \"white\", fontcolor = \"black\"]\n \n transverse [label = \"transverse\",  fillcolor =  \"#F4B400\", color = \"white\", fontcolor = \"black\"]\n \n # ETVerse\n \n dengueverse  [label = \"dengueverse\",  fillcolor =  \"#4285F4\", color = \"white\", fontcolor = \"white\"]\n leisverse  [label = \"leisverse\",  fillcolor =  \"#4285F4\", color = \"white\", fontcolor = \"white\"]\n chagasverse  [label = \"chagasverse\",  fillcolor =  \"#4285F4\", color = \"white\", fontcolor = \"white\"]\n malverse  [label = \"malverse\",  fillcolor =  \"#4285F4\", color = \"white\", fontcolor = \"white\"]\n \n # IVAverse\n \n alaverse  [label = \"alacverse\",  fillcolor =  \"#4285F4\", color = \"white\", fontcolor = \"white\"]\n araverse  [label = \"araverse\",  fillcolor =  \"#4285F4\", color = \"white\", fontcolor = \"white\"]\n \n #\n \n denhotspots [label = \"denhotspots*\",  fillcolor =  \" #0F9D58\", color = \"white\", fontcolor = \"white\"]\n deneggs [label = \"deneggs*\",  fillcolor =  \" #0F9D58\", color = \"white\", fontcolor = \"white\"]\n denepikit [label = \"denepikit*\",  fillcolor =  \" #0F9D58\", color = \"white\", fontcolor = \"white\"]\n dencontrol [label = \"dencontrol\",  fillcolor =  \" #0F9D58\", color = \"white\", fontcolor = \"white\"]\n \n # \n \n # transverse\n rgeomex [label = \"rgeomex*\",  fillcolor =  \"#DB4437\", color = \"white\", fontcolor = \"white\"]\n climatemx [label = \"climatemx\",  fillcolor =  \"#DB4437\", color = \"white\", fontcolor = \"white\"]\n popmx [label = \"popmex\",  fillcolor =  \"#DB4437\", color = \"white\", fontcolor = \"white\"]\n \n ##### define the relation\n \n #\n vectores -> {etverse ivaverse  transverse} \n etverse -> {dengueverse chagasverse leisverse malverse}\n ivaverse -> {alaverse araverse}\n dengueverse -> {denhotspots deneggs denepikit dencontrol}\n transverse -> {rgeomex climatemx popmx}  \n  \n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -595,9 +596,11 @@ The downloaded binary packages are in
 <li><p><strong><em>celular</em></strong> : <a href="">9999580167</a></p></li>
 <li><p><strong><em>slides</em></strong>: <a href="">https://calm-hummingbird-41cb33.netlify.app/talks/pkg_installation/#/</a></p></li>
 </ul>
-
-<img src="logo_cenaprece.jpeg" class="slide-logo r-stretch"><div class="footer footer-default">
+<div class="quarto-auto-generated-content">
+<p><img src="logo_cenaprece.jpeg" class="slide-logo"></p>
+<div class="footer footer-default">
 <p><a href="https://github.com/fdzul">github.com/fdzul</a></p>
+</div>
 </div>
 </section>
     </div>
@@ -627,7 +630,6 @@ The downloaded binary packages are in
       Reveal.initialize({
 'controlsAuto': true,
 'previewLinksAuto': false,
-'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
@@ -927,10 +929,9 @@ The downloaded binary packages are in
         // clear code selection
         e.clearSelection();
       });
-      function tippyHover(el, contentFn) {
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
-          content: contentFn,
           maxWidth: 500,
           delay: 100,
           arrow: false,
@@ -940,8 +941,17 @@ The downloaded binary packages are in
           interactive: true,
           interactiveBorder: 10,
           theme: 'light-border',
-          placement: 'bottom-start'
+          placement: 'bottom-start',
         };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
           config['offset'] = [0,0];
           config['maxWidth'] = 700;
         window.tippy(el, config); 
