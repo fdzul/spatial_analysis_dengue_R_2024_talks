@@ -187,6 +187,8 @@ DiagrammeR::grViz("digraph {
  cluster_ana [label = 'Cluster Analysis',  fillcolor =  'orange', color = 'white', fontcolor = 'black']
  lgcp [label = 'Spatial LGCP',  fillcolor =  'orange', color = 'white', fontcolor = 'black']
  
+ heatmap [label = 'Mapas de Calor',  fillcolor =  'orange', color = 'white', fontcolor = 'black']
+ 
  
  # software
  
@@ -202,7 +204,7 @@ DiagrammeR::grViz("digraph {
  
  epi -> {data_historic  data_datos_actuales}
  data_historic -> areal -> hotspots -> geoda
- data_datos_actuales -> {data_acumulados, data_trans_activa} -> pp_data -> {cadenas cluster_ana lgcp}
+ data_datos_actuales -> {data_acumulados, data_trans_activa} -> pp_data -> {cadenas lgcp cluster_ana heatmap}
  cadenas -> cluster_s
  cluster_ana -> satscan
  
