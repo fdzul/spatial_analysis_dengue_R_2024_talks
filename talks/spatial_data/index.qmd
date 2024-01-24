@@ -34,7 +34,7 @@ format:
 
 <h4>Date: 2024-01-01</h4>
 
-<h4>Update: 2024-01-02</h4>
+<h4>Update: 2024-01-23</h4>
 
 <br>
 
@@ -675,7 +675,7 @@ tmap::tm_shape(x) +
 ```
 :::
 
-## [Mapas Interactivo]{style="color:#003300;"}
+## [Mapas Interactivos]{style="color:#003300;"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
 ```{r}
@@ -737,12 +737,10 @@ densnv::mp_heatmap(geocoded_dataset = z,
 
 
 ## [Mapas Animados]{style="color:#003300;"}
-
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
-## [Mapas 3D]{style="color:#003300;"}
+![](31_merida_hotblocks_2023.gif)
 
-<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
 ## [Dios Botic]{style="color:#003300;"}
 
