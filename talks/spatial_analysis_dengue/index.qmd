@@ -737,6 +737,35 @@ DiagrammeR::grViz("digraph {
 :::
 
 
+## [Análisis Espacial del Dengue de México en R]{.r-fit-text style="color:#003300;"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+Paquetes en R desarrollados por el Programa ([denhotspots](https://fdzul.github.io/denhotspots/) & [deneggs](https://github.com/fdzul/deneggs)) para el análisis espacial.
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+
+tibble::tibble("Análisis"= c("Hotspots",
+                             "Visualización de los Hotspots",
+                             "Cadenas de Transmisión",
+                             "Visualiación de las Cadenas de Transmisión",
+                             "LGCP",
+                             "Visualización de LGCP",
+                             "Hotspots de Huevos",
+                             "Visualización de Hotspots"),
+               "denhotspots" = c(T,T, T, T,
+                                T, T,F, F),
+               "deneggs" = c(F, F, F, F,
+                             F, F, T, T)) |>
+    reactable::reactable(defaultPageSize = 10,
+                         theme = reactablefmtr::flatly(),
+                         filterable = FALSE,
+                         striped = TRUE,
+                         #minRows = 10,
+                         resizable = TRUE, 
+                         wrap = TRUE, 
+                         bordered = TRUE)
+
+```
 
 ## [Dios Botic]{style="color:#003300;"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
