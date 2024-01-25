@@ -910,7 +910,7 @@ mapview::mapview(hotspots,
 :::
 
 
-## [Modelo Log Gaussian Cox Process]{style="color:#003300;"}
+## [Modelo Log Gaussian Cox Process]{.r-fit-text style="color:#003300;"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
 ::: {.panel-tabset}
@@ -1019,6 +1019,95 @@ x$map
 ```
 
 :::
+
+## [Análisis Geoestadístico del Vector del Dengue]{.r-fit-text style="color:#003300;"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+::: {.panel-tabset}
+
+## SPDE-INLA code
+```{r}
+#| echo: true
+#| output: false
+# Step 1. define the path 
+path_ovitraps <- "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/CENAPRECE/2023/14_jalisco"
+path_coord <- paste(path_ovitraps, "DescargaOvitrampasMesFco.txt", sep = "/")
+map_gua <- deneggs::eggs_hotspots(path_lect = path_ovitraps,
+                        path_coord = path_coord,
+                       cve_ent = "14",
+                       locality  = c("Guadalajara", "Zapopan",
+                                     "Tlaquepaque", "Tonala"),
+                       longitude  = "Pocision_X",
+                       latitude =  "Pocision_Y",
+                       aproximation = "gaussian",
+                       integration = "eb",
+                       fam = "zeroinflatednbinomial1",
+                       k = 40,
+                       palette_vir  = "magma",
+                       leg_title = "Huevos",
+                       plot = FALSE,
+                       hist_dataset = FALSE,
+                       sem = 40, var = "eggs",
+                       cell_size = 5000,
+                       alpha = .99)
+```
+
+
+## SPDE-INLA map
+```{r}
+#| echo: false
+#| output: true
+map_gua$map
+```
+:::
+
+
+## [Análisis Geoestadístico del Vector del Dengue]{.r-fit-text style="color:#003300;"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+::: {.panel-tabset}
+
+### SPDE-INLA map por Año
+
+```{r}
+#| echo: false
+#| output: true
+load("~/Library/CloudStorage/OneDrive-Personal/proyects/talks/reunion_inter_estatal/8.RData/eggs_betas_hotspots_2023_merida.RData")
+
+loc <- rgeomex::extract_locality(cve_edo = "31",
+                                 locality = "Merida")
+ggplot2::ggplot() +
+    ggplot2::geom_tile(data = betas_merida |> 
+                           dplyr::filter(week %in% c(5, 15, 25,
+                                                    35, 45, 50)),
+                       ggplot2::aes(x = x,
+                                    y = y,
+                                    fill = pred_mean)) +
+    ggplot2::scale_fill_viridis_c("Huevos",
+                                  option = "viridis") +
+    ggplot2::geom_sf(data = loc,
+                     fill = NA,
+                     col = "black", 
+                     lwd = 1.5) +
+    ggplot2::theme_void() +
+    ggplot2::facet_wrap(facets = "week")
+```
+
+### Intensidad 2023
+```{r}
+#| echo: false
+#| output: true
+deneggs::map_eggs_hotspots(betas = betas_merida,
+                           locality = "Merida",
+                           cve_edo = "31",
+                           palette = rcartocolor::carto_pal,
+                           name = "SunsetDark")
+```
+
+
+:::
+
+
 
 ## [Dios Botic]{style="color:#003300;"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
