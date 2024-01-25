@@ -767,6 +767,259 @@ tibble::tibble("Análisis"= c("Hotspots",
 
 ```
 
+
+## [Hotspots de la Transmisión de Dengue en ]{.r-fit-text style="color:#003300;"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+::: {.panel-tabset}
+
+## Datasets
+```{r}
+#| echo: true
+#| output: true
+# Step 1. load the dengue geocoded dataset ####
+load("~/Dropbox/hotspots_2023/8.RData/denmex.RData")
+head(xy)
+```
+
+## Localidad
+
+```{r, message=FALSE, warning=FALSE}
+#| echo: true
+#| output: true
+# Step 2. extract the locality #####
+x <- rgeomex::extract_ageb(locality = c("Guadalajara", "Zapopan", 
+                                        "Tlaquepaque", "Tonalá"), 
+                           cve_edo = "14")
+head(x)
+
+
+```
+
+## Casos por AGEB
+
+```{r}
+#| echo: true
+#| output: true
+library(magrittr)
+library(sf)
+z <- denhotspots::point_to_polygons(x = xy,
+                                    y = x$ageb,
+                                    ids = names(x$ageb)[-10],
+                                    time = ANO,
+                                    coords = c("long", "lat"),
+                                    crs = 4326,
+                                    dis = "DENV") 
+head(z)
+
+```
+
+## Hotspots
+```{r}
+#| echo: true
+#| output: true
+hotspots <- denhotspots::gihi(x = z,
+                              id = names(z)[c(1:9)], 
+                              time = "year",
+                              dis = "DENV",
+                              gi_hi = "gi",
+                              alpha = 0.95)
+head(hotspots)
+
+```
+
+:::
+
+## [Hotspots de la Transmisión de Dengue en ]{.r-fit-text style="color:#003300;"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+::: {.panel-tabset}
+
+## Mapa Estático_code
+
+```{r}
+#| echo: true
+#| output: false
+denhotspots::staticmap_intensity(x = hotspots,
+                                 pal = rcartocolor::carto_pal,
+                                 pal_name = TRUE,
+                                 name = "OrYel",
+                                 breaks = 1,
+                                 dir_pal = -1,
+                                 x_leg = 0.5,
+                                 y_leg = 0.1,
+                                 ageb = TRUE)
+```
+
+## Mapa Estático
+
+```{r}
+#| echo: false
+#| output: true
+denhotspots::staticmap_intensity(x = hotspots,
+                                 pal = rcartocolor::carto_pal,
+                                 pal_name = TRUE,
+                                 name = "OrYel",
+                                 breaks = 1,
+                                 dir_pal = -1,
+                                 x_leg = 0.5,
+                                 y_leg = 0.1,
+                                 ageb = TRUE)
+```
+
+:::
+
+
+## [Hotspots de la Transmisión de Dengue en ]{.r-fit-text style="color:#003300;"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+::: {.panel-tabset}
+
+## Mapa Interactivo_code
+
+```{r}
+#| echo: true
+#| output: false
+mapview::mapview(hotspots,
+                 zcol = "intensity_gi",
+                 layer.name = "Intensidad",
+                 label = FALSE,
+                 color = "white",
+                 lwd = 0.5, 
+                 col.regions =  rcartocolor::carto_pal(n = max(hotspots$intensity_gi), 
+                                                       name = "OrYel"))
+```
+
+## Mapa Interactivo
+
+```{r}
+#| echo: false
+#| output: true
+mapview::mapviewOptions(default = TRUE,
+                        basemaps.color.shuffle = FALSE)
+mapview::mapview(hotspots,
+                 zcol = "intensity_gi",
+                 layer.name = "Intensidad",
+                 label = FALSE,
+                 color = "white",
+                 lwd = 0.5, 
+                 col.regions =  rcartocolor::carto_pal(n = max(hotspots$intensity_gi), 
+                                                       name = "OrYel"))
+```
+
+:::
+
+
+## [Modelo Log Gaussian Cox Process]{style="color:#003300;"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+::: {.panel-tabset}
+
+## LGCP Mérida code
+```{r}
+#| echo: true
+#| output: false
+
+# Step 1. load the dengue geocoded dataset ####
+load("/Users/fdzul/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
+
+# Step 2. extract the dengue cases #####
+geocoded_dataset <- z |>
+    dplyr::filter(ESTATUS_CASO == 2) |>
+    dplyr::mutate(onset = FEC_INI_SIGNOS_SINT,
+                  date = as.character(onset),
+                  id = VEC_ID) |>
+    dplyr::mutate(x = long,
+                  y = lat) |>
+    sf::st_as_sf(coords = c("long", "lat"),
+                 crs = 4326) |>
+    dplyr::select(x, y, onset) 
+
+# Step 3. extract the locality ####
+loc <- rgeomex::extract_locality(cve_edo = 31,
+                                 locality = "Mérida")
+
+
+# Step 4. extract the dengue cases of the locality 
+geocoded_dataset <- geocoded_dataset[loc,] |>
+    sf::st_drop_geometry()
+
+
+# Step 5. map of lgcp 
+x <- denhotspots::spatial_lgcp(dataset = geocoded_dataset,
+                           locality = "Merida",
+                           cve_edo = "31",
+                           longitude = "x",
+                           latitude = "y",
+                           k = 30,
+                           plot = FALSE,
+                           aproximation = "gaussian",
+                           integration = "laplace",
+                           resolution = 0.015,
+                           approach = "lattice",
+                           cell_size = 1500,
+                           name = "YlGnBu")
+x$map
+
+```
+
+## LGCP Mérida Mapa
+```{r}
+#| echo: false
+#| output: true
+
+
+# Step 1. load the dengue geocoded dataset ####
+load("/Users/fdzul/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
+
+# Step 2. extract the dengue cases #####
+geocoded_dataset <- z |>
+    dplyr::filter(ESTATUS_CASO == 2) |>
+    dplyr::mutate(onset = FEC_INI_SIGNOS_SINT,
+                  date = as.character(onset),
+                  id = VEC_ID) |>
+    dplyr::mutate(x = long,
+                  y = lat) |>
+    sf::st_as_sf(coords = c("long", "lat"),
+                 crs = 4326) |>
+    dplyr::select(x, y, onset) 
+
+# Step 3. extract the locality ####
+loc <- rgeomex::extract_locality(cve_edo = 31,
+                                 locality = "Mérida")
+
+
+# Step 4. extract the dengue cases of the locality 
+geocoded_dataset <- geocoded_dataset[loc,] |>
+    sf::st_drop_geometry()
+
+
+# Step 5. map of lgcp 
+library(magrittr)
+library(ggplot2)
+library(sf)
+library(sp)
+library(plotly)
+library(htmlwidgets)
+
+x <- denhotspots::spatial_lgcp(dataset = geocoded_dataset,
+                           locality = "Merida",
+                           cve_edo = "31",
+                           longitude = "x",
+                           latitude = "y",
+                           k = 30,
+                           plot = FALSE,
+                           aproximation = "gaussian",
+                           integration = "laplace",
+                           resolution = 0.015,
+                           approach = "lattice",
+                           cell_size = 1500,
+                           name = "YlGnBu")
+x$map
+```
+
+:::
+
 ## [Dios Botic]{style="color:#003300;"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
