@@ -1104,10 +1104,25 @@ deneggs::map_eggs_hotspots(betas = betas_merida,
                            name = "SunsetDark")
 ```
 
-
 :::
 
 
+## [Modelo de Estratificación del Riesgo de Transmisión de Dengue]{.r-fit-text style="color:#003300;"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+:::: {.columns}
+
+::: {.column style="width: 50%"}
+Concepto
+<img src = "fig/stacked_maps_cases.jpg">
+:::
+
+:::{.column style="width: 50%"}
+Mapa de riesgo
+<img src = "fig/map_risk_guadalajara.jpg">
+:::
+
+::::
 
 ## [Dios Botic]{style="color:#003300;"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
