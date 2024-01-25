@@ -1171,9 +1171,6 @@ Mapa de riesgo
 
 ::::
 
-## [Desarrollo del dengueverse y dashboards]{style="color:#003300;"}
-<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
-
 
 ## [Dios Botic]{style="color:#003300;"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
