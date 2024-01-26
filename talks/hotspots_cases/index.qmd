@@ -482,22 +482,26 @@ donde:
 $\color{#FF4136}\sum_{\color{#FF4136}j \color{#FF4136}= \color{#FF4136}1}^\color{#FF4136}{n} \color{#FF4136}w_{\color{#FF4136}i\color{#FF4136}j}\color{#FF4136}x_{\color{#FF4136}j}$ el numerador, es la suma de los valores $x_{i}$ de la unidad espacial de interes con sus vecinos $x_{j}$ & $\frac{}{\color{#0074D9}\sum_{\color{#0074D9}j \color{#0074D9}= \color{#0074D9}1}^{\color{#0074D9}n} \color{#0074D9}x_{\color{#0074D9}j}}$ el denominador, es la suma de los valores $x$ en toda la localidad de interes.
 :::
 ::: {.column style="width: 60%; font-size: 80%"}
+
 Spatial Weight Matrix $\color{#FF4136}w_{\color{#FF4136}i\color{#FF4136}j}$
 ```{r swm, echo=FALSE, warning = FALSE,message = FALSE, fig.align ="left", out.width = "50%"}
+
 # Create the neighborhoods ####
-nb_q <- spdep::nb2listw(spdep::poly2nb(x$ageb), style="B", zero.policy=TRUE)
+nb_q <- spdep::nb2listw(spdep::poly2nb(x$ageb), 
+                        style="B", 
+                        zero.policy=TRUE)
 
 # Crate the matrix ####
 library(Matrix)
 library(spatialreg)
 matrix <- as(as(nb_q, "CsparseMatrix"), "matrix")
 df <- as.data.frame(matrix)
-
-library(magrittr)
-library(kableExtra)
 kableExtra::kbl(df) %>%
-  kableExtra::kable_styling(bootstrap_options = "striped", full_width = T, font_size = 20)
+  kableExtra::kable_styling(bootstrap_options = "striped", 
+                            full_width = T, 
+                            font_size = 20)
 ```
+
 Casos por cada unidad espacial $\color{#FF4136}x_{\color{#FF4136}i}$
 ```{r swm_casos, echo=FALSE, warning = FALSE,message = FALSE, fig.align ="left", out.width = "50%"}
 y_matriz <- matrix(data = x$ageb$n,
@@ -507,7 +511,9 @@ colnames(y_matriz) <- row.names(y_matriz)
 dimnames(y_matriz) <- list("casos", row.names(x$ageb))
 
 kableExtra::kbl(y_matriz) |>
-  kableExtra::kable_styling(bootstrap_options = "striped", full_width = T, font_size = 20)
+  kableExtra::kable_styling(bootstrap_options = "striped", 
+                            full_width = T, 
+                            font_size = 20)
 ```
 :::
 ::::
@@ -518,16 +524,16 @@ kableExtra::kbl(y_matriz) |>
 
 ::: {.column style="width: 100%; font-size: 75%"}
 $$\color{#2ECC40}{G_{248}^{*}}= \frac{\color{#FF4136}\sum_{\color{#FF4136}j \color{#FF4136}= \color{#FF4136}1}^\color{#FF4136}{n} \color{#FF4136}w_{\color{#FF4136}i\color{#FF4136}j}\color{#FF4136}x_{\color{#FF4136}j}}
-{\color{#0074D9}\sum_{\color{#0074D9}j \color{#0074D9}= \color{#0074D9}1}^{\color{#0074D9}n} \color{#0074D9}x_{\color{#0074D9}j}} = \frac{\color{#FF4136}{0 +1+ 1 + 0 + 0 +0 +0 +0 +0}}{\color{#0074D9}{17 + 1 + 1 + 5 + 148 +37 + 0 + 0}} = \frac{\color{#FF4136}{2}}{\color{#0074D9}{209}}= \color{#2ECC40}{0.009569378}$$
+{\color{#0074D9}\sum_{\color{#0074D9}j \color{#0074D9}= \color{#0074D9}1}^{\color{#0074D9}n} \color{#0074D9}x_{\color{#0074D9}j}} = \frac{\color{#FF4136}{17 +1+ 1 + 0 + 0 +0 +0 +0 +0}}{\color{#0074D9}{17 + 1 + 1 + 5 + 148 +37 + 0 + 0}} = \frac{\color{#FF4136}{9}}{\color{#0074D9}{209}}= \color{#2ECC40}{0.0430622}$$
 
 $$ \color{#2ECC40}{G_{249}^{*}} = \frac{\color{#FF4136}\sum_{\color{#FF4136}j \color{#FF4136}= \color{#FF4136}1}^\color{#FF4136}{n} \color{#FF4136}w_{\color{#FF4136}i\color{#FF4136}j}\color{#FF4136}x_{\color{#FF4136}j}}
-{\color{#0074D9}\sum_{\color{#0074D9}j \color{#0074D9}= \color{#0074D9}1}^{\color{#0074D9}n} \color{#0074D9}x_{\color{#0074D9}j}} = \frac{\color{#FF4136}{17 + 0 + 1 + 5 +0+ 37 + 0+ 0}}{\color{#0074D9}{17 + 1 + 1 + 5 + 148 +37 + 0 + 0}} =  \frac{\color{#FF4136}{60}}{\color{#0074D9}{209}} =\color{#2ECC40}{0.2870813}$$
+{\color{#0074D9}\sum_{\color{#0074D9}j \color{#0074D9}= \color{#0074D9}1}^{\color{#0074D9}n} \color{#0074D9}x_{\color{#0074D9}j}} = \frac{\color{#FF4136}{17 + 1 + 1 + 5 + 0 + 37 + 0+ 0}}{\color{#0074D9}{17 + 1 + 1 + 5 + 148 +37 + 0 + 0}} =  \frac{\color{#FF4136}{61}}{\color{#0074D9}{209}} =\color{#2ECC40}{0.291866}$$
 
 $$\color{#2ECC40}{G_{250}^{*}} = \frac{\color{#FF4136}\sum_{\color{#FF4136}j \color{#FF4136}= \color{#FF4136}1}^\color{#FF4136}{n} \color{#FF4136}w_{\color{#FF4136}i\color{#FF4136}j}\color{#FF4136}x_{\color{#FF4136}j}}
-{\color{#0074D9}\sum_{\color{#0074D9}j \color{#0074D9}= \color{#0074D9}1}^{\color{#0074D9}n} \color{#0074D9}x_{\color{#0074D9}j}} = \frac{\color{#FF4136}{17 + 1 + 0 + 0 +0 + 0 + 0 + 0}}{\color{#0074D9}{17 + 1 + 1 + 5 + 148 +37 + 0 + 0}} =  \frac{\color{#FF4136}{18}}{\color{#0074D9}{209}} =\color{#2ECC40}{0.0861244}$$
+{\color{#0074D9}\sum_{\color{#0074D9}j \color{#0074D9}= \color{#0074D9}1}^{\color{#0074D9}n} \color{#0074D9}x_{\color{#0074D9}j}} = \frac{\color{#FF4136}{17 + 1 + 1 + 0 +0 + 0 + 0 + 0}}{\color{#0074D9}{17 + 1 + 1 + 5 + 148 +37 + 0 + 0}} =  \frac{\color{#FF4136}{19}}{\color{#0074D9}{209}} =\color{#2ECC40}{0.09090909}$$
 
 $$\color{#2ECC40}{G_{251}^{*}} = \frac{\color{#FF4136}\sum_{\color{#FF4136}j \color{#FF4136}= \color{#FF4136}1}^\color{#FF4136}{n} \color{#FF4136}w_{\color{#FF4136}i\color{#FF4136}j}\color{#FF4136}x_{\color{#FF4136}j}}
-{\color{#0074D9}\sum_{\color{#0074D9}j \color{#0074D9}= \color{#0074D9}1}^{\color{#0074D9}n} \color{#0074D9}x_{\color{#0074D9}j}} = \frac{\color{#FF4136}{0 + 1 +0 + 0 + 0 + 37 + 0 +0 }}{\color{#0074D9}{17 + 1 + 1 + 5 + 148 +37 + 0 + 0}} =  \frac{\color{#FF4136}{38}}{\color{#0074D9}{209}} =\color{#2ECC40}{0.1818182}$$
+{\color{#0074D9}\sum_{\color{#0074D9}j \color{#0074D9}= \color{#0074D9}1}^{\color{#0074D9}n} \color{#0074D9}x_{\color{#0074D9}j}} = \frac{\color{#FF4136}{0 + 1 +0 + 5 + 0 + 37 + 0 + 0 }}{\color{#0074D9}{17 + 1 + 1 + 5 + 148 +37 + 0 + 0}} =  \frac{\color{#FF4136}{43}}{\color{#0074D9}{209}} =\color{#2ECC40}{0.2057416}$$
 
 :::
 
@@ -537,10 +543,10 @@ $$\color{#2ECC40}{G_{251}^{*}} = \frac{\color{#FF4136}\sum_{\color{#FF4136}j \co
 
 ::: {.column style="width: 100%; font-size: 75%"}
 $$\color{#2ECC40}{G_{252}^{*}} = \frac{\color{#FF4136}\sum_{\color{#FF4136}j \color{#FF4136}= \color{#FF4136}1}^\color{#FF4136}{n} \color{#FF4136}w_{\color{#FF4136}i\color{#FF4136}j}\color{#FF4136}x_{\color{#FF4136}j}}
-{\color{#0074D9}\sum_{\color{#0074D9}j \color{#0074D9}= \color{#0074D9}1}^{\color{#0074D9}n} \color{#0074D9}x_{\color{#0074D9}j}} = \frac{\color{#FF4136}{0 + 0 + 0 + 0 + 0 + 37 + 0 + 0}}{\color{#0074D9}{17 + 1 + 1 + 5 + 148 +37 + 0 + 0}} =  \frac{\color{#FF4136}{37}}{\color{#0074D9}{209}} =\color{#2ECC40}{0.1770335}$$
+{\color{#0074D9}\sum_{\color{#0074D9}j \color{#0074D9}= \color{#0074D9}1}^{\color{#0074D9}n} \color{#0074D9}x_{\color{#0074D9}j}} = \frac{\color{#FF4136}{0 + 0 + 0 + 0 + 148 + 37 + 0 + 0}}{\color{#0074D9}{17 + 1 + 1 + 5 + 148 +37 + 0 + 0}} =  \frac{\color{#FF4136}{185}}{\color{#0074D9}{209}} =\color{#2ECC40}{0.8851675}$$
 
 $$\color{#2ECC40}{G_{253}^{*}} = \frac{\color{#FF4136}\sum_{\color{#FF4136}j \color{#FF4136}= \color{#FF4136}1}^\color{#FF4136}{n} \color{#FF4136}w_{\color{#FF4136}i\color{#FF4136}j}\color{#FF4136}x_{\color{#FF4136}j}}
-{\color{#0074D9}\sum_{\color{#0074D9}j \color{#0074D9}= \color{#0074D9}1}^{\color{#0074D9}n} \color{#0074D9}x_{\color{#0074D9}j}} = \frac{\color{#FF4136}{0 + 1 + 0 + 5 + 148 + 0 + 0 + 0}}{\color{#0074D9}{17 + 1 + 1 + 5 + 148 +37 + 0 + 0}} =  \frac{\color{#FF4136}{154}}{\color{#0074D9}{209}} =\color{#2ECC40}{0.7368421}$$
+{\color{#0074D9}\sum_{\color{#0074D9}j \color{#0074D9}= \color{#0074D9}1}^{\color{#0074D9}n} \color{#0074D9}x_{\color{#0074D9}j}} = \frac{\color{#FF4136}{0 + 1 + 0 + 5 + 148 + 37 + 0 + 0}}{\color{#0074D9}{17 + 1 + 1 + 5 + 148 +37 + 0 + 0}} =  \frac{\color{#FF4136}{191}}{\color{#0074D9}{209}} =\color{#2ECC40}{0.095072181}$$
 
 
 $$\color{#2ECC40}{G_{254}^{*}} = \frac{\color{#FF4136}\sum_{\color{#FF4136}j \color{#FF4136}= \color{#FF4136}1}^\color{#FF4136}{n} \color{#FF4136}w_{\color{#FF4136}i\color{#FF4136}j}\color{#FF4136}x_{\color{#FF4136}j}}
@@ -550,6 +556,48 @@ $$\color{#2ECC40}{G_{254}^{*}} = \frac{\color{#FF4136}\sum_{\color{#FF4136}j \co
 $$\color{#2ECC40}{G_{255}^{*}} = \frac{\color{#FF4136}\sum_{\color{#FF4136}j \color{#FF4136}= \color{#FF4136}1}^\color{#FF4136}{n} \color{#FF4136}w_{\color{#FF4136}i\color{#FF4136}j}\color{#FF4136}x_{\color{#FF4136}j}}
 {\color{#0074D9}\sum_{\color{#0074D9}j \color{#0074D9}= \color{#0074D9}1}^{\color{#0074D9}n} \color{#0074D9}x_{\color{#0074D9}j}} = \frac{\color{#FF4136}{0 + 0 + 0 + 0 + 0 + 0 + 0 + 0}}{\color{#0074D9}{17 + 1 + 1 + 5 + 148 +37 + 0 + 0}} =  \frac{\color{#FF4136}{0}}{\color{#0074D9}{209}} =\color{#2ECC40}{0.0000000}$$
 :::
+
+## [Cálculo del estadístico Espacial Local $\color{#2ECC40}G_{\color{#2ECC40}i}^{\color{#2ECC40}*}$]{.r-fit-text style="color:#003300;"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+:::: {.columns}
+::: {.column style="width: 60%; font-size: 80%"}
+```{r, echo=FALSE}
+x$ageb |>
+    dplyr::select(n) |>
+    sf::st_drop_geometry() |>
+    dplyr::mutate(wx = c(2, 61, 19, 43, 185, 191, 187, 0)) |>
+    dplyr::mutate(gi = round(wx/sum(n),digits = 3)) |>
+    #dplyr::mutate(gi_star = round((n+wx)/sum(n),digits = 3)) |>
+    dplyr::mutate(gi_z = round((gi-mean(gi))/sd(gi),
+                                  digits = 3)) |>
+    kableExtra::kbl() |>
+    kableExtra::kable_styling(bootstrap_options = "striped", 
+                              full_width = T, 
+                              font_size = 35)
+```
+:::
+::: {.column style="width: 40%"}
+Corrección de Bonferroni: 
+
+$1-\alpha = (1-\alpha)^{n}$
+
+$n = 8$
+
+$alpha = c(.95, 0.99)$
+
+```{r, echo=FALSE}
+ getis_ord_umbral <- function(n, alpha){
+        round(qnorm(p = -((1-alpha)/n) + 1, mean = 0, sd = 1), digits = 4)
+ }
+getis_ord_umbral(n = c(8), alpha = c(.95, .99))
+```
+
+:::
+::::
+
+
+
 
 ## [Dios Botic]{style="color:#003300;"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
