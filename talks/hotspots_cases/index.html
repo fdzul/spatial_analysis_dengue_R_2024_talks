@@ -325,6 +325,8 @@
   <script src="index_files/libs/viz-1.8.2/viz.js"></script>
   <link href="index_files/libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
   <script src="index_files/libs/grViz-binding-1.0.10/grViz.js"></script>
+  <script src="index_files/libs/kePrint-0.0.1/kePrint.js"></script>
+  <link href="index_files/libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -376,8 +378,8 @@ Update: 2024-01-26
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="htmlwidget-302a6c5630aeeb0d758a" style="width:100%;height:600px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-302a6c5630aeeb0d758a">{"x":{"diagram":"digraph {\n\n  # graph definitions\n  graph [layout = dot, rankdir = TB]\n  \n  # node definitions\n  node [shape = circle, style = filled, color = grey,\n  fixedsize = true, width = 2] \n  \n  ###########\n  prog_den [label = \"Programa de Dengue\",  fillcolor =  \"DodgerBlue\", color = \"white\", fontcolor = \"white\"]\n  brote [label = \"Brote\",  fillcolor = \"DarkOrange\", color = \"white\", fontcolor = \"white\"]\n  cp [label = \"Control de Probables\",  fillcolor = \"DarkOrange\", color = \"white\", fontcolor = \"white\"]\n  node [shape = circle, style = filled, color = grey] \n  ovitraps [label = \"Ovitrampas\",  fillcolor = \"DarkOrange\", color = \"white\", fontcolor = \"white\"]\n  adult [label = \"Colecta de Adultos\",  fillcolor = \"DarkOrange\", color = \"white\", fontcolor = \"white\"]\n  enc_ver [label = \"Encuesta Verificación\",  fillcolor = \"DarkOrange\", color = \"white\", fontcolor = \"white\"]\n  plat [label = \"Plataforma\",  fillcolor = \"DarkOrange\", color = \"white\", fontcolor = \"white\"]\n    hotspots [label = \"Hotspots\",  fillcolor = \"#E01A59\", color = \"white\", fontcolor = \"white\"]\n  \n  \n  #########\n  node [shape = rectangle, style = filled, color = grey, fixedsize = true, width = 2.5] \n  \n  ###\n  trans_per [label = \"Transmisión Persistente\",  fillcolor = \"#E01A59\", color = \"white\", fontcolor = \"white\"]\n  \n  act [label = \"Transmision Activa\",  fillcolor = \"DarkOrange\", color = \"white\", fontcolor = \"white\"]\n \n  epi [label = \"Vigilancia Epidemiológica\",  fillcolor = \"#0F9D58\", color = \"white\", fontcolor = \"white\"]\n  ent [label = \"Vigilancia Entomológica\",  fillcolor = \"#0F9D58\", color = \"white\", fontcolor = \"white\"]\n ind [label = \"Indicadores\",  fillcolor = \"#0F9D58\", color = \"white\", fontcolor = \"white\"]\n  ###################\n  prog_den -> {epi, ent}[penwidth = 4]\n  \n  \n  act -> {\n  brote[arrowhead = crow, arrowtail = box, color = \"Maroon\"]\n  cp[arrowhead = crow, arrowtail = box, color = \"Maroon\"]\n  } -> plat[penwidth = 4]\n  epi -> {act, trans_per}[penwidth = 4]\n  trans_per -> hotspots -> plat[penwidth = 4]\n  ent -> {adult, ovitraps, enc_ver} -> plat[penwidth = 4]  \n  plat -> ind[penwidth = 4]\n \n  }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-4c6f38a5fa2c43261a56" style="width:100%;height:600px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-4c6f38a5fa2c43261a56">{"x":{"diagram":"digraph {\n\n  # graph definitions\n  graph [layout = dot, rankdir = TB]\n  \n  # node definitions\n  node [shape = circle, style = filled, color = grey,\n  fixedsize = true, width = 2] \n  \n  ###########\n  prog_den [label = \"Programa de Dengue\",  fillcolor =  \"DodgerBlue\", color = \"white\", fontcolor = \"white\"]\n  brote [label = \"Brote\",  fillcolor = \"DarkOrange\", color = \"white\", fontcolor = \"white\"]\n  cp [label = \"Control de Probables\",  fillcolor = \"DarkOrange\", color = \"white\", fontcolor = \"white\"]\n  node [shape = circle, style = filled, color = grey] \n  ovitraps [label = \"Ovitrampas\",  fillcolor = \"DarkOrange\", color = \"white\", fontcolor = \"white\"]\n  adult [label = \"Colecta de Adultos\",  fillcolor = \"DarkOrange\", color = \"white\", fontcolor = \"white\"]\n  enc_ver [label = \"Encuesta Verificación\",  fillcolor = \"DarkOrange\", color = \"white\", fontcolor = \"white\"]\n  plat [label = \"Plataforma\",  fillcolor = \"DarkOrange\", color = \"white\", fontcolor = \"white\"]\n    hotspots [label = \"Hotspots\",  fillcolor = \"#E01A59\", color = \"white\", fontcolor = \"white\"]\n  \n  \n  #########\n  node [shape = rectangle, style = filled, color = grey, fixedsize = true, width = 2.5] \n  \n  ###\n  trans_per [label = \"Transmisión Persistente\",  fillcolor = \"#E01A59\", color = \"white\", fontcolor = \"white\"]\n  \n  act [label = \"Transmision Activa\",  fillcolor = \"DarkOrange\", color = \"white\", fontcolor = \"white\"]\n \n  epi [label = \"Vigilancia Epidemiológica\",  fillcolor = \"#0F9D58\", color = \"white\", fontcolor = \"white\"]\n  ent [label = \"Vigilancia Entomológica\",  fillcolor = \"#0F9D58\", color = \"white\", fontcolor = \"white\"]\n ind [label = \"Indicadores\",  fillcolor = \"#0F9D58\", color = \"white\", fontcolor = \"white\"]\n  ###################\n  prog_den -> {epi, ent}[penwidth = 4]\n  \n  \n  act -> {\n  brote[arrowhead = crow, arrowtail = box, color = \"Maroon\"]\n  cp[arrowhead = crow, arrowtail = box, color = \"Maroon\"]\n  } -> plat[penwidth = 4]\n  epi -> {act, trans_per}[penwidth = 4]\n  trans_per -> hotspots -> plat[penwidth = 4]\n  ent -> {adult, ovitraps, enc_ver} -> plat[penwidth = 4]  \n  plat -> ind[penwidth = 4]\n \n  }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -386,8 +388,8 @@ Update: 2024-01-26
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="htmlwidget-4ce4fae4594b769645b2" style="width:100%;height:550px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-4ce4fae4594b769645b2">{"x":{"diagram":"digraph {\n\n  # graph definitions\n  graph [layout = dot, rankdir = TB]\n  \n  # node definitions\n  node [shape = circle, style = filled, color = grey,\n  fixedsize = true, width = 2] \n  edge [color = grey, arrowhead = normal, arrowtail = dot]\n  \n  \n  ###########\n  prog_den [label = \"Programa de Dengue\",  fillcolor =  \"DodgerBlue\", color = \"white\", fontcolor = \"white\"]\n  \n  # epidemiology\n  epi [label = \"Vigilancia Epidemiológica\",  fillcolor = \"#0F9D58\", color = \"white\", fontcolor = \"white\"]\n  \n  brote [label = \"Brote\",  fillcolor = \"DarkOrange\", color = \"white\", fontcolor = \"black\"]\n  cp [label = \"Control de Probables\",  fillcolor = \"DarkOrange\", color = \"white\", fontcolor = \"black\"]\n  node [shape = circle, style = filled, color = grey] \n  \n  \n  node [shape = circle, style = filled, color = grey] \n  \n  \n  hotspots [label = \"Hotspots\",  fillcolor = \"#DB4437\", color = \"white\", fontcolor = \"white\"]\n  cadenas [label = \"Cadenas de Transmisión\",  fillcolor = \"#DB4437\", color = \"white\", fontcolor = \"white\"]\n  \n  heatmap [label = \"Mapas de Calor\",  fillcolor = \"#DB4437\", color = \"white\", fontcolor = \"white\"]\n  node [shape = circle, style = filled, color = grey] \n  \n  \n  #### entomology\n  ent [label = \"Vigilancia Entomológica\",  fillcolor = \"#0F9D58\", color = \"white\", fontcolor = \"white\"]\n  ovitraps [label = \"Ovitrampas\",  fillcolor = \"DarkOrange\", color = \"white\", fontcolor = \"white\"]\n  adult [label = \"Colecta de Adultos*\",  fillcolor = \"DarkOrange\", color = \"white\", fontcolor = \"white\"]\n  enc_ver [label = \"Encuesta Verificación\",  fillcolor = \"DarkOrange\", color = \"white\", fontcolor = \"white\"]\n  \n  \n  plat [label = \"Plataforma\",  fillcolor = \"DarkOrange\", color = \"white\", fontcolor = \"black\"]\n  \n  #########\n \n  ###\n  ind [label = \"Indicadores\",  fillcolor = \"SeaGreen\", color = \"white\", fontcolor = \"white\"]\n  \n  ###################\n  prog_den -> {epi, ent}[penwidth = 4]\n  \n  \n  epi -> {brote[arrowhead = crow, arrowtail = box, color = \"Maroon\"]\n  cp[arrowhead = crow, arrowtail = box, color = \"Maroon\"]\n  hotspots[arrowhead = crow, arrowtail = box, color = \"Maroon\"]\n  cadenas[arrowhead = crow, arrowtail = box, color = \"Maroon\"]\n  heatmap[arrowhead = crow, arrowtail = box, color = \"Maroon\"]\n  \n  \n  } -> plat[penwidth = 4]\n  epi -> {}[penwidth = 4]\n  ent -> {adult, ovitraps, enc_ver} -> plat[penwidth = 4]  \n  plat -> ind[penwidth = 4]\n \n\n \n \n \n  }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-0caf751c6ad87ff68fae" style="width:100%;height:550px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-0caf751c6ad87ff68fae">{"x":{"diagram":"digraph {\n\n  # graph definitions\n  graph [layout = dot, rankdir = TB]\n  \n  # node definitions\n  node [shape = circle, style = filled, color = grey,\n  fixedsize = true, width = 2] \n  edge [color = grey, arrowhead = normal, arrowtail = dot]\n  \n  \n  ###########\n  prog_den [label = \"Programa de Dengue\",  fillcolor =  \"DodgerBlue\", color = \"white\", fontcolor = \"white\"]\n  \n  # epidemiology\n  epi [label = \"Vigilancia Epidemiológica\",  fillcolor = \"#0F9D58\", color = \"white\", fontcolor = \"white\"]\n  \n  brote [label = \"Brote\",  fillcolor = \"DarkOrange\", color = \"white\", fontcolor = \"black\"]\n  cp [label = \"Control de Probables\",  fillcolor = \"DarkOrange\", color = \"white\", fontcolor = \"black\"]\n  node [shape = circle, style = filled, color = grey] \n  \n  \n  node [shape = circle, style = filled, color = grey] \n  \n  \n  hotspots [label = \"Hotspots\",  fillcolor = \"#DB4437\", color = \"white\", fontcolor = \"white\"]\n  cadenas [label = \"Cadenas de Transmisión\",  fillcolor = \"#DB4437\", color = \"white\", fontcolor = \"white\"]\n  \n  heatmap [label = \"Mapas de Calor\",  fillcolor = \"#DB4437\", color = \"white\", fontcolor = \"white\"]\n  node [shape = circle, style = filled, color = grey] \n  \n  \n  #### entomology\n  ent [label = \"Vigilancia Entomológica\",  fillcolor = \"#0F9D58\", color = \"white\", fontcolor = \"white\"]\n  ovitraps [label = \"Ovitrampas\",  fillcolor = \"DarkOrange\", color = \"white\", fontcolor = \"white\"]\n  adult [label = \"Colecta de Adultos*\",  fillcolor = \"DarkOrange\", color = \"white\", fontcolor = \"white\"]\n  enc_ver [label = \"Encuesta Verificación\",  fillcolor = \"DarkOrange\", color = \"white\", fontcolor = \"white\"]\n  \n  \n  plat [label = \"Plataforma\",  fillcolor = \"DarkOrange\", color = \"white\", fontcolor = \"black\"]\n  \n  #########\n \n  ###\n  ind [label = \"Indicadores\",  fillcolor = \"SeaGreen\", color = \"white\", fontcolor = \"white\"]\n  \n  ###################\n  prog_den -> {epi, ent}[penwidth = 4]\n  \n  \n  epi -> {brote[arrowhead = crow, arrowtail = box, color = \"Maroon\"]\n  cp[arrowhead = crow, arrowtail = box, color = \"Maroon\"]\n  hotspots[arrowhead = crow, arrowtail = box, color = \"Maroon\"]\n  cadenas[arrowhead = crow, arrowtail = box, color = \"Maroon\"]\n  heatmap[arrowhead = crow, arrowtail = box, color = \"Maroon\"]\n  \n  \n  } -> plat[penwidth = 4]\n  epi -> {}[penwidth = 4]\n  ent -> {adult, ovitraps, enc_ver} -> plat[penwidth = 4]  \n  plat -> ind[penwidth = 4]\n \n\n \n \n \n  }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -396,8 +398,8 @@ Update: 2024-01-26
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="htmlwidget-5f72c31272be8ace5f27" style="width:100%;height:550px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-5f72c31272be8ace5f27">{"x":{"diagram":"digraph {\n\n  # graph definitions\n  graph [layout = dot, rankdir = TB]\n  \n  # node definitions\n  node [shape = circle, style = filled, color = grey,\n  fixedsize = true, width = 2] \n  edge [color = grey, arrowhead = normal, arrowtail = dot]\n  \n  \n  ###########\n  prog_den [label = \"Programa de Dengue\",  fillcolor =  \"DodgerBlue\", color = \"white\", fontcolor = \"white\"]\n  \n  # epidemiology\n  epi [label = \"Vigilancia Epidemiológica\",  fillcolor = \"#0F9D58\", color = \"white\", fontcolor = \"white\"]\n  \n  brote [label = \"Brote\",  fillcolor = \"DarkOrange\", color = \"white\", fontcolor = \"black\"]\n  cp [label = \"Control de Probables\",  fillcolor = \"DarkOrange\", color = \"white\", fontcolor = \"black\"]\n  node [shape = circle, style = filled, color = grey] \n  \n  \n  node [shape = circle, style = filled, color = grey] \n  \n  \n  hotspots [label = \"Hotspots\",  fillcolor = \"#DB4437\", color = \"white\", fontcolor = \"white\"]\n  cadenas [label = \"Cadenas de Transmisión\",  fillcolor = \"#DB4437\", color = \"white\", fontcolor = \"white\"]\n  \n  heatmap [label = \"Mapas de Calor\",  fillcolor = \"#DB4437\", color = \"white\", fontcolor = \"white\"]\n  node [shape = circle, style = filled, color = grey] \n  \n  \n  #### entomology\n  ent [label = \"Vigilancia Entomológica\",  fillcolor = \"#0F9D58\", color = \"white\", fontcolor = \"white\"]\n  ovitraps [label = \"Ovitrampas\",  fillcolor = \"DarkOrange\", color = \"white\", fontcolor = \"white\"]\n  adult [label = \"Colecta de Adultos*\",  fillcolor = \"DarkOrange\", color = \"white\", fontcolor = \"white\"]\n  enc_ver [label = \"Encuesta Verificación\",  fillcolor = \"DarkOrange\", color = \"white\", fontcolor = \"white\"]\n  \n  \n  plat [label = \"Plataforma\",  fillcolor = \"DarkOrange\", color = \"white\", fontcolor = \"black\"]\n  \n  #########\n \n  ###\n  ind [label = \"Indicadores\",  fillcolor = \"SeaGreen\", color = \"white\", fontcolor = \"white\"]\n  \n  ###################\n  prog_den -> {epi, ent}[penwidth = 4]\n  \n  \n  epi -> {brote[arrowhead = crow, arrowtail = box, color = \"Maroon\"]\n  cp[arrowhead = crow, arrowtail = box, color = \"Maroon\"]\n  hotspots[arrowhead = crow, arrowtail = box, color = \"Maroon\"]\n  cadenas[arrowhead = crow, arrowtail = box, color = \"Maroon\"]\n  heatmap[arrowhead = crow, arrowtail = box, color = \"Maroon\"]\n  \n  \n  } -> plat[penwidth = 4]\n  epi -> {}[penwidth = 4]\n  ent -> {adult, ovitraps, enc_ver} -> plat[penwidth = 4]  \n  plat -> ind[penwidth = 4]\n \n\n \n \n \n  }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-595455f9c1c88c624738" style="width:100%;height:550px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-595455f9c1c88c624738">{"x":{"diagram":"digraph {\n\n  # graph definitions\n  graph [layout = dot, rankdir = TB]\n  \n  # node definitions\n  node [shape = circle, style = filled, color = grey,\n  fixedsize = true, width = 2] \n  edge [color = grey, arrowhead = normal, arrowtail = dot]\n  \n  \n  ###########\n  prog_den [label = \"Programa de Dengue\",  fillcolor =  \"DodgerBlue\", color = \"white\", fontcolor = \"white\"]\n  \n  # epidemiology\n  epi [label = \"Vigilancia Epidemiológica\",  fillcolor = \"#0F9D58\", color = \"white\", fontcolor = \"white\"]\n  \n  brote [label = \"Brote\",  fillcolor = \"DarkOrange\", color = \"white\", fontcolor = \"black\"]\n  cp [label = \"Control de Probables\",  fillcolor = \"DarkOrange\", color = \"white\", fontcolor = \"black\"]\n  node [shape = circle, style = filled, color = grey] \n  \n  \n  node [shape = circle, style = filled, color = grey] \n  \n  \n  hotspots [label = \"Hotspots\",  fillcolor = \"#DB4437\", color = \"white\", fontcolor = \"white\"]\n  cadenas [label = \"Cadenas de Transmisión\",  fillcolor = \"#DB4437\", color = \"white\", fontcolor = \"white\"]\n  \n  heatmap [label = \"Mapas de Calor\",  fillcolor = \"#DB4437\", color = \"white\", fontcolor = \"white\"]\n  node [shape = circle, style = filled, color = grey] \n  \n  \n  #### entomology\n  ent [label = \"Vigilancia Entomológica\",  fillcolor = \"#0F9D58\", color = \"white\", fontcolor = \"white\"]\n  ovitraps [label = \"Ovitrampas\",  fillcolor = \"DarkOrange\", color = \"white\", fontcolor = \"white\"]\n  adult [label = \"Colecta de Adultos*\",  fillcolor = \"DarkOrange\", color = \"white\", fontcolor = \"white\"]\n  enc_ver [label = \"Encuesta Verificación\",  fillcolor = \"DarkOrange\", color = \"white\", fontcolor = \"white\"]\n  \n  \n  plat [label = \"Plataforma\",  fillcolor = \"DarkOrange\", color = \"white\", fontcolor = \"black\"]\n  \n  #########\n \n  ###\n  ind [label = \"Indicadores\",  fillcolor = \"SeaGreen\", color = \"white\", fontcolor = \"white\"]\n  \n  ###################\n  prog_den -> {epi, ent}[penwidth = 4]\n  \n  \n  epi -> {brote[arrowhead = crow, arrowtail = box, color = \"Maroon\"]\n  cp[arrowhead = crow, arrowtail = box, color = \"Maroon\"]\n  hotspots[arrowhead = crow, arrowtail = box, color = \"Maroon\"]\n  cadenas[arrowhead = crow, arrowtail = box, color = \"Maroon\"]\n  heatmap[arrowhead = crow, arrowtail = box, color = \"Maroon\"]\n  \n  \n  } -> plat[penwidth = 4]\n  epi -> {}[penwidth = 4]\n  ent -> {adult, ovitraps, enc_ver} -> plat[penwidth = 4]  \n  plat -> ind[penwidth = 4]\n \n\n \n \n \n  }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -406,8 +408,8 @@ Update: 2024-01-26
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div class="grViz html-widget html-fill-item" id="htmlwidget-6423791a7ea0b38a4875" style="width:100%;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-6423791a7ea0b38a4875">{"x":{"diagram":"digraph {\n                  # graph definitions\n  graph [layout = dot, rankdir = TB]\n  \n  # node definitions\n  node [shape = rectangle, \n  style = filled, \n  color = grey, \n  nodesep = .5,\n  fixedsize = true, \n  width = 2.5] \n  \n  # edge definition\n  edge [color = grey, arrowhead = normal, arrowtail = dot]\n  \n  ##### epidemiological data\n  \n  epi [label = \"Vigilancia Epidemiológica\",  fillcolor =  \"#DB4437\", color = \"white\", fontcolor = \"white\"]\n  data_historic [label = \"Datos Históricos\",  fillcolor =  \"gray\", color = \"white\", fontcolor = \"white\"]\n  data_datos_actuales [label = \"Datos Actuales\",  fillcolor =  \"gray\", color = \"white\", fontcolor = \"white\"]\n  data_acumulados [label = \"Datos Acumulados\",  fillcolor =  \"gray\", color = \"white\", fontcolor = \"white\"]\n  data_trans_activa [label = \"Transmisión Activa\",  fillcolor =  \"gray\", color = \"white\", fontcolor = \"white\"]\n  \n  \n  ##### Spatial Data\n  \n  areal [label = \"Areal Data\",  fillcolor =  \"#0F9D58\", color = \"white\", fontcolor = \"white\"]\n  pp_data [label = \"Point Pattern Data\",  fillcolor =  \" #0F9D58\", color = \"white\", fontcolor = \"white\"]\n  \n  \n \n # Análisis \n hotspots [label = \"Hotspots Analysis\",  fillcolor =  \"orange\", color = \"white\", fontcolor = \"black\"]\n cadenas [label = \"Cadenas de Transmisión\",  fillcolor =  \"orange\", color = \"white\", fontcolor = \"black\"]\n cluster_ana [label = \"Cluster Analysis\",  fillcolor =  \"orange\", color = \"white\", fontcolor = \"black\"]\n lgcp [label = \"Spatial LGCP\",  fillcolor =  \"orange\", color = \"white\", fontcolor = \"black\"]\n \n heatmap [label = \"Mapas de Calor\",  fillcolor =  \"orange\", color = \"white\", fontcolor = \"black\"]\n \n \n # software\n \n geoda [label = \"Geoda\",  fillcolor =  \"DodgerBlue\", color = \"white\", fontcolor = \"white\"]\n cluster_s [label = \"ClusterSeer\",  fillcolor =  \"DodgerBlue\", color = \"white\", fontcolor = \"white\"]\n satscan [label = \"SatScan\",  fillcolor =  \"DodgerBlue\", color = \"white\", fontcolor = \"white\"]\n \n r_rstudio [label = \"R & RStudio\",  fillcolor =  \"DodgerBlue\", color = \"white\", fontcolor = \"white\"]\n\n  denhotspot [label = \"denhotspots Package\",  fillcolor =  \"DodgerBlue\", color = \"white\", fontcolor = \"white\"] \n \n ##### define the relation\n \n epi -> {data_historic  data_datos_actuales}\n data_historic -> areal -> hotspots -> geoda\n data_datos_actuales -> {data_acumulados, data_trans_activa} -> pp_data -> {cadenas lgcp cluster_ana heatmap}\n cadenas -> cluster_s\n cluster_ana -> satscan\n \n {geoda cluster_s satscan lgcp} -> r_rstudio -> denhotspot\n \n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-36ca187a4398204cd2bf" style="width:100%;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-36ca187a4398204cd2bf">{"x":{"diagram":"digraph {\n                  # graph definitions\n  graph [layout = dot, rankdir = TB]\n  \n  # node definitions\n  node [shape = rectangle, \n  style = filled, \n  color = grey, \n  nodesep = .5,\n  fixedsize = true, \n  width = 2.5] \n  \n  # edge definition\n  edge [color = grey, arrowhead = normal, arrowtail = dot]\n  \n  ##### epidemiological data\n  \n  epi [label = \"Vigilancia Epidemiológica\",  fillcolor =  \"#DB4437\", color = \"white\", fontcolor = \"white\"]\n  data_historic [label = \"Datos Históricos\",  fillcolor =  \"gray\", color = \"white\", fontcolor = \"white\"]\n  data_datos_actuales [label = \"Datos Actuales\",  fillcolor =  \"gray\", color = \"white\", fontcolor = \"white\"]\n  data_acumulados [label = \"Datos Acumulados\",  fillcolor =  \"gray\", color = \"white\", fontcolor = \"white\"]\n  data_trans_activa [label = \"Transmisión Activa\",  fillcolor =  \"gray\", color = \"white\", fontcolor = \"white\"]\n  \n  \n  ##### Spatial Data\n  \n  areal [label = \"Areal Data\",  fillcolor =  \"#0F9D58\", color = \"white\", fontcolor = \"white\"]\n  pp_data [label = \"Point Pattern Data\",  fillcolor =  \" #0F9D58\", color = \"white\", fontcolor = \"white\"]\n  \n  \n \n # Análisis \n hotspots [label = \"Hotspots Analysis\",  fillcolor =  \"orange\", color = \"white\", fontcolor = \"black\"]\n cadenas [label = \"Cadenas de Transmisión\",  fillcolor =  \"orange\", color = \"white\", fontcolor = \"black\"]\n cluster_ana [label = \"Cluster Analysis\",  fillcolor =  \"orange\", color = \"white\", fontcolor = \"black\"]\n lgcp [label = \"Spatial LGCP\",  fillcolor =  \"orange\", color = \"white\", fontcolor = \"black\"]\n \n heatmap [label = \"Mapas de Calor\",  fillcolor =  \"orange\", color = \"white\", fontcolor = \"black\"]\n \n \n # software\n \n geoda [label = \"Geoda\",  fillcolor =  \"DodgerBlue\", color = \"white\", fontcolor = \"white\"]\n cluster_s [label = \"ClusterSeer\",  fillcolor =  \"DodgerBlue\", color = \"white\", fontcolor = \"white\"]\n satscan [label = \"SatScan\",  fillcolor =  \"DodgerBlue\", color = \"white\", fontcolor = \"white\"]\n \n r_rstudio [label = \"R & RStudio\",  fillcolor =  \"DodgerBlue\", color = \"white\", fontcolor = \"white\"]\n\n  denhotspot [label = \"denhotspots Package\",  fillcolor =  \"DodgerBlue\", color = \"white\", fontcolor = \"white\"] \n \n ##### define the relation\n \n epi -> {data_historic  data_datos_actuales}\n data_historic -> areal -> hotspots -> geoda\n data_datos_actuales -> {data_acumulados, data_trans_activa} -> pp_data -> {cadenas lgcp cluster_ana heatmap}\n cadenas -> cluster_s\n cluster_ana -> satscan\n \n {geoda cluster_s satscan lgcp} -> r_rstudio -> denhotspot\n \n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -432,8 +434,8 @@ Update: 2024-01-26
 </div><div class="column" style="width: 50%">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="htmlwidget-87d31cd977ec294fb25f" style="width:100%;height:550px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-87d31cd977ec294fb25f">{"x":{"diagram":"digraph {\n\n  # graph definitions\n  graph [layout = dot, rankdir = TB]\n  \n  # node definitions\n  node [shape = rectangle, style = filled, color = grey] \n  \n  # flowchart for hotspots\n  sinave [label = \"SINAVE\",  fillcolor = \"SeaGreen\", color = \"white\", fontcolor = \"white\"]\n  denv [label = \"Bases de DENV\",  fillcolor = \"SeaGreen\", color = \"white\", fontcolor = \"white\"]\n  geocode [label = \"Geocodificación\",  fillcolor = \"SeaGreen\", color = \"white\", fontcolor = \"white\"]\n  cases_ageb [label = \"Casos por AGEBs\"]\n  z_score [label = \"Z-score\"]\n  gi [label = \"Estadístico Espacial Local (Gi*)\"]\n  bonferroni [label = \"Corrección de Bonferroni\"]\n  hotspots [label = \"Hotspots\", style = filled, color = orange]\n  \n  # flow chart for inegi\n  inegi [label = \"INEGI\", fillcolor = \"DeepSkyBlue\", color = \"white\", fontcolor = \"black\"]\n  loc [label = \"Localidades Shapefile\", fillcolor = \"DeepSkyBlue\", color = \"white\", fontcolor = \"black\"]\n  ageb [label = \"AGEB Shapefile\", fillcolor = \"DeepSkyBlue\", color = \"white\", fontcolor = \"black\"]\n  loc_esp [label = \"Localidad de Ínteres\", fillcolor = \"DeepSkyBlue\", color = \"white\", fontcolor = \"black\"]\n  ageb_esp [label = \"AGEBs de la Localidad de Ínteres\", fillcolor = \"DeepSkyBlue\", color = \"white\", fontcolor = \"black\"]\n  mat [label = \"Matriz de Adjacencias\", fillcolor = \"DeepSkyBlue\", color = \"white\", fontcolor = \"black\"]\n  \n  # edge definitions with the node IDs\n  edge [color = black]\n  sinave -> denv -> geocode -> cases_ageb -> z_score -> gi -> bonferroni -> hotspots \n  inegi -> {ageb, loc}\n  loc -> loc_esp -> ageb_esp\n  ageb -> ageb_esp\n  ageb_esp -> mat\n  mat -> cases_ageb \n \n  }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-1a0956aadbf8cbdcc9d6" style="width:100%;height:550px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1a0956aadbf8cbdcc9d6">{"x":{"diagram":"digraph {\n\n  # graph definitions\n  graph [layout = dot, rankdir = TB]\n  \n  # node definitions\n  node [shape = rectangle, style = filled, color = grey] \n  \n  # flowchart for hotspots\n  sinave [label = \"SINAVE\",  fillcolor = \"SeaGreen\", color = \"white\", fontcolor = \"white\"]\n  denv [label = \"Bases de DENV\",  fillcolor = \"SeaGreen\", color = \"white\", fontcolor = \"white\"]\n  geocode [label = \"Geocodificación\",  fillcolor = \"SeaGreen\", color = \"white\", fontcolor = \"white\"]\n  cases_ageb [label = \"Casos por AGEBs\"]\n  z_score [label = \"Z-score\"]\n  gi [label = \"Estadístico Espacial Local (Gi*)\"]\n  bonferroni [label = \"Corrección de Bonferroni\"]\n  hotspots [label = \"Hotspots\", style = filled, color = orange]\n  \n  # flow chart for inegi\n  inegi [label = \"INEGI\", fillcolor = \"DeepSkyBlue\", color = \"white\", fontcolor = \"black\"]\n  loc [label = \"Localidades Shapefile\", fillcolor = \"DeepSkyBlue\", color = \"white\", fontcolor = \"black\"]\n  ageb [label = \"AGEB Shapefile\", fillcolor = \"DeepSkyBlue\", color = \"white\", fontcolor = \"black\"]\n  loc_esp [label = \"Localidad de Ínteres\", fillcolor = \"DeepSkyBlue\", color = \"white\", fontcolor = \"black\"]\n  ageb_esp [label = \"AGEBs de la Localidad de Ínteres\", fillcolor = \"DeepSkyBlue\", color = \"white\", fontcolor = \"black\"]\n  mat [label = \"Matriz de Adjacencias\", fillcolor = \"DeepSkyBlue\", color = \"white\", fontcolor = \"black\"]\n  \n  # edge definitions with the node IDs\n  edge [color = black]\n  sinave -> denv -> geocode -> cases_ageb -> z_score -> gi -> bonferroni -> hotspots \n  inegi -> {ageb, loc}\n  loc -> loc_esp -> ageb_esp\n  ageb -> ageb_esp\n  ageb_esp -> mat\n  mat -> cases_ageb \n \n  }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
@@ -450,14 +452,207 @@ Update: 2024-01-26
 {\color{#0074D9}\sum_{\color{#0074D   
 9}j \color{#0074D9}= \color{#0074D9}1}^{\color{#0074D9}n} \color{#0074D9}x_{\color{#0074D9}j}}\]</span></p>
 <p>donde:</p>
-<p><span class="math inline">\(\color{#FF4136}\sum_{\color{#FF4136}j \color{#FF4136}= \color{#FF4136}1}^\color{#FF4136}{n} \color{#FF4136}w_{\color{#FF4136}i\color{#FF4136}j}\color{#FF4136}x_{\color{#FF4136}j}\)</span> el numerador, es la suma de los valores <span class="math inline">\(x_{i}\)</span> de la unidad espacial de interes con sus vecinos <span class="math inline">\(x_{j}\)</span> &amp;</p>
-<p><span class="math inline">\(\frac{}{\color{#0074D9}\sum_{\color{#0074D9}j \color{#0074D9}= \color{#0074D9}1}^{\color{#0074D9}n} \color{#0074D9}x_{\color{#0074D9}j}}\)</span> el denominador, es la suma de todos los valores <span class="math inline">\(x\)</span> en toda la localidad de interes.</p>
+<p><span class="math inline">\(\color{#FF4136}\sum_{\color{#FF4136}j \color{#FF4136}= \color{#FF4136}1}^\color{#FF4136}{n} \color{#FF4136}w_{\color{#FF4136}i\color{#FF4136}j}\color{#FF4136}x_{\color{#FF4136}j}\)</span> el numerador, es la suma de los valores <span class="math inline">\(x_{i}\)</span> de la unidad espacial de interes con sus vecinos <span class="math inline">\(x_{j}\)</span> &amp; <span class="math inline">\(\frac{}{\color{#0074D9}\sum_{\color{#0074D9}j \color{#0074D9}= \color{#0074D9}1}^{\color{#0074D9}n} \color{#0074D9}x_{\color{#0074D9}j}}\)</span> el denominador, es la suma de todos los valores <span class="math inline">\(x\)</span> en toda la localidad de interes.</p>
 <p><strong>Hotspots</strong> son las áreas o las unidades espaciales con valores altos de <span class="math inline">\(\color{#2ECC40}G_{\color{#2ECC40}i}^{\color{#2ECC40}*}\)</span> y homogéneos de la unidad espaciales de interes <span class="math inline">\(x_{ij}\)</span>. En otras palabras el estadístico espacial, identifica las unidades espaciales <span class="math inline">\(x_{ij}\)</span> con valores altos comparados con el valor promedio de todas la unidades espaciales en la localidad de interes.</p>
 
 </div>
 <aside><div>
 <p><a href="https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1538-4632.1992.tb00261.x">Getis &amp; Ord 1992</a>; <a href="https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1538-4632.1995.tb00912.x">Ord &amp; Getis 1995</a></p>
 </div></aside></section>
+<section id="cálculo-del-estadístico-espacial-local-color2ecc40g_color2ecc40icolor2ecc40" class="slide level2">
+<h2><span class="r-fit-text" style="color:#003300;">Cálculo del estadístico Espacial Local <span class="math inline">\(\color{#2ECC40}G_{\color{#2ECC40}i}^{\color{#2ECC40}*}\)</span></span></h2>
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+<img data-src="index_files/figure-revealjs/unnamed-chunk-6-1.png" style="width:80.0%" class="r-stretch"></section>
+<section id="cálculo-del-estadístico-espacial-local-color2ecc40g_color2ecc40icolor2ecc40-1" class="slide level2">
+<h2><span class="r-fit-text" style="color:#003300;">Cálculo del estadístico Espacial Local <span class="math inline">\(\color{#2ECC40}G_{\color{#2ECC40}i}^{\color{#2ECC40}*}\)</span></span></h2>
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+<div class="columns">
+<div class="column" style="width: 40%; font-size: 80%">
+<p><span class="math display">\[\color{#2ECC40}G_{\color{#2ECC40}i}^{\color{#2ECC40}*} = \frac{\color{#FF4136}\sum_{\color{#FF4136}j \color{#FF4136}= \color{#FF4136}1}^\color{#FF4136}{n} \color{#FF4136}w_{\color{#FF4136}i\color{#FF4136}j}\color{#FF4136}x_{\color{#FF4136}j}}
+{\color{#0074D9}\sum_{\color{#0074D   
+9}j \color{#0074D9}= \color{#0074D9}1}^{\color{#0074D9}n} \color{#0074D9}x_{\color{#0074D9}j}}\]</span></p>
+<p>donde:</p>
+<p><span class="math inline">\(\color{#FF4136}\sum_{\color{#FF4136}j \color{#FF4136}= \color{#FF4136}1}^\color{#FF4136}{n} \color{#FF4136}w_{\color{#FF4136}i\color{#FF4136}j}\color{#FF4136}x_{\color{#FF4136}j}\)</span> el numerador, es la suma de los valores <span class="math inline">\(x_{i}\)</span> de la unidad espacial de interes con sus vecinos <span class="math inline">\(x_{j}\)</span> &amp; <span class="math inline">\(\frac{}{\color{#0074D9}\sum_{\color{#0074D9}j \color{#0074D9}= \color{#0074D9}1}^{\color{#0074D9}n} \color{#0074D9}x_{\color{#0074D9}j}}\)</span> el denominador, es la suma de los valores <span class="math inline">\(x\)</span> en toda la localidad de interes.</p>
+</div><div class="column" style="width: 60%; font-size: 80%">
+<p>Spatial Weight Matrix <span class="math inline">\(\color{#FF4136}w_{\color{#FF4136}i\color{#FF4136}j}\)</span></p>
+<div class="cell" data-layout-align="left">
+<div class="cell-output-display">
+<table class="table table-striped" data-quarto-postprocess="true" style="font-size: 20px; margin-left: auto; margin-right: auto;">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">248</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">249</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">250</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">251</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">252</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">253</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">254</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">255</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">248</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">249</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">250</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">251</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">252</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">253</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">254</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">255</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p>Casos por cada unidad espacial <span class="math inline">\(\color{#FF4136}x_{\color{#FF4136}i}\)</span></p>
+<div class="cell" data-layout-align="left">
+<div class="cell-output-display">
+<table class="table table-striped" data-quarto-postprocess="true" style="font-size: 20px; margin-left: auto; margin-right: auto;">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">248</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">249</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">250</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">251</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">252</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">253</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">254</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">255</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">casos</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">148</td>
+<td style="text-align: right;">37</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="cálculo-del-estadístico-espacial-local-color2ecc40g_color2ecc40icolor2ecc40-2" class="slide level2">
+<h2><span class="r-fit-text" style="color:#003300;">Cálculo del estadístico Espacial Local <span class="math inline">\(\color{#2ECC40}G_{\color{#2ECC40}i}^{\color{#2ECC40}*}\)</span></span></h2>
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+<div class="column" style="width: 100%; font-size: 75%">
+<p><span class="math display">\[\color{#2ECC40}{G_{248}^{*}}= \frac{\color{#FF4136}\sum_{\color{#FF4136}j \color{#FF4136}= \color{#FF4136}1}^\color{#FF4136}{n} \color{#FF4136}w_{\color{#FF4136}i\color{#FF4136}j}\color{#FF4136}x_{\color{#FF4136}j}}
+{\color{#0074D9}\sum_{\color{#0074D9}j \color{#0074D9}= \color{#0074D9}1}^{\color{#0074D9}n} \color{#0074D9}x_{\color{#0074D9}j}} = \frac{\color{#FF4136}{0 +1+ 1 + 0 + 0 +0 +0 +0 +0}}{\color{#0074D9}{17 + 1 + 1 + 5 + 148 +37 + 0 + 0}} = \frac{\color{#FF4136}{2}}{\color{#0074D9}{209}}= \color{#2ECC40}{0.009569378}\]</span></p>
+<p><span class="math display">\[ \color{#2ECC40}{G_{249}^{*}} = \frac{\color{#FF4136}\sum_{\color{#FF4136}j \color{#FF4136}= \color{#FF4136}1}^\color{#FF4136}{n} \color{#FF4136}w_{\color{#FF4136}i\color{#FF4136}j}\color{#FF4136}x_{\color{#FF4136}j}}
+{\color{#0074D9}\sum_{\color{#0074D9}j \color{#0074D9}= \color{#0074D9}1}^{\color{#0074D9}n} \color{#0074D9}x_{\color{#0074D9}j}} = \frac{\color{#FF4136}{17 + 0 + 1 + 5 +0+ 37 + 0+ 0}}{\color{#0074D9}{17 + 1 + 1 + 5 + 148 +37 + 0 + 0}} =  \frac{\color{#FF4136}{60}}{\color{#0074D9}{209}} =\color{#2ECC40}{0.2870813}\]</span></p>
+<p><span class="math display">\[\color{#2ECC40}{G_{250}^{*}} = \frac{\color{#FF4136}\sum_{\color{#FF4136}j \color{#FF4136}= \color{#FF4136}1}^\color{#FF4136}{n} \color{#FF4136}w_{\color{#FF4136}i\color{#FF4136}j}\color{#FF4136}x_{\color{#FF4136}j}}
+{\color{#0074D9}\sum_{\color{#0074D9}j \color{#0074D9}= \color{#0074D9}1}^{\color{#0074D9}n} \color{#0074D9}x_{\color{#0074D9}j}} = \frac{\color{#FF4136}{17 + 1 + 0 + 0 +0 + 0 + 0 + 0}}{\color{#0074D9}{17 + 1 + 1 + 5 + 148 +37 + 0 + 0}} =  \frac{\color{#FF4136}{18}}{\color{#0074D9}{209}} =\color{#2ECC40}{0.0861244}\]</span></p>
+<p><span class="math display">\[\color{#2ECC40}{G_{251}^{*}} = \frac{\color{#FF4136}\sum_{\color{#FF4136}j \color{#FF4136}= \color{#FF4136}1}^\color{#FF4136}{n} \color{#FF4136}w_{\color{#FF4136}i\color{#FF4136}j}\color{#FF4136}x_{\color{#FF4136}j}}
+{\color{#0074D9}\sum_{\color{#0074D9}j \color{#0074D9}= \color{#0074D9}1}^{\color{#0074D9}n} \color{#0074D9}x_{\color{#0074D9}j}} = \frac{\color{#FF4136}{0 + 1 +0 + 0 + 0 + 37 + 0 +0 }}{\color{#0074D9}{17 + 1 + 1 + 5 + 148 +37 + 0 + 0}} =  \frac{\color{#FF4136}{38}}{\color{#0074D9}{209}} =\color{#2ECC40}{0.1818182}\]</span></p>
+</div>
+</section>
+<section id="cálculo-del-estadístico-espacial-local-color2ecc40g_color2ecc40icolor2ecc40-3" class="slide level2">
+<h2><span class="r-fit-text" style="color:#003300;">Cálculo del estadístico Espacial Local <span class="math inline">\(\color{#2ECC40}G_{\color{#2ECC40}i}^{\color{#2ECC40}*}\)</span></span></h2>
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+<div class="column" style="width: 100%; font-size: 75%">
+<p><span class="math display">\[\color{#2ECC40}{G_{252}^{*}} = \frac{\color{#FF4136}\sum_{\color{#FF4136}j \color{#FF4136}= \color{#FF4136}1}^\color{#FF4136}{n} \color{#FF4136}w_{\color{#FF4136}i\color{#FF4136}j}\color{#FF4136}x_{\color{#FF4136}j}}
+{\color{#0074D9}\sum_{\color{#0074D9}j \color{#0074D9}= \color{#0074D9}1}^{\color{#0074D9}n} \color{#0074D9}x_{\color{#0074D9}j}} = \frac{\color{#FF4136}{0 + 0 + 0 + 0 + 0 + 37 + 0 + 0}}{\color{#0074D9}{17 + 1 + 1 + 5 + 148 +37 + 0 + 0}} =  \frac{\color{#FF4136}{37}}{\color{#0074D9}{209}} =\color{#2ECC40}{0.1770335}\]</span></p>
+<p><span class="math display">\[\color{#2ECC40}{G_{253}^{*}} = \frac{\color{#FF4136}\sum_{\color{#FF4136}j \color{#FF4136}= \color{#FF4136}1}^\color{#FF4136}{n} \color{#FF4136}w_{\color{#FF4136}i\color{#FF4136}j}\color{#FF4136}x_{\color{#FF4136}j}}
+{\color{#0074D9}\sum_{\color{#0074D9}j \color{#0074D9}= \color{#0074D9}1}^{\color{#0074D9}n} \color{#0074D9}x_{\color{#0074D9}j}} = \frac{\color{#FF4136}{0 + 1 + 0 + 5 + 148 + 0 + 0 + 0}}{\color{#0074D9}{17 + 1 + 1 + 5 + 148 +37 + 0 + 0}} =  \frac{\color{#FF4136}{154}}{\color{#0074D9}{209}} =\color{#2ECC40}{0.7368421}\]</span></p>
+<p><span class="math display">\[\color{#2ECC40}{G_{254}^{*}} = \frac{\color{#FF4136}\sum_{\color{#FF4136}j \color{#FF4136}= \color{#FF4136}1}^\color{#FF4136}{n} \color{#FF4136}w_{\color{#FF4136}i\color{#FF4136}j}\color{#FF4136}x_{\color{#FF4136}j}}
+{\color{#0074D9}\sum_{\color{#0074D9}j \color{#0074D9}= \color{#0074D9}1}^{\color{#0074D9}n} \color{#0074D9}x_{\color{#0074D9}j}} = \frac{\color{#FF4136}{0 + 1 + 1 + 148 + 0 + 37 + 0 + 0 }}{\color{#0074D9}{17 + 1 + 1 + 5 + 148 +37 + 0 + 0}} =  \frac{\color{#FF4136}{187}}{\color{#0074D9}{209}} =\color{#2ECC40}{0.8947368}\]</span></p>
+<p><span class="math display">\[\color{#2ECC40}{G_{255}^{*}} = \frac{\color{#FF4136}\sum_{\color{#FF4136}j \color{#FF4136}= \color{#FF4136}1}^\color{#FF4136}{n} \color{#FF4136}w_{\color{#FF4136}i\color{#FF4136}j}\color{#FF4136}x_{\color{#FF4136}j}}
+{\color{#0074D9}\sum_{\color{#0074D9}j \color{#0074D9}= \color{#0074D9}1}^{\color{#0074D9}n} \color{#0074D9}x_{\color{#0074D9}j}} = \frac{\color{#FF4136}{0 + 0 + 0 + 0 + 0 + 0 + 0 + 0}}{\color{#0074D9}{17 + 1 + 1 + 5 + 148 +37 + 0 + 0}} =  \frac{\color{#FF4136}{0}}{\color{#0074D9}{209}} =\color{#2ECC40}{0.0000000}\]</span></p>
+</div>
+</section>
 <section id="dios-botic" class="slide level2">
 <h2><span style="color:#003300;">Dios Botic</span></h2>
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
