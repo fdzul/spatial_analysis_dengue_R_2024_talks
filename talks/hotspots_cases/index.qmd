@@ -597,6 +597,41 @@ getis_ord_umbral(n = c(8), alpha = c(.95, .99))
 ::::
 
 
+## [Distribución de Casos por AGEB]{.r-fit-text style="color:#003300;"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+```{r, echo = FALSE}
+locality <- rgeomex::extract_locality(cve_edo = "12",
+                                      locality = "Acapulco de Juarez")
+
+denmex::den_hotspots[locality, ] |>
+    dplyr::select(c(dplyr::starts_with("DENV"))) |>
+    tidyr::pivot_longer(cols = dplyr::starts_with("DENV_")) |>
+    tidyr::separate(col = name,
+                    into = c(NA, "year")) |>
+    ggplot2::ggplot() +
+    ggplot2::geom_sf(ggplot2::aes(fill = value),
+                     color = "gray80") +
+    ggplot2::facet_wrap(facets = "year") +
+    fishualize::scale_fill_fish(discrete = FALSE,  
+                                option = "Hypsypops_rubicundus") +
+    cowplot::theme_map()
+```
+
+
+## [Casos por AGEB]{.r-fit-text style="color:#003300;"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+## [Cálculo del Estadístico Espacial Local $\color{#2ECC40}G_{\color{#2ECC40}i}^{\color{#2ECC40}*}$]{.r-fit-text style="color:#003300;"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+## [Hotspots e Intensidad]{.r-fit-text style="color:#003300;"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+## [Intensidad de la Transmisión de Dengue]{.r-fit-text style="color:#003300;"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+## [Intensidad de la Transmisión de Dengue]{.r-fit-text style="color:#003300;"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
 
 ## [Dios Botic]{style="color:#003300;"}
