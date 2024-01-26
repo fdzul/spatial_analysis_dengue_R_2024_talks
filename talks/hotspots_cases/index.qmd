@@ -697,7 +697,7 @@ hotspots |>
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
 ```{r}
-#| column: page
+#| column: screen
 mapview::mapviewOptions(default = TRUE,
                         basemaps.color.shuffle = FALSE)
 # Step 1. extract the locality ####
@@ -721,7 +721,7 @@ mapview::mapview(hotspots,
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
 ```{r}
-#| column: page
+#| column: screen
 mapview::mapviewOptions(default = TRUE,
                         basemaps.color.shuffle = FALSE)
 # Step 1. extract the locality ####
