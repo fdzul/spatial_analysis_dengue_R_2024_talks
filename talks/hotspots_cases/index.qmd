@@ -135,6 +135,70 @@ DiagrammeR::grViz("digraph {
 ## [Linea de Tiempo de la Vigilancia Epidemiológica & Entomológica]{style="color:#003300;" .r-fit-text}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
+```{r,dpi=300, echo=FALSE, fig.align ="center", out.height="100%", out.width = "100%", warning=FALSE, message=FALSE}
+library(timevis)
+a <- timevis::timevis(data = data.frame(start = c("2008-01-01", 
+                                                  "2011-01-01",
+                                                  "2017-01-01",
+                                                  "2017-01-01",
+                                                  "2008-01-01",
+                                                  "2021-01-01", 
+                                                  "2021-03-01"),
+                                        end = c(Sys.Date(), 
+                                                Sys.Date(), 
+                                                Sys.Date(),
+                                                Sys.Date() , 
+                                                Sys.Date(), 
+                                                Sys.Date(), 
+                                                Sys.Date()),
+                          content = c("Vigilancia Epidemiológica Pasiva", 
+                                      "Vigilancia Entomológica con Ovitrampas", 
+                                      "Vigilancia Entomológica con Adultos",
+                                      "Entomovirología",
+                                      "Hotspots Históricos",
+                                      "Actuales (clusters de casos y cadenas de transmisión)",
+                                      "Transmisión Activa (Identificación de cadenas de transmisión: knox test)"),
+                          #type = c("background"),
+                          style = c("text-align: center; font-weight: bold; color: white; font-size: 12px; border-color: #DB4437; border: 2px solid white; background-color: #DB4437;",
+                                    "text-align: center; font-weight: bold; color: white; font-size: 12px; border-color: #4285F4; border: 2px solid white; background-color: #4285F4;",
+                                    "text-align: center; font-weight: bold; color: white; font-size: 12px; border-color: #4285F4; border: 2px solid white; background-color: #4285F4;", 
+                                    "text-align: center; font-weight: bold; color: white; font-size: 12px; border-color: #0F9D58; border: 2px solid white; background-color: #0F9D58;",
+                                    "text-align: center; font-weight: bold; color: white; font-size: 12px; border-color: #F4B400; border: 2px solid white; background-color: #F4B400;", 
+                                    "text-align: left; font-weight: bold; color: white; font-size: 12px; border-color: #F4B400; border: 2px solid white; background-color: #F4B400;", 
+                                    "text-align: righ; font-weight: bold; color: white; font-size: 12px; border-color: #F4B400; border: 2px solid white; background-color: #F4B400;"),
+                          group = c(1, 2, 2,3, 4, 4,4)),
+        groups = data.frame(id = 1:4, 
+                            content = c("Paciente", 
+                                        "Vector",
+                                        "Virus-Vector",
+                                        "Análisis espacial"),
+                            style = c("text-align: center; font-weight: bold; color: white; font-size: 15px; border-color: #DB4437; border: 2px solid white; background-color: #DB4437;",
+                                      "text-align: center; font-weight: bold; color: white; font-size: 15px; border-color: #4285F4; border: 2px solid white; background-color: #4285F4;",
+                                      "text-align: center; font-weight: bold; color: white; font-size: 15px; border-color: #0F9D58; border: 2px solid white; background-color: #0F9D58;",
+                                      "vertical-align: middle; text-align: center; font-weight: bold; color: white; font-size: 20px; border-color: #F4B400; border: 2px solid white; background-color: #F4B400;")))
+
+a
+
+
+style <- "
+.vis-time-axis { 
+background-color: lightgray;
+backgroud-border: 3px solid #73AD21;
+backgroun-opacity; 0.1;
+font-weight: bold;
+text-align: center;
+vertical-align: middle;
+border: 1.5px solid #73AD21;
+font-size: 15px;}
+.vis-odd {
+color: blue;
+vertical-align: middle;
+  }
+
+"
+htmltools::html_print(htmltools::tagList(htmltools::tags$style(style), a))
+
+```
 
 ## [Fllujograma del Análisis Espacial de la Transmisión del Dengue]{.r-fit-text style="color:#003300;"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
@@ -629,4 +693,4 @@ mapview::mapview(hotspots,
 
 -   ***celular*** : [9999580167]()
 
--   ***slides***: [https://calm-hummingbird-41cb33.netlify.app/talks/spatial_analysis_dengue/#/](https://calm-hummingbird-41cb33.netlify.app/talks/hotspots_cases/#/)
+-   ***slides***: [https://calm-hummingbird-41cb33.netlify.app/talks/hotspots/#/](https://calm-hummingbird-41cb33.netlify.app/talks/hotspots_cases/#/)
