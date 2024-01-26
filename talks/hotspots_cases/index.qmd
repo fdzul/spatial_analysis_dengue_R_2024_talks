@@ -618,20 +618,105 @@ denmex::den_hotspots[locality, ] |>
 ```
 
 
-## [Casos por AGEB]{.r-fit-text style="color:#003300;"}
+## [Casos por AGEB]{style="color:#003300;"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r, echo=FALSE, warning = FALSE,message = FALSE, fig.align ="center"}
+locality <- rgeomex::extract_locality(cve_edo = "12",
+                                      locality = "Acapulco de Juarez")
+
+z <- denmex::den_hotspots[locality, ] |>
+    sf::st_drop_geometry() |>
+    dplyr::select(c(dplyr::starts_with("DENV")))
+
+names(z) <- unlist(stringr::str_extract_all(names(z),
+                                            pattern = "[[:digit:]]{4}"))
+
+z |>
+    #head(n = 30) |>
+    kableExtra::kable() |>
+     kableExtra::kable_styling(bootstrap_options = "striped", 
+                              full_width = T, 
+                              font_size = 20) |>
+    kableExtra::scroll_box(width = "100%", 
+                           height = "550px")
+
+```
+
 
 ## [Cálculo del Estadístico Espacial Local $\color{#2ECC40}G_{\color{#2ECC40}i}^{\color{#2ECC40}*}$]{.r-fit-text style="color:#003300;"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
-## [Hotspots e Intensidad]{.r-fit-text style="color:#003300;"}
+```{r,  echo=FALSE, warning = FALSE,message = FALSE, fig.align ="center"}
+
+load("/Users/fdzul/Dropbox/r_developments/r_talks/test_dengue_spatial_analysis/RData/acapulco_getis.RData")
+
+# Getis ####
+getis <- hotspots |>
+    dplyr::select(dplyr::starts_with("getis_"))
+names(getis) <- unlist(stringr::str_extract_all(names(getis),
+                                             pattern = "[[:digit:]]{4}"))
+
+getis |>
+    kableExtra::kable(digits = 3) |>
+    #kableExtra::kable_classic() |>
+    kableExtra::kable_styling(bootstrap_options = "striped", 
+                              full_width = T, 
+                              font_size = 20) |>
+    kableExtra::scroll_box(width = "100%", 
+                           height = "550px")
+    
+
+```
+
+## [Hotspots e Intensidad]{ style="color:#003300;"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r}
+load("/Users/fdzul/Dropbox/r_developments/r_talks/test_dengue_spatial_analysis/RData/acapulco_getis.RData")
+hotspots <- hotspots |>
+    dplyr::select(dplyr::starts_with("hotspots"))
+
+names(hotspots) <- unlist(stringr::str_extract_all(names(hotspots),
+                          pattern = "[[:digit:]]{4}"))
+    
+hotspots |>
+    dplyr::mutate(Intensidad = rowSums(hotspots)) |>
+    dplyr::filter(!is.na(Intensidad)) |>
+    dplyr::arrange(dplyr::desc(Intensidad)) |>
+kableExtra::kable() |>
+    kableExtra::kable_styling(bootstrap_options = "striped", 
+                              full_width = T, 
+                              font_size = 20) |>
+     kableExtra::scroll_box(width = "100%", 
+                            height = "550px" )
+```
 
 ## [Intensidad de la Transmisión de Dengue]{.r-fit-text style="color:#003300;"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
+```{r}
+# Step 1. extract the locality ####
+loc <- rgeomex::extract_locality(cve_edo = "31", 
+                                 locality = "Merida")
+
+# Step 2. Extract the hotspots ####
+hotspots <- denmex::den_hotspots[loc, ]
+mapview::mapview(hotspots,
+                 zcol = "intensity_gi",
+                 layer.name = "Intensidad",
+                 label = FALSE,
+                 color = "white",
+                 lwd = 0.5, 
+                 col.regions =  rcartocolor::carto_pal(n = max(hotspots$intensity_gi), 
+                                                       name = "OrYel"))
+
+```
+
+
 ## [Intensidad de la Transmisión de Dengue]{.r-fit-text style="color:#003300;"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
 
 
 ## [Dios Botic]{style="color:#003300;"}
