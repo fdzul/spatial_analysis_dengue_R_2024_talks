@@ -658,8 +658,8 @@ names(getis) <- unlist(stringr::str_extract_all(names(getis),
                                              pattern = "[[:digit:]]{4}"))
 
 getis |>
-    kableExtra::kable(digits = 3) |>
-    #kableExtra::kable_classic() |>
+    round(digits = 3) |>
+    knitr::kable() |>
     kableExtra::kable_styling(bootstrap_options = "striped", 
                               full_width = T, 
                               font_size = 20) |>
@@ -673,6 +673,7 @@ getis |>
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
 ```{r}
+
 load("/Users/fdzul/Dropbox/r_developments/r_talks/test_dengue_spatial_analysis/RData/acapulco_getis.RData")
 hotspots <- hotspots |>
     dplyr::select(dplyr::starts_with("hotspots"))
@@ -684,7 +685,7 @@ hotspots |>
     dplyr::mutate(Intensidad = rowSums(hotspots)) |>
     dplyr::filter(!is.na(Intensidad)) |>
     dplyr::arrange(dplyr::desc(Intensidad)) |>
-kableExtra::kable() |>
+    kableExtra::kable() |>
     kableExtra::kable_styling(bootstrap_options = "striped", 
                               full_width = T, 
                               font_size = 20) |>
@@ -696,9 +697,12 @@ kableExtra::kable() |>
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
 ```{r}
+#| column: page
+mapview::mapviewOptions(default = TRUE,
+                        basemaps.color.shuffle = FALSE)
 # Step 1. extract the locality ####
-loc <- rgeomex::extract_locality(cve_edo = "31", 
-                                 locality = "Merida")
+loc <- rgeomex::extract_locality(cve_edo = "12", 
+                                 locality = "Acapulco de Juarez")
 
 # Step 2. Extract the hotspots ####
 hotspots <- denmex::den_hotspots[loc, ]
@@ -713,9 +717,32 @@ mapview::mapview(hotspots,
 
 ```
 
-
 ## [Intensidad de la Transmisión de Dengue]{.r-fit-text style="color:#003300;"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r}
+#| column: page
+mapview::mapviewOptions(default = TRUE,
+                        basemaps.color.shuffle = FALSE)
+# Step 1. extract the locality ####
+loc <- rgeomex::extract_locality(cve_edo = "14", 
+                                 locality = c("Guadalajara",
+                                              "Zapopan",
+                                              "Tlaquepaque",
+                                              "Tonala"))
+
+# Step 2. Extract the hotspots ####
+hotspots <- denmex::den_hotspots[loc, ]
+mapview::mapview(hotspots,
+                 zcol = "intensity_gi",
+                 layer.name = "Intensidad",
+                 label = FALSE,
+                 color = "white",
+                 lwd = 0.5, 
+                 col.regions =  rcartocolor::carto_pal(n = max(hotspots$intensity_gi), 
+                                                       name = "OrYel"))
+
+```
 
 
 
