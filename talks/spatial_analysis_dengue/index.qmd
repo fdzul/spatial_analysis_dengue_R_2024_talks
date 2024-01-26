@@ -100,18 +100,22 @@ DiagrammeR::grViz("digraph {
   cp [label = 'Control de Probables',  fillcolor = 'DarkOrange', color = 'white', fontcolor = 'black']
   node [shape = circle, style = filled, color = grey] 
   
-  cadenas [label = 'Cadenas de Transmisión',  fillcolor = '#DB4437', color = 'white', fontcolor = 'black']
+  
   node [shape = circle, style = filled, color = grey] 
   
-  heatmap [label = 'Mapas de Calor',  fillcolor = '#DB4437', color = 'white', fontcolor = 'black']
+  
+  hotspots [label = 'Hotspots',  fillcolor = '#DB4437', color = 'white', fontcolor = 'white']
+  cadenas [label = 'Cadenas de Transmisión',  fillcolor = '#DB4437', color = 'white', fontcolor = 'white']
+  
+  heatmap [label = 'Mapas de Calor',  fillcolor = '#DB4437', color = 'white', fontcolor = 'white']
   node [shape = circle, style = filled, color = grey] 
   
   
   #### entomology
   ent [label = 'Vigilancia Entomológica',  fillcolor = '#0F9D58', color = 'white', fontcolor = 'white']
-  ovitraps [label = 'Ovitrampas',  fillcolor = 'DarkOrange', color = 'white', fontcolor = 'black']
-  adult [label = 'Colecta de Adultos*',  fillcolor = 'DarkOrange', color = 'white', fontcolor = 'black']
-  enc_ver [label = 'Encuesta Verificación',  fillcolor = 'DarkOrange', color = 'white', fontcolor = 'black']
+  ovitraps [label = 'Ovitrampas',  fillcolor = 'DarkOrange', color = 'white', fontcolor = 'white']
+  adult [label = 'Colecta de Adultos*',  fillcolor = 'DarkOrange', color = 'white', fontcolor = 'white']
+  enc_ver [label = 'Encuesta Verificación',  fillcolor = 'DarkOrange', color = 'white', fontcolor = 'white']
   
   
   plat [label = 'Plataforma',  fillcolor = 'DarkOrange', color = 'white', fontcolor = 'black']
@@ -127,6 +131,7 @@ DiagrammeR::grViz("digraph {
   
   epi -> {brote[arrowhead = crow, arrowtail = box, color = 'Maroon']
   cp[arrowhead = crow, arrowtail = box, color = 'Maroon']
+  hotspots[arrowhead = crow, arrowtail = box, color = 'Maroon']
   cadenas[arrowhead = crow, arrowtail = box, color = 'Maroon']
   heatmap[arrowhead = crow, arrowtail = box, color = 'Maroon']
   
@@ -144,7 +149,6 @@ DiagrammeR::grViz("digraph {
   height = 550)
 
 ```
-
 
 ## [Análisis Espacial de la Transmisión del Dengue]{.r-fit-text style="color:#003300;"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">

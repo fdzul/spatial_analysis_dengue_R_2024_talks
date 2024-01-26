@@ -115,70 +115,81 @@ DiagrammeR::grViz("digraph {
 ## [Linea de Tiempo de la Vigilancia Epidemiológica & Entomológica]{style="color:#003300;" .r-fit-text}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
-```{r,dpi=300, echo=FALSE, fig.align ="center", out.height="100%", out.width = "100%", warning=FALSE, message=FALSE}
-library(timevis)
-a <- timevis::timevis(data = data.frame(start = c("2008-01-01", 
-                                                  "2011-01-01",
-                                                  "2017-01-01",
-                                                  "2017-01-01",
-                                                  "2008-01-01",
-                                                  "2021-01-01", 
-                                                  "2021-03-01"),
-                                        end = c(Sys.Date(), 
-                                                Sys.Date(), 
-                                                Sys.Date(),
-                                                Sys.Date() , 
-                                                Sys.Date(), 
-                                                Sys.Date(), 
-                                                Sys.Date()),
-                          content = c("Vigilancia Epidemiológica Pasiva", 
-                                      "Vigilancia Entomológica con Ovitrampas", 
-                                      "Vigilancia Entomológica con Adultos",
-                                      "Entomovirología",
-                                      "Hotspots Históricos",
-                                      "Actuales (clusters de casos y cadenas de transmisión)",
-                                      "Transmisión Activa (Identificación de cadenas de transmisión: knox test)"),
-                          #type = c("background"),
-                          style = c("text-align: center; font-weight: bold; color: white; font-size: 12px; border-color: #DB4437; border: 2px solid white; background-color: #DB4437;",
-                                    "text-align: center; font-weight: bold; color: white; font-size: 12px; border-color: #4285F4; border: 2px solid white; background-color: #4285F4;",
-                                    "text-align: center; font-weight: bold; color: white; font-size: 12px; border-color: #4285F4; border: 2px solid white; background-color: #4285F4;", 
-                                    "text-align: center; font-weight: bold; color: white; font-size: 12px; border-color: #0F9D58; border: 2px solid white; background-color: #0F9D58;",
-                                    "text-align: center; font-weight: bold; color: white; font-size: 12px; border-color: #F4B400; border: 2px solid white; background-color: #F4B400;", 
-                                    "text-align: left; font-weight: bold; color: white; font-size: 12px; border-color: #F4B400; border: 2px solid white; background-color: #F4B400;", 
-                                    "text-align: righ; font-weight: bold; color: white; font-size: 12px; border-color: #F4B400; border: 2px solid white; background-color: #F4B400;"),
-                          group = c(1, 2, 2,3, 4, 4,4)),
-        groups = data.frame(id = 1:4, 
-                            content = c("Paciente", 
-                                        "Vector",
-                                        "Virus-Vector",
-                                        "Análisis espacial"),
-                            style = c("text-align: center; font-weight: bold; color: white; font-size: 15px; border-color: #DB4437; border: 2px solid white; background-color: #DB4437;",
-                                      "text-align: center; font-weight: bold; color: white; font-size: 15px; border-color: #4285F4; border: 2px solid white; background-color: #4285F4;",
-                                      "text-align: center; font-weight: bold; color: white; font-size: 15px; border-color: #0F9D58; border: 2px solid white; background-color: #0F9D58;",
-                                      "vertical-align: middle; text-align: center; font-weight: bold; color: white; font-size: 20px; border-color: #F4B400; border: 2px solid white; background-color: #F4B400;")))
+```{r, dpi=300,echo=FALSE, fig.align ="center", out.height="100%",out.width = "100%"}
+DiagrammeR::grViz("digraph {
 
-a
+  # graph definitions
+  graph [layout = dot, rankdir = TB]
+  
+  # node definitions
+  node [shape = circle, style = filled, color = grey,
+  fixedsize = true, width = 2] 
+  edge [color = grey, arrowhead = normal, arrowtail = dot]
+  
+  
+  ###########
+  prog_den [label = 'Programa de Dengue',  fillcolor =  'DodgerBlue', color = 'white', fontcolor = 'white']
+  
+  # epidemiology
+  epi [label = 'Vigilancia Epidemiológica',  fillcolor = '#0F9D58', color = 'white', fontcolor = 'white']
+  
+  brote [label = 'Brote',  fillcolor = 'DarkOrange', color = 'white', fontcolor = 'black']
+  cp [label = 'Control de Probables',  fillcolor = 'DarkOrange', color = 'white', fontcolor = 'black']
+  node [shape = circle, style = filled, color = grey] 
+  
+  
+  node [shape = circle, style = filled, color = grey] 
+  
+  
+  hotspots [label = 'Hotspots',  fillcolor = '#DB4437', color = 'white', fontcolor = 'white']
+  cadenas [label = 'Cadenas de Transmisión',  fillcolor = '#DB4437', color = 'white', fontcolor = 'white']
+  
+  heatmap [label = 'Mapas de Calor',  fillcolor = '#DB4437', color = 'white', fontcolor = 'white']
+  node [shape = circle, style = filled, color = grey] 
+  
+  
+  #### entomology
+  ent [label = 'Vigilancia Entomológica',  fillcolor = '#0F9D58', color = 'white', fontcolor = 'white']
+  ovitraps [label = 'Ovitrampas',  fillcolor = 'DarkOrange', color = 'white', fontcolor = 'white']
+  adult [label = 'Colecta de Adultos*',  fillcolor = 'DarkOrange', color = 'white', fontcolor = 'white']
+  enc_ver [label = 'Encuesta Verificación',  fillcolor = 'DarkOrange', color = 'white', fontcolor = 'white']
+  
+  
+  plat [label = 'Plataforma',  fillcolor = 'DarkOrange', color = 'white', fontcolor = 'black']
+  
+  #########
+ 
+  ###
+  ind [label = 'Indicadores',  fillcolor = 'SeaGreen', color = 'white', fontcolor = 'white']
+  
+  ###################
+  prog_den -> {epi, ent}[penwidth = 4]
+  
+  
+  epi -> {brote[arrowhead = crow, arrowtail = box, color = 'Maroon']
+  cp[arrowhead = crow, arrowtail = box, color = 'Maroon']
+  hotspots[arrowhead = crow, arrowtail = box, color = 'Maroon']
+  cadenas[arrowhead = crow, arrowtail = box, color = 'Maroon']
+  heatmap[arrowhead = crow, arrowtail = box, color = 'Maroon']
+  
+  
+  } -> plat[penwidth = 4]
+  epi -> {}[penwidth = 4]
+  ent -> {adult, ovitraps, enc_ver} -> plat[penwidth = 4]  
+  plat -> ind[penwidth = 4]
+ 
 
-
-style <- "
-.vis-time-axis { 
-background-color: lightgray;
-backgroud-border: 3px solid #73AD21;
-backgroun-opacity; 0.1;
-font-weight: bold;
-text-align: center;
-vertical-align: middle;
-border: 1.5px solid #73AD21;
-font-size: 15px;}
-.vis-odd {
-color: blue;
-vertical-align: middle;
-  }
-
-"
-htmltools::html_print(htmltools::tagList(htmltools::tags$style(style), a))
+ 
+ 
+ 
+  }", 
+  height = 550)
 
 ```
+
+## [Linea de Tiempo de la Vigilancia Epidemiológica & Entomológica]{style="color:#003300;" .r-fit-text}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
 
 ## [Dios Botic]{style="color:#003300;"}
 
