@@ -65,13 +65,13 @@ DiagrammeR::grViz("digraph {
   
   ###########
   prog_den [label = 'Programa de Dengue',  fillcolor =  'DodgerBlue', color = 'white', fontcolor = 'white']
-  brote [label = 'Brote',  fillcolor = 'DarkOrange', color = 'white', fontcolor = 'black']
-  cp [label = 'Control de Probables',  fillcolor = 'DarkOrange', color = 'white', fontcolor = 'black']
+  brote [label = 'Brote',  fillcolor = 'DarkOrange', color = 'white', fontcolor = 'white']
+  cp [label = 'Control de Probables',  fillcolor = 'DarkOrange', color = 'white', fontcolor = 'white']
   node [shape = circle, style = filled, color = grey] 
-  ovitraps [label = 'Ovitrampas',  fillcolor = 'DarkOrange', color = 'white', fontcolor = 'black']
-  adult [label = 'Colecta de Adultos',  fillcolor = 'DarkOrange', color = 'white', fontcolor = 'black']
+  ovitraps [label = 'Ovitrampas',  fillcolor = 'DarkOrange', color = 'white', fontcolor = 'white']
+  adult [label = 'Colecta de Adultos',  fillcolor = 'DarkOrange', color = 'white', fontcolor = 'white']
   enc_ver [label = 'Encuesta Verificación',  fillcolor = 'DarkOrange', color = 'white', fontcolor = 'white']
-  plat [label = 'Plataforma',  fillcolor = 'DarkOrange', color = 'white', fontcolor = 'black']
+  plat [label = 'Plataforma',  fillcolor = 'DarkOrange', color = 'white', fontcolor = 'white']
     hotspots [label = 'Hotspots',  fillcolor = '#E01A59', color = 'white', fontcolor = 'white']
   
   
@@ -81,7 +81,7 @@ DiagrammeR::grViz("digraph {
   ###
   trans_per [label = 'Transmisión Persistente',  fillcolor = '#E01A59', color = 'white', fontcolor = 'white']
   
-  act [label = 'Transmision Activa',  fillcolor = 'DarkOrange', color = 'white', fontcolor = 'black']
+  act [label = 'Transmision Activa',  fillcolor = 'DarkOrange', color = 'white', fontcolor = 'white']
  
   epi [label = 'Vigilancia Epidemiológica',  fillcolor = '#0F9D58', color = 'white', fontcolor = 'white']
   ent [label = 'Vigilancia Entomológica',  fillcolor = '#0F9D58', color = 'white', fontcolor = 'white']
