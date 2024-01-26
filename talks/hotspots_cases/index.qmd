@@ -52,8 +52,8 @@ format:
 - Línea de Tiempo de la Vigilancia Epidemiológica & Entomológica
 - Flujograma del Análisis Espacial del Dengue en R
 - Algoritmo de los Hotspots de la Transmisión del Dengue
-- Estadísdico Espacial Local G.
-- Calculo del Estadísdico Espacial Local G
+- Estadísdico Espacial Local $\color{#2ECC40}G_{\color{#2ECC40}i}^{\color{#2ECC40}*}$.
+- Calculo del Estadísdico Espacial Local $\color{#2ECC40}G_{\color{#2ECC40}i}^{\color{#2ECC40}*}$
 
 ## [Ciclo del Vida del Programa del Dengue]{style="color:#003300;" .r-fit-text}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
@@ -189,6 +189,244 @@ DiagrammeR::grViz("digraph {
 
 ## [Linea de Tiempo de la Vigilancia Epidemiológica & Entomológica]{style="color:#003300;" .r-fit-text}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r, dpi=300,echo=FALSE, fig.align ="center", out.height="100%",out.width = "100%"}
+DiagrammeR::grViz("digraph {
+
+  # graph definitions
+  graph [layout = dot, rankdir = TB]
+  
+  # node definitions
+  node [shape = circle, style = filled, color = grey,
+  fixedsize = true, width = 2] 
+  edge [color = grey, arrowhead = normal, arrowtail = dot]
+  
+  
+  ###########
+  prog_den [label = 'Programa de Dengue',  fillcolor =  'DodgerBlue', color = 'white', fontcolor = 'white']
+  
+  # epidemiology
+  epi [label = 'Vigilancia Epidemiológica',  fillcolor = '#0F9D58', color = 'white', fontcolor = 'white']
+  
+  brote [label = 'Brote',  fillcolor = 'DarkOrange', color = 'white', fontcolor = 'black']
+  cp [label = 'Control de Probables',  fillcolor = 'DarkOrange', color = 'white', fontcolor = 'black']
+  node [shape = circle, style = filled, color = grey] 
+  
+  
+  node [shape = circle, style = filled, color = grey] 
+  
+  
+  hotspots [label = 'Hotspots',  fillcolor = '#DB4437', color = 'white', fontcolor = 'white']
+  cadenas [label = 'Cadenas de Transmisión',  fillcolor = '#DB4437', color = 'white', fontcolor = 'white']
+  
+  heatmap [label = 'Mapas de Calor',  fillcolor = '#DB4437', color = 'white', fontcolor = 'white']
+  node [shape = circle, style = filled, color = grey] 
+  
+  
+  #### entomology
+  ent [label = 'Vigilancia Entomológica',  fillcolor = '#0F9D58', color = 'white', fontcolor = 'white']
+  ovitraps [label = 'Ovitrampas',  fillcolor = 'DarkOrange', color = 'white', fontcolor = 'white']
+  adult [label = 'Colecta de Adultos*',  fillcolor = 'DarkOrange', color = 'white', fontcolor = 'white']
+  enc_ver [label = 'Encuesta Verificación',  fillcolor = 'DarkOrange', color = 'white', fontcolor = 'white']
+  
+  
+  plat [label = 'Plataforma',  fillcolor = 'DarkOrange', color = 'white', fontcolor = 'black']
+  
+  #########
+ 
+  ###
+  ind [label = 'Indicadores',  fillcolor = 'SeaGreen', color = 'white', fontcolor = 'white']
+  
+  ###################
+  prog_den -> {epi, ent}[penwidth = 4]
+  
+  
+  epi -> {brote[arrowhead = crow, arrowtail = box, color = 'Maroon']
+  cp[arrowhead = crow, arrowtail = box, color = 'Maroon']
+  hotspots[arrowhead = crow, arrowtail = box, color = 'Maroon']
+  cadenas[arrowhead = crow, arrowtail = box, color = 'Maroon']
+  heatmap[arrowhead = crow, arrowtail = box, color = 'Maroon']
+  
+  
+  } -> plat[penwidth = 4]
+  epi -> {}[penwidth = 4]
+  ent -> {adult, ovitraps, enc_ver} -> plat[penwidth = 4]  
+  plat -> ind[penwidth = 4]
+ 
+
+ 
+ 
+ 
+  }", 
+  height = 550)
+
+```
+
+## [Fllujograma del Análisis Espacial de la Transmisión del Dengue]{.r-fit-text style="color:#003300;"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r, echo=FALSE, out.width='100%', fig.align='center'}
+DiagrammeR::grViz("digraph {
+                  # graph definitions
+  graph [layout = dot, rankdir = TB]
+  
+  # node definitions
+  node [shape = rectangle, 
+  style = filled, 
+  color = grey, 
+  nodesep = .5,
+  fixedsize = true, 
+  width = 2.5] 
+  
+  # edge definition
+  edge [color = grey, arrowhead = normal, arrowtail = dot]
+  
+  ##### epidemiological data
+  
+  epi [label = 'Vigilancia Epidemiológica',  fillcolor =  '#DB4437', color = 'white', fontcolor = 'white']
+  data_historic [label = 'Datos Históricos',  fillcolor =  'gray', color = 'white', fontcolor = 'white']
+  data_datos_actuales [label = 'Datos Actuales',  fillcolor =  'gray', color = 'white', fontcolor = 'white']
+  data_acumulados [label = 'Datos Acumulados',  fillcolor =  'gray', color = 'white', fontcolor = 'white']
+  data_trans_activa [label = 'Transmisión Activa',  fillcolor =  'gray', color = 'white', fontcolor = 'white']
+  
+  
+  ##### Spatial Data
+  
+  areal [label = 'Areal Data',  fillcolor =  '#0F9D58', color = 'white', fontcolor = 'white']
+  pp_data [label = 'Point Pattern Data',  fillcolor =  ' #0F9D58', color = 'white', fontcolor = 'white']
+  
+  
+ 
+ # Análisis 
+ hotspots [label = 'Hotspots Analysis',  fillcolor =  'orange', color = 'white', fontcolor = 'black']
+ cadenas [label = 'Cadenas de Transmisión',  fillcolor =  'orange', color = 'white', fontcolor = 'black']
+ cluster_ana [label = 'Cluster Analysis',  fillcolor =  'orange', color = 'white', fontcolor = 'black']
+ lgcp [label = 'Spatial LGCP',  fillcolor =  'orange', color = 'white', fontcolor = 'black']
+ 
+ heatmap [label = 'Mapas de Calor',  fillcolor =  'orange', color = 'white', fontcolor = 'black']
+ 
+ 
+ # software
+ 
+ geoda [label = 'Geoda',  fillcolor =  'DodgerBlue', color = 'white', fontcolor = 'white']
+ cluster_s [label = 'ClusterSeer',  fillcolor =  'DodgerBlue', color = 'white', fontcolor = 'white']
+ satscan [label = 'SatScan',  fillcolor =  'DodgerBlue', color = 'white', fontcolor = 'white']
+ 
+ r_rstudio [label = 'R & RStudio',  fillcolor =  'DodgerBlue', color = 'white', fontcolor = 'white']
+
+  denhotspot [label = 'denhotspots Package',  fillcolor =  'DodgerBlue', color = 'white', fontcolor = 'white'] 
+ 
+ ##### define the relation
+ 
+ epi -> {data_historic  data_datos_actuales}
+ data_historic -> areal -> hotspots -> geoda
+ data_datos_actuales -> {data_acumulados, data_trans_activa} -> pp_data -> {cadenas lgcp cluster_ana heatmap}
+ cadenas -> cluster_s
+ cluster_ana -> satscan
+ 
+ {geoda cluster_s satscan lgcp} -> r_rstudio -> denhotspot
+ 
+}")
+
+```
+
+## [Hotspots de la Transmisión del Dengue]{.r-fit-text style="color:#003300;"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+:::: {.columns}
+
+::: {.column style="width: 50%; font-size: 60%"}
+1. Bajar las bases de datos del [SINAVE](https://www.sinave.gob.mx/).
+2. Geocodificar las bases.
+3. Bajar los shapefile del [INEGI](https://www.inegi.org.mx/).
+4. Seleccionar la localidad de interes y extraer los AGEBs.
+5. Contar el número de casos por AGEB.
+6. Cálcular el Z-score de los casos.
+7. Generar la matriz de adjacencias.
+8. Cálcular el estadístico espacial local Getis&Ord $\color{#2ECC40}G_{\color{#2ECC40}i}^{\color{#2ECC40}*}$.
+9. Realizar la la corrección de Bonferroni.
+10. Cálcular los hotspots.
+11. Visualizar los hotspots.
+:::
+
+::: {.column style="width: 50%"}
+
+```{r, dpi=300,echo=FALSE, fig.align ="center", out.width = "100%"}
+DiagrammeR::grViz("digraph {
+
+  # graph definitions
+  graph [layout = dot, rankdir = TB]
+  
+  # node definitions
+  node [shape = rectangle, style = filled, color = grey] 
+  
+  # flowchart for hotspots
+  sinave [label = 'SINAVE',  fillcolor = 'SeaGreen', color = 'white', fontcolor = 'white']
+  denv [label = 'Bases de DENV',  fillcolor = 'SeaGreen', color = 'white', fontcolor = 'white']
+  geocode [label = 'Geocodificación',  fillcolor = 'SeaGreen', color = 'white', fontcolor = 'white']
+  cases_ageb [label = 'Casos por AGEBs']
+  z_score [label = 'Z-score']
+  gi [label = 'Estadístico Espacial Local (Gi*)']
+  bonferroni [label = 'Corrección de Bonferroni']
+  hotspots [label = 'Hotspots', style = filled, color = orange]
+  
+  # flow chart for inegi
+  inegi [label = 'INEGI', fillcolor = 'DeepSkyBlue', color = 'white', fontcolor = 'black']
+  loc [label = 'Localidades Shapefile', fillcolor = 'DeepSkyBlue', color = 'white', fontcolor = 'black']
+  ageb [label = 'AGEB Shapefile', fillcolor = 'DeepSkyBlue', color = 'white', fontcolor = 'black']
+  loc_esp [label = 'Localidad de Ínteres', fillcolor = 'DeepSkyBlue', color = 'white', fontcolor = 'black']
+  ageb_esp [label = 'AGEBs de la Localidad de Ínteres', fillcolor = 'DeepSkyBlue', color = 'white', fontcolor = 'black']
+  mat [label = 'Matriz de Adjacencias', fillcolor = 'DeepSkyBlue', color = 'white', fontcolor = 'black']
+  
+  # edge definitions with the node IDs
+  edge [color = black]
+  sinave -> denv -> geocode -> cases_ageb -> z_score -> gi -> bonferroni -> hotspots 
+  inegi -> {ageb, loc}
+  loc -> loc_esp -> ageb_esp
+  ageb -> ageb_esp
+  ageb_esp -> mat
+  mat -> cases_ageb 
+ 
+  }", 
+  height = 550)
+
+```
+:::
+
+::::
+
+::: aside
+[Dzul-Manzanilla et al 2021](https://www.thelancet.com/journals/lanplh/article/PIIS2542-5196(21)00030-9/fulltext)
+:::
+
+
+## [Estadístico Espacial Local $\color{#2ECC40}G_{\color{#2ECC40}i}^{\color{#2ECC40}*}$ (Hotspots)]{.r-fit-text style="color:#003300;"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+::: {.column style="width: 100%; font-size: 70%"}
+
+$$\color{#2ECC40}G_{\color{#2ECC40}i}^{\color{#2ECC40}*} = \frac{\color{#FF4136}\sum_{\color{#FF4136}j \color{#FF4136}= \color{#FF4136}1}^\color{#FF4136}{n} \color{#FF4136}w_{\color{#FF4136}i\color{#FF4136}j}\color{#FF4136}x_{\color{#FF4136}j}}
+{\color{#0074D9}\sum_{\color{#0074D   
+9}j \color{#0074D9}= \color{#0074D9}1}^{\color{#0074D9}n} \color{#0074D9}x_{\color{#0074D9}j}}$$
+
+donde:
+ 
+$\color{#FF4136}\sum_{\color{#FF4136}j \color{#FF4136}= \color{#FF4136}1}^\color{#FF4136}{n} \color{#FF4136}w_{\color{#FF4136}i\color{#FF4136}j}\color{#FF4136}x_{\color{#FF4136}j}$ el numerador, es la suma de los valores $x_{i}$ de la unidad espacial de interes con sus vecinos $x_{j}$ &
+ 
+  
+
+ 
+ $\frac{}{\color{#0074D9}\sum_{\color{#0074D9}j \color{#0074D9}= \color{#0074D9}1}^{\color{#0074D9}n} \color{#0074D9}x_{\color{#0074D9}j}}$ el denominador, es la suma de todos los valores $x$ en toda la localidad de interes.
+ 
+**Hotspots** 
+son las áreas o las unidades espaciales con valores altos de $\color{#2ECC40}G_{\color{#2ECC40}i}^{\color{#2ECC40}*}$ y homogéneos de la unidad espaciales de interes $x_{ij}$. En otras palabras el estadístico espacial, identifica las unidades espaciales $x_{ij}$ con valores altos comparados con el valor promedio de todas la unidades espaciales en la localidad de interes.
+
+::: aside
+
+[Getis & Ord 1992](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1538-4632.1992.tb00261.x); [Ord & Getis 1995](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1538-4632.1995.tb00912.x)
+:::
+
+:::
 
 
 ## [Dios Botic]{style="color:#003300;"}
