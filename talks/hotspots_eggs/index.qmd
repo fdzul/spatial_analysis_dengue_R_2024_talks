@@ -177,6 +177,71 @@ deneggs::ovitraps_occupancy_abundancy(path_ovitraps = path,
                                       scale = "blocks")
 ```
 
+## [Ovitrampas & Desiciones Basadas en Evidencia]{style="color:#003300;" .r-fit-text}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+
+::: {.panel-tabset}
+
+### Maps
+```{r}
+#| echo: true
+#| output: false
+path_vect <- "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/CENAPRECE/2023/31_yucatan"
+path_coord <- paste(path_vect, "DescargaOvitrampasMesFco.txt", sep = "/")
+
+deneggs::eggs_risk(path_vect = path_vect,
+                   path_coord = path_coord,
+                   weeks = 44,
+                   locality = "Ticul",
+                   risk = FALSE)
+
+```
+### Maps
+```{r}
+#| echo: false
+#| output: true
+path_vect <- "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/CENAPRECE/2023/31_yucatan"
+path_coord <- paste(path_vect, "DescargaOvitrampasMesFco.txt", sep = "/")
+
+deneggs::eggs_risk(path_vect = path_vect,
+                   path_coord = path_coord,
+                   weeks = 44,
+                   locality = "Ticul",
+                   risk = FALSE)
+```
+
+### Maps
+```{r}
+#| echo: true
+#| output: false
+path_vect <- "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/CENAPRECE/2023/31_yucatan"
+path_coord <- paste(path_vect, "DescargaOvitrampasMesFco.txt", sep = "/")
+
+deneggs::eggs_risk(path_vect = path_vect,
+                   path_coord = path_coord,
+                   weeks = 44,
+                   locality = "Ticul",
+                   risk = TRUE)
+
+```
+### Maps
+```{r}
+#| echo: false
+#| output: true
+path_vect <- "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/CENAPRECE/2023/31_yucatan"
+path_coord <- paste(path_vect, "DescargaOvitrampasMesFco.txt", sep = "/")
+
+deneggs::eggs_risk(path_vect = path_vect,
+                   path_coord = path_coord,
+                   weeks = 44,
+                   locality = "Ticul",
+                   risk = TRUE)
+```
+
+:::
+
+
 
 ## [Dios Botic]{style="color:#003300;"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
