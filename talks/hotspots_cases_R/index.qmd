@@ -60,7 +60,7 @@ format:
 
 :::: {.columns}
 
-::: {.column style="width: 60%; font-size: 80%"}
+::: {.column style="width: 50%; font-size: 80%"}
 ```{r, dpi=300,echo=FALSE, fig.align ="center", out.width = "100%"}
 DiagrammeR::grViz("digraph {
 
@@ -103,7 +103,7 @@ DiagrammeR::grViz("digraph {
 ```
 :::
 
-::: {.column style="width: 40%; font-size: 80%"}
+::: {.column style="width: 50%; font-size: 80%"}
 ```{r,  dpi=300,echo=FALSE, fig.align ="center", out.width = "100%"}
 DiagrammeR::grViz("digraph {
 
