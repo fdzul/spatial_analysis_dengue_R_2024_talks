@@ -59,7 +59,6 @@ format:
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
 :::: {.columns}
-
 ::: {.column style="width: 50%; font-size: 80%"}
 ```{r, dpi=300,echo=FALSE, fig.align ="center", out.width = "100%"}
 DiagrammeR::grViz("digraph {
@@ -102,7 +101,6 @@ DiagrammeR::grViz("digraph {
 
 ```
 :::
-
 ::: {.column style="width: 50%; font-size: 80%"}
 ```{r,  dpi=300,echo=FALSE, fig.align ="center", out.width = "100%"}
 DiagrammeR::grViz("digraph {
@@ -134,8 +132,15 @@ DiagrammeR::grViz("digraph {
 height = 550)
 ```
 :::
-
 ::::
+
+## [Geocodificación de las bases de dengue R]{style="color:#003300;" .r-fit-text}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+- Darse de alta en el servicio de Geocoding API de gooogle
+- Subir las bases de dengue en R.
+- Geocodificar las bases de Dengue.
+- Unir las bases de dengue.
 
 ## [Dios Botic]{style="color:#003300;"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
