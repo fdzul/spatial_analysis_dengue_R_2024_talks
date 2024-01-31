@@ -147,7 +147,7 @@ height = 550)
 
 ::: {.panel-tabset}
 
-## Paso 1
+### Paso 1
 ```{r geo_paso1}
 #| echo: true
 #| output: false
@@ -169,8 +169,7 @@ height = 550)
 #          file = "dengue_mx_2024_01_23.csv")
 ```
 
-
-## Paso 2
+### Paso 2
 ```{r geo_paso2}
 #| echo: true
 #| output: false
@@ -198,7 +197,7 @@ height = 550)
 #                           loc = "dengue_mx_2024_01_23")
 ```
 
-## Paso 3
+### Paso 3
 ```{r geo_paso3}
 #| echo: true
 #| output: false
@@ -224,6 +223,134 @@ height = 550)
 
 :::
 
+## [Identificación de los hotspots de dengue en R]{style="color:#003300;" .r-fit-text}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+::: {.panel-tabset}
+## Dataset
+```{r}
+#| echo: true
+#| output: false
+# Step 1. load the dataset ####
+load("/Users/fdzul/Dropbox/hotspots_2023/8.RData/denmex.RData")
+```
+
+## Localidad
+```{r}
+#| echo: true
+#| output: false
+# Step 2. extract the locality ####
+x <- rgeomex::extract_ageb(locality = c("Guadalajara", "Zapopan", 
+                                        "Tlaquepaque", "Tonalá"), 
+                           cve_edo = "14")
+```
+
+## Casos/Ageb
+```{r}
+#| echo: true
+#| output: false
+# Step 3. cases by AGEB ####
+library(magrittr)
+z <- denhotspots::point_to_polygons(x = xy,
+                                    y = x$ageb,
+                                    ids = names(x$ageb)[-10],
+                                    time = ANO,
+                                    coords = c("long", "lat"),
+                                    crs = 4326,
+                                    dis = "DENV") 
+```
+
+## Hotspots
+```{r}
+#| echo: true
+#| output: false
+# Step 4. hotspots ####
+hotspots <- denhotspots::gihi(x = z,
+                              id = names(z)[c(1:9)], 
+                              time = "year",
+                              dis = "DENV",
+                              gi_hi = "gi",
+                              alpha = 0.95)
+```
+:::
+
+## [Visualización de los Hotspots de Dengue]{style="color:#003300;" .r-fit-text}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+::: {.panel-tabset}
+
+## Mapa Estático_code
+
+```{r}
+#| echo: true
+#| output: false
+denhotspots::staticmap_intensity(x = hotspots,
+                                 pal = rcartocolor::carto_pal,
+                                 pal_name = TRUE,
+                                 name = "OrYel",
+                                 breaks = 1,
+                                 dir_pal = -1,
+                                 x_leg = 0.5,
+                                 y_leg = 0.1,
+                                 ageb = TRUE)
+```
+
+## Mapa Estático
+
+```{r}
+#| echo: false
+#| output: true
+denhotspots::staticmap_intensity(x = hotspots,
+                                 pal = rcartocolor::carto_pal,
+                                 pal_name = TRUE,
+                                 name = "OrYel",
+                                 breaks = 1,
+                                 dir_pal = -1,
+                                 x_leg = 0.5,
+                                 y_leg = 0.1,
+                                 ageb = TRUE)
+```
+
+:::
+
+## [Visualización de los Hotspots de Dengue]{style="color:#003300;" .r-fit-text}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+::: {.panel-tabset}
+
+## Mapa Interactivo_code
+
+```{r}
+#| echo: true
+#| output: false
+mapview::mapview(hotspots,
+                 zcol = "intensity_gi",
+                 layer.name = "Intensidad",
+                 label = FALSE,
+                 color = "white",
+                 lwd = 0.5, 
+                 col.regions =  rcartocolor::carto_pal(n = max(hotspots$intensity_gi), 
+                                                       name = "OrYel"))
+```
+
+## Mapa Interactivo
+
+```{r}
+#| echo: false
+#| output: true
+mapview::mapviewOptions(default = TRUE,
+                        basemaps.color.shuffle = FALSE)
+mapview::mapview(hotspots,
+                 zcol = "intensity_gi",
+                 layer.name = "Intensidad",
+                 label = FALSE,
+                 color = "white",
+                 lwd = 0.5, 
+                 col.regions =  rcartocolor::carto_pal(n = max(hotspots$intensity_gi), 
+                                                       name = "OrYel"))
+```
+
+:::
 
 
 ## [Laboratorio 1. Geocodificación de las Bases de Dengue en R]{style="color:#003300;" .r-fit-text}
