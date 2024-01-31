@@ -48,9 +48,15 @@ format:
 ## [Temario]{style="color:#003300;"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
+- Flujograma del cálculo de los hotspots del dengue.
+- Geocodificación.
+- Extraer la localidad.
+- Contar los casos por AGEB.
+- Calcular los hotspots.
+- Visualizar los hotspots.
 
-
-
+## [Flujograma del Cálculo de los Hotspots del Dengue]{style="color:#003300;" .r-fit-text}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
 ## [Dios Botic]{style="color:#003300;"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
