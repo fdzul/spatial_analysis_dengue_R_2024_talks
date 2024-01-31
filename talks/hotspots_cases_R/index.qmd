@@ -134,13 +134,100 @@ height = 550)
 :::
 ::::
 
-## [Geocodificación de las bases de dengue R]{style="color:#003300;" .r-fit-text}
+## [Geocodificación de las bases de dengue en R]{style="color:#003300;" .r-fit-text}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
 - Darse de alta en el servicio de Geocoding API de gooogle
 - Subir las bases de dengue en R.
 - Geocodificar las bases de Dengue.
-- Unir las bases de dengue.
+- Unir y guardar las bases de dengue geocodificadas.
+
+## [Geocodificación de las Bases de Dengue en R]{style="color:#003300;" .r-fit-text}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+::: {.panel-tabset}
+
+## Paso 1
+```{r geo_paso1}
+#| echo: true
+#| output: false
+# Step 1. load dengue dataset the current week ####
+#y <- denhotspots::read_dengue_dataset(path = "1.data/current_week/DENGUE2_.txt",
+#                                      spatial_resolution = "country",
+#                                      status_caso = c(1, 2)) 
+# Step 2. load dengue dataset the last week ####
+#x <- denhotspots::read_dengue_dataset(path = "1.data/last_week/DENGUE2_.txt",
+#                                      spatial_resolution = "country",
+#                                      status_caso = c(1, 2))
+# Step 3. extract the ids not geocoded ####
+#z <- y |>
+#    dplyr::filter(!FOL_ID %in% unique(x$FOL_ID)) |>
+#    dplyr::arrange(FOL_ID)
+
+# Step 4. save the results ####
+#write.csv(z, 
+#          file = "dengue_mx_2024_01_23.csv")
+```
+
+
+## Paso 2
+```{r geo_paso2}
+#| echo: true
+#| output: false
+# Step 1. subir el vectores de direcciones ####
+# addresses <- denhotspots::data_geocoden(infile = "dengue_mx_2024_01_23",
+#                                        data = FALSE,
+#                                        sinave_new = TRUE)
+# Step 2. text manipulation ####
+# stringr::str_subset(addresses, "#")
+# addresses <- stringr::str_replace_all(addresses,
+#                                      pattern = "#",
+#                                      replacement = " ")
+# Step 3. geocoding ####
+# denhotspots::geocoden(infile = "dengue_mx_2024_01_23")
+# Step 4. load the dengue geocoded & dengue dataset #####
+# z <- readRDS("~/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2024/dengue_mx_2024_01_23_temp_geocoded.rds")
+# Step 5. load the dengue dataset ####
+#data <- denhotspots::data_geocoden(infile = "dengue_mx_2024_01_23", 
+#                                   data = TRUE,
+#                                   sinave_new = TRUE)
+# Step 6. save the results #####
+#denhotspots::save_geocoden(x = z,
+#                           y = data,
+#                           directory = "9.geocoded_data",
+#                           loc = "dengue_mx_2024_01_23")
+```
+
+## Paso 3
+```{r geo_paso3}
+#| echo: true
+#| output: false
+#Step 1 load geocoded dengue dataset current week ####
+# load("~/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2024/9.geocoded_data/geo_dengue_mx_2024_01_23.RData")
+# Step 2. load geocoded dengue dataset last week ####
+# load("~/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2024/8.RData/denmex_2024.RData")
+# Step 3. row binding ####
+# z <- rbind(z, y)
+# Step 4. load the current week dataset 
+# w <- denhotspots::read_dengue_dataset(path = "1.data/current_week/DENGUE2_.txt",
+#                                      spatial_resolution = "country",
+#                                      status_caso = c(1, 2))
+# Step 5. eliminate the CASOS DESCARTADOS ####
+# z <- z |>
+#    dplyr::filter(VEC_ID %in% unique(w$VEC_ID)) |>
+#    dplyr::arrange(VEC_ID)
+# Step 6. save the results ####
+# save(z, file = "8.RData/denmex_2024.RData")
+
+```
+
+
+:::
+
+
+
+## [Laboratorio 1. Geocodificación de las Bases de Dengue en R]{style="color:#003300;" .r-fit-text}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
 ## [Dios Botic]{style="color:#003300;"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
