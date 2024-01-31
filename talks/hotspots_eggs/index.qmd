@@ -161,7 +161,21 @@ deneggs::blocks_surveillance(locality = "Ticul",
 ## [Ovitrampas & Desiciones Basadas en Evidencia]{style="color:#003300;" .r-fit-text}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
+```{r}
+path <- "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/CENAPRECE/2023/31_yucatan"
+library(magrittr)
+deneggs::ovitraps_occupancy_abundancy(path_ovitraps  = path,
+                                      scale = "ovitraps")
+```
 
+## [Ovitrampas & Desiciones Basadas en Evidencia]{style="color:#003300;" .r-fit-text}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r}
+path <- "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/CENAPRECE/2023/31_yucatan"
+deneggs::ovitraps_occupancy_abundancy(path_ovitraps = path,
+                                      scale = "blocks")
+```
 
 
 ## [Dios Botic]{style="color:#003300;"}
