@@ -58,6 +58,85 @@ format:
 ## [Flujograma del Cálculo de los Hotspots del Dengue]{style="color:#003300;" .r-fit-text}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
+:::: {.columns}
+
+::: {.column style="width: 60%; font-size: 80%"}
+```{r, dpi=300,echo=FALSE, fig.align ="center", out.width = "100%"}
+DiagrammeR::grViz("digraph {
+
+  # graph definitions
+  graph [layout = dot, rankdir = TB]
+  
+  # node definitions
+  node [shape = rectangle, style = filled, color = grey] 
+  
+  # flowchart for hotspots
+  sinave [label = 'SINAVE',  fillcolor = '#0F9D58', color = 'white', fontcolor = 'white']
+  denv [label = 'Bases de DENV',  fillcolor = '#0F9D58', color = 'white', fontcolor = 'white']
+  geocode [label = 'Geocodificación',  fillcolor = '#0F9D58', color = 'white', fontcolor = 'white']
+  cases_ageb [label = 'Casos por AGEBs']
+  z_score [label = 'Z-score']
+  gi [label = 'Estadístico Espacial Local (Gi*)']
+  bonferroni [label = 'Corrección de Bonferroni']
+  hotspots [label = 'Hotspots', style = filled, color = orange]
+  
+  # flow chart for inegi
+  inegi [label = 'INEGI', fillcolor = 'DeepSkyBlue', color = 'white', fontcolor = 'black']
+  loc [label = 'Localidades Shapefile', fillcolor = 'DeepSkyBlue', color = 'white', fontcolor = 'black']
+  ageb [label = 'AGEB Shapefile', fillcolor = 'DeepSkyBlue', color = 'white', fontcolor = 'black']
+  loc_esp [label = 'Localidad de Ínteres', fillcolor = 'DeepSkyBlue', color = 'white', fontcolor = 'black']
+  ageb_esp [label = 'AGEBs de la Localidad de Ínteres', fillcolor = 'DeepSkyBlue', color = 'white', fontcolor = 'black']
+  mat [label = 'Matriz de Adjacencias', fillcolor = 'DeepSkyBlue', color = 'white', fontcolor = 'black']
+  
+  # edge definitions with the node IDs
+  edge [color = black]
+  sinave -> denv -> geocode -> cases_ageb -> z_score -> gi -> bonferroni -> hotspots 
+  inegi -> {ageb, loc}
+  loc -> loc_esp -> ageb_esp
+  ageb -> ageb_esp
+  ageb_esp -> mat
+  mat -> cases_ageb 
+ 
+  }", 
+  height = 550)
+
+```
+:::
+
+::: {.column style="width: 40%; font-size: 80%"}
+```{r,  dpi=300,echo=FALSE, fig.align ="center", out.width = "100%"}
+DiagrammeR::grViz("digraph {
+
+
+# graph definitions
+  graph [layout = dot, rankdir = TB]
+  
+  # node definitions
+  node [shape = rectangle, style = filled, color = grey] 
+  
+  # flowchart for hotspots
+  sinave [label = 'SINAVE',  fillcolor = '#0F9D58', color = 'white', fontcolor = 'white']
+  denv [label = 'DENV dataset',  fillcolor = '#0F9D58', color = 'white', fontcolor = 'white']
+  
+   geocode [label = 'Geocoding',  fillcolor =  'orange', color = 'white', fontcolor = 'black']
+   cases_ageb [label = 'Cases/AGEB',  fillcolor =  'orange', color = 'white', fontcolor = 'black']
+   hotspots [label = 'Hotspots Analysis',  fillcolor =  'orange', color = 'white', fontcolor = 'black']
+   vizualization [label = 'Visualization',  fillcolor =  'orange', color = 'white', fontcolor = 'black']
+   static [label = 'Static Map',  fillcolor =  'DodgerBlue', color = 'white', fontcolor = 'white']
+   interactive [label = 'Interactive Map',  fillcolor =  'DodgerBlue', color = 'white', fontcolor = 'white']
+  
+  # edge definitions with the node IDs
+  edge [color = black]
+  sinave -> denv -> geocode -> cases_ageb -> hotspots -> vizualization -> {static interactive}
+  
+
+}",
+height = 550)
+```
+:::
+
+::::
+
 ## [Dios Botic]{style="color:#003300;"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
