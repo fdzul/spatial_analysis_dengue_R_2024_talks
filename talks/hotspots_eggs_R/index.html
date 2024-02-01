@@ -321,6 +321,13 @@
       margin-right: 0; 
     }
   </style>
+  <script src="index_files/libs/core-js-2.5.3/shim.min.js"></script>
+  <script src="index_files/libs/react-18.2.0/react.min.js"></script>
+  <script src="index_files/libs/react-18.2.0/react-dom.min.js"></script>
+  <script src="index_files/libs/reactwidget-1.0.0/react-tools.js"></script>
+  <script src="index_files/libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+  <link href="index_files/libs/reactable-0.4.4/reactable.css" rel="stylesheet">
+  <script src="index_files/libs/reactable-binding-0.4.4/reactable.js"></script>
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -483,6 +490,57 @@ u{_i} &amp;\sim {\sf GF}(0, \sum) \\
 </div>
 </div>
 </div>
+</div>
+</div>
+</section>
+<section id="análisis-geoestadístico-de-ovitrampas-en-r-1" class="slide level2">
+<h2><span class="r-fit-text" style="color:#003300;">Análisis Geoestadístico de Ovitrampas en R</span></h2>
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+<div class="columns">
+<div class="column" style="width: 40%;font-size: 70%">
+<p><img data-src="https://github.com/fdzul/deneggs/blob/master/man/figures/logo.png?raw=true"></p>
+</div><div class="column" style="width: 60%; font-size: 60%">
+<p>En analisis geoestadístico de la vigilancia entomológica con ovitrampas se realiza con el paquete <a href="https://fdzul.github.io/deneggs/">deneggs</a>. El paquete es parte del dengueverse &amp; tiene tres funciones para realizar la predicción del número de huevos en áreas donde no se colectó de una localidad.</p>
+<ul>
+<li><a href="https://fdzul.github.io/deneggs/reference/spde_pred_map.html">spde_pred_map</a></li>
+<li><a href="https://fdzul.github.io/deneggs/reference/eggs_hotspots.html">eggs_hotspots</a></li>
+<li><a href="https://fdzul.github.io/deneggs/reference/eggs_hotspots_week.html">eggs_hotspots_week</a></li>
+</ul>
+<p>La función <a href="https://fdzul.github.io/deneggs/reference/spde_pred_map.html">spde_pred_map</a> tiene la característica de realizar el analisis geoestadístico por semana con siete diferentes distribuciones (poisson, zeroinflatedpoisson0, zeroinflatedpoisson1, nbinomial, nbinomial2, zeroinflatednbinomial0, &amp; zeroinflatednbinomial1). La función <a href="https://fdzul.github.io/deneggs/reference/eggs_hotspots.html">eggs_hotspots</a> realiza el análisis por semana con solo una distribución y la función <a href="https://fdzul.github.io/deneggs/reference/eggs_hotspots_week.html">eggs_hotspots_week</a> realiza el análisis para todas las semanas del año.</p>
+</div>
+</div>
+</section>
+<section id="análisis-geoestadístico-de-ovitrampas-en-r-2" class="slide level2">
+<h2><span class="r-fit-text" style="color:#003300;">Análisis Geoestadístico de Ovitrampas en R</span></h2>
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+<ul>
+<li><ol type="1">
+<li>Instalar el paquete <strong>INLA</strong>.</li>
+</ol></li>
+<li><ol start="2" type="1">
+<li>Instalar el paquete <strong>deneggs</strong>. &nbsp;</li>
+</ol></li>
+<li><ol start="3" type="1">
+<li>Definir la ruta de los archivos de las lecturas y las coordenadas. &nbsp;</li>
+</ol></li>
+<li><ol start="4" type="1">
+<li>Definir la localidad de interes y la clave del estado. &nbsp;</li>
+</ol></li>
+<li><ol start="5" type="1">
+<li>Definir el resto de argumenos.</li>
+</ol></li>
+<li><ol start="6" type="1">
+<li>Correr una de las tres funciones.</li>
+</ol></li>
+</ul>
+</section>
+<section id="argumentos-de-las-funciones-de-deneggs" class="slide level2">
+<h2><span class="r-fit-text" style="color:#003300;">Argumentos de las funciones de deneggs</span></h2>
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+<div class="cell">
+<div class="cell-output-display">
+<div class="reactable html-widget html-fill-item" id="htmlwidget-ee96c2f6dba5f5014f54" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-ee96c2f6dba5f5014f54">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"argumento":["path_lect","path_coord","year","locality","cve_ent","leg_title","fam","alpha","plot","aproximation"],"definicion":["Ruta de ovitrampas","Ruta de la coordenadas","Año a analizar","localidad","Clave del Estado","Título de la leyenda","Nombre de la Distribución","Nivel de Significancia","Valor lógico para visualizar el mesh","Es el método de aproximación para calcular los hiperparametros y valores marginales. Las opciones son gaussian, simplified.laplace & laplace"]},"columns":[{"id":"argumento","name":"argumento","type":"character"},{"id":"definicion","name":"definicion","type":"character"}],"resizable":true,"defaultPageSize":10,"bordered":true,"striped":true,"theme":{"color":"#212529","backgroundColor":"#ffffff","borderColor":"#ffffff","borderWidth":"1px","stripedColor":"#ecf0f1","highlightColor":"#ecf0f1","cellPadding":6,"tableStyle":{"fontSize":14},"headerStyle":{"borderWidth":"2px","backgroundColor":"#2c3e50","color":"#ffffff","transitionDuration":"0.5s","&:hover[aria-sort]":{"color":"#1cbc9c"},"&[aria-sort='ascending'], &[aria-sort='descending']":{"color":"#1cbc9c"},"fontSize":15},"groupHeaderStyle":{"&:not(:empty)":{"color":"#212529","fontSize":15},"&:hover":{"fontWeight":"bold","transitionDuration":"1s","transitionTimingFunction":"ease-out","color":"#1cbc9c"}},"rowSelectedStyle":{"backgroundColor":"#2c3e50","color":"#ffffff"},"inputStyle":{"backgroundColor":"#ffffff","color":"#212529"},"searchInputStyle":{"backgroundColor":"#ffffff","color":"#212529","&:focus":{"color":"#212529"}},"selectStyle":{"backgroundColor":"#18bc9c","color":"#ffffff","borderColor":"#ffffff","outlineColor":"#ffffff","&:hover":{"backgroundColor":"#0f7864"}},"pageButtonStyle":{"backgroundColor":"#18bc9c","color":"#ffffff","&:hover":{"backgroundColor":"#0f7864"}},"pageButtonHoverStyle":{"backgroundColor":"#0f7864","color":"#ffffff"},"pageButtonActiveStyle":{"backgroundColor":"#0f7864","color":"#ffffff"},"pageButtonCurrentStyle":{"backgroundColor":"#0f7864","color":"#ffffff"}},"dataKey":"0cb0f2c42b0d485c41559686185fb190"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>

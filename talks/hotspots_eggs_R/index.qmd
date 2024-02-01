@@ -258,6 +258,66 @@ ggplot2::ggplot() +
 :::
 
 
+## [Análisis Geoestadístico de Ovitrampas en R]{.r-fit-text style="color:#003300;"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+:::: {.columns}
+
+::: {.column style="width: 40%;font-size: 70%"}
+![](https://github.com/fdzul/deneggs/blob/master/man/figures/logo.png?raw=true)
+:::
+
+::: {.column style="width: 60%; font-size: 60%"}
+En analisis geoestadístico de la vigilancia entomológica con ovitrampas se realiza con el paquete [deneggs](https://fdzul.github.io/deneggs/). El paquete es parte del dengueverse & tiene tres funciones para realizar la predicción del número de huevos en áreas donde no se colectó de una localidad.
+
+   - [spde_pred_map](https://fdzul.github.io/deneggs/reference/spde_pred_map.html)
+   - [eggs_hotspots](https://fdzul.github.io/deneggs/reference/eggs_hotspots.html)
+   - [eggs_hotspots_week](https://fdzul.github.io/deneggs/reference/eggs_hotspots_week.html)
+
+La función [spde_pred_map](https://fdzul.github.io/deneggs/reference/spde_pred_map.html) tiene la característica de realizar el analisis geoestadístico por semana con siete diferentes distribuciones (poisson, zeroinflatedpoisson0, zeroinflatedpoisson1, nbinomial, nbinomial2, zeroinflatednbinomial0, & zeroinflatednbinomial1). La función [eggs_hotspots](https://fdzul.github.io/deneggs/reference/eggs_hotspots.html) realiza el análisis por semana con solo una distribución y la función [eggs_hotspots_week](https://fdzul.github.io/deneggs/reference/eggs_hotspots_week.html) realiza el análisis para todas las semanas del año.
+
+:::
+
+:::
+
+## [Análisis Geoestadístico de Ovitrampas en R]{.r-fit-text style="color:#003300;"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+-   1. Instalar el paquete **INLA**. 
+
+-   2. Instalar el paquete **deneggs**. 
+&nbsp;
+
+-   3. Definir la ruta de los archivos de las lecturas y las coordenadas.
+&nbsp;
+
+-   4. Definir la localidad de interes y la clave del estado.
+&nbsp;
+
+-   5. Definir el resto de argumenos.
+
+-   6. Correr una de las tres  funciones.
+
+## [Argumentos de las funciones de deneggs]{.r-fit-text style="color:#003300;"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r echo=FALSE}
+tibble::tibble(argumento = c("path_lect", "path_coord", "year","locality",  "cve_ent",
+                             "leg_title", "fam", "alpha", "plot", "aproximation"),
+    definicion = c("Ruta de ovitrampas", "Ruta de la coordenadas", "Año a analizar", "localidad", "Clave del Estado",
+                   "Título de la leyenda", "Nombre de la Distribución", "Nivel de Significancia", "Valor lógico para visualizar el mesh", "Es el método de aproximación para calcular los hiperparametros y valores marginales. Las opciones son gaussian, simplified.laplace & laplace")) |>
+    reactable::reactable(defaultPageSize = 10,
+                         theme = reactablefmtr::flatly(),
+                         filterable = FALSE,
+                         striped = TRUE,
+                         #minRows = 10,
+                         resizable = TRUE, 
+                         wrap = TRUE, 
+                         bordered = TRUE)
+```
+
+
+
 ## [Dios Botic]{style="color:#003300;"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
