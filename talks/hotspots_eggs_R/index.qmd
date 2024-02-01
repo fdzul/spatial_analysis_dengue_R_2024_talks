@@ -48,6 +48,79 @@ format:
 ## [Temario]{style="color:#003300;"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
+- Conceptos Básico del Análisis Geoestadístico
+- Modelo del Análisis Geoestadístico
+
+## Conceptos $\color{#2ECC40}s_{\color{#2ECC40}i}$, $\color{#2ECC40}D$, $\color{#2ECC40}Y_{\color{#2ECC40}{si}}$ & $\color{#2ECC40}U_{\color{#2ECC40}{si}}$
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+:::: {.columns}
+
+::: {.column style="width: 50%"}
+![](guadalajara_sample.jpg)
+:::
+
+::: {.column style="width: 50%; font-size: 65%"}
+$\color{#2ECC40}s_{\color{#2ECC40}i}$ sitios de colecta con coordenadas geográficas (longitud. latitud).
+&nbsp;
+
+$\color{#2ECC40}D$ area de estudio (zona metropolitana de Guadalajara).
+&nbsp;
+
+$\color{#2ECC40}Y_{\color{#2ECC40}{si}}$ es la variable de respuesta (Número de Huevos por Ovitrampa o Manzana).
+&nbsp;
+
+$\color{#2ECC40}Y_{\color{#2ECC40}{si}}$ tiene una distribución (binomial negativa ó zibn).
+&nbsp;
+
+$\color{#2ECC40}U_{\color{#2ECC40}{si}}$ el efecto espacial & el proceso ocurre en un campo gaussiano continuo (Gaussian Field).
+:::
+
+:::
+
+
+## [Modelo del Análisis Geoestadístico]{.r-fit-text style="color:#003300;"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+:::: {.columns}
+
+::: {.column style="width: 50%;font-size: 70%"}
+Modelo sin correlación espacial
+\begin{align*}
+Huevos & = \beta{_0} + \beta x + \epsilon{_i} \\
+\beta{_0} & = intercepto \\
+\beta x & =  pendiente \\
+\epsilon{_i} & = error \\
+\epsilon{_i} &\sim {\sf Norm}(0, \sigma^2) \\
+\end{align*}
+
+Modelo con efecto espacial
+\begin{align*}
+Huevos & = \beta{_0} + \beta x + u{_i}+\epsilon{_i} \\
+Huevos & = \beta{_0} + u{_i}+\epsilon{_i} \\
+u{_i} & = efecto espacial \\
+u{_i} &\sim {\sf GF}(0, \sum) \\
+\end{align*}
+:::
+
+::: {.column style="width: 50%; font-size: 65%"}
+Cuando D es regular
+&nbsp;
+
+Se usa Gausian Makovian RF (GMRF) para aproximar la matriz de covarianzas
+
+&nbsp;
+
+Cuando D es irregular
+&nbsp;
+&nbsp;
+
+Se usa SPDE & Elemento Finito para aproximar la matriz de covarianzas
+
+:::
+
+:::
+
 
 
 
@@ -60,4 +133,4 @@ format:
 
 -   ***celular*** : [9999580167]()
 
--   ***slides***: [https://calm-hummingbird-41cb33.netlify.app/talks/hotspots_eggs/#/](https://calm-hummingbird-41cb33.netlify.app/talks/hotspots_eggs/#/)
+-   ***slides***: [https://calm-hummingbird-41cb33.netlify.app/talks/hotspots_eggs_R/#/](https://calm-hummingbird-41cb33.netlify.app/talks/hotspots_eggs_R/#/)

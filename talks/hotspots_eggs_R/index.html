@@ -358,6 +358,52 @@ Update: 2024-02-01
 <section id="temario" class="slide level2">
 <h2><span style="color:#003300;">Temario</span></h2>
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+<ul>
+<li>Conceptos Básico del Análisis Geoestadístico</li>
+<li>Modelo del Análisis Geoestadístico</li>
+</ul>
+</section>
+<section id="conceptos-color2ecc40s_color2ecc40i-color2ecc40d-color2ecc40y_color2ecc40si-color2ecc40u_color2ecc40si" class="slide level2">
+<h2>Conceptos <span class="math inline">\(\color{#2ECC40}s_{\color{#2ECC40}i}\)</span>, <span class="math inline">\(\color{#2ECC40}D\)</span>, <span class="math inline">\(\color{#2ECC40}Y_{\color{#2ECC40}{si}}\)</span> &amp; <span class="math inline">\(\color{#2ECC40}U_{\color{#2ECC40}{si}}\)</span></h2>
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+<div class="columns">
+<div class="column" style="width: 50%">
+<p><img data-src="guadalajara_sample.jpg"></p>
+</div><div class="column" style="width: 50%; font-size: 65%">
+<p><span class="math inline">\(\color{#2ECC40}s_{\color{#2ECC40}i}\)</span> sitios de colecta con coordenadas geográficas (longitud. latitud). &nbsp;</p>
+<p><span class="math inline">\(\color{#2ECC40}D\)</span> area de estudio (zona metropolitana de Guadalajara). &nbsp;</p>
+<p><span class="math inline">\(\color{#2ECC40}Y_{\color{#2ECC40}{si}}\)</span> es la variable de respuesta (Número de Huevos por Ovitrampa o Manzana). &nbsp;</p>
+<p><span class="math inline">\(\color{#2ECC40}Y_{\color{#2ECC40}{si}}\)</span> tiene una distribución (binomial negativa ó zibn). &nbsp;</p>
+<p><span class="math inline">\(\color{#2ECC40}U_{\color{#2ECC40}{si}}\)</span> el efecto espacial &amp; el proceso ocurre en un campo gaussiano continuo (Gaussian Field).</p>
+</div>
+</div>
+</section>
+<section id="modelo-del-análisis-geoestadístico" class="slide level2">
+<h2><span class="r-fit-text" style="color:#003300;">Modelo del Análisis Geoestadístico</span></h2>
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+<div class="columns">
+<div class="column" style="width: 50%;font-size: 70%">
+<p>Modelo sin correlación espacial <span class="math display">\[\begin{align*}
+Huevos &amp; = \beta{_0} + \beta x + \epsilon{_i} \\
+\beta{_0} &amp; = intercepto \\
+\beta x &amp; =  pendiente \\
+\epsilon{_i} &amp; = error \\
+\epsilon{_i} &amp;\sim {\sf Norm}(0, \sigma^2) \\
+\end{align*}\]</span></p>
+<p>Modelo con efecto espacial <span class="math display">\[\begin{align*}
+Huevos &amp; = \beta{_0} + \beta x + u{_i}+\epsilon{_i} \\
+Huevos &amp; = \beta{_0} + u{_i}+\epsilon{_i} \\
+u{_i} &amp; = efecto espacial \\
+u{_i} &amp;\sim {\sf GF}(0, \sum) \\
+\end{align*}\]</span></p>
+</div><div class="column" style="width: 50%; font-size: 65%">
+<p>Cuando D es regular &nbsp;</p>
+<p>Se usa Gausian Makovian RF (GMRF) para aproximar la matriz de covarianzas</p>
+<p>&nbsp;</p>
+<p>Cuando D es irregular &nbsp; &nbsp;</p>
+<p>Se usa SPDE &amp; Elemento Finito para aproximar la matriz de covarianzas</p>
+</div>
+</div>
 </section>
 <section id="dios-botic" class="slide level2">
 <h2><span style="color:#003300;">Dios Botic</span></h2>
@@ -366,7 +412,7 @@ Update: 2024-02-01
 <li><p><strong><em>Bio</em></strong> : <a href="">https://fdzul.github.io/web_site_fadm/</a></p></li>
 <li><p><strong><em>email</em></strong> : <a href="">felipe.dzul.m@gmail.com</a></p></li>
 <li><p><strong><em>celular</em></strong> : <a href="">9999580167</a></p></li>
-<li><p><strong><em>slides</em></strong>: <a href="https://calm-hummingbird-41cb33.netlify.app/talks/hotspots_eggs/#/">https://calm-hummingbird-41cb33.netlify.app/talks/hotspots_eggs/#/</a></p></li>
+<li><p><strong><em>slides</em></strong>: <a href="https://calm-hummingbird-41cb33.netlify.app/talks/hotspots_eggs_R/#/">https://calm-hummingbird-41cb33.netlify.app/talks/hotspots_eggs_R/#/</a></p></li>
 </ul>
 <div class="quarto-auto-generated-content">
 <p><img src="logo_cenaprece.jpeg" class="slide-logo"></p>
