@@ -136,7 +136,7 @@ DiagrammeR::grViz("digraph {
 
 :::: {.columns}
 ::: {.column style="width: 50%; font-size: 80%"}
-- **Muestreo Sistemaático**
+- **Muestreo Sistemático**
    - 1 manzana por cada 4 a 6 en zonas planas
    - 1 manzana por cada 2 a 4 en zonas con pendientes
 - **Muestreo por Autoselección**

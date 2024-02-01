@@ -330,7 +330,7 @@
 <section class="slide level2">
 
 <h2>
-Hotspots del vector del Dengue <br>
+Hotspots del vector del Dengue <br> en R
 </h2>
 <h2>
 </h2>
@@ -346,10 +346,10 @@ Dr.&nbsp;Fabián Correa-Morales
 </h3>
 <br>
 <h4>
-Date: 2024-01-31
+Date: 2024-02-01
 </h4>
 <h4>
-Update: 2024-01-31
+Update: 2024-02-01
 </h4>
 <p><br></p>
 <h4>
@@ -358,81 +358,6 @@ Update: 2024-01-31
 <section id="temario" class="slide level2">
 <h2><span style="color:#003300;">Temario</span></h2>
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
-</section>
-<section id="ovitrampas-desiciones-basadas-en-evidencia" class="slide level2">
-<h2><span class="r-fit-text" style="color:#003300;">Ovitrampas &amp; Desiciones Basadas en Evidencia</span></h2>
-<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
-
-
-<style>
-.grid-container {
-  display: grid;
-  grid-template-columns: auto auto;
-  padding: 5px;
-}
-
-.grid-item {
-  background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  padding: 5px;
-  font-size: 30px;
-  text-align: center;
-}
-</style>
-
-
-<h1>
-</h1>
-<p>
-</p>
-<div class="grid-container">
-<div class="grid-item">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-1-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<div class="grid-item">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-2-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<div class="grid-item">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-3-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<div class="grid-item">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-4-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-
 </section>
 <section id="dios-botic" class="slide level2">
 <h2><span style="color:#003300;">Dios Botic</span></h2>
@@ -662,44 +587,6 @@ Update: 2024-01-31
         ]
       });
     </script>
-    
-    <script>
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-      // slide changes (different for each slide format).
-      (function () {
-        // dispatch for htmlwidgets
-        function fireSlideEnter() {
-          const event = window.document.createEvent("Event");
-          event.initEvent("slideenter", true, true);
-          window.document.dispatchEvent(event);
-        }
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-          fireSlideEnter();
-
-          // dispatch for shiny
-          if (window.jQuery) {
-            if (previousSlide) {
-              window.jQuery(previousSlide).trigger("hidden");
-            }
-            if (currentSlide) {
-              window.jQuery(currentSlide).trigger("shown");
-            }
-          }
-        }
-
-        // hookup for slidy
-        if (window.w3c_slidy) {
-          window.w3c_slidy.add_observer(function (slide_num) {
-            // slide_num starts at position 1
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-          });
-        }
-
-      })();
-    </script>
-
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

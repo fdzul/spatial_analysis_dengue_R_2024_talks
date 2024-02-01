@@ -13,7 +13,7 @@ format:
 ---
 
 <h2> Hotspots del vector del Dengue
-<br>
+<br> en R
 </h2>
 
 <h2>
@@ -33,9 +33,9 @@ format:
 
 </h3>
 <br>
-<h4>Date: 2024-01-31 </h4>
+<h4>Date: 2024-02-01 </h4>
 
-<h4> Update: 2024-01-31</h4>
+<h4> Update: 2024-02-01</h4>
 
 <br>
 
@@ -48,159 +48,6 @@ format:
 ## [Temario]{style="color:#003300;"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
-## [Ovitrampas & Desiciones Basadas en Evidencia]{style="color:#003300;" .r-fit-text}
-<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
-
-<html>
-<head>
-```{=html}
-<style>
-.grid-container {
-  display: grid;
-  grid-template-columns: auto auto;
-  padding: 5px;
-}
-
-.grid-item {
-  background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  padding: 5px;
-  font-size: 30px;
-  text-align: center;
-}
-</style>
-```
-</head>
-<body>
-<h1>
-</h1>
-<p>
-</p>
-
-::: grid-container
-
-::: grid-item
-```{r}
-#| echo: false
-#| output: true
-library(sf)
-path_vect <- "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/CENAPRECE/2023/23_quintana_roo"
-path_coord <- paste(path_vect, "DescargaOvitrampasMesFco.txt", sep = "/")
-library(INLA)
-deneggs::eggs_hotspots(path_lect = path_vect,
-                       path_coord = path_coord,
-                       locality = "Cancun",
-                       cve_ent = "23",
-                       fam = "zeroinflatednbinomial1",
-                       k = 20,
-                       plot = FALSE,
-                       sem = 25, 
-                       aproximation = "gaussian",
-                       integration = "eb",
-                       longitude  = "Pocision_X",
-                       latitude =  "Pocision_Y",
-                       var = "eggs",
-                       alpha = 0.99,
-                       cell_size = 2000,
-                       palette_vir  = "magma",
-                       leg_title = "Huevos",
-                       hist_dataset = FALSE)$map
-
-```
-:::
-
-::: grid-item
-```{r}
-#| echo: false
-#| output: true
-library(sf)
-path_vect <- "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/CENAPRECE/2023/30_veracruz"
-path_coord <- paste(path_vect, "DescargaOvitrampasMesFco.txt", sep = "/")
-deneggs::eggs_hotspots(path_lect = path_vect,
-                       path_coord = path_coord,
-                       locality = c("Veracruz", "Boca del Rio"),
-                       cve_ent = "30",
-                       fam = "zeroinflatednbinomial1",
-                       k = 20,
-                       plot = FALSE,
-                       sem = 25, 
-                       aproximation = "gaussian",
-                       integration = "eb",
-                       longitude  = "Pocision_X",
-                       latitude =  "Pocision_Y",
-                       var = "eggs",
-                       alpha = 0.99,
-                       cell_size = 2000,
-                       palette_vir  = "magma",
-                       leg_title = "Huevos",
-                       hist_dataset = FALSE)$map
-
-```
-:::
-
-::: grid-item
-```{r}
-#| echo: false
-#| output: true
-path_vect <- "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/CENAPRECE/2023/14_jalisco"
-path_coord <- paste(path_vect, "DescargaOvitrampasMesFco.txt", sep = "/")
-library(magrittr)
-library(sf)
-deneggs::eggs_hotspots(path_lect = path_vect,
-                       path_coord = path_coord,
-                       locality = c("Zapopan", "Guadalajara", "Tlaquepaque", "Tonalá"),
-                       cve_ent = "14",
-                       fam = "zeroinflatednbinomial1",
-                       k = 20,
-                       plot = FALSE,
-                       sem = 25, 
-                       aproximation = "gaussian",
-                       integration = "eb",
-                       longitude  = "Pocision_X",
-                       latitude =  "Pocision_Y",
-                       var = "eggs",
-                       alpha = 0.99,
-                       cell_size = 2000,
-                       palette_vir  = "magma",
-                       leg_title = "Huevos",
-                       hist_dataset = FALSE)$map
-
-```
-:::
-
-::: grid-item
-```{r}
-#| echo: false
-#| output: true
-path_vect <- "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/CENAPRECE/2023/31_yucatan"
-path_coord <- paste(path_vect, "DescargaOvitrampasMesFco.txt", sep = "/")
-library(magrittr)
-library(sf)
-deneggs::eggs_hotspots(path_lect = path_vect,
-                       path_coord = path_coord,
-                       locality = "Mérida",
-                       cve_ent = "31",
-                       fam = "zeroinflatednbinomial1",
-                       k = 30,
-                       plot = FALSE,
-                       sem = 25, 
-                       aproximation = "gaussian",
-                       integration = "eb",
-                       longitude  = "Pocision_X",
-                       latitude =  "Pocision_Y",
-                       var = "eggs",
-                       alpha = 0.99,
-                       cell_size = 2000,
-                       palette_vir  = "magma",
-                       leg_title = "Huevos",
-                       hist_dataset = FALSE)$map
-```
-:::
-
-:::
-
-</body>
-</html>
 
 
 
