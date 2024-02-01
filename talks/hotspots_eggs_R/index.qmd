@@ -206,6 +206,58 @@ mesh$n
 ## [Análisis Geoestadístico de Ovitrampas en R]{.r-fit-text style="color:#003300;"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
+::: {.panel-tabset}
+## Mesh de Guadalajara
+```{r}
+#| echo: false
+#| output: true
+path_ovitraps <- "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/CENAPRECE/2023/14_jalisco"
+path_coord <- paste(path_ovitraps,"DescargaOvitrampasMesFco.txt", sep = "/" )
+x <- deneggs::eggs_hotspots(path_lect = path_ovitraps,
+                            cve_ent = "14",
+                            locality  = c("Guadalajara", "Zapopan",
+                                          "Tlaquepaque", "Tonalá"),
+                            path_coord = path_coord,
+                            longitude  = "Pocision_X",
+                            latitude =  "Pocision_Y",
+                            aproximation = "gaussian",
+                            integration = "eb",
+                            fam = "zeroinflatednbinomial1",
+                            k = 80,
+                            palette_vir  = "magma",
+                            leg_title = "Huevos",
+                            plot = FALSE,
+                            hist_dataset = FALSE,
+                            sem = 41,
+                            var = "eggs",
+                            cell_size = 2000,
+                            alpha = .99)
+
+ggplot2::ggplot() +
+    inlabru::gg(x$mesh) +
+    ggplot2::geom_point(data = x$data,
+                        ggplot2::aes(x = x$data$Pocision_X,
+                                     y = x$data$Pocision_Y),
+                        col = "red")
+```
+
+## Zoom Mesh de Guadalajara
+```{r}
+#| echo: false
+#| output: true
+ggplot2::ggplot() +
+    inlabru::gg(x$mesh) +
+    ggplot2::geom_point(data = x$data,
+                        ggplot2::aes(x = x$data$Pocision_X,
+                                     y = x$data$Pocision_Y),
+                        col = "red") +
+    ggplot2::coord_sf(xlim = c(-103.30, -103.28),
+                      ylim = c(20.60, 20.61))
+```
+
+:::
+
+
 ## [Dios Botic]{style="color:#003300;"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
