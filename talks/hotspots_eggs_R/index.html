@@ -330,7 +330,7 @@
 <section class="slide level2">
 
 <h2>
-Hotspots del vector del Dengue <br> en R
+Hotspots del Vector del Dengue <br> en R
 </h2>
 <h2>
 </h2>
@@ -404,6 +404,60 @@ u{_i} &amp;\sim {\sf GF}(0, \sum) \\
 <p>Se usa SPDE &amp; Elemento Finito para aproximar la matriz de covarianzas</p>
 </div>
 </div>
+</section>
+<section id="spde-elemento-finito-de-inla" class="slide level2">
+<h2><span class="r-fit-text" style="color:#003300;">SPDE &amp; Elemento Finito de INLA</span></h2>
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+<div class="columns">
+<div class="column" style="width: 40%;font-size: 70%">
+<p>SPDE &nbsp;</p>
+<p><span class="math display">\[(K^2-\Delta)^{a/2}U(s) = W(s)\]</span></p>
+<p>Elemento Finito &nbsp;</p>
+<p><span class="math display">\[u(s) = \sum_{i=1}^{G} \alpha{_k}(s{_i})W{_k}\]</span></p>
+</div><div class="column" style="width: 60%">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-1-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 31</code></pre>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="elemento-finito-spde-cálculo-de-alpha_k" class="slide level2">
+<h2><span class="r-fit-text" style="color:#003300;">Elemento Finito, SPDE &amp; Cálculo de <span class="math inline">\(\alpha{_k}\)</span></span></h2>
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+<div class="columns">
+<div class="column" style="width: 50%;font-size: 70%">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://becarioprecario.bitbucket.io/spde-gitbook/figs/spde-intro-interp2d-1.png" title="Figure 2.8. Kraisky et al 2019"></p>
+<figcaption>Figure 2.8. Kraisky et al 2019</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width: 50%; font-size: 60%">
+<ul>
+<li><p>Coordenadas en los vértices &nbsp;</p>
+<p>Sí <span class="math inline">\(s{_i}\)</span> caé en el vértice 1, el resto 0. <span class="math inline">\(u(s) = w{_k}\)</span></p></li>
+<li><p>Cordenadas dentro del Triángulo &nbsp;</p>
+<p>Sí <span class="math inline">\(s{_i}\)</span> caé dentro del triángulo se ponderan los tres puntos <span class="math display">\[u(s) = \sum_{i=1}^{G} \alpha{_k}(s{_i})W{_k}\]</span></p>
+<p><span class="math display">\[0.17 * W{_1} + 0.54 * W{_3} + 0.29 * W{_3}\]</span></p></li>
+<li><p>Coordenadas sobre un borde &nbsp;</p>
+<p>Sí <span class="math inline">\(s{_i}\)</span> caé en el borde se ponderan los dos valores</p>
+<p><span class="math display">\[u(s) = \sum_{i=1}^{G} \alpha{_k}(s{_i})W{_k}\]</span></p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="análisis-geoestadístico-de-ovitrampas-en-r" class="slide level2">
+<h2><span class="r-fit-text" style="color:#003300;">Análisis Geoestadístico de Ovitrampas en R</span></h2>
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 </section>
 <section id="dios-botic" class="slide level2">
 <h2><span style="color:#003300;">Dios Botic</span></h2>
@@ -633,6 +687,44 @@ u{_i} &amp;\sim {\sf GF}(0, \sum) \\
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
