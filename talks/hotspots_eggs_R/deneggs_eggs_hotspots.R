@@ -1,89 +1,68 @@
----
-format: 
-  revealjs:
-    code-block-bg: true
-    code-block-background: true
-    code-copy: true
-    chalkboard: true
-    highlight-style: github
-    slide-number: c/t
-    logo: logo_cenaprece.jpeg
-    footer: "[hub.com/fdzul](https://github.com/fdzul)"
-    center-title-slide: true
----
-
-<h2> Hotspots del vector del Dengue
-<br>
-</h2>
-
-<h2>
-
-</h2>
-
-<hr>
-
-<br>
-
-
-<h3>Dr. Felipe Dzul Manzanilla</h3>
-
-<h3>Dr. Fabián Correa-Morales</h3>
-
-<h3>
-
-</h3>
-<br>
-<h4>Date: 2024-01-31 </h4>
-
-<h4> Update: 2024-01-31</h4>
-
-<br>
-
-<h4>
-
-
-![](logo_curso_2024.png){.absolute top="170" left="650" width="450"}
-
-
-## [Temario]{style="color:#003300;"}
-<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
-
-## [Ovitrampas & Desiciones Basadas en Evidencia]{style="color:#003300;" .r-fit-text}
-<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
-
-<html>
-<head>
-```{=html}
-<style>
-.grid-container {
-  display: grid;
-  grid-template-columns: auto auto;
-  padding: 5px;
-}
-
-.grid-item {
-  background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  padding: 5px;
-  font-size: 30px;
-  text-align: center;
-}
-</style>
-```
-</head>
-<body>
-<h1>
-</h1>
-<p>
-</p>
-
-::: grid-container
-
-::: grid-item
-```{r}
-#| echo: false
-#| output: true
+path_vect <- "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/CENAPRECE/2023/31_yucatan"
+path_coord <- paste(path_vect, "DescargaOvitrampasMesFco.txt", sep = "/")
+library(magrittr)
 library(sf)
+
+deneggs::eggs_hotspots(path_lect = path_vect,
+                       path_coord = path_coord,
+                       locality = "Mérida",
+                       cve_ent = "31",
+                       fam = "zeroinflatednbinomial1",
+                       k = 30,
+                       plot = FALSE,
+                       sem = 25, 
+                       aproximation = "gaussian",
+                       integration = "eb",
+                       longitude  = "Pocision_X",
+                       latitude =  "Pocision_Y",
+                       var = "eggs",
+                       alpha = 0.99,
+                       cell_size = 2000,
+                       palette_vir  = "magma",
+                       leg_title = "Huevos",
+                       hist_dataset = FALSE)$map
+path_vect <- "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/CENAPRECE/2023/14_jalisco"
+path_coord <- paste(path_vect, "DescargaOvitrampasMesFco.txt", sep = "/")
+deneggs::eggs_hotspots(path_lect = path_vect,
+                       path_coord = path_coord,
+                       locality = c("Zapopan", "Guadalajara", "Tlaquepaque", "Tonalá"),
+                       cve_ent = "14",
+                       fam = "zeroinflatednbinomial1",
+                       k = 20,
+                       plot = FALSE,
+                       sem = 25, 
+                       aproximation = "gaussian",
+                       integration = "eb",
+                       longitude  = "Pocision_X",
+                       latitude =  "Pocision_Y",
+                       var = "eggs",
+                       alpha = 0.99,
+                       cell_size = 2000,
+                       palette_vir  = "magma",
+                       leg_title = "Huevos",
+                       hist_dataset = FALSE)$map
+
+path_vect <- "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/CENAPRECE/2023/30_veracruz"
+path_coord <- paste(path_vect, "DescargaOvitrampasMesFco.txt", sep = "/")
+deneggs::eggs_hotspots(path_lect = path_vect,
+                       path_coord = path_coord,
+                       locality = c("Veracruz", "Boca del Rio"),
+                       cve_ent = "30",
+                       fam = "zeroinflatednbinomial1",
+                       k = 20,
+                       plot = FALSE,
+                       sem = 25, 
+                       aproximation = "gaussian",
+                       integration = "eb",
+                       longitude  = "Pocision_X",
+                       latitude =  "Pocision_Y",
+                       var = "eggs",
+                       alpha = 0.99,
+                       cell_size = 2000,
+                       palette_vir  = "magma",
+                       leg_title = "Huevos",
+                       hist_dataset = FALSE)$map
+
 path_vect <- "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/CENAPRECE/2023/23_quintana_roo"
 path_coord <- paste(path_vect, "DescargaOvitrampasMesFco.txt", sep = "/")
 library(INLA)
@@ -106,111 +85,4 @@ deneggs::eggs_hotspots(path_lect = path_vect,
                        leg_title = "Huevos",
                        hist_dataset = FALSE)$map
 
-```
-:::
 
-::: grid-item
-```{r}
-#| echo: false
-#| output: true
-library(sf)
-path_vect <- "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/CENAPRECE/2023/30_veracruz"
-path_coord <- paste(path_vect, "DescargaOvitrampasMesFco.txt", sep = "/")
-deneggs::eggs_hotspots(path_lect = path_vect,
-                       path_coord = path_coord,
-                       locality = c("Veracruz", "Boca del Rio"),
-                       cve_ent = "30",
-                       fam = "zeroinflatednbinomial1",
-                       k = 20,
-                       plot = FALSE,
-                       sem = 25, 
-                       aproximation = "gaussian",
-                       integration = "eb",
-                       longitude  = "Pocision_X",
-                       latitude =  "Pocision_Y",
-                       var = "eggs",
-                       alpha = 0.99,
-                       cell_size = 2000,
-                       palette_vir  = "magma",
-                       leg_title = "Huevos",
-                       hist_dataset = FALSE)$map
-
-```
-:::
-
-::: grid-item
-```{r}
-#| echo: false
-#| output: true
-path_vect <- "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/CENAPRECE/2023/14_jalisco"
-path_coord <- paste(path_vect, "DescargaOvitrampasMesFco.txt", sep = "/")
-library(magrittr)
-library(sf)
-deneggs::eggs_hotspots(path_lect = path_vect,
-                       path_coord = path_coord,
-                       locality = c("Zapopan", "Guadalajara", "Tlaquepaque", "Tonalá"),
-                       cve_ent = "14",
-                       fam = "zeroinflatednbinomial1",
-                       k = 20,
-                       plot = FALSE,
-                       sem = 25, 
-                       aproximation = "gaussian",
-                       integration = "eb",
-                       longitude  = "Pocision_X",
-                       latitude =  "Pocision_Y",
-                       var = "eggs",
-                       alpha = 0.99,
-                       cell_size = 2000,
-                       palette_vir  = "magma",
-                       leg_title = "Huevos",
-                       hist_dataset = FALSE)$map
-
-```
-:::
-
-::: grid-item
-```{r}
-#| echo: false
-#| output: true
-path_vect <- "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/CENAPRECE/2023/31_yucatan"
-path_coord <- paste(path_vect, "DescargaOvitrampasMesFco.txt", sep = "/")
-library(magrittr)
-library(sf)
-deneggs::eggs_hotspots(path_lect = path_vect,
-                       path_coord = path_coord,
-                       locality = "Mérida",
-                       cve_ent = "31",
-                       fam = "zeroinflatednbinomial1",
-                       k = 30,
-                       plot = FALSE,
-                       sem = 25, 
-                       aproximation = "gaussian",
-                       integration = "eb",
-                       longitude  = "Pocision_X",
-                       latitude =  "Pocision_Y",
-                       var = "eggs",
-                       alpha = 0.99,
-                       cell_size = 2000,
-                       palette_vir  = "magma",
-                       leg_title = "Huevos",
-                       hist_dataset = FALSE)$map
-```
-:::
-
-:::
-
-</body>
-</html>
-
-
-
-## [Dios Botic]{style="color:#003300;"}
-<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
-
--   ***Bio*** : [https://fdzul.github.io/web_site_fadm/]()
-
--   ***email*** : [felipe.dzul.m\@gmail.com]()
-
--   ***celular*** : [9999580167]()
-
--   ***slides***: [https://calm-hummingbird-41cb33.netlify.app/talks/hotspots_eggs/#/](https://calm-hummingbird-41cb33.netlify.app/talks/hotspots_eggs/#/)
