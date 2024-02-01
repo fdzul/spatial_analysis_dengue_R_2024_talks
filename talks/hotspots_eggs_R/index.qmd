@@ -254,7 +254,6 @@ ggplot2::ggplot() +
     ggplot2::coord_sf(xlim = c(-103.30, -103.28),
                       ylim = c(20.60, 20.61))
 ```
-
 :::
 
 
@@ -302,20 +301,138 @@ La función [spde_pred_map](https://fdzul.github.io/deneggs/reference/spde_pred_
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
 ```{r echo=FALSE}
-tibble::tibble(argumento = c("path_lect", "path_coord", "year","locality",  "cve_ent",
-                             "leg_title", "fam", "alpha", "plot", "aproximation"),
-    definicion = c("Ruta de ovitrampas", "Ruta de la coordenadas", "Año a analizar", "localidad", "Clave del Estado",
-                   "Título de la leyenda", "Nombre de la Distribución", "Nivel de Significancia", "Valor lógico para visualizar el mesh", "Es el método de aproximación para calcular los hiperparametros y valores marginales. Las opciones son gaussian, simplified.laplace & laplace")) |>
-    reactable::reactable(defaultPageSize = 10,
+tibble::tibble(argumentos = c("path_lect", "path_coord", 
+                              "locality",  "cve_ent", 
+                              "longitude", "latitude",
+                              "year", "week o sem", 
+                              "var", "plot", "k"),
+               spde_pred_map = c(T, T, T, T,T,
+                                 T, F, T, T, T, T),
+               eggs_hotspots = c(T, T, T, T,T,
+                                 T, T, T, T, T, T),
+    definicion = c("Es la ruta de la carpetas donde estan guardadas las ovitrampas",
+                   "Es la ruta de la carpetas donde estan guardadas las coordenadas",
+                   "Es la localidad de Interes",
+                   "Es la clave del estado",
+                   "Es la coordenadas geográfica (longitud)",
+                   "Es la coordenadas geográfica (latitud)",
+                   "Es el año", "Es la semana epidemiológica",
+                   "Es la variable de Interes",
+                   "Es un valor logico para definir si se visualiza el mesh (TRUE) o no (FALSE)",
+                   "Es el parámetro para definir los triangulos interiores y exteriores"
+                   )) |>
+    reactable::reactable(defaultPageSize = 11,
                          theme = reactablefmtr::flatly(),
                          filterable = FALSE,
                          striped = TRUE,
                          #minRows = 10,
                          resizable = TRUE, 
                          wrap = TRUE, 
-                         bordered = TRUE)
+                         bordered = TRUE,
+                         columns = list(spde_pred_map = reactable::colDef(style = reactablefmtr::cell_style(font_size = 20),
+                                                                       cell = function(value) {
+                           if (value == F) "\u274c No" else "\u2714\ufe0f Yes"}),
+                           eggs_hotspots = reactable::colDef(style = reactablefmtr::cell_style(font_size = 20),
+                                                             cell = function(value) {
+                           if (value == F) "\u274c No" else "\u2714\ufe0f Yes"}),
+                           argumentos = reactable::colDef(style = reactablefmtr::cell_style(font_size = 20)), 
+                           definicion = reactable::colDef(style = reactablefmtr::cell_style(font_size = 20))
+                         ))
 ```
 
+
+## [Argumentos de las funciones de deneggs]{.r-fit-text style="color:#003300;"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r echo=FALSE}
+tibble::tibble(argumentos = c("fam", 
+                             "aproximation", "integration",
+                             "alpha", "cell_size",
+                             "leg_title",
+                             "palette_vir",
+                             "hist_dataset"),
+               spde_pred_map = c(F, T, T, T,T,
+                                 T, T, F),
+               eggs_hotspots = c(T, T, T, T,T,
+                                 T, T, T ),
+               definicion = c("Nombre de la Distribució",
+                              "Es el método de aproximación para calcular los hiperparametros y valores marginales. Las opciones son gaussian, simplified.laplace & laplace",
+                              "Es la estrategia de integración. Las opciones son grid, eb & ccd)",
+                              "Nivel de Significancia",
+                              "Es el tamaño de muestra para predecir",
+                              "Título de la leyenda",
+                              "Es la paleta de viridis. Las opciones son magma, inferno, plasma & viridis", 
+                              "Es un valor lógico para definir las bases históricas (FALSE) ó la actual base de datos (FALSE)"
+                              )) |>
+  reactable::reactable(defaultPageSize = 10,
+                         theme = reactablefmtr::flatly(),
+                         filterable = FALSE,
+                         striped = TRUE,
+                         #minRows = 10,
+                         resizable = TRUE, 
+                         wrap = TRUE, 
+                         bordered = TRUE,
+                       columns = list(spde_pred_map = reactable::colDef(style = reactablefmtr::cell_style(font_size = 20),
+                                                                       cell = function(value) {
+                           if (value == F) "\u274c No" else "\u2714\ufe0f Yes"}),
+                           eggs_hotspots = reactable::colDef(style = reactablefmtr::cell_style(font_size = 20),
+                                                             cell = function(value) {
+                           if (value == F) "\u274c No" else "\u2714\ufe0f Yes"}),
+                           argumentos = reactable::colDef(style = reactablefmtr::cell_style(font_size = 20)), 
+                           definicion = reactable::colDef(style = reactablefmtr::cell_style(font_size = 20))
+                           
+                           
+                           ))
+```
+
+
+## [Argumentos de las funciones de deneggs]{.r-fit-text style="color:#003300;"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+::: {.panel-tabset}
+
+## Código
+```{r}
+#| echo: true
+#| output: false
+path_ovitraps <- "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/CENAPRECE/2023/14_jalisco"
+path_coord <- paste(path_ovitraps,"DescargaOvitrampasMesFco.txt", sep = "/" )
+x <- deneggs::eggs_hotspots(path_lect = path_ovitraps,
+                            cve_ent = "14",
+                            locality  = c("Guadalajara", "Zapopan",
+                                          "Tlaquepaque", "Tonalá"),
+                            path_coord = path_coord,
+                            longitude  = "Pocision_X",
+                            latitude =  "Pocision_Y",
+                            aproximation = "gaussian",
+                            integration = "eb",
+                            fam = "zeroinflatednbinomial1",
+                            k = 80,
+                            palette_vir  = "magma",
+                            leg_title = "Huevos",
+                            plot = FALSE,
+                            hist_dataset = FALSE,
+                            sem = 41,
+                            var = "eggs",
+                            cell_size = 3000,
+                            alpha = .99)
+```
+
+## Elementos
+```{r}
+#| echo: true
+#| output: true
+names(x)
+```
+
+## Mapa
+```{r}
+#| echo: false
+#| output: true
+x$map
+```
+
+:::
 
 
 ## [Dios Botic]{style="color:#003300;"}
