@@ -12,6 +12,7 @@ format:
     center-title-slide: true
 ---
 
+
 <h2> Hotspots del vector del Dengue
 <br>
 </h2>
@@ -54,6 +55,7 @@ format:
 
 ## [Análisis Espacial del Vector de Dengue]{style="color:#003300;" .r-fit-text}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
 ```{r, echo=FALSE, out.width='100%', fig.align='center'}
 DiagrammeR::grViz("digraph {
                   # graph definitions
@@ -124,6 +126,7 @@ DiagrammeR::grViz("digraph {
 ```
 
 
+
 ## [Vigilancia Entomológica con Ovitrampas]{style="color:#003300;" .r-fit-text}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
@@ -146,6 +149,7 @@ DiagrammeR::grViz("digraph {
 - **Captura en Línea**
 :::
 ::: {.column style="width: 50%; font-size: 80%"}
+
 ```{r}
 path <- "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/CENAPRECE/2024/31_yucatan/DescargaOvitrampasMesFco.txt"
 
@@ -154,12 +158,14 @@ deneggs::blocks_surveillance(locality = "Ticul",
                              path_coords = path)
 ```
 
+
 :::
 ::::
 
 
 ## [Ovitrampas & Desiciones Basadas en Evidencia]{style="color:#003300;" .r-fit-text}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
 
 ```{r}
 path <- "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/CENAPRECE/2023/31_yucatan"
@@ -168,8 +174,10 @@ deneggs::ovitraps_occupancy_abundancy(path_ovitraps  = path,
                                       scale = "ovitraps")
 ```
 
+
 ## [Ovitrampas & Desiciones Basadas en Evidencia]{style="color:#003300;" .r-fit-text}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
 
 ```{r}
 path <- "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/CENAPRECE/2023/31_yucatan"
@@ -177,6 +185,7 @@ deneggs::ovitraps_occupancy_abundancy(path_ovitraps = path,
                                       scale = "blocks")
 ```
 
+
 ## [Ovitrampas & Desiciones Basadas en Evidencia]{style="color:#003300;" .r-fit-text}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
@@ -184,6 +193,7 @@ deneggs::ovitraps_occupancy_abundancy(path_ovitraps = path,
 ::: {.panel-tabset}
 
 ### Distribución de Ovitrampas
+
 ```{r}
 #| echo: true
 #| output: false
@@ -197,7 +207,9 @@ deneggs::eggs_risk(path_vect = path_vect,
                    risk = FALSE)
 
 ```
+
 ### Distribución de Ovitrampas
+
 ```{r}
 #| echo: false
 #| output: true
@@ -211,6 +223,7 @@ deneggs::eggs_risk(path_vect = path_vect,
                    risk = FALSE)
 ```
 
+
 :::
 
 ## [Ovitrampas & Desiciones Basadas en Evidencia]{style="color:#003300;" .r-fit-text}
@@ -220,6 +233,7 @@ deneggs::eggs_risk(path_vect = path_vect,
 ::: {.panel-tabset}
 
 ### Riesgo Entomológico
+
 ```{r}
 #| echo: true
 #| output: false
@@ -233,7 +247,9 @@ deneggs::eggs_risk(path_vect = path_vect,
                    risk = TRUE)
 
 ```
+
 ### Riesgo Entomológico
+
 ```{r}
 #| echo: false
 #| output: true
@@ -247,6 +263,7 @@ deneggs::eggs_risk(path_vect = path_vect,
                    risk = TRUE)
 ```
 
+
 :::
 
 
@@ -256,6 +273,7 @@ deneggs::eggs_risk(path_vect = path_vect,
 ::: {.panel-tabset}
 
 ## Manzanas Calientes
+
 ```{r}
 #| echo: true
 #| output: false
@@ -269,7 +287,9 @@ deneggs::eggs_hotblocks(path_vect = path_vect,
                         brand = "slack")
 ```
 
+
 ## Manzanas Calientes
+
 ```{r}
 #| echo: false
 #| output: true
@@ -282,6 +302,7 @@ deneggs::eggs_hotblocks(path_vect = path_vect,
                         week = 50,
                         brand = "slack")
 ```
+
 
 :::
 
@@ -291,6 +312,7 @@ deneggs::eggs_hotblocks(path_vect = path_vect,
 
 <html>
 <head>
+
 ```{=html}
 <style>
 .grid-container {
@@ -308,6 +330,7 @@ deneggs::eggs_hotblocks(path_vect = path_vect,
 }
 </style>
 ```
+
 </head>
 <body>
 <h1>
@@ -339,6 +362,7 @@ Ticul
 :::
 
 ::: grid-item
+
 ```{r}
 #| echo: false
 #| output: true
@@ -355,9 +379,11 @@ deneggs::eggs_risk(path_vect = path_vect,
                    risk = FALSE)
 
 ```
+
 :::
 
 ::: grid-item
+
 ```{r}
 #| echo: false
 #| output: true
@@ -374,9 +400,11 @@ deneggs::eggs_risk(path_vect = path_vect,
                    risk = TRUE)
 
 ```
+
 :::
 
 ::: grid-item
+
 ```{r}
 #| echo: false
 #| output: true
@@ -393,6 +421,7 @@ deneggs::eggs_hotblocks(path_vect = path_vect,
                         week = 50,
                         brand = "slack")
 ```
+
 :::
 
 :::
@@ -405,6 +434,7 @@ deneggs::eggs_hotblocks(path_vect = path_vect,
 
 <html>
 <head>
+
 ```{=html}
 <style>
 .grid-container-eggs {
@@ -422,6 +452,7 @@ deneggs::eggs_hotblocks(path_vect = path_vect,
 }
 </style>
 ```
+
 </head>
 <body>
 <h1>
@@ -432,6 +463,7 @@ deneggs::eggs_hotblocks(path_vect = path_vect,
 ::: grid-container-eggs
 
 ::: grid-item
+
 ```{r}
 #| echo: false
 #| output: true
@@ -459,9 +491,11 @@ deneggs::eggs_hotspots(path_lect = path_vect,
                        hist_dataset = FALSE)$map
 
 ```
+
 :::
 
 ::: grid-item
+
 ```{r}
 #| echo: false
 #| output: true
@@ -488,9 +522,11 @@ deneggs::eggs_hotspots(path_lect = path_vect,
                        hist_dataset = FALSE)$map
 
 ```
+
 :::
 
 ::: grid-item
+
 ```{r}
 #| echo: false
 #| output: true
@@ -518,9 +554,11 @@ deneggs::eggs_hotspots(path_lect = path_vect,
                        hist_dataset = FALSE)$map
 
 ```
+
 :::
 
 ::: grid-item
+
 ```{r}
 #| echo: false
 #| output: true
@@ -547,6 +585,7 @@ deneggs::eggs_hotspots(path_lect = path_vect,
                        leg_title = "Huevos",
                        hist_dataset = FALSE)$map
 ```
+
 :::
 
 :::
@@ -565,3 +604,4 @@ deneggs::eggs_hotspots(path_lect = path_vect,
 -   ***celular*** : [9999580167]()
 
 -   ***slides***: [https://calm-hummingbird-41cb33.netlify.app/talks/hotspots_eggs/#/](https://calm-hummingbird-41cb33.netlify.app/talks/hotspots_eggs/#/)
+
