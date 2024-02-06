@@ -35,7 +35,7 @@ format:
 <br>
 <h4>Date: 2024-01-01 </h4>
 
-<h4> Update: 2024-01-24</h4>
+<h4> Update: 2024-02-06</h4>
 
 <br>
 
@@ -65,7 +65,7 @@ format:
      - deneggs
      - dehotspots
      - dencontrol
-     - denepikit
+     - densnv
 
 
 ## [Instalación de R]{style="color:#003300;"}
@@ -359,7 +359,7 @@ DiagrammeR::grViz("digraph {
 ```{r}
 #| echo: true
 #| output: true
-# pak::pkg_install("fdzul/rgeomex")
+# pak::pkg_install("fdzul/denhotspots")
 ```
 
 [bolder](https://fdzul.github.io/boldenr/) & [densnv](https://fdzul.github.io/densnv/)
@@ -371,7 +371,7 @@ DiagrammeR::grViz("digraph {
 ```
 
 
-## [Instalación de lo paquetes del dengueverse]{style="color:#003300;"}
+## [Instalación de lo paquetes del dengueverse]{style="color:#003300;" .r-fit-text}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
 Para instalar el paquete [deneggs](https://fdzul.github.io/deneggs/) primero instalamos [INLA](https://www.r-inla.org).

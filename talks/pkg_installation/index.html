@@ -8,7 +8,7 @@
 <link href="index_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="index_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="index_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.544">
+  <meta name="generator" content="quarto-1.4.549">
 
   <title>index</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -418,7 +418,7 @@ Dr.&nbsp;Fabián Correa-Morales
 Date: 2024-01-01
 </h4>
 <h4>
-Update: 2024-01-24
+Update: 2024-02-06
 </h4>
 <p><br></p>
 <h4>
@@ -449,7 +449,7 @@ Update: 2024-01-24
 <li>deneggs</li>
 <li>dehotspots</li>
 <li>dencontrol</li>
-<li>denepikit</li>
+<li>densnv</li>
 </ul></li>
 </ul>
 </section>
@@ -491,7 +491,7 @@ Update: 2024-01-24
 <div class="cell-output cell-output-stdout">
 <pre><code>
 The downloaded binary packages are in
-    /var/folders/2z/8jfl18fd4gv1c9jldxgq4xnw0000gn/T//Rtmp76IKYs/downloaded_packages</code></pre>
+    /var/folders/2z/8jfl18fd4gv1c9jldxgq4xnw0000gn/T//RtmpaItYw7/downloaded_packages</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="co"># Verificamos la instalación</span></span>
 <span id="cb3-2"><a href=""></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -506,7 +506,7 @@ The downloaded binary packages are in
 <div class="cell-output cell-output-stdout">
 <pre><code>
 The downloaded binary packages are in
-    /var/folders/2z/8jfl18fd4gv1c9jldxgq4xnw0000gn/T//Rtmp76IKYs/downloaded_packages</code></pre>
+    /var/folders/2z/8jfl18fd4gv1c9jldxgq4xnw0000gn/T//RtmpaItYw7/downloaded_packages</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="co"># Verificamos la instalación</span></span>
 <span id="cb6-2"><a href=""></a><span class="fu">library</span>(sf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -607,8 +607,8 @@ The downloaded binary packages are in
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div class="grViz html-widget html-fill-item" id="htmlwidget-19612a1faa4660206326" style="width:100%;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-19612a1faa4660206326">{"x":{"diagram":"digraph {\n                  # graph definitions\n  graph [layout = dot, rankdir = TB]\n  \n  # node definitions\n  node [shape = rectangle, \n  style = filled, \n  color = grey, \n  nodesep = .5,\n  fixedsize = true, \n  width = 2] \n  \n  # edge definition\n  edge [color = grey, arrowhead = normal, arrowtail = dot]\n  \n  ##### Spatial Data\n  \n  \n  vectores [label = \"Vectores\", fillcolor =  \" #0F9D58\", color = \"white\", fontcolor = \"white\"]\n  \n # \n etverse [label = \"ETVerse*\",  fillcolor =  \"#F4B400\", color = \"white\", fontcolor = \"black\"]\n ivaverse [label = \"IVAverse\",  fillcolor =  \"#F4B400\", color = \"white\", fontcolor = \"black\"]\n \n transverse [label = \"transverse\",  fillcolor =  \"#F4B400\", color = \"white\", fontcolor = \"black\"]\n \n # ETVerse\n \n dengueverse  [label = \"dengueverse*\",  fillcolor =  \"#4285F4\", color = \"white\", fontcolor = \"white\"]\n leisverse  [label = \"leisverse\",  fillcolor =  \"#4285F4\", color = \"white\", fontcolor = \"white\"]\n chagasverse  [label = \"chagasverse\",  fillcolor =  \"#4285F4\", color = \"white\", fontcolor = \"white\"]\n malverse  [label = \"malverse\",  fillcolor =  \"#4285F4\", color = \"white\", fontcolor = \"white\"]\n \n # IVAverse\n \n alaverse  [label = \"alaverse\",  fillcolor =  \"#4285F4\", color = \"white\", fontcolor = \"white\"]\n araverse  [label = \"araverse\",  fillcolor =  \"#4285F4\", color = \"white\", fontcolor = \"white\"]\n \n #\n \n denhotspots [label = \"denhotspots*\",  fillcolor =  \" #0F9D58\", color = \"white\", fontcolor = \"white\"]\n deneggs [label = \"deneggs*\",  fillcolor =  \" #0F9D58\", color = \"white\", fontcolor = \"white\"]\n denepikit [label = \"densnv*\",  fillcolor =  \" #0F9D58\", color = \"white\", fontcolor = \"white\"]\n dencontrol [label = \"dencontrol\",  fillcolor =  \" #0F9D58\", color = \"white\", fontcolor = \"white\"]\n \n # \n \n # transverse\n rgeomex [label = \"rgeomex*\",  fillcolor =  \"#DB4437\", color = \"white\", fontcolor = \"white\"]\n climatemx [label = \"climex\",  fillcolor =  \"#DB4437\", color = \"white\", fontcolor = \"white\"]\n popmx [label = \"popmex\",  fillcolor =  \"#DB4437\", color = \"white\", fontcolor = \"white\"]\n \n ##### define the relation\n \n #\n vectores -> {etverse ivaverse  transverse} \n etverse -> {dengueverse chagasverse leisverse malverse}\n ivaverse -> {alaverse araverse}\n dengueverse -> {denhotspots deneggs denepikit dencontrol}\n transverse -> {rgeomex climatemx popmx}  \n  \n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-8180718184c1584607aa" style="width:100%;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-8180718184c1584607aa">{"x":{"diagram":"digraph {\n                  # graph definitions\n  graph [layout = dot, rankdir = TB]\n  \n  # node definitions\n  node [shape = rectangle, \n  style = filled, \n  color = grey, \n  nodesep = .5,\n  fixedsize = true, \n  width = 2] \n  \n  # edge definition\n  edge [color = grey, arrowhead = normal, arrowtail = dot]\n  \n  ##### Spatial Data\n  \n  \n  vectores [label = \"Vectores\", fillcolor =  \" #0F9D58\", color = \"white\", fontcolor = \"white\"]\n  \n # \n etverse [label = \"ETVerse*\",  fillcolor =  \"#F4B400\", color = \"white\", fontcolor = \"black\"]\n ivaverse [label = \"IVAverse\",  fillcolor =  \"#F4B400\", color = \"white\", fontcolor = \"black\"]\n \n transverse [label = \"transverse\",  fillcolor =  \"#F4B400\", color = \"white\", fontcolor = \"black\"]\n \n # ETVerse\n \n dengueverse  [label = \"dengueverse*\",  fillcolor =  \"#4285F4\", color = \"white\", fontcolor = \"white\"]\n leisverse  [label = \"leisverse\",  fillcolor =  \"#4285F4\", color = \"white\", fontcolor = \"white\"]\n chagasverse  [label = \"chagasverse\",  fillcolor =  \"#4285F4\", color = \"white\", fontcolor = \"white\"]\n malverse  [label = \"malverse\",  fillcolor =  \"#4285F4\", color = \"white\", fontcolor = \"white\"]\n \n # IVAverse\n \n alaverse  [label = \"alaverse\",  fillcolor =  \"#4285F4\", color = \"white\", fontcolor = \"white\"]\n araverse  [label = \"araverse\",  fillcolor =  \"#4285F4\", color = \"white\", fontcolor = \"white\"]\n \n #\n \n denhotspots [label = \"denhotspots*\",  fillcolor =  \" #0F9D58\", color = \"white\", fontcolor = \"white\"]\n deneggs [label = \"deneggs*\",  fillcolor =  \" #0F9D58\", color = \"white\", fontcolor = \"white\"]\n denepikit [label = \"densnv*\",  fillcolor =  \" #0F9D58\", color = \"white\", fontcolor = \"white\"]\n dencontrol [label = \"dencontrol\",  fillcolor =  \" #0F9D58\", color = \"white\", fontcolor = \"white\"]\n \n # \n \n # transverse\n rgeomex [label = \"rgeomex*\",  fillcolor =  \"#DB4437\", color = \"white\", fontcolor = \"white\"]\n climatemx [label = \"climex\",  fillcolor =  \"#DB4437\", color = \"white\", fontcolor = \"white\"]\n popmx [label = \"popmex\",  fillcolor =  \"#DB4437\", color = \"white\", fontcolor = \"white\"]\n \n ##### define the relation\n \n #\n vectores -> {etverse ivaverse  transverse} \n etverse -> {dengueverse chagasverse leisverse malverse}\n ivaverse -> {alaverse araverse}\n dengueverse -> {denhotspots deneggs denepikit dencontrol}\n transverse -> {rgeomex climatemx popmx}  \n  \n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -643,7 +643,7 @@ The downloaded binary packages are in
 </div>
 <p><a href="https://fdzul.github.io/denhotspots/">denhotspots</a></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href=""></a><span class="co"># pak::pkg_install("fdzul/rgeomex")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href=""></a><span class="co"># pak::pkg_install("fdzul/denhotspots")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><a href="https://fdzul.github.io/boldenr/">bolder</a> &amp; <a href="https://fdzul.github.io/densnv/">densnv</a></p>
 <div class="cell">
@@ -651,16 +651,19 @@ The downloaded binary packages are in
 </div>
 </section>
 <section id="instalación-de-lo-paquetes-del-dengueverse" class="slide level2">
-<h2><span style="color:#003300;">Instalación de lo paquetes del dengueverse</span></h2>
+<h2><span class="r-fit-text" style="color:#003300;">Instalación de lo paquetes del dengueverse</span></h2>
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 <p>Para instalar el paquete <a href="https://fdzul.github.io/deneggs/">deneggs</a> primero instalamos <a href="https://www.r-inla.org">INLA</a>.</p>
 <p><a href="https://www.r-inla.org">INLA</a></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href=""></a><span class="co">#install.packages("INLA",repos=c(getOption("repos"),INLA="https://inla.r-inla-download.org/R/stable"), dep=TRUE)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href=""></a><span class="co">#install.packages("INLA",</span></span>
+<span id="cb22-2"><a href=""></a><span class="co">#                 repos=c(getOption("repos"),</span></span>
+<span id="cb22-3"><a href=""></a><span class="co">#                         INLA="https://inla.r-inla-download.org/R/stable"), </span></span>
+<span id="cb22-4"><a href=""></a><span class="co">#                dep=TRUE)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><a href="https://fdzul.github.io/deneggs/">deneggs</a></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a><span class="co"># pak::pkg_install("fdzul/densnv")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a><span class="co"># pak::pkg_install("fdzul/deneggs")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="dios-botic" class="slide level2">
