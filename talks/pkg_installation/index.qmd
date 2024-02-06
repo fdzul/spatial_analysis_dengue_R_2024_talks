@@ -242,6 +242,16 @@ Instalar los siguiente paquetes para el análisis espacial
 #ctv::install.views("SpatioTemporal")
 ```
 
+- [Epidemiology](https://cran.r-project.org/web/views/Epidemiology.html)
+  
+```{r}
+#| echo: true
+#| output: true
+#ctv::install.views("Epidemiology")
+```
+
+
+
 
 ## [Universo de Vectores en R]{style="color:#003300;"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
