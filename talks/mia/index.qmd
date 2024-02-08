@@ -48,9 +48,47 @@ format:
 ## [Temario]{style="color:#003300;"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
-- Conceptos Básico del Análisis Geoestadístico
-- Modelo del Análisis Geoestadístico
+- Manejo Integrado de los Vectores (MIA)
+- MIA de las arbovirosis
+- MIA del Dengue en Asia
+- Estratificación del Dengue a nivel de Localidades
+- Estratificación del Dengue a nivel de ciudad
+- Escenarios Operativos basados en Transmisión y abundancia Persistente 
+- Definición de los Escenarios Operativos de la Transmisión Persistente
 
+
+## [Temario]{style="color:#003300;"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+- Escenarios Operativos basados en Transmisión Activa y Abundancia Reciente
+- Definición de los Escenarios Operativos de la Transmisión Reciente
+
+- Biología del Vector
+- Manejo Integrado de los Arbovirosis en México
+- Directrices Internacionales
+
+## [Manejo Integrado de los Vectores]{style="color:#003300"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+![](def_mia.png)
+
+## [Manejo Integrado de Aedes]{style="color:#003300"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+![](https://journals.plos.org/plosntds/article/figure/image?size=large&id=10.1371/journal.pntd.0006845.g001){.absolute top="100" width="800" height="550" right="120"}
+
+## [Directrices Internacionales]{style="color:#003300"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+[Global strategic framework for integrated vector management](https://www.who.int/publications/i/item/WHO-CDS-CPE-PVC-2004.10)
+
+[Handbok for Integrated Vector Management](https://www.who.int/publications/i/item/9789241502801)
+
+[Handbook for Integrated Vector Management in the Americas](https://iris.paho.org/handle/10665.2/51759)
+
+[Best Practices for Integrated Mosquito Management](https://www.mosquito.org/assets/pdf/hr_november_2021_amca_bmp_ma/)
+
+[AMCA's Best Practices for Integrated Mosquito Management Virtual Training Program](https://amca.ce21.com/item/best-practices-mosquito-management)
 
 ## [Dios Botic]{style="color:#003300;"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
