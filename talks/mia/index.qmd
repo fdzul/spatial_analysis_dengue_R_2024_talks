@@ -201,6 +201,179 @@ DiagrammeR::grViz("digraph {
 ```
 
 
+## [Estratificación del Dengue a nivel de Ciudad]{.r-fit-text style="color:#003300;"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r}
+# Propuesta ####
+DiagrammeR::grViz("digraph {
+                  # graph definitions
+  graph [layout = dot, rankdir = TB]
+  
+  # node definitions
+  node [shape = rectangle, 
+  style = filled, 
+  color = grey, 
+  nodesep = .5,
+  fixedsize = true, 
+  width = 5.2]
+  
+  
+  # edge definition
+  edge [color = grey, arrowhead = normal, arrowtail = dot]
+  
+  ##### epidemiological data
+  
+  epi [label = 'Vigilancia Epidemiológica',  fillcolor =  '#682D63', color = 'white', fontcolor = 'white']
+  ento [label = 'Vigilancia Entomológica',  fillcolor =  '#682D63', color = 'white', fontcolor = 'white']
+  
+  
+  node [shape = rectangle, 
+  style = filled, 
+  color = grey, 
+  nodesep = .5,
+  fixedsize = true, 
+  width = 2.5]
+  
+  
+  
+  data_historic [label = 'Datos Históricos',  fillcolor =  'gray', color = 'white', fontcolor = 'black']
+  datos_actuales [label = 'Datos Recientes',  fillcolor =  'gray', color = 'white', fontcolor = 'black']
+  
+  
+  ##### entomologica data
+  ovis_historic [label = 'Datos Históricos',  fillcolor =  'gray', color = 'white', fontcolor = 'black']
+  ovis_actuales [label = 'Datos Recientes',  fillcolor =  'gray', color = 'white', fontcolor = 'black']
+  
+  
+  
+  ##### transmision
+  
+  trans_persistente [label = 'Transmisión Persistente',  fillcolor =  '#0F9D58', color = 'white', fontcolor = 'white']
+  trans_activa [label = 'Transmisión Activa',  fillcolor =  ' #0F9D58', color = 'white', fontcolor = 'white']
+  
+  abun_persistente1 [label = 'Abundancia Persistente',  fillcolor =  '#0F9D58', color = 'white', fontcolor = 'white']
+  abun_persistente2 [label = 'Abundancia Reciente',  fillcolor =  '#0F9D58', color = 'white', fontcolor = 'white']
+
+  
+  
+  analisis_espacial1 [label = 'Análisis Espacial',  fillcolor =  'gray', color = 'white', fontcolor = 'black']
+  analisis_espacial2 [label = 'Análisis Espacial',  fillcolor =  'gray', color = 'white', fontcolor = 'black']
+  analisis_espacial3 [label = 'Análisis Espacial',  fillcolor =  'gray', color = 'white', fontcolor = 'black']
+  analisis_espacial4 [label = 'Análisis Espacial',  fillcolor =  'gray', color = 'white', fontcolor = 'black']
+  
+
+ # Spatial data
+ 
+ datos_espaciales1 [label = 'Datos Espaciales',  fillcolor =  '#0F9D58', color = 'white', fontcolor = 'white']
+ datos_espaciales2 [label = 'Datos Espaciales',  fillcolor =  '#0F9D58', color = 'white', fontcolor = 'white']
+ datos_espaciales3 [label = 'Datos Espaciales',  fillcolor =  '#0F9D58', color = 'white', fontcolor = 'white']
+ datos_espaciales4 [label = 'Datos Espaciales',  fillcolor =  '#0F9D58', color = 'white', fontcolor = 'white']
+ 
+ 
+ 
+ areal_data [label = 'Areal Data',  fillcolor =  '#0F9D58', color = 'white', fontcolor = 'white']
+ pp_data [label = 'Point Pattern Data',  fillcolor =  ' #0F9D58', color = 'white', fontcolor = 'white']
+ geo_data1 [label = 'Geostatistical Data',  fillcolor =  '#0F9D58', color = 'white', fontcolor = 'white']
+ geo_data2 [label = 'Geostatistical Data',  fillcolor =  '#0F9D58', color = 'white', fontcolor = 'white']
+     
+ 
+ # Análisis 
+ 
+ g_star [label = 'Getis & Ord Statistics',  fillcolor =  'orange', color = 'white', fontcolor = 'black']
+ hotspots [label = 'Hotspots',  fillcolor =  'orange', color = 'white', fontcolor = 'black']
+ knox [label = 'Knox Test',  fillcolor =  'orange', color = 'white', fontcolor = 'black']
+ cadenas [label = 'Cadenas de Transmisión',  fillcolor =  'orange', color = 'white', fontcolor = 'black']
+ 
+inla1 [label = 'SPDE-INLA',  fillcolor =  'orange', color = 'white', fontcolor = 'black']
+ 
+hotspots2 [label = 'Hotspots',  fillcolor =  'orange', color = 'white', fontcolor = 'black']
+
+
+inla2 [label = 'SPDE-INLA',  fillcolor =  'orange', color = 'white', fontcolor = 'black']
+hotspots3 [label = 'Hotspots',  fillcolor =  'orange', color = 'white', fontcolor = 'black']
+
+ 
+ # escenarios
+node [shape = rectangle, 
+  style = filled, 
+  color = grey, 
+  nodesep = .5,
+  fixedsize = true, 
+  width = 10.8]
+risk [label = 'Escenarios Operativos ó Epidemiológicos',  fillcolor =  '#0E7C7B', color = 'white', fontcolor = 'white']
+acciones [label = 'Acciones de Prevención y Control',  fillcolor =  '#0E7C7B', color = 'white', fontcolor = 'white']
+
+node [shape = rectangle, 
+  style = filled, 
+  color = grey, 
+  nodesep = .5,
+  fixedsize = false, 
+  width = 5.3]
+fase1 [label = 'Fase I',  fillcolor =  '#17BEBB', color = 'white', fontcolor = 'black']
+fase2 [label = 'Fase II',  fillcolor =  '#17BEBB', color = 'white', fontcolor = 'black']
+
+risk2 [label = 'Transmisión Persistente & Abundancia Persistente',  fillcolor =  '#880044', color = 'white', fontcolor = 'white']
+risk3 [label = 'Transmisión Activa & Abundancia Reciente',  fillcolor =  '#88004', color = 'white', fontcolor = 'white']
+
+# escenarios
+node [shape = rectangle, 
+  style = filled, 
+  color = grey, 
+  nodesep = .5,
+  fixedsize = true, 
+  width = 10.8]
+ fase3 [label = 'Fase III',  fillcolor =  '#17BEBB', color = 'white', fontcolor = 'black']
+
+
+
+#
+node [shape = rectangle, 
+  style = filled, 
+  color = grey, 
+  nodesep = .2,
+  fixedsize = true, 
+  width = 1.1]
+
+bajo1 [label = 'Bajo',  fillcolor =  '#36C5F0', color = 'white', fontcolor = 'black']
+medio1 [label = 'Medio',  fillcolor =  '#2EB67D', color = 'white', fontcolor = 'black']
+alto1 [label = 'Alto',  fillcolor =  '#ECB22E', color = 'white', fontcolor = 'black']
+altisimo1 [label = 'Altisimo',  fillcolor =  '#E01E5A', color = 'white', fontcolor = 'white']
+
+bajo2 [label = 'Bajo',  fillcolor =  '#36C5F0', color = 'white', fontcolor = 'black']
+medio2 [label = 'Medio',  fillcolor =  '#2EB67D', color = 'white', fontcolor = 'black']
+alto2 [label = 'Alto',  fillcolor =  '#ECB22E', color = 'white', fontcolor = 'black']
+altisimo2 [label = 'Altisimo',  fillcolor =  '#E01E5A', color = 'white', fontcolor = 'white']
+
+
+ ##### define the relation
+ 
+ epi -> {data_historic  datos_actuales}
+ data_historic -> trans_persistente -> analisis_espacial1 -> datos_espaciales1
+ datos_actuales -> trans_activa -> analisis_espacial2 -> datos_espaciales2
+ 
+
+ datos_espaciales1 -> areal_data -> g_star -> hotspots 
+ datos_espaciales2 -> pp_data -> knox -> cadenas 
+ 
+ ento -> {ovis_historic  ovis_actuales} 
+ ovis_historic -> abun_persistente1 -> analisis_espacial3 -> datos_espaciales3 -> geo_data1
+ ovis_actuales -> abun_persistente2 -> analisis_espacial4 -> datos_espaciales4 -> geo_data2
+ geo_data1 -> inla1 -> hotspots2
+ geo_data2 -> inla2 -> hotspots3
+
+##
+{hotspots, cadenas, hotspots2 hotspots3} -> risk -> {fase1 fase2}
+
+fase1 -> risk2
+fase2 -> risk3
+risk2 -> {bajo1, medio1 alto1 altisimo1} -> fase3 
+risk3 -> {bajo2, medio2 alto2 altisimo2} -> fase3 -> acciones
+
+}")
+
+```
+
 
 ## [Directrices Internacionales]{style="color:#003300"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
