@@ -521,12 +521,403 @@ denhotspots::map_risk(risk = risk,
 
 ::::
 
-
 ## [Transmisión Activa & Abundancia reciente]{.r-fit-text style="color:#003300;"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
+<html>
+<head>
+```{=html}
+<style>
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  padding: 5px;
+}
+
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 5px;
+  font-size: 30px;
+  text-align: center;
+}
+</style>
+```
+</head>
+<body>
+<h1>
+</h1>
+<p>
+</p>
+
+::: grid-container
+
+::: grid-item
+Localidad
+:::
+
+::: grid-item
+Transmisión
+:::
+
+::: grid-item
+Vector
+:::
+
+::: grid-item
+Escenarios
+:::
+
+::: grid-item
+Mérida
+:::
+
+::: grid-item
+```{r}
+#| echo: false
+#| output: true
+# Step 1. load the dengue dataset geocoded ####
+load("/Users/fdzul/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2024/8.RData/denmex_2024.RData")
 
 
+########
+densnv::mp_heatmap(locality = "Merida",
+                   cve_edo = "31",
+                   geocoded_datasets = z,
+                   zoom = 12,
+                   status_caso = c(1, 2),
+                   week = c(1:6),
+                   alpha = 0.3,
+                   static = TRUE,
+                   map_type = "terrain")
+```
+
+:::
+
+::: grid-item
+```{r}
+#| echo: false
+#| output: true
+path_ovitraps <- "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/CENAPRECE/2024/31_yucatan"
+path_coord <- paste(path_ovitraps,"DescargaOvitrampasMesFco.txt", sep = "/" )
+x <- deneggs::eggs_hotspots(path_lect = path_ovitraps,
+                            cve_ent = "31",
+                            locality  = "Mérida",
+                            path_coord = path_coord,
+                            longitude  = "Pocision_X",
+                            latitude =  "Pocision_Y",
+                            aproximation = "gaussian",
+                            integration = "eb",
+                            fam = "zeroinflatednbinomial1",
+                            k = 80,
+                            palette_vir  = "viridis",
+                            leg_title = "Huevos",
+                            plot = FALSE,
+                            hist_dataset = FALSE,
+                            sem = 4,
+                            var = "eggs",
+                            cell_size = 3000,
+                            alpha = .99)
+x$map +
+    ggplot2::theme(legend.position = "none")
+```
+
+:::
+
+::: grid-item
+```{r}
+#| echo: false
+#| output: true
+# Step 1. load the dengue dataset geocoded ####
+load("/Users/fdzul/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2024/8.RData/denmex_2024.RData")
+# Step 1. transform dataset #####
+w <- z |>
+    dplyr::filter(ESTATUS_CASO %in% c(1, 2)) |>
+    dplyr::mutate(x = long,
+                  y = lat) |>
+    sf::st_as_sf(coords = c("long", "lat"),
+                 crs = 4326)
+
+# Step 2. extract the locality ####
+locality <- rgeomex::extract_locality(cve_edo = "31",
+                                      locality = "Merida")
+
+# Step 3. extract the geocoded cases of merida ####
+w <- w[locality, ]  |>
+    #sf::st_drop_geometry() |>
+    dplyr::filter(SEM %in% c(1:6))
+
+x$map +
+    ggnewscale::new_scale_fill() +
+    ggplot2::stat_density_2d(data = w,
+                             ggplot2::aes(x = x,
+                                          y = y),
+                             geom = "density_2d", #"polygon",
+                             col = "white", # "#E01E5A"
+                             lwd = 0.3,
+                             alpha = 0.7) +
+    ggplot2::geom_point(data = w |>
+                            dplyr::filter(ESTATUS_CASO %in% c(1, 2)), 
+                        ggplot2::aes(x = x,
+                                     y = y),
+                        alpha = 0.3,
+                        col = "#E01E5A") +
+    ggplot2::theme(legend.position = "none")
+
+```
+
+:::
+
+:::
+
+</body>
+</html>
+
+
+## [Definición de los Escenarios Operativos ó Epidemiológicos]{.r-fit-text style="color:#003300;"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+:::: {.columns}
+
+::: {.column style="width: 40%;font-size: 70%"}
+<span style="color:#F44B1FFF;">Áreas de Riesgo.</span> Área de mayor concentración de casos + mayor abundancias del vector.
+
+
+:::
+
+::: {.column style="width: 60%"}
+```{r heatmap_merida}
+#| fig-width: 8
+#| fig-height: 8
+# Step 1. load the dengue dataset geocoded ####
+load("/Users/fdzul/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2024/8.RData/denmex_2024.RData")
+# Step 1. transform dataset #####
+w <- z |>
+    dplyr::filter(ESTATUS_CASO %in% c(1, 2)) |>
+    dplyr::mutate(x = long,
+                  y = lat) |>
+    sf::st_as_sf(coords = c("long", "lat"),
+                 crs = 4326)
+
+# Step 2. extract the locality ####
+locality <- rgeomex::extract_locality(cve_edo = "31",
+                                      locality = "Merida")
+
+# Step 3. extract the geocoded cases of merida ####
+w <- w[locality, ]  |>
+    #sf::st_drop_geometry() |>
+    dplyr::filter(SEM %in% c(1:6))
+
+x$map +
+    ggnewscale::new_scale_fill() +
+    ggplot2::stat_density_2d(data = w,
+                             ggplot2::aes(x = x,
+                                          y = y),
+                             geom = "density_2d", #"polygon",
+                             col = "white", # "#E01E5A"
+                             lwd = 0.3,
+                             alpha = 0.7) +
+    ggplot2::geom_point(data = w |>
+                            dplyr::filter(ESTATUS_CASO %in% c(1, 2)), 
+                        ggplot2::aes(x = x,
+                                     y = y),
+                        alpha = 0.3,
+                        col = "#E01E5A") +
+    ggplot2::theme(legend.position = "none")
+
+```
+:::
+
+::::
+
+
+## [Biología del Vector del Dengue]{.r-fit-text style="color:#003300;"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+![](life_cycle_culicidae.png){fig-align="center"width=70%}
+
+## [Manejo Integrado de las Arbovirosis en México]{.r-fit-text style="color:#003300;"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+# Step 1. load the dataset #####
+load("/Users/fdzul/Library/CloudStorage/OneDrive-Personal/automatic_read_sinave/8.RData/epid_channel_data.RData")
+
+# Step 2. extract the dengue cases of veracruz ####
+x <- x |>
+    dplyr::filter(DES_EDO_RES == "VERACRUZ") 
+
+y <- tibble::tibble(SEM = x$SEM,
+                    y = x$q25,
+                    arm = "Nuevo Paradigma")
+prob <- tibble::tibble(SEM = x$SEM,
+                       prob = rep(0, length(x$SEM)))
+
+# plot risk stratificaction  #####
+ggplot2::ggplot() +
+    ggplot2::geom_rect(ggplot2::aes(xmin = c(-Inf, 25), 
+                                    xmax = c(25, Inf), 
+                                    ymin = -Inf, 
+                                    ymax = Inf),
+                       fill = c("#2EB67D", "#E01E5A"),
+                       alpha = .2) +
+    ggplot2::geom_rect(ggplot2::aes(xmin = 20, 
+                                    xmax = 25, 
+                                    ymin = -Inf, 
+                                    ymax = Inf),
+                       fill = "orange",
+                       alpha = 0.8) +
+    ggplot2::geom_rect(ggplot2::aes(xmin = 25, 
+                                    xmax = 27, 
+                                    ymin = -Inf, 
+                                    ymax = Inf),
+                       fill = "gray",
+                       alpha = 0.8) +
+    ggplot2::geom_rect(ggplot2::aes(xmin = 38, 
+                                    xmax = 40, 
+                                    ymin = -Inf, 
+                                    ymax = Inf),
+                       fill = "#E01E5A",
+                       alpha = 0.8) +
+    ggplot2::geom_rect(ggplot2::aes(xmin = 40, 
+                                    xmax = 42, 
+                                    ymin = -Inf, 
+                                    ymax = Inf),
+                       fill = "gray",
+                       alpha = 0.8) +
+    ggplot2::geom_vline(xintercept = 25,
+                        color = "gray", #"#36C5F0",
+                        size = 1,
+                        linetype = 3) +
+    ggplot2::geom_vline(xintercept = 20,
+                        color = "gray", #"#36C5F0",
+                        size = 1,
+                        linetype = 3) +
+    ggplot2::geom_line(data = x, 
+                       ggplot2::aes(x = SEM,
+                                    y = q75-10),
+                       col = "#E01E5A",
+                       size = 3) +
+    ggplot2::geom_line(data = y, 
+                       ggplot2::aes(x = SEM,
+                                    y = y),
+                       color = "#2EB67D", #"#36C5F0",
+                       size = 3) +
+    ggplot2::scale_x_continuous(breaks = seq(from = min(y$SEM), to = max(y$SEM), by = 4))+
+    ggplot2::ylab("Número de Casos") +
+    ggplot2::xlab("Semanas Epidemiológicas") +
+    ggplot2::annotate("text",
+                      label = "Control Proactivo",
+                      x = 10, 
+                      y = 450,
+                      #text = "risk",
+                      col = "#2EB67D",
+                      size = 6) +
+    ggplot2::annotate("text",
+                      label = "Escenarios Operativos \nbasados \nen \nTransmisión Persistente",
+                      x = 10, 
+                      y = 380,
+                      #text = "risk",
+                      col = "#2EB67D",
+                      size = 4) +
+    ggplot2::annotate("text",
+                      label = "Control Reactivo",
+                      x = 47, 
+                      y = 450,
+                      #text = "risk",
+                      col = "#E01E5A",
+                      size = 6) +
+    ggplot2::annotate("text",
+                      label = "Escenarios Operativos \nbasados \nen \nTransmisión Activa",
+                      x = 47, 
+                      y = 380,
+                      #text = "risk",
+                      col = "#E01E5A",
+                      size = 4) +
+    ggplot2::geom_line(data = prob, 
+                       ggplot2::aes(x = SEM,
+                                    y = prob),
+                       color = "#36C5F0",
+                       size = 2)  +
+    ggplot2::annotate("text",
+                      label = "Acciones Específicas Básicas",
+                      x = 10, 
+                      y = 280,
+                      col = "gray",
+                      size = 4) +
+    ggplot2::annotate("text",
+                      label = "Vigilancia Epidemiológica y Entomológica",
+                      x = 10, 
+                      y = 250,
+                      col = "#36C5F0",
+                      size = 4) +
+    ggplot2::annotate("text",
+                      label = "Control de Probables",
+                      x = 10, 
+                      y = 230,
+                      col = "#36C5F0",
+                      size = 4) +
+  ggplot2::annotate("text",
+                      label = "Hotspots del Vector",
+                      x = 10, 
+                      y = 200,
+                      col = "#36C5F0",
+                      size = 4) +
+    ggplot2::annotate("text",
+                      label = "Acciones Específicas de Soporte",
+                      x = 10, 
+                      y = 150,
+                      col = "gray",
+                      size = 4) +
+    ggplot2::annotate("text",
+                      label = "Termonebulización,\n Nebulización, & \nEliminación Masiva de Criaderos",
+                      x = 10, 
+                      y = 110,
+                      col = "gray",
+                      size = 3) +
+  ggplot2::annotate("text",
+                      label = "Sin Control",
+                      x = 30, 
+                      y = 425,
+                      #text = "risk",
+                      col = "#E01E5A",
+                      size = 4) +
+  ggplot2::annotate("text",
+                      label = "Con Control",
+                      x = 35, 
+                      y = 105,
+                      col = "#2EB67D",
+                      size = 4) +
+  ggplot2::annotate(geom ="text",
+                      label = "Rociado Residual Intradomiciliario & Control Larvario",
+                      x = 22, 
+                      y = 220,
+                    angle = 90,
+                      col = "white",
+                      size = 4) +
+    ggplot2::annotate(geom ="text",
+                      label = "ULV Fria o Caliente",
+                      x = 26, 
+                      y = 220,
+                      angle = 90,
+                      col = "white",
+                      size = 4) +
+  ggplot2::annotate(geom ="text",
+                      label = "Control Larvario",
+                      x = 39, 
+                      y = 220,
+                    angle = 90,
+                      col = "white",
+                      size = 4) +
+    ggplot2::annotate(geom ="text",
+                      label = "ULV Fria o Caliente",
+                      x = 41, 
+                      y = 220,
+                      angle = 90,
+                      col = "white",
+                      size = 4)
+
+```
 
 ## [Directrices Internacionales]{style="color:#003300"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">

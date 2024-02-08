@@ -65,7 +65,7 @@ format:
 :::
 
 ::: {.column style="width: 60%"}
-Mérida
+
 ```{r risk_merida2}
 #| fig-width: 8
 #| fig-height: 8
