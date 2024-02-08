@@ -1,0 +1,87 @@
+---
+format: 
+  revealjs:
+    code-block-bg: true
+    code-block-background: true
+    code-copy: true
+    chalkboard: true
+    highlight-style: github
+    slide-number: c/t
+    logo: logo_cenaprece.jpeg
+    footer: "[hub.com/fdzul](https://github.com/fdzul)"
+    center-title-slide: true
+---
+
+<h2>Modelo Estratégico de Focalización
+<br>del Dengue México
+</h2>
+
+<h2>
+
+</h2>
+
+<hr>
+
+<br>
+
+
+<h3>Dr. Felipe Dzul Manzanilla</h3>
+
+<h3>Dr. Fabián Correa-Morales</h3>
+
+<h3>
+
+</h3>
+<br>
+<h4>Date: 2024-02-07 </h4>
+
+<h4> Update: 2024-02-07</h4>
+
+<br>
+
+<h4>
+
+
+![](logo_curso_2024.png){.absolute top="170" left="650" width="450"}
+
+
+
+## [Definición de los Escenarios Operativos ó Epidemiológicos]{.r-fit-text style="color:#003300;"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+:::: {.columns}
+
+::: {.column style="width: 40%;font-size: 70%"}
+
+<span style="color:#F44B1FFF;">Áreas con riesgo muy alto de transmisión.</span> Hotposts de casos + hotspots del vector.
+
+<span style="color:#FF9000FF;">Áreas con riesgo alto de transmisión.</span> Hotspots de transmisión.
+
+<span style="color:gold;">Áreas con riesgo medio de transmisión.</span>Hotspots del vector.
+
+<span style="color:#00F293FF;">Áreas con riesgo alto de transmisión.</span>Sin hotspots de transmisión o hotspots del vector.
+
+
+:::
+
+::: {.column style="width: 60%"}
+Mérida
+```{r risk_merida2}
+#| fig-width: 8
+#| fig-height: 8
+# Step 1. calculate the risk ####
+risk <- denhotspots::risk_ageb(betas = denmex::eggs_betas_31_yucatan,
+                               hotspots = denmex::den_hotspots,
+                               intensity_perc = 25,
+                               locality = "Mérida",
+                               cve_edo = "31")
+
+# Step 2. map ####
+denhotspots::map_risk(risk = risk,
+                      staticmap = TRUE)
+```
+:::
+
+::::
+
+
