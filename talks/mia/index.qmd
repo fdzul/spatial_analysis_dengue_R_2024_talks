@@ -375,6 +375,116 @@ risk3 -> {bajo2, medio2 alto2 altisimo2} -> fase3 -> acciones
 ```
 
 
+## [Transmisión Persistente & Abundancia Persistente]{.r-fit-text style="color:#003300;"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+<html>
+<head>
+```{=html}
+<style>
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  padding: 5px;
+}
+
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 5px;
+  font-size: 30px;
+  text-align: center;
+}
+</style>
+```
+</head>
+<body>
+<h1>
+</h1>
+<p>
+</p>
+
+::: grid-container
+
+::: grid-item
+Localidad
+:::
+
+::: grid-item
+Transmisión
+:::
+
+::: grid-item
+Vector
+:::
+
+::: grid-item
+Escenarios
+:::
+
+::: grid-item
+Mérida
+:::
+
+::: grid-item
+```{r hotspots_cases_merida, out.height="110%", out.width="110%"}
+# Step 1. extract the locality ####
+loc <- rgeomex::extract_locality(cve_edo = "31", 
+                                 locality = "Merida")
+
+# Step 2. Extract the hotspots ####
+hotspots <- denmex::den_hotspots[loc, ]
+
+# Step 3. Vizualization of hotspots ####
+
+hotspots |>
+    denhotspots::staticmap_intensity(pal = rcartocolor::carto_pal,
+                                 pal_name = TRUE,
+                                 name = "OrYel",
+                                 breaks = 1,
+                                 dir_pal = -1,
+                                 x_leg = 0.5,
+                                 y_leg = 0.1,
+                                 ageb = TRUE)
+```
+:::
+
+::: grid-item
+```{r hotspots_vector_merida, out.height="110%", out.width="110%"}
+source("/Users/fdzul/Dropbox/r_developments/r_talks/2023/reunion_interstatal_2023/reunion_quintana_roo/functions/intensity_eggs.R")
+
+denmex::eggs_betas_31_yucatan |>
+    dplyr::filter(year == 2019) |>
+    intensity_eggs(locality = "Mérida",
+                    cve_ent = "31",
+                    palette = rcartocolor::carto_pal,
+                    name = "SunsetDark")
+
+
+
+```
+:::
+
+::: grid-item
+```{r risk_merida, out.height="110%", out.width="110%"}
+# Step 1. calculate the risk ####
+risk <- denhotspots::risk_ageb(betas = denmex::eggs_betas_31_yucatan,
+                               hotspots = denmex::den_hotspots,
+                               intensity_perc = 25,
+                               locality = "Mérida",
+                               cve_edo = "31")
+
+# Step 2. map ####
+denhotspots::map_risk(risk = risk,
+                      staticmap = TRUE)
+```
+:::
+
+:::
+
+</body>
+</html>
+
 ## [Directrices Internacionales]{style="color:#003300"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
@@ -397,4 +507,4 @@ risk3 -> {bajo2, medio2 alto2 altisimo2} -> fase3 -> acciones
 
 -   ***celular*** : [9999580167]()
 
--   ***slides***: [https://calm-hummingbird-41cb33.netlify.app/talks/hotspots_eggs_R/#/](https://calm-hummingbird-41cb33.netlify.app/talks/hotspots_eggs_R/#/)
+-   ***slides***: [https://calm-hummingbird-41cb33.netlify.app/talks/mia/#/](https://calm-hummingbird-41cb33.netlify.app/talks/mia/#/)
