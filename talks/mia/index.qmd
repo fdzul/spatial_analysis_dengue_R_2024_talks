@@ -81,7 +81,7 @@ format:
 
 ![](IRS_WPR2.png)
 
-## MIA y Escenarios Operativos en América{.r-fit-text .center style="color:#003300;"}
+## [MIA y Escenarios Operativos en América]{.r-fit-text .center style="color:#003300;"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
 ![](mia_paho.png)
