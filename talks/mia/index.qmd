@@ -77,6 +77,131 @@ format:
 
 ![](https://journals.plos.org/plosntds/article/figure/image?size=large&id=10.1371/journal.pntd.0006845.g001){.absolute top="100" width="800" height="550" right="120"}
 
+## [Manejo Integrado de Dengue en Asia]{style="color:#003300"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+![](IRS_WPR2.png)
+
+## [Estratificación del Dengue a nivel de Localidades]{.r-fit-text style="color:#003300;"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r}
+DiagrammeR::grViz("digraph {
+                  # graph definitions
+  graph [layout = dot, rankdir = TB]
+  
+  # node definitions
+  node [shape = rectangle, style = filled, color = grey, 
+  nodesep = 1, 
+  fixedsize = false, 
+  width = 1.7] 
+  
+  # edge definition
+  edge [color = grey, arrowhead = normal, arrowtail = dot]
+  
+  ##### fuentes de información
+  
+  inf [label = 'Bases de Datos',  fillcolor =  '#DB4437', color = 'white', fontcolor = 'white']
+  
+  
+  ##### datasets
+  
+  ento [label = 'Vigilancia Entomológica',  fillcolor =  '#0F9D58', color = 'white', fontcolor = 'white']
+  epi [label = 'Vigilancia Epidemiológica',  fillcolor =  ' #0F9D58', color = 'white', fontcolor = 'white']
+  clim [label = 'Datos Clímaticos',  fillcolor =  ' #0F9D58', color = 'white', fontcolor = 'white']
+  socio [label = 'Datos Sociodemográficos',  fillcolor =  ' #0F9D58', color = 'white', fontcolor = 'white']
+  land [label = 'Cobertura Terrestre',  fillcolor =  ' #0F9D58', color = 'white', fontcolor = 'white']
+  mov [label = 'Datos de Movilidad',  fillcolor =  ' #0F9D58', color = 'white', fontcolor = 'white']
+ 
+ ### 
+ ana [label = 'Estadística Multivariada',  fillcolor =  'orange', color = 'white', fontcolor = 'black']
+ 
+ ### 
+ indice [label = 'Indice de Riesgo',  fillcolor =  'DodgerBlue', color = 'white', fontcolor = 'white']
+ 
+ ###
+ hotspots [label = 'Hotspots',  fillcolor =  '#E01E5A', color = 'white', fontcolor = 'white']
+ 
+ ##### define the relation
+ 
+ inf -> {ento, epi, clim, socio, land, mov} -> ana -> indice -> hotspots
+ 
+ 
+}")
+```
+
+
+## [Estratificación del Dengue a nivel de Localidades]{.r-fit-text style="color:#003300;"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+
+```{r  echo=FALSE, warning=FALSE, message=FALSE}
+
+DiagrammeR::grViz("digraph {
+                  
+  # graph definitions
+  graph [layout = dot, rankdir = TB]
+  
+  
+   # node definitions
+  node [shape = rectangle, 
+  style = filled, 
+  color = grey, 
+  nodesep = 0.1,
+  fixedsize = true, 
+  width = 2.5]
+  
+  
+  # edge definition
+  edge [color = grey, arrowhead = normal, arrowtail = dot]
+  
+  ##### epidemiological data
+  
+  localidad [label = 'Localidad',  fillcolor =  '#0F9D58', color = 'white', fontcolor = 'white']
+  
+  loc_endemica [label = 'Endémica',  fillcolor =  '#0F9D58', color = 'white', fontcolor = 'white']
+  loc_no_endemica [label = 'No Endémica',  fillcolor =  '#0F9D58', color = 'white', fontcolor = 'white']
+  
+  
+  sin_trans [label = 'Sin Transmisión',  fillcolor =  '#0F9D58', color = 'white', fontcolor = 'white']
+  con_trans [label = 'Con Transmisión',  fillcolor =  '#0F9D58', color = 'white', fontcolor = 'white']
+  
+  trans_epi [label = 'Epidémica',  fillcolor =  '#0F9D58', color = 'white', fontcolor = 'white']
+  trans_no_epi [label = 'No Epidémica',  fillcolor =  '#0F9D58', color = 'white', fontcolor = 'white']
+  
+  todo [label = 'Todo El Año',  fillcolor =  '#0F9D58', color = 'white', fontcolor = 'white']
+  segundo_semestre [label = 'Segundo Semetre',  fillcolor =  '#0F9D58', color = 'white', fontcolor = 'white']
+  primer_semestre [label = 'Primer Semestre',  fillcolor =  '#0F9D58', color = 'white', fontcolor = 'white']
+ 
+  node [shape = circle,
+        fixedsize = true,
+        width = .9]
+  A [label = 'A',  fillcolor =  'orange', color = 'white', fontcolor = 'black']
+  B [label = 'B',  fillcolor =  'orange', color = 'white', fontcolor = 'black']
+  C [label = 'C',  fillcolor =  'orange', color = 'white', fontcolor = 'black']
+  D [label = 'D',  fillcolor =  'orange', color = 'white', fontcolor = 'black']
+  E [label = 'E',  fillcolor =  'orange', color = 'white', fontcolor = 'black']
+ 
+  
+  localidad -> {loc_no_endemica loc_endemica}
+  loc_endemica -> {sin_trans con_trans}
+  con_trans -> {trans_epi trans_no_epi}
+  
+  trans_epi -> {todo, segundo_semestre primer_semestre}
+  
+  sin_trans -> A
+  trans_no_epi -> B
+  primer_semestre -> C
+  segundo_semestre -> D
+  todo -> E
+  
+  
+}")
+
+```
+
+
+
 ## [Directrices Internacionales]{style="color:#003300"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 

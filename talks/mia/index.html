@@ -321,6 +321,10 @@
       margin-right: 0; 
     }
   </style>
+  <script src="index_files/libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+  <script src="index_files/libs/viz-1.8.2/viz.js"></script>
+  <link href="index_files/libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
+  <script src="index_files/libs/grViz-binding-1.0.10/grViz.js"></script>
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -388,6 +392,31 @@ Update: 2024-02-07
 <h2><span style="color:#003300">Manejo Integrado de Aedes</span></h2>
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 <p><img data-src="https://journals.plos.org/plosntds/article/figure/image?size=large&amp;id=10.1371/journal.pntd.0006845.g001" class="absolute" style="top: 100px; right: 120px; width: 800px; height: 550px; "></p>
+</section>
+<section id="manejo-integrado-de-dengue-en-asia" class="slide level2">
+<h2><span style="color:#003300">Manejo Integrado de Dengue en Asia</span></h2>
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+<img data-src="IRS_WPR2.png" class="r-stretch"></section>
+<section id="estratificación-del-dengue-a-nivel-de-localidades" class="slide level2">
+<h2><span class="r-fit-text" style="color:#003300;">Estratificación del Dengue a nivel de Localidades</span></h2>
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+<div class="cell">
+<div class="cell-output-display">
+<div class="grViz html-widget html-fill-item" id="htmlwidget-1766bbfe3178107966fc" style="width:960px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-1766bbfe3178107966fc">{"x":{"diagram":"digraph {\n                  # graph definitions\n  graph [layout = dot, rankdir = TB]\n  \n  # node definitions\n  node [shape = rectangle, style = filled, color = grey, \n  nodesep = 1, \n  fixedsize = false, \n  width = 1.7] \n  \n  # edge definition\n  edge [color = grey, arrowhead = normal, arrowtail = dot]\n  \n  ##### fuentes de información\n  \n  inf [label = \"Bases de Datos\",  fillcolor =  \"#DB4437\", color = \"white\", fontcolor = \"white\"]\n  \n  \n  ##### datasets\n  \n  ento [label = \"Vigilancia Entomológica\",  fillcolor =  \"#0F9D58\", color = \"white\", fontcolor = \"white\"]\n  epi [label = \"Vigilancia Epidemiológica\",  fillcolor =  \" #0F9D58\", color = \"white\", fontcolor = \"white\"]\n  clim [label = \"Datos Clímaticos\",  fillcolor =  \" #0F9D58\", color = \"white\", fontcolor = \"white\"]\n  socio [label = \"Datos Sociodemográficos\",  fillcolor =  \" #0F9D58\", color = \"white\", fontcolor = \"white\"]\n  land [label = \"Cobertura Terrestre\",  fillcolor =  \" #0F9D58\", color = \"white\", fontcolor = \"white\"]\n  mov [label = \"Datos de Movilidad\",  fillcolor =  \" #0F9D58\", color = \"white\", fontcolor = \"white\"]\n \n ### \n ana [label = \"Estadística Multivariada\",  fillcolor =  \"orange\", color = \"white\", fontcolor = \"black\"]\n \n ### \n indice [label = \"Indice de Riesgo\",  fillcolor =  \"DodgerBlue\", color = \"white\", fontcolor = \"white\"]\n \n ###\n hotspots [label = \"Hotspots\",  fillcolor =  \"#E01E5A\", color = \"white\", fontcolor = \"white\"]\n \n ##### define the relation\n \n inf -> {ento, epi, clim, socio, land, mov} -> ana -> indice -> hotspots\n \n \n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+<section id="estratificación-del-dengue-a-nivel-de-localidades-1" class="slide level2">
+<h2><span class="r-fit-text" style="color:#003300;">Estratificación del Dengue a nivel de Localidades</span></h2>
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+<div class="cell">
+<div class="cell-output-display">
+<div class="grViz html-widget html-fill-item" id="htmlwidget-69689f5d6fac04d718c5" style="width:960px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-69689f5d6fac04d718c5">{"x":{"diagram":"digraph {\n                  \n  # graph definitions\n  graph [layout = dot, rankdir = TB]\n  \n  \n   # node definitions\n  node [shape = rectangle, \n  style = filled, \n  color = grey, \n  nodesep = 0.1,\n  fixedsize = true, \n  width = 2.5]\n  \n  \n  # edge definition\n  edge [color = grey, arrowhead = normal, arrowtail = dot]\n  \n  ##### epidemiological data\n  \n  localidad [label = \"Localidad\",  fillcolor =  \"#0F9D58\", color = \"white\", fontcolor = \"white\"]\n  \n  loc_endemica [label = \"Endémica\",  fillcolor =  \"#0F9D58\", color = \"white\", fontcolor = \"white\"]\n  loc_no_endemica [label = \"No Endémica\",  fillcolor =  \"#0F9D58\", color = \"white\", fontcolor = \"white\"]\n  \n  \n  sin_trans [label = \"Sin Transmisión\",  fillcolor =  \"#0F9D58\", color = \"white\", fontcolor = \"white\"]\n  con_trans [label = \"Con Transmisión\",  fillcolor =  \"#0F9D58\", color = \"white\", fontcolor = \"white\"]\n  \n  trans_epi [label = \"Epidémica\",  fillcolor =  \"#0F9D58\", color = \"white\", fontcolor = \"white\"]\n  trans_no_epi [label = \"No Epidémica\",  fillcolor =  \"#0F9D58\", color = \"white\", fontcolor = \"white\"]\n  \n  todo [label = \"Todo El Año\",  fillcolor =  \"#0F9D58\", color = \"white\", fontcolor = \"white\"]\n  segundo_semestre [label = \"Segundo Semetre\",  fillcolor =  \"#0F9D58\", color = \"white\", fontcolor = \"white\"]\n  primer_semestre [label = \"Primer Semestre\",  fillcolor =  \"#0F9D58\", color = \"white\", fontcolor = \"white\"]\n \n  node [shape = circle,\n        fixedsize = true,\n        width = .9]\n  A [label = \"A\",  fillcolor =  \"orange\", color = \"white\", fontcolor = \"black\"]\n  B [label = \"B\",  fillcolor =  \"orange\", color = \"white\", fontcolor = \"black\"]\n  C [label = \"C\",  fillcolor =  \"orange\", color = \"white\", fontcolor = \"black\"]\n  D [label = \"D\",  fillcolor =  \"orange\", color = \"white\", fontcolor = \"black\"]\n  E [label = \"E\",  fillcolor =  \"orange\", color = \"white\", fontcolor = \"black\"]\n \n  \n  localidad -> {loc_no_endemica loc_endemica}\n  loc_endemica -> {sin_trans con_trans}\n  con_trans -> {trans_epi trans_no_epi}\n  \n  trans_epi -> {todo, segundo_semestre primer_semestre}\n  \n  sin_trans -> A\n  trans_no_epi -> B\n  primer_semestre -> C\n  segundo_semestre -> D\n  todo -> E\n  \n  \n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
 </section>
 <section id="directrices-internacionales" class="slide level2">
 <h2><span style="color:#003300">Directrices Internacionales</span></h2>
@@ -626,6 +655,44 @@ Update: 2024-02-07
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
