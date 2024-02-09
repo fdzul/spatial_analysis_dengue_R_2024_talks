@@ -568,7 +568,7 @@ denhotspots::map_risk(risk = risk,
 
 ::: {.column style="width: 50%"}
 Concepto
-<img src = "https://github.com/fdzul/spatial_analysis_dengue_R_2024_talks/blob/main/talks/spatial_analysis_dengue/fig/stacked_maps_cases.jpg?raw=true">
+<img src = "transmision_persistente.jpg">
 :::
 
 :::{.column style="width: 50%"}
