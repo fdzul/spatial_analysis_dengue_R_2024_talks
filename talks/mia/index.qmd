@@ -35,7 +35,7 @@ format:
 <br>
 <h4>Date: 2024-02-07 </h4>
 
-<h4> Update: 2024-02-07</h4>
+<h4> Update: 2024-02-08</h4>
 
 <br>
 
@@ -775,7 +775,7 @@ x$map +
 
 ::: {.column style="width: 40%;font-size: 70%"}
 Concepto
-<img src = "transmision_persistente.jpg">
+<img src = "transmision_activa.jpg">
 
 :::
 
@@ -830,8 +830,7 @@ x$map +
 :::: {.columns}
 
 ::: {.column style="width: 40%;font-size: 70%"}
-<span style="color:#F44B1FFF;">Concepto</span> 
-<img src = "transmision_persistente.jpg">
+<span style="color:#F44B1FFF;">Área caliente.</span>Área donde de concentra la mayor cantidad de casos y es mayor la intensidad de la abundancia del vector
 
 :::
 
