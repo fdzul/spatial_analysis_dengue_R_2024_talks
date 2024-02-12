@@ -516,10 +516,9 @@ hotspots |>
 
 ::: grid-item
 ```{r hotspots_vector_guadalajara, out.height="110%", out.width="110%"}
-load("/Users/fdzul/Dropbox/r_developments/r_packages/private/denmex/data/eggs_betas_14_jalisco.rda")
 source("/Users/fdzul/Dropbox/r_developments/r_talks/2023/reunion_interstatal_2023/reunion_quintana_roo/functions/intensity_eggs.R")
 
-eggs_betas_14_jalisco |>
+denmex::eggs_betas_14_jalisco |>
     dplyr::filter(year == 2019) |>
     intensity_eggs(locality = c("Guadalajara",
                                 "Tlaquepaque",
@@ -537,8 +536,7 @@ eggs_betas_14_jalisco |>
 ::: grid-item
 ```{r risk_guadalajara, out.height="110%", out.width="110%"}
 # Step 1. calculate the risk ####
-load("/Users/fdzul/Dropbox/r_developments/r_packages/private/denmex/data/eggs_betas_14_jalisco.rda")
-risk <- denhotspots::risk_ageb(betas = eggs_betas_14_jalisco,
+risk <- denhotspots::risk_ageb(betas = denmex::eggs_betas_14_jalisco,
                                hotspots = denmex::den_hotspots,
                                intensity_perc = 25,
                                locality = c("Guadalajara",
@@ -693,7 +691,7 @@ densnv::mp_heatmap(locality = "Merida",
 ```{r}
 #| echo: false
 #| output: true
-path_ovitraps <- "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/CENAPRECE/2024/31_yucatan"
+path_ovitraps <- "/Users/fdzul/Dropbox/CENAPRECE/2024/31_yucatan"
 path_coord <- paste(path_ovitraps,"DescargaOvitrampasMesFco.txt", sep = "/" )
 x <- deneggs::eggs_hotspots(path_lect = path_ovitraps,
                             cve_ent = "31",
@@ -796,7 +794,7 @@ densnv::mp_heatmap(locality = c("Guadalajara",
 ```{r}
 #| echo: false
 #| output: true
-path_ovitraps <- "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/CENAPRECE/2024/14_jalisco"
+path_ovitraps <- "/Users/fdzul/Dropbox/CENAPRECE/2024/14_jalisco"
 path_coord <- paste(path_ovitraps,"DescargaOvitrampasMesFco.txt", sep = "/" )
 y <- deneggs::eggs_hotspots(path_lect = path_ovitraps,
                             cve_ent = "14",
