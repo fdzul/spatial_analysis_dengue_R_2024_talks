@@ -365,18 +365,19 @@ Update: 2024-02-07
 <p><span style="color:gold;">Áreas con riesgo medio de transmisión.</span>Hotspots del vector.</p>
 <p><span style="color:#00F293FF;">Áreas con riesgo alto de transmisión.</span>Sin hotspots de transmisión o hotspots del vector.</p>
 </div><div class="column" style="width: 60%">
-<p>Mérida</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="index_files/figure-revealjs/risk_merida2-1.png" width="768"></p>
-</figure>
+
 </div>
 </div>
-</div>
-</div>
-</div>
+</section>
+<section id="definición-de-los-escenarios-operativos-ó-epidemiológicos-1" class="slide level2">
+<h2><span class="r-fit-text" style="color:#003300;">Definición de los Escenarios Operativos ó Epidemiológicos</span></h2>
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+<img data-src="escenarios_ento.png" class="r-stretch"></section>
+<section id="definición-de-los-escenarios-operativos-ó-epidemiológicos-2" class="slide level2">
+<h2><span class="r-fit-text" style="color:#003300;">Definición de los Escenarios Operativos ó Epidemiológicos</span></h2>
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+<p><img data-src="escenarios_ento2.png"></p>
 <div class="quarto-auto-generated-content">
 <p><img src="logo_cenaprece.jpeg" class="slide-logo"></p>
 <div class="footer footer-default">
@@ -596,44 +597,6 @@ Update: 2024-02-07
         ]
       });
     </script>
-    
-    <script>
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-      // slide changes (different for each slide format).
-      (function () {
-        // dispatch for htmlwidgets
-        function fireSlideEnter() {
-          const event = window.document.createEvent("Event");
-          event.initEvent("slideenter", true, true);
-          window.document.dispatchEvent(event);
-        }
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-          fireSlideEnter();
-
-          // dispatch for shiny
-          if (window.jQuery) {
-            if (previousSlide) {
-              window.jQuery(previousSlide).trigger("hidden");
-            }
-            if (currentSlide) {
-              window.jQuery(currentSlide).trigger("shown");
-            }
-          }
-        }
-
-        // hookup for slidy
-        if (window.w3c_slidy) {
-          window.w3c_slidy.add_observer(function (slide_num) {
-            // slide_num starts at position 1
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-          });
-        }
-
-      })();
-    </script>
-
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

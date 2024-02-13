@@ -12,6 +12,7 @@ format:
     center-title-slide: true
 ---
 
+
 <h2>Modelo Estratégico de Focalización
 <br>del Dengue México
 </h2>
@@ -66,6 +67,22 @@ format:
 
 ::: {.column style="width: 60%"}
 
+
+```{r risk_merida2}
+#| fig-width: 8
+#| fig-height: 8
+# Step 1. calculate the risk ####
+risk <- denhotspots::risk_ageb(betas = denmex::eggs_betas_31_yucatan,
+                               hotspots = denmex::den_hotspots,
+                               intensity_perc = 25,
+                               locality = "Mérida",
+                               cve_edo = "31")
+
+# Step 2. map ####
+denhotspots::map_risk(risk = risk,
+                      staticmap = TRUE)
+```
+
 :::
 
 ::::
@@ -74,10 +91,5 @@ format:
 ## [Definición de los Escenarios Operativos ó Epidemiológicos]{.r-fit-text style="color:#003300;"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
-![](escenarios_ento.png)
+![](escenarios_ento.png){idth=80%}
 
-
-## [Definición de los Escenarios Operativos ó Epidemiológicos]{.r-fit-text style="color:#003300;"}
-<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
-
-![](escenarios_ento2.png)
