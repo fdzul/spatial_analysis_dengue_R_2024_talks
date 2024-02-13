@@ -369,15 +369,28 @@ Update: 2024-02-07
 </div>
 </div>
 </section>
-<section id="definición-de-los-escenarios-operativos-ó-epidemiológicos-1" class="slide level2">
-<h2><span class="r-fit-text" style="color:#003300;">Definición de los Escenarios Operativos ó Epidemiológicos</span></h2>
+<section id="localidades-sin-transmision-epidémica-en-el-primer-semestre" class="slide level2">
+<h2><span class="r-fit-text" style="color:#003300;">Localidades sin Transmision Epidémica en el Primer Semestre</span></h2>
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
-<img data-src="escenarios_ento.png" class="r-stretch"></section>
-<section id="definición-de-los-escenarios-operativos-ó-epidemiológicos-2" class="slide level2">
-<h2><span class="r-fit-text" style="color:#003300;">Definición de los Escenarios Operativos ó Epidemiológicos</span></h2>
+<img data-src="index_files/figure-revealjs/unnamed-chunk-1-1.png" width="960" class="r-stretch"></section>
+<section id="localidades-con-transmision-epidémica-en-el-segundo-semestre" class="slide level2">
+<h2><span class="r-fit-text" style="color:#003300;">Localidades con Transmision Epidémica en el Segundo Semestre</span></h2>
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
-<p><img data-src="escenarios_ento2.png"></p>
+
+<img data-src="index_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"></section>
+<section id="localidades-con-transmision-epidémica-en-el-primer-semestre" class="slide level2">
+<h2><span class="r-fit-text" style="color:#003300;">Localidades con Transmision Epidémica en el Primer Semestre</span></h2>
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-3-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
 <div class="quarto-auto-generated-content">
 <p><img src="logo_cenaprece.jpeg" class="slide-logo"></p>
 <div class="footer footer-default">
@@ -597,6 +610,44 @@ Update: 2024-02-07
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
