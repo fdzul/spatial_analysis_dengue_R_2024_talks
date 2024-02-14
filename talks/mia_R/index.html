@@ -28,6 +28,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #24292e;  }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #24292e; } /* Normal */
+    code span.al { color: #ff5555; font-weight: bold; } /* Alert */
+    code span.an { color: #6a737d; } /* Annotation */
+    code span.at { color: #d73a49; } /* Attribute */
+    code span.bn { color: #005cc5; } /* BaseN */
+    code span.bu { color: #d73a49; } /* BuiltIn */
+    code span.cf { color: #d73a49; } /* ControlFlow */
+    code span.ch { color: #032f62; } /* Char */
+    code span.cn { color: #005cc5; } /* Constant */
+    code span.co { color: #6a737d; } /* Comment */
+    code span.cv { color: #6a737d; } /* CommentVar */
+    code span.do { color: #6a737d; } /* Documentation */
+    code span.dt { color: #d73a49; } /* DataType */
+    code span.dv { color: #005cc5; } /* DecVal */
+    code span.er { color: #ff5555; text-decoration: underline; } /* Error */
+    code span.ex { color: #d73a49; font-weight: bold; } /* Extension */
+    code span.fl { color: #005cc5; } /* Float */
+    code span.fu { color: #6f42c1; } /* Function */
+    code span.im { color: #032f62; } /* Import */
+    code span.in { color: #6a737d; } /* Information */
+    code span.kw { color: #d73a49; } /* Keyword */
+    code span.op { color: #24292e; } /* Operator */
+    code span.ot { color: #6f42c1; } /* Other */
+    code span.pp { color: #d73a49; } /* Preprocessor */
+    code span.re { color: #6a737d; } /* RegionMarker */
+    code span.sc { color: #005cc5; } /* SpecialChar */
+    code span.ss { color: #032f62; } /* SpecialString */
+    code span.st { color: #032f62; } /* String */
+    code span.va { color: #e36209; } /* Variable */
+    code span.vs { color: #032f62; } /* VerbatimString */
+    code span.wa { color: #ff5555; } /* Warning */
   </style>
   <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto.css">
   <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -321,6 +386,10 @@
       margin-right: 0; 
     }
   </style>
+  <script src="index_files/libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+  <script src="index_files/libs/viz-1.8.2/viz.js"></script>
+  <link href="index_files/libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
+  <script src="index_files/libs/grViz-binding-1.0.10/grViz.js"></script>
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -346,10 +415,13 @@ Dr.&nbsp;Fabián Correa-Morales
 </h3>
 <br>
 <h4>
-Date: 2024-02-07
+Created: 2024-02-07
 </h4>
 <h4>
-Update: 2024-02-07
+Updated: 2024-02-14
+</h4>
+<h4>
+Compiled: 2024-02-14
 </h4>
 <p><br></p>
 <h4>
@@ -359,6 +431,7 @@ Update: 2024-02-07
 <h2><span style="color:#003300;">Temario</span></h2>
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 <ul>
+<li><p>Flujograma de los Hotspots de la Transmisión Persistente de los virus del Dengue</p></li>
 <li><p>Hotspots de la Transmisión Persistente en R (Módulo II)</p>
 <ul>
 <li><p><a href="https://es.batchgeo.com/?gad_source=1&amp;gclid=Cj0KCQiA5rGuBhCnARIsAN11vgQInSOvNL4uiOWnX_NGJ3zbrrwZwqj71oiXioCJGvkDJag9J_Loo5caAglvEALw_wcB">BachGeo</a>. Módulo II. Tema 2.</p></li>
@@ -368,8 +441,88 @@ Update: 2024-02-07
 <li><p>Identificación de escenarios Operativos o Epidemiológicos en R</p></li>
 </ul>
 </section>
+<section id="flujograma-del-cálculo-de-los-hotspots-del-dengue" class="slide level2">
+<h2><span class="r-fit-text" style="color:#003300;">Flujograma del Cálculo de los Hotspots del Dengue</span></h2>
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+<div class="columns">
+<div class="column" style="width: 50%; font-size: 80%">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="htmlwidget-9c99786c48703e777e4f" style="width:100%;height:550px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-9c99786c48703e777e4f">{"x":{"diagram":"digraph {\n\n  # graph definitions\n  graph [layout = dot, rankdir = TB]\n  \n  # node definitions\n  node [shape = rectangle, style = filled, color = grey] \n  \n  # flowchart for hotspots\n  sinave [label = \"SINAVE\",  fillcolor = \"#0F9D58\", color = \"white\", fontcolor = \"white\"]\n  denv [label = \"Bases de DENV\",  fillcolor = \"#0F9D58\", color = \"white\", fontcolor = \"white\"]\n  geocode [label = \"Geocodificación\",  fillcolor = \"#0F9D58\", color = \"white\", fontcolor = \"white\"]\n  cases_ageb [label = \"Casos por AGEBs\"]\n  z_score [label = \"Z-score\"]\n  gi [label = \"Estadístico Espacial Local (Gi*)\"]\n  bonferroni [label = \"Corrección de Bonferroni\"]\n  hotspots [label = \"Hotspots\", style = filled, color = orange]\n  \n  # flow chart for inegi\n  inegi [label = \"INEGI\", fillcolor = \"DeepSkyBlue\", color = \"white\", fontcolor = \"black\"]\n  loc [label = \"Localidades Shapefile\", fillcolor = \"DeepSkyBlue\", color = \"white\", fontcolor = \"black\"]\n  ageb [label = \"AGEB Shapefile\", fillcolor = \"DeepSkyBlue\", color = \"white\", fontcolor = \"black\"]\n  loc_esp [label = \"Localidad de Ínteres\", fillcolor = \"DeepSkyBlue\", color = \"white\", fontcolor = \"black\"]\n  ageb_esp [label = \"AGEBs de la Localidad de Ínteres\", fillcolor = \"DeepSkyBlue\", color = \"white\", fontcolor = \"black\"]\n  mat [label = \"Matriz de Adjacencias\", fillcolor = \"DeepSkyBlue\", color = \"white\", fontcolor = \"black\"]\n  \n  # edge definitions with the node IDs\n  edge [color = black]\n  sinave -> denv -> geocode -> cases_ageb -> z_score -> gi -> bonferroni -> hotspots \n  inegi -> {ageb, loc}\n  loc -> loc_esp -> ageb_esp\n  ageb -> ageb_esp\n  ageb_esp -> mat\n  mat -> cases_ageb \n \n  }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</div><div class="column" style="width: 50%; font-size: 80%">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="htmlwidget-35670977603648e41d62" style="width:100%;height:550px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-35670977603648e41d62">{"x":{"diagram":"digraph {\n\n\n# graph definitions\n  graph [layout = dot, rankdir = TB]\n  \n  # node definitions\n  node [shape = rectangle, style = filled, color = grey] \n  \n  # flowchart for hotspots\n  sinave [label = \"SINAVE\",  fillcolor = \"#0F9D58\", color = \"white\", fontcolor = \"white\"]\n  denv [label = \"DENV dataset\",  fillcolor = \"#0F9D58\", color = \"white\", fontcolor = \"white\"]\n  \n   geocode [label = \"Geocoding\",  fillcolor =  \"orange\", color = \"white\", fontcolor = \"black\"]\n   cases_ageb [label = \"Cases/AGEB\",  fillcolor =  \"orange\", color = \"white\", fontcolor = \"black\"]\n   hotspots [label = \"Hotspots Analysis\",  fillcolor =  \"orange\", color = \"white\", fontcolor = \"black\"]\n   vizualization [label = \"Visualization\",  fillcolor =  \"orange\", color = \"white\", fontcolor = \"black\"]\n   static [label = \"Static Map\",  fillcolor =  \"DodgerBlue\", color = \"white\", fontcolor = \"white\"]\n   interactive [label = \"Interactive Map\",  fillcolor =  \"DodgerBlue\", color = \"white\", fontcolor = \"white\"]\n  \n  # edge definitions with the node IDs\n  edge [color = black]\n  sinave -> denv -> geocode -> cases_ageb -> hotspots -> vizualization -> {static interactive}\n  \n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="hotspots-de-la-transmisión-persistente-en-r-con-geocoding-api" class="slide level2">
+<h2><span class="r-fit-text" style="color:#003300;">Hotspots de la Transmisión Persistente en R con <a href="https://developers.google.com/maps/documentation/geocoding/overview">Geocoding API</a></span></h2>
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Dataset</a></li><li><a href="#tabset-1-2">Localidad</a></li><li><a href="#tabset-1-3">Casos/Ageb</a></li><li><a href="#tabset-1-4">Hotspots</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+<p>Paso 1. Subir la Base de Datos Geocodificada.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="co"># Step 1. load the geocoded dataset ####</span></span>
+<span id="cb1-2"><a href=""></a><span class="fu">load</span>(<span class="st">"/Users/fdzul/Dropbox/hotspots_2023/8.RData/denmex.RData"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-1-2">
+<p>Paso2. Subir la localidad ó localidades.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="co"># Step 2. Load the locality ####</span></span>
+<span id="cb2-2"><a href=""></a>x <span class="ot">&lt;-</span> rgeomex<span class="sc">::</span><span class="fu">extract_ageb</span>(<span class="at">locality =</span> <span class="fu">c</span>(<span class="st">"Guadalajara"</span>, <span class="st">"Zapopan"</span>, </span>
+<span id="cb2-3"><a href=""></a>                                        <span class="st">"Tlaquepaque"</span>, <span class="st">"Tonalá"</span>), </span>
+<span id="cb2-4"><a href=""></a>                           <span class="at">cve_edo =</span> <span class="st">"14"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-1-3">
+<p>Paso 3. Contar la casos por localidad.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="co"># Step 3. Count the cases by AGEB ####</span></span>
+<span id="cb3-2"><a href=""></a><span class="fu">library</span>(magrittr)</span>
+<span id="cb3-3"><a href=""></a>z <span class="ot">&lt;-</span> denhotspots<span class="sc">::</span><span class="fu">point_to_polygons</span>(<span class="at">x =</span> xy,</span>
+<span id="cb3-4"><a href=""></a>                                    <span class="at">y =</span> x<span class="sc">$</span>ageb,</span>
+<span id="cb3-5"><a href=""></a>                                    <span class="at">ids =</span> <span class="fu">names</span>(x<span class="sc">$</span>ageb)[<span class="sc">-</span><span class="dv">10</span>],</span>
+<span id="cb3-6"><a href=""></a>                                    <span class="at">time =</span> ANO,</span>
+<span id="cb3-7"><a href=""></a>                                    <span class="at">coords =</span> <span class="fu">c</span>(<span class="st">"long"</span>, <span class="st">"lat"</span>),</span>
+<span id="cb3-8"><a href=""></a>                                    <span class="at">crs =</span> <span class="dv">4326</span>,</span>
+<span id="cb3-9"><a href=""></a>                                    <span class="at">dis =</span> <span class="st">"DENV"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-1-4">
+<p>Paso 4. Calcular los Hotspots de la Transmisión Persistente</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="co"># Step 4. Calculate the hotspots ####</span></span>
+<span id="cb4-2"><a href=""></a>hotspots <span class="ot">&lt;-</span> denhotspots<span class="sc">::</span><span class="fu">gihi</span>(<span class="at">x =</span> z,</span>
+<span id="cb4-3"><a href=""></a>                              <span class="at">id =</span> <span class="fu">names</span>(z)[<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>)], </span>
+<span id="cb4-4"><a href=""></a>                              <span class="at">time =</span> <span class="st">"year"</span>,</span>
+<span id="cb4-5"><a href=""></a>                              <span class="at">dis =</span> <span class="st">"DENV"</span>,</span>
+<span id="cb4-6"><a href=""></a>                              <span class="at">gi_hi =</span> <span class="st">"gi"</span>,</span>
+<span id="cb4-7"><a href=""></a>                              <span class="at">alpha =</span> <span class="fl">0.95</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
 <section id="hotspots-de-la-transmisión-persistente-en-r-con-bachgeo" class="slide level2">
-<h2><span class="r-fit-text" style="color:#003300;">Hotspots de la <strong>Transmisión Persistente</strong> en R con BachGeo</span></h2>
+<h2><span class="r-fit-text" style="color:#003300;">Hotspots de la Transmisión Persistente en R con <a href="https://es.batchgeo.com/?gad_source=1&amp;gclid=Cj0KCQiA5rGuBhCnARIsAN11vgQInSOvNL4uiOWnX_NGJ3zbrrwZwqj71oiXioCJGvkDJag9J_Loo5caAglvEALw_wcB">BachGeo</a></span></h2>
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+</section>
+<section id="hotspots-de-la-transmisión-persistente-en-r-con-geocoding-api-1" class="slide level2">
+<h2><span class="r-fit-text" style="color:#003300;">Hotspots de la Transmisión Persistente en R con <a href="https://developers.google.com/maps/documentation/geocoding/overview">Geocoding API</a></span></h2>
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+</section>
+<section id="hotspots-de-la-transmisión-persistente-en-r-bachgeo-vs-geocoding-api" class="slide level2">
+<h2><span class="r-fit-text" style="color:#003300;">Hotspots de la Transmisión Persistente en R (<a href="https://es.batchgeo.com/?gad_source=1&amp;gclid=Cj0KCQiA5rGuBhCnARIsAN11vgQInSOvNL4uiOWnX_NGJ3zbrrwZwqj71oiXioCJGvkDJag9J_Loo5caAglvEALw_wcB">BachGeo</a> vs <a href="https://developers.google.com/maps/documentation/geocoding/overview">Geocoding API</a>)</span></h2>
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 <div class="quarto-auto-generated-content">
 <p><img src="https://github.com/fdzul/spatial_analysis_dengue_R_2024_talks/blob/main/talks/pkg_installation/logo_cenaprece.jpeg?raw=true" class="slide-logo"></p>
@@ -590,6 +743,44 @@ Update: 2024-02-07
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

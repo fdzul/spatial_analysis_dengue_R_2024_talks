@@ -33,9 +33,11 @@ format:
 
 </h3>
 <br>
-<h4>Date: 2024-02-07 </h4>
+<h4> Created: 2024-02-07 </h4>
 
-<h4> Update: 2024-02-07</h4>
+<h4> Updated: 2024-02-14</h4>
+
+<h4> Compiled: 2024-02-14</h4>
 
 <br>
 
@@ -47,6 +49,7 @@ format:
 ## [Temario]{style="color:#003300;"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
+- Flujograma de los Hotspots de  la Transmisión Persistente de los virus del Dengue
 - Hotspots de la Transmisión Persistente en R (Módulo II)
   
   - [BachGeo](https://es.batchgeo.com/?gad_source=1&gclid=Cj0KCQiA5rGuBhCnARIsAN11vgQInSOvNL4uiOWnX_NGJ3zbrrwZwqj71oiXioCJGvkDJag9J_Loo5caAglvEALw_wcB). Módulo II. Tema 2.
@@ -58,9 +61,157 @@ format:
 - Identificación de escenarios Operativos o Epidemiológicos en R
 
 
-## [Hotspots de la **Transmisión Persistente** en R con BachGeo]{style="color:#003300;" .r-fit-text }
+## [Flujograma del Cálculo de los Hotspots del Dengue]{style="color:#003300;" .r-fit-text}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
+:::: {.columns}
+::: {.column style="width: 50%; font-size: 80%"}
+```{r, dpi=300,echo=FALSE, fig.align ="center", out.width = "100%"}
+DiagrammeR::grViz("digraph {
+
+  # graph definitions
+  graph [layout = dot, rankdir = TB]
+  
+  # node definitions
+  node [shape = rectangle, style = filled, color = grey] 
+  
+  # flowchart for hotspots
+  sinave [label = 'SINAVE',  fillcolor = '#0F9D58', color = 'white', fontcolor = 'white']
+  denv [label = 'Bases de DENV',  fillcolor = '#0F9D58', color = 'white', fontcolor = 'white']
+  geocode [label = 'Geocodificación',  fillcolor = '#0F9D58', color = 'white', fontcolor = 'white']
+  cases_ageb [label = 'Casos por AGEBs']
+  z_score [label = 'Z-score']
+  gi [label = 'Estadístico Espacial Local (Gi*)']
+  bonferroni [label = 'Corrección de Bonferroni']
+  hotspots [label = 'Hotspots', style = filled, color = orange]
+  
+  # flow chart for inegi
+  inegi [label = 'INEGI', fillcolor = 'DeepSkyBlue', color = 'white', fontcolor = 'black']
+  loc [label = 'Localidades Shapefile', fillcolor = 'DeepSkyBlue', color = 'white', fontcolor = 'black']
+  ageb [label = 'AGEB Shapefile', fillcolor = 'DeepSkyBlue', color = 'white', fontcolor = 'black']
+  loc_esp [label = 'Localidad de Ínteres', fillcolor = 'DeepSkyBlue', color = 'white', fontcolor = 'black']
+  ageb_esp [label = 'AGEBs de la Localidad de Ínteres', fillcolor = 'DeepSkyBlue', color = 'white', fontcolor = 'black']
+  mat [label = 'Matriz de Adjacencias', fillcolor = 'DeepSkyBlue', color = 'white', fontcolor = 'black']
+  
+  # edge definitions with the node IDs
+  edge [color = black]
+  sinave -> denv -> geocode -> cases_ageb -> z_score -> gi -> bonferroni -> hotspots 
+  inegi -> {ageb, loc}
+  loc -> loc_esp -> ageb_esp
+  ageb -> ageb_esp
+  ageb_esp -> mat
+  mat -> cases_ageb 
+ 
+  }", 
+  height = 550)
+
+```
+:::
+::: {.column style="width: 50%; font-size: 80%"}
+```{r,  dpi=300,echo=FALSE, fig.align ="center", out.width = "100%"}
+DiagrammeR::grViz("digraph {
+
+
+# graph definitions
+  graph [layout = dot, rankdir = TB]
+  
+  # node definitions
+  node [shape = rectangle, style = filled, color = grey] 
+  
+  # flowchart for hotspots
+  sinave [label = 'SINAVE',  fillcolor = '#0F9D58', color = 'white', fontcolor = 'white']
+  denv [label = 'DENV dataset',  fillcolor = '#0F9D58', color = 'white', fontcolor = 'white']
+  
+   geocode [label = 'Geocoding',  fillcolor =  'orange', color = 'white', fontcolor = 'black']
+   cases_ageb [label = 'Cases/AGEB',  fillcolor =  'orange', color = 'white', fontcolor = 'black']
+   hotspots [label = 'Hotspots Analysis',  fillcolor =  'orange', color = 'white', fontcolor = 'black']
+   vizualization [label = 'Visualization',  fillcolor =  'orange', color = 'white', fontcolor = 'black']
+   static [label = 'Static Map',  fillcolor =  'DodgerBlue', color = 'white', fontcolor = 'white']
+   interactive [label = 'Interactive Map',  fillcolor =  'DodgerBlue', color = 'white', fontcolor = 'white']
+  
+  # edge definitions with the node IDs
+  edge [color = black]
+  sinave -> denv -> geocode -> cases_ageb -> hotspots -> vizualization -> {static interactive}
+  
+
+}",
+height = 550)
+```
+:::
+::::
+
+
+
+## [Hotspots de la Transmisión Persistente en R con [Geocoding API](https://developers.google.com/maps/documentation/geocoding/overview) ]{style="color:#003300;" .r-fit-text }
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+::: {.panel-tabset}
+## Dataset
+Paso 1. Subir la Base de Datos Geocodificada.
+```{r hotspots_step_1}
+#| echo: true
+#| output: true
+# Step 1. load the geocoded dataset ####
+load("/Users/fdzul/Dropbox/hotspots_2023/8.RData/denmex.RData")
+```
+
+## Localidad
+Paso2. Subir la localidad ó localidades.
+```{r hotspots_step_2}
+#| echo: true
+#| output: true
+# Step 2. Load the locality ####
+x <- rgeomex::extract_ageb(locality = c("Guadalajara", "Zapopan", 
+                                        "Tlaquepaque", "Tonalá"), 
+                           cve_edo = "14")
+```
+
+## Casos/Ageb
+Paso 3. Contar la casos por localidad.
+```{r hotspots_step_3}
+#| echo: true
+#| output: false
+# Step 3. Count the cases by AGEB ####
+library(magrittr)
+z <- denhotspots::point_to_polygons(x = xy,
+                                    y = x$ageb,
+                                    ids = names(x$ageb)[-10],
+                                    time = ANO,
+                                    coords = c("long", "lat"),
+                                    crs = 4326,
+                                    dis = "DENV") 
+```
+
+## Hotspots
+
+Paso 4. Calcular los Hotspots de la Transmisión Persistente
+```{r hotspots_step_4}
+#| echo: true
+#| output: false
+# Step 4. Calculate the hotspots ####
+hotspots <- denhotspots::gihi(x = z,
+                              id = names(z)[c(1:9)], 
+                              time = "year",
+                              dis = "DENV",
+                              gi_hi = "gi",
+                              alpha = 0.95)
+```
+:::
+
+
+## [Hotspots de la Transmisión Persistente en R con [BachGeo](https://es.batchgeo.com/?gad_source=1&gclid=Cj0KCQiA5rGuBhCnARIsAN11vgQInSOvNL4uiOWnX_NGJ3zbrrwZwqj71oiXioCJGvkDJag9J_Loo5caAglvEALw_wcB)]{style="color:#003300;" .r-fit-text }
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+
+
+
+
+## [Hotspots de la Transmisión Persistente en R con [Geocoding API](https://developers.google.com/maps/documentation/geocoding/overview) ]{style="color:#003300;" .r-fit-text }
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+
+## [Hotspots de la Transmisión Persistente en R ([BachGeo](https://es.batchgeo.com/?gad_source=1&gclid=Cj0KCQiA5rGuBhCnARIsAN11vgQInSOvNL4uiOWnX_NGJ3zbrrwZwqj71oiXioCJGvkDJag9J_Loo5caAglvEALw_wcB) vs [Geocoding API](https://developers.google.com/maps/documentation/geocoding/overview))]{style="color:#003300;" .r-fit-text}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
 
 

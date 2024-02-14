@@ -7,7 +7,7 @@ format:
     chalkboard: true
     highlight-style: github
     slide-number: c/t
-    logo: logo_cenaprece.jpeg
+    logo: https://github.com/fdzul/spatial_analysis_dengue_R_2024_talks/blob/main/talks/pkg_installation/logo_cenaprece.jpeg?raw=true
     footer: "[hub.com/fdzul](https://github.com/fdzul)"
     center-title-slide: true
 ---
@@ -33,16 +33,18 @@ format:
 
 </h3>
 <br>
-<h4>Date: 2024-01-31 </h4>
+<h4> Created: 2024-01-31</h4>
 
-<h4> Update: 2024-01-31</h4>
+<h4> Updated: 2024-01-31</h4>
+
+<h4> Compiled: 2024-02-14</h4>
 
 <br>
 
 <h4>
 
 
-![](logo_curso_2024.png){.absolute top="170" left="650" width="450"}
+![](https://github.com/fdzul/spatial_analysis_dengue_R_2024_talks/blob/main/talks/pkg_installation/logo_curso_2024.png?raw=true){.absolute top="170" left="650" width="450"}
 
 
 ## [Temario]{style="color:#003300;"}
