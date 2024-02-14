@@ -44,9 +44,23 @@ format:
 
 ![](https://github.com/fdzul/spatial_analysis_dengue_R_2024_talks/blob/main/talks/pkg_installation/logo_curso_2024.png?raw=true){.absolute top="170" left="650" width="450"}
 
-
-
-## [Temario]{.r-fit-text style="color:#003300;"}
+## [Temario]{style="color:#003300;"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+- Hotspots de la Transmisión Persistente en R (Módulo II)
+  
+  - [BachGeo](https://es.batchgeo.com/?gad_source=1&gclid=Cj0KCQiA5rGuBhCnARIsAN11vgQInSOvNL4uiOWnX_NGJ3zbrrwZwqj71oiXioCJGvkDJag9J_Loo5caAglvEALw_wcB). Módulo II. Tema 2.
+  
+  - [Geocoding API](https://developers.google.com/maps/documentation/geocoding/overview). Módulo 2. Tema 3 
+
+- Hotspots de la Abundancia Persistente en R (Módulo III)
+
+- Identificación de escenarios Operativos o Epidemiológicos en R
+
+
+## [Hotspots de la **Transmisión Persistente** en R con BachGeo]{style="color:#003300;" .r-fit-text }
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+
 
 
