@@ -353,46 +353,13 @@ Update: 2024-02-07
 </h4>
 <p><br></p>
 <h4>
-<p><img data-src="logo_curso_2024.png" class="absolute" style="top: 170px; left: 650px; width: 450px; "></p>
+<p><img data-src="https://github.com/fdzul/spatial_analysis_dengue_R_2024_talks/blob/main/talks/pkg_installation/logo_curso_2024.png?raw=true" class="absolute" style="top: 170px; left: 650px; width: 450px; "></p>
 </h4></section>
-<section id="definición-de-los-escenarios-operativos-ó-epidemiológicos" class="slide level2">
-<h2><span class="r-fit-text" style="color:#003300;">Definición de los Escenarios Operativos ó Epidemiológicos</span></h2>
+<section id="temario" class="slide level2">
+<h2><span class="r-fit-text" style="color:#003300;">Temario</span></h2>
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
-<div class="columns">
-<div class="column" style="width: 40%;font-size: 70%">
-<p><span style="color:#F44B1FFF;">Áreas con riesgo muy alto de transmisión.</span> Hotposts de casos + hotspots del vector.</p>
-<p><span style="color:#FF9000FF;">Áreas con riesgo alto de transmisión.</span> Hotspots de transmisión.</p>
-<p><span style="color:gold;">Áreas con riesgo medio de transmisión.</span>Hotspots del vector.</p>
-<p><span style="color:#00F293FF;">Áreas con riesgo alto de transmisión.</span>Sin hotspots de transmisión o hotspots del vector.</p>
-</div><div class="column" style="width: 60%">
-
-</div>
-</div>
-</section>
-<section id="localidades-sin-transmision-epidémica-en-el-primer-semestre" class="slide level2">
-<h2><span class="r-fit-text" style="color:#003300;">Localidades sin Transmision Epidémica en el Primer Semestre</span></h2>
-<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
-
-<img data-src="index_files/figure-revealjs/unnamed-chunk-1-1.png" width="960" class="r-stretch"></section>
-<section id="localidades-con-transmision-epidémica-en-el-segundo-semestre" class="slide level2">
-<h2><span class="r-fit-text" style="color:#003300;">Localidades con Transmision Epidémica en el Segundo Semestre</span></h2>
-<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
-
-<img data-src="index_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"></section>
-<section id="localidades-con-transmision-epidémica-en-el-primer-semestre" class="slide level2">
-<h2><span class="r-fit-text" style="color:#003300;">Localidades con Transmision Epidémica en el Primer Semestre</span></h2>
-<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-3-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
 <div class="quarto-auto-generated-content">
-<p><img src="logo_cenaprece.jpeg" class="slide-logo"></p>
+<p><img src="https://github.com/fdzul/spatial_analysis_dengue_R_2024_talks/blob/main/talks/pkg_installation/logo_cenaprece.jpeg?raw=true" class="slide-logo"></p>
 <div class="footer footer-default">
 <p><a href="https://github.com/fdzul">hub.com/fdzul</a></p>
 </div>
@@ -610,44 +577,6 @@ Update: 2024-02-07
         ]
       });
     </script>
-    
-    <script>
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-      // slide changes (different for each slide format).
-      (function () {
-        // dispatch for htmlwidgets
-        function fireSlideEnter() {
-          const event = window.document.createEvent("Event");
-          event.initEvent("slideenter", true, true);
-          window.document.dispatchEvent(event);
-        }
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-          fireSlideEnter();
-
-          // dispatch for shiny
-          if (window.jQuery) {
-            if (previousSlide) {
-              window.jQuery(previousSlide).trigger("hidden");
-            }
-            if (currentSlide) {
-              window.jQuery(currentSlide).trigger("shown");
-            }
-          }
-        }
-
-        // hookup for slidy
-        if (window.w3c_slidy) {
-          window.w3c_slidy.add_observer(function (slide_num) {
-            // slide_num starts at position 1
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-          });
-        }
-
-      })();
-    </script>
-
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
