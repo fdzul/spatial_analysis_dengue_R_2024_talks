@@ -156,7 +156,7 @@ load("/Users/fdzul/Dropbox/hotspots_2023/8.RData/denmex.RData")
 ```
 
 ## Localidad
-Paso2. Subir la localidad ó localidades.
+Paso 2. Subir la localidad ó localidades.
 ```{r hotspots_step_2}
 #| echo: true
 #| output: true
@@ -202,16 +202,372 @@ hotspots <- denhotspots::gihi(x = z,
 ## [Hotspots de la Transmisión Persistente en R con [BachGeo](https://es.batchgeo.com/?gad_source=1&gclid=Cj0KCQiA5rGuBhCnARIsAN11vgQInSOvNL4uiOWnX_NGJ3zbrrwZwqj71oiXioCJGvkDJag9J_Loo5caAglvEALw_wcB)]{style="color:#003300;" .r-fit-text }
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
+::: {.panel-tabset}
+## Dataset
+Paso 1. Subir la Base de Datos Geocodificada.
+```{r hotspots_step_1_bachgeo}
+#| echo: true
+#| output: true
+# Step 1. load the geocoded dataset ####
+xy <- denmex::den_bachgeo
+```
 
+## Localidad
+Paso 2. Subir la localidad ó localidades.
+```{r hotspots_step_2_bachgeo}
+#| echo: true
+#| output: true
+# Step 2. Load the locality ####
+x <- rgeomex::extract_ageb(locality = c("Guadalajara", "Zapopan", 
+                                        "Tlaquepaque", "Tonalá"), 
+                           cve_edo = "14")
+```
 
+## Casos/Ageb
+Paso 3. Contar la casos por localidad.
+```{r hotspots_step_3_bachgeo}
+#| echo: true
+#| output: false
+# Step 3. Count the cases by AGEB ####
+library(magrittr)
+z <- denhotspots::point_to_polygons(x = xy,
+                                    y = x$ageb,
+                                    ids = names(x$ageb)[-10],
+                                    time = year, ###
+                                    coords = c("longitude", "latitude"), ###
+                                    crs = 4326,
+                                    dis = "DENV") 
+```
 
+## Hotspots
 
-## [Hotspots de la Transmisión Persistente en R con [Geocoding API](https://developers.google.com/maps/documentation/geocoding/overview) ]{style="color:#003300;" .r-fit-text }
-<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+Paso 4. Calcular los Hotspots de la Transmisión Persistente
+```{r hotspots_step_4_bachgeo}
+#| echo: true
+#| output: false
+# Step 4. Calculate the hotspots ####
+hotspots <- denhotspots::gihi(x = z,
+                              id = names(z)[c(1:9)], 
+                              time = "year",
+                              dis = "DENV",
+                              gi_hi = "gi",
+                              alpha = 0.95)
+```
+
+:::
 
 
 ## [Hotspots de la Transmisión Persistente en R ([BachGeo](https://es.batchgeo.com/?gad_source=1&gclid=Cj0KCQiA5rGuBhCnARIsAN11vgQInSOvNL4uiOWnX_NGJ3zbrrwZwqj71oiXioCJGvkDJag9J_Loo5caAglvEALw_wcB) vs [Geocoding API](https://developers.google.com/maps/documentation/geocoding/overview))]{style="color:#003300;" .r-fit-text}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
 
+<html>
+<head>
+```{=html}
+<style>
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  padding: 5px;
+}
+
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 5px;
+  font-size: 30px;
+  text-align: center;
+}
+</style>
+```
+</head>
+<body>
+<h1>
+</h1>
+<p>
+</p>
+
+::: grid-container
+
+::: grid-item
+Geocodificación
+:::
+
+::: grid-item
+Merida
+:::
+
+::: grid-item
+Guadalajara
+:::
+
+::: grid-item
+Acapulco
+:::
+
+::: grid-item
+[Geocoding API](https://developers.google.com/maps/documentation/geocoding/overview)
+:::
+
+::: grid-item
+```{r hotspots_cases_merida_google, out.height="110%", out.width="110%"}
+# Step 1. load the geocoded dataset ####
+load("/Users/fdzul/Dropbox/hotspots_2023/8.RData/denmex.RData")
+
+# Step 2. Load the locality ####
+x <- rgeomex::extract_ageb(locality = c("Mérida", "Kanasin", 
+                                        "Uman"), 
+                           cve_edo = "31")
+# Step 3. Count the cases by AGEB ####
+library(magrittr)
+z <- denhotspots::point_to_polygons(x = xy,
+                                    y = x$ageb,
+                                    ids = names(x$ageb)[-10],
+                                    time = ANO,
+                                    coords = c("long", "lat"),
+                                    crs = 4326,
+                                    dis = "DENV") 
+
+# Step 4. Calculate the hotspots ####
+hotspots <- denhotspots::gihi(x = z,
+                              id = names(z)[c(1:9)], 
+                              time = "year",
+                              dis = "DENV",
+                              gi_hi = "gi",
+                              alpha = 0.95)
+
+# Step 5. Vizualization of hotspots ####
+hotspots |>
+    denhotspots::staticmap_intensity(pal = rcartocolor::carto_pal,
+                                 pal_name = TRUE,
+                                 name = "OrYel",
+                                 breaks = 1,
+                                 dir_pal = -1,
+                                 x_leg = 0.5,
+                                 y_leg = 0.1,
+                                 ageb = TRUE) +
+  ggplot2::theme( plot.margin = ggplot2::unit(c(0, 0, 0, 0), "cm")) +
+  ggspatial::annotation_scale(style = "ticks")
+
+
+
+```
+:::
+
+::: grid-item
+```{r hotspots_cases_gudalajara_google, out.height="110%", out.width="110%"}
+# Step 1. load the geocoded dataset ####
+load("/Users/fdzul/Dropbox/hotspots_2023/8.RData/denmex.RData")
+
+# Step 2. Load the locality ####
+x <- rgeomex::extract_ageb(locality = c("Guadalajara", "Zapopan", 
+                                        "Tlaquepaque", "Tonalá"), 
+                           cve_edo = "14")
+# Step 3. Count the cases by AGEB ####
+library(magrittr)
+z <- denhotspots::point_to_polygons(x = xy,
+                                    y = x$ageb,
+                                    ids = names(x$ageb)[-10],
+                                    time = ANO,
+                                    coords = c("long", "lat"),
+                                    crs = 4326,
+                                    dis = "DENV") 
+
+# Step 4. Calculate the hotspots ####
+hotspots <- denhotspots::gihi(x = z,
+                              id = names(z)[c(1:9)], 
+                              time = "year",
+                              dis = "DENV",
+                              gi_hi = "gi",
+                              alpha = 0.95)
+
+# Step 5. Vizualization of hotspots ####
+hotspots |>
+    denhotspots::staticmap_intensity(pal = rcartocolor::carto_pal,
+                                 pal_name = TRUE,
+                                 name = "OrYel",
+                                 breaks = 1,
+                                 dir_pal = -1,
+                                 x_leg = 0.5,
+                                 y_leg = 0.1,
+                                 ageb = TRUE) +
+  ggplot2::theme( plot.margin = ggplot2::unit(c(0, 0, 0, 0), "cm")) +
+  ggspatial::annotation_scale(style = "ticks")
+```
+:::
+
+::: grid-item
+```{r hotspots_cases_acapulco_google, out.height="110%", out.width="110%"}
+# Step 1. load the geocoded dataset ####
+load("/Users/fdzul/Dropbox/hotspots_2023/8.RData/denmex.RData")
+
+# Step 2. Load the locality ####
+x <- rgeomex::extract_ageb(locality = "Acapulco de Juarez", 
+                           cve_edo = "12")
+# Step 3. Count the cases by AGEB ####
+library(magrittr)
+z <- denhotspots::point_to_polygons(x = xy,
+                                    y = x$ageb,
+                                    ids = names(x$ageb)[-10],
+                                    time = ANO,
+                                    coords = c("long", "lat"),
+                                    crs = 4326,
+                                    dis = "DENV") 
+
+# Step 4. Calculate the hotspots ####
+hotspots <- denhotspots::gihi(x = z,
+                              id = names(z)[c(1:9)], 
+                              time = "year",
+                              dis = "DENV",
+                              gi_hi = "gi",
+                              alpha = 0.95)
+
+# Step 5. Vizualization of hotspots ####
+hotspots |>
+    denhotspots::staticmap_intensity(pal = rcartocolor::carto_pal,
+                                 pal_name = TRUE,
+                                 name = "OrYel",
+                                 breaks = 1,
+                                 dir_pal = -1,
+                                 x_leg = 0.5,
+                                 y_leg = 0.1,
+                                 ageb = TRUE) +
+  ggplot2::theme( plot.margin = ggplot2::unit(c(0, 0, 0, 0), "cm")) +
+  ggspatial::annotation_scale(style = "ticks")
+```
+:::
+
+::: grid-item
+[BachGeo](https://es.batchgeo.com/?gad_source=1&gclid=Cj0KCQiA5rGuBhCnARIsAN11vgQInSOvNL4uiOWnX_NGJ3zbrrwZwqj71oiXioCJGvkDJag9J_Loo5caAglvEALw_wcB)
+:::
+
+::: grid-item
+```{r hotspots_cases_merida_bachgeo, out.height="110%", out.width="110%"}
+# Step 1. load the geocoded dataset ####
+xy <- denmex::den_bachgeo
+
+# Step 2. Load the locality ####
+x <- rgeomex::extract_ageb(locality = c("Mérida", "Kanasin", 
+                                        "Uman"), 
+                           cve_edo = "31")
+# Step 3. Count the cases by AGEB ####
+library(magrittr)
+z <- denhotspots::point_to_polygons(x = xy,
+                                    y = x$ageb,
+                                    ids = names(x$ageb)[-10],
+                                    time = year,
+                                    coords = c("longitude", "latitude"),
+                                    crs = 4326,
+                                    dis = "DENV") 
+
+# Step 4. Calculate the hotspots ####
+hotspots <- denhotspots::gihi(x = z,
+                              id = names(z)[c(1:9)], 
+                              time = "year",
+                              dis = "DENV",
+                              gi_hi = "gi",
+                              alpha = 0.95)
+
+# Step 5. Vizualization of hotspots ####
+hotspots |>
+    denhotspots::staticmap_intensity(pal = rcartocolor::carto_pal,
+                                 pal_name = TRUE,
+                                 name = "OrYel",
+                                 breaks = 1,
+                                 dir_pal = -1,
+                                 x_leg = 0.5,
+                                 y_leg = 0.1,
+                                 ageb = TRUE)  +
+  ggplot2::theme( plot.margin = ggplot2::unit(c(0, 0, 0, 0), "cm")) +
+  ggspatial::annotation_scale(style = "ticks")
+```
+:::
+
+::: grid-item
+```{r hotspots_cases_guadalajara_bachgeo, out.height="110%", out.width="110%"}
+# Step 1. load the geocoded dataset ####
+xy <- denmex::den_bachgeo
+
+# Step 2. Load the locality ####
+x <- rgeomex::extract_ageb(locality = c("Guadalajara", "Zapopan", 
+                                        "Tlaquepaque", "Tonalá"), 
+                           cve_edo = "14")
+# Step 3. Count the cases by AGEB ####
+library(magrittr)
+z <- denhotspots::point_to_polygons(x = xy,
+                                    y = x$ageb,
+                                    ids = names(x$ageb)[-10],
+                                    time = year,
+                                    coords = c("longitude", "latitude"),
+                                    crs = 4326,
+                                    dis = "DENV") 
+
+# Step 4. Calculate the hotspots ####
+hotspots <- denhotspots::gihi(x = z,
+                              id = names(z)[c(1:9)], 
+                              time = "year",
+                              dis = "DENV",
+                              gi_hi = "gi",
+                              alpha = 0.95)
+
+# Step 5. Vizualization of hotspots ####
+hotspots |>
+    denhotspots::staticmap_intensity(pal = rcartocolor::carto_pal,
+                                 pal_name = TRUE,
+                                 name = "OrYel",
+                                 breaks = 1,
+                                 dir_pal = -1,
+                                 x_leg = 0.5,
+                                 y_leg = 0.1,
+                                 ageb = TRUE)  +
+  ggplot2::theme( plot.margin = ggplot2::unit(c(0, 0, 0, 0), "cm")) +
+  ggspatial::annotation_scale(style = "ticks")
+```
+:::
+
+::: grid-item
+```{r hotspots_cases_acapulco_bachgeo, out.height="110%", out.width="110%"}
+# Step 1. load the geocoded dataset ####
+xy <- denmex::den_bachgeo
+
+# Step 2. Load the locality ####
+x <- rgeomex::extract_ageb(locality = "Acapulco de juarez", 
+                           cve_edo = "12")
+# Step 3. Count the cases by AGEB ####
+library(magrittr)
+z <- denhotspots::point_to_polygons(x = xy,
+                                    y = x$ageb,
+                                    ids = names(x$ageb)[-10],
+                                    time = year,
+                                    coords = c("longitude", "latitude"),
+                                    crs = 4326,
+                                    dis = "DENV") 
+
+# Step 4. Calculate the hotspots ####
+hotspots <- denhotspots::gihi(x = z,
+                              id = names(z)[c(1:9)], 
+                              time = "year",
+                              dis = "DENV",
+                              gi_hi = "gi",
+                              alpha = 0.95)
+
+# Step 5. Vizualization of hotspots ####
+hotspots |>
+    denhotspots::staticmap_intensity(pal = rcartocolor::carto_pal,
+                                 pal_name = TRUE,
+                                 name = "OrYel",
+                                 breaks = 1,
+                                 dir_pal = -1,
+                                 x_leg = 0.5,
+                                 y_leg = 0.1,
+                                 ageb = TRUE)  +
+  ggplot2::theme(plot.margin = ggplot2::unit(c(0, 0, 0, 0), "cm")) +
+  ggspatial::annotation_scale(style = "ticks")
+```
+:::
+
+:::
+
+</body>
+</html>
 

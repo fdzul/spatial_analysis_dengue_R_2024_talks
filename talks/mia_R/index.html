@@ -448,15 +448,15 @@ Compiled: 2024-02-14
 <div class="column" style="width: 50%; font-size: 80%">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="htmlwidget-9c99786c48703e777e4f" style="width:100%;height:550px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-9c99786c48703e777e4f">{"x":{"diagram":"digraph {\n\n  # graph definitions\n  graph [layout = dot, rankdir = TB]\n  \n  # node definitions\n  node [shape = rectangle, style = filled, color = grey] \n  \n  # flowchart for hotspots\n  sinave [label = \"SINAVE\",  fillcolor = \"#0F9D58\", color = \"white\", fontcolor = \"white\"]\n  denv [label = \"Bases de DENV\",  fillcolor = \"#0F9D58\", color = \"white\", fontcolor = \"white\"]\n  geocode [label = \"Geocodificación\",  fillcolor = \"#0F9D58\", color = \"white\", fontcolor = \"white\"]\n  cases_ageb [label = \"Casos por AGEBs\"]\n  z_score [label = \"Z-score\"]\n  gi [label = \"Estadístico Espacial Local (Gi*)\"]\n  bonferroni [label = \"Corrección de Bonferroni\"]\n  hotspots [label = \"Hotspots\", style = filled, color = orange]\n  \n  # flow chart for inegi\n  inegi [label = \"INEGI\", fillcolor = \"DeepSkyBlue\", color = \"white\", fontcolor = \"black\"]\n  loc [label = \"Localidades Shapefile\", fillcolor = \"DeepSkyBlue\", color = \"white\", fontcolor = \"black\"]\n  ageb [label = \"AGEB Shapefile\", fillcolor = \"DeepSkyBlue\", color = \"white\", fontcolor = \"black\"]\n  loc_esp [label = \"Localidad de Ínteres\", fillcolor = \"DeepSkyBlue\", color = \"white\", fontcolor = \"black\"]\n  ageb_esp [label = \"AGEBs de la Localidad de Ínteres\", fillcolor = \"DeepSkyBlue\", color = \"white\", fontcolor = \"black\"]\n  mat [label = \"Matriz de Adjacencias\", fillcolor = \"DeepSkyBlue\", color = \"white\", fontcolor = \"black\"]\n  \n  # edge definitions with the node IDs\n  edge [color = black]\n  sinave -> denv -> geocode -> cases_ageb -> z_score -> gi -> bonferroni -> hotspots \n  inegi -> {ageb, loc}\n  loc -> loc_esp -> ageb_esp\n  ageb -> ageb_esp\n  ageb_esp -> mat\n  mat -> cases_ageb \n \n  }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-27b54bd5be816a8c0936" style="width:100%;height:550px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-27b54bd5be816a8c0936">{"x":{"diagram":"digraph {\n\n  # graph definitions\n  graph [layout = dot, rankdir = TB]\n  \n  # node definitions\n  node [shape = rectangle, style = filled, color = grey] \n  \n  # flowchart for hotspots\n  sinave [label = \"SINAVE\",  fillcolor = \"#0F9D58\", color = \"white\", fontcolor = \"white\"]\n  denv [label = \"Bases de DENV\",  fillcolor = \"#0F9D58\", color = \"white\", fontcolor = \"white\"]\n  geocode [label = \"Geocodificación\",  fillcolor = \"#0F9D58\", color = \"white\", fontcolor = \"white\"]\n  cases_ageb [label = \"Casos por AGEBs\"]\n  z_score [label = \"Z-score\"]\n  gi [label = \"Estadístico Espacial Local (Gi*)\"]\n  bonferroni [label = \"Corrección de Bonferroni\"]\n  hotspots [label = \"Hotspots\", style = filled, color = orange]\n  \n  # flow chart for inegi\n  inegi [label = \"INEGI\", fillcolor = \"DeepSkyBlue\", color = \"white\", fontcolor = \"black\"]\n  loc [label = \"Localidades Shapefile\", fillcolor = \"DeepSkyBlue\", color = \"white\", fontcolor = \"black\"]\n  ageb [label = \"AGEB Shapefile\", fillcolor = \"DeepSkyBlue\", color = \"white\", fontcolor = \"black\"]\n  loc_esp [label = \"Localidad de Ínteres\", fillcolor = \"DeepSkyBlue\", color = \"white\", fontcolor = \"black\"]\n  ageb_esp [label = \"AGEBs de la Localidad de Ínteres\", fillcolor = \"DeepSkyBlue\", color = \"white\", fontcolor = \"black\"]\n  mat [label = \"Matriz de Adjacencias\", fillcolor = \"DeepSkyBlue\", color = \"white\", fontcolor = \"black\"]\n  \n  # edge definitions with the node IDs\n  edge [color = black]\n  sinave -> denv -> geocode -> cases_ageb -> z_score -> gi -> bonferroni -> hotspots \n  inegi -> {ageb, loc}\n  loc -> loc_esp -> ageb_esp\n  ageb -> ageb_esp\n  ageb_esp -> mat\n  mat -> cases_ageb \n \n  }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </div><div class="column" style="width: 50%; font-size: 80%">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="htmlwidget-35670977603648e41d62" style="width:100%;height:550px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-35670977603648e41d62">{"x":{"diagram":"digraph {\n\n\n# graph definitions\n  graph [layout = dot, rankdir = TB]\n  \n  # node definitions\n  node [shape = rectangle, style = filled, color = grey] \n  \n  # flowchart for hotspots\n  sinave [label = \"SINAVE\",  fillcolor = \"#0F9D58\", color = \"white\", fontcolor = \"white\"]\n  denv [label = \"DENV dataset\",  fillcolor = \"#0F9D58\", color = \"white\", fontcolor = \"white\"]\n  \n   geocode [label = \"Geocoding\",  fillcolor =  \"orange\", color = \"white\", fontcolor = \"black\"]\n   cases_ageb [label = \"Cases/AGEB\",  fillcolor =  \"orange\", color = \"white\", fontcolor = \"black\"]\n   hotspots [label = \"Hotspots Analysis\",  fillcolor =  \"orange\", color = \"white\", fontcolor = \"black\"]\n   vizualization [label = \"Visualization\",  fillcolor =  \"orange\", color = \"white\", fontcolor = \"black\"]\n   static [label = \"Static Map\",  fillcolor =  \"DodgerBlue\", color = \"white\", fontcolor = \"white\"]\n   interactive [label = \"Interactive Map\",  fillcolor =  \"DodgerBlue\", color = \"white\", fontcolor = \"white\"]\n  \n  # edge definitions with the node IDs\n  edge [color = black]\n  sinave -> denv -> geocode -> cases_ageb -> hotspots -> vizualization -> {static interactive}\n  \n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-eb2c27ea4de32c132981" style="width:100%;height:550px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-eb2c27ea4de32c132981">{"x":{"diagram":"digraph {\n\n\n# graph definitions\n  graph [layout = dot, rankdir = TB]\n  \n  # node definitions\n  node [shape = rectangle, style = filled, color = grey] \n  \n  # flowchart for hotspots\n  sinave [label = \"SINAVE\",  fillcolor = \"#0F9D58\", color = \"white\", fontcolor = \"white\"]\n  denv [label = \"DENV dataset\",  fillcolor = \"#0F9D58\", color = \"white\", fontcolor = \"white\"]\n  \n   geocode [label = \"Geocoding\",  fillcolor =  \"orange\", color = \"white\", fontcolor = \"black\"]\n   cases_ageb [label = \"Cases/AGEB\",  fillcolor =  \"orange\", color = \"white\", fontcolor = \"black\"]\n   hotspots [label = \"Hotspots Analysis\",  fillcolor =  \"orange\", color = \"white\", fontcolor = \"black\"]\n   vizualization [label = \"Visualization\",  fillcolor =  \"orange\", color = \"white\", fontcolor = \"black\"]\n   static [label = \"Static Map\",  fillcolor =  \"DodgerBlue\", color = \"white\", fontcolor = \"white\"]\n   interactive [label = \"Interactive Map\",  fillcolor =  \"DodgerBlue\", color = \"white\", fontcolor = \"white\"]\n  \n  # edge definitions with the node IDs\n  edge [color = black]\n  sinave -> denv -> geocode -> cases_ageb -> hotspots -> vizualization -> {static interactive}\n  \n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
@@ -476,7 +476,7 @@ Compiled: 2024-02-14
 </div>
 </div>
 <div id="tabset-1-2">
-<p>Paso2. Subir la localidad ó localidades.</p>
+<p>Paso 2. Subir la localidad ó localidades.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="co"># Step 2. Load the locality ####</span></span>
 <span id="cb2-2"><a href=""></a>x <span class="ot">&lt;-</span> rgeomex<span class="sc">::</span><span class="fu">extract_ageb</span>(<span class="at">locality =</span> <span class="fu">c</span>(<span class="st">"Guadalajara"</span>, <span class="st">"Zapopan"</span>, </span>
@@ -516,14 +516,168 @@ Compiled: 2024-02-14
 <section id="hotspots-de-la-transmisión-persistente-en-r-con-bachgeo" class="slide level2">
 <h2><span class="r-fit-text" style="color:#003300;">Hotspots de la Transmisión Persistente en R con <a href="https://es.batchgeo.com/?gad_source=1&amp;gclid=Cj0KCQiA5rGuBhCnARIsAN11vgQInSOvNL4uiOWnX_NGJ3zbrrwZwqj71oiXioCJGvkDJag9J_Loo5caAglvEALw_wcB">BachGeo</a></span></h2>
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
-</section>
-<section id="hotspots-de-la-transmisión-persistente-en-r-con-geocoding-api-1" class="slide level2">
-<h2><span class="r-fit-text" style="color:#003300;">Hotspots de la Transmisión Persistente en R con <a href="https://developers.google.com/maps/documentation/geocoding/overview">Geocoding API</a></span></h2>
-<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+<div class="panel-tabset">
+<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Dataset</a></li><li><a href="#tabset-2-2">Localidad</a></li><li><a href="#tabset-2-3">Casos/Ageb</a></li><li><a href="#tabset-2-4">Hotspots</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1">
+<p>Paso 1. Subir la Base de Datos Geocodificada.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a><span class="co"># Step 1. load the geocoded dataset ####</span></span>
+<span id="cb5-2"><a href=""></a>xy <span class="ot">&lt;-</span> denmex<span class="sc">::</span>den_bachgeo</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-2-2">
+<p>Paso 2. Subir la localidad ó localidades.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="co"># Step 2. Load the locality ####</span></span>
+<span id="cb6-2"><a href=""></a>x <span class="ot">&lt;-</span> rgeomex<span class="sc">::</span><span class="fu">extract_ageb</span>(<span class="at">locality =</span> <span class="fu">c</span>(<span class="st">"Guadalajara"</span>, <span class="st">"Zapopan"</span>, </span>
+<span id="cb6-3"><a href=""></a>                                        <span class="st">"Tlaquepaque"</span>, <span class="st">"Tonalá"</span>), </span>
+<span id="cb6-4"><a href=""></a>                           <span class="at">cve_edo =</span> <span class="st">"14"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-2-3">
+<p>Paso 3. Contar la casos por localidad.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="co"># Step 3. Count the cases by AGEB ####</span></span>
+<span id="cb7-2"><a href=""></a><span class="fu">library</span>(magrittr)</span>
+<span id="cb7-3"><a href=""></a>z <span class="ot">&lt;-</span> denhotspots<span class="sc">::</span><span class="fu">point_to_polygons</span>(<span class="at">x =</span> xy,</span>
+<span id="cb7-4"><a href=""></a>                                    <span class="at">y =</span> x<span class="sc">$</span>ageb,</span>
+<span id="cb7-5"><a href=""></a>                                    <span class="at">ids =</span> <span class="fu">names</span>(x<span class="sc">$</span>ageb)[<span class="sc">-</span><span class="dv">10</span>],</span>
+<span id="cb7-6"><a href=""></a>                                    <span class="at">time =</span> year, <span class="do">###</span></span>
+<span id="cb7-7"><a href=""></a>                                    <span class="at">coords =</span> <span class="fu">c</span>(<span class="st">"longitude"</span>, <span class="st">"latitude"</span>), <span class="do">###</span></span>
+<span id="cb7-8"><a href=""></a>                                    <span class="at">crs =</span> <span class="dv">4326</span>,</span>
+<span id="cb7-9"><a href=""></a>                                    <span class="at">dis =</span> <span class="st">"DENV"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-2-4">
+<p>Paso 4. Calcular los Hotspots de la Transmisión Persistente</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a><span class="co"># Step 4. Calculate the hotspots ####</span></span>
+<span id="cb8-2"><a href=""></a>hotspots <span class="ot">&lt;-</span> denhotspots<span class="sc">::</span><span class="fu">gihi</span>(<span class="at">x =</span> z,</span>
+<span id="cb8-3"><a href=""></a>                              <span class="at">id =</span> <span class="fu">names</span>(z)[<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>)], </span>
+<span id="cb8-4"><a href=""></a>                              <span class="at">time =</span> <span class="st">"year"</span>,</span>
+<span id="cb8-5"><a href=""></a>                              <span class="at">dis =</span> <span class="st">"DENV"</span>,</span>
+<span id="cb8-6"><a href=""></a>                              <span class="at">gi_hi =</span> <span class="st">"gi"</span>,</span>
+<span id="cb8-7"><a href=""></a>                              <span class="at">alpha =</span> <span class="fl">0.95</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="hotspots-de-la-transmisión-persistente-en-r-bachgeo-vs-geocoding-api" class="slide level2">
 <h2><span class="r-fit-text" style="color:#003300;">Hotspots de la Transmisión Persistente en R (<a href="https://es.batchgeo.com/?gad_source=1&amp;gclid=Cj0KCQiA5rGuBhCnARIsAN11vgQInSOvNL4uiOWnX_NGJ3zbrrwZwqj71oiXioCJGvkDJag9J_Loo5caAglvEALw_wcB">BachGeo</a> vs <a href="https://developers.google.com/maps/documentation/geocoding/overview">Geocoding API</a>)</span></h2>
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+
+<style>
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  padding: 5px;
+}
+
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 5px;
+  font-size: 30px;
+  text-align: center;
+}
+</style>
+
+
+<h1>
+</h1>
+<p>
+</p>
+<div class="grid-container">
+<div class="grid-item">
+<p>Geocodificación</p>
+</div>
+<div class="grid-item">
+<p>Merida</p>
+</div>
+<div class="grid-item">
+<p>Guadalajara</p>
+</div>
+<div class="grid-item">
+<p>Acapulco</p>
+</div>
+<div class="grid-item">
+<p><a href="https://developers.google.com/maps/documentation/geocoding/overview">Geocoding API</a></p>
+</div>
+<div class="grid-item">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="index_files/figure-revealjs/hotspots_cases_merida_google-1.png" style="width:110.0%;height:110.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="grid-item">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="index_files/figure-revealjs/hotspots_cases_gudalajara_google-1.png" style="width:110.0%;height:110.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="grid-item">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="index_files/figure-revealjs/hotspots_cases_acapulco_google-1.png" style="width:110.0%;height:110.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="grid-item">
+<p><a href="https://es.batchgeo.com/?gad_source=1&amp;gclid=Cj0KCQiA5rGuBhCnARIsAN11vgQInSOvNL4uiOWnX_NGJ3zbrrwZwqj71oiXioCJGvkDJag9J_Loo5caAglvEALw_wcB">BachGeo</a></p>
+</div>
+<div class="grid-item">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="index_files/figure-revealjs/hotspots_cases_merida_bachgeo-1.png" style="width:110.0%;height:110.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="grid-item">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="index_files/figure-revealjs/hotspots_cases_guadalajara_bachgeo-1.png" style="width:110.0%;height:110.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="grid-item">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="index_files/figure-revealjs/hotspots_cases_acapulco_bachgeo-1.png" style="width:110.0%;height:110.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
 <div class="quarto-auto-generated-content">
 <p><img src="https://github.com/fdzul/spatial_analysis_dengue_R_2024_talks/blob/main/talks/pkg_installation/logo_cenaprece.jpeg?raw=true" class="slide-logo"></p>
 <div class="footer footer-default">
