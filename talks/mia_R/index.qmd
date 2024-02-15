@@ -571,3 +571,10 @@ hotspots |>
 </body>
 </html>
 
+## [Hotspots de la Abundancia Persistente en R]{style="color:#003300;" .r-fit-text}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+
+
+
+

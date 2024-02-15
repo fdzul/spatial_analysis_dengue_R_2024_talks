@@ -619,8 +619,8 @@ u{_i} &amp;\sim {\sf GF}(0, \sum) \\
 </div>
 </div>
 </section>
-<section id="argumentos-de-las-funciones-de-deneggs-2" class="slide level2">
-<h2><span class="r-fit-text" style="color:#003300;">Argumentos de las funciones de deneggs</span></h2>
+<section id="argumentos-de-la-función-deneggseggs_hotspots" class="slide level2">
+<h2><span class="r-fit-text" style="color:#003300;">Argumentos de la función <a href="">deneggs::eggs_hotspots</a></span></h2>
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 <div class="panel-tabset">
 <ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Código</a></li><li><a href="#tabset-2-2">Elementos</a></li><li><a href="#tabset-2-3">Mapa</a></li></ul>
@@ -664,6 +664,77 @@ u{_i} &amp;\sim {\sf GF}(0, \sum) \\
 <div>
 <figure>
 <p><img data-src="index_files/figure-revealjs/unnamed-chunk-8-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="argumentos-de-la-función-deneggsspde_pred_map" class="slide level2">
+<h2><span class="r-fit-text" style="color:#003300;">Argumentos de la función <a href="">deneggs::spde_pred_map</a></span></h2>
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+<div class="panel-tabset">
+<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">Código</a></li><li><a href="#tabset-3-2">Elementos</a></li><li><a href="#tabset-3-3">Mapa</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a><span class="co"># Step 1. define the path ####</span></span>
+<span id="cb5-2"><a href=""></a>path_ovitraps <span class="ot">&lt;-</span> <span class="st">"/Users/fdzul/Dropbox/CENAPRECE/2024/31_yucatan"</span></span>
+<span id="cb5-3"><a href=""></a>path_coordinates <span class="ot">&lt;-</span> <span class="fu">paste</span>(path_ovitraps, <span class="st">"DescargaOvitrampasMesFco.txt"</span>, <span class="at">sep =</span> <span class="st">"/"</span>)</span>
+<span id="cb5-4"><a href=""></a></span>
+<span id="cb5-5"><a href=""></a><span class="co"># Step 2. run the function #### </span></span>
+<span id="cb5-6"><a href=""></a><span class="fu">library</span>(magrittr)</span>
+<span id="cb5-7"><a href=""></a><span class="fu">library</span>(sf)</span>
+<span id="cb5-8"><a href=""></a>x <span class="ot">&lt;-</span> deneggs<span class="sc">::</span><span class="fu">spde_pred_map</span>(<span class="at">path_lect =</span> path_ovitraps,</span>
+<span id="cb5-9"><a href=""></a>                            <span class="at">path_coord =</span> path_coordinates,</span>
+<span id="cb5-10"><a href=""></a>                            <span class="at">cve_ent =</span> <span class="st">"31"</span>,</span>
+<span id="cb5-11"><a href=""></a>                            <span class="at">locality =</span> <span class="st">"Merida"</span>,</span>
+<span id="cb5-12"><a href=""></a>                            <span class="at">longitude  =</span> <span class="st">"Pocision_X"</span>,</span>
+<span id="cb5-13"><a href=""></a>                            <span class="at">latitude =</span>  <span class="st">"Pocision_Y"</span>,</span>
+<span id="cb5-14"><a href=""></a>                            <span class="at">aproximation =</span> <span class="st">"gaussian"</span>,</span>
+<span id="cb5-15"><a href=""></a>                            <span class="at">integration =</span> <span class="st">"eb"</span>,</span>
+<span id="cb5-16"><a href=""></a>                            <span class="at">k =</span> <span class="dv">30</span>,</span>
+<span id="cb5-17"><a href=""></a>                            <span class="at">plot =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb5-18"><a href=""></a>                            <span class="at">week =</span> <span class="dv">4</span>,</span>
+<span id="cb5-19"><a href=""></a>                            <span class="at">var =</span> <span class="st">"Huevecillos"</span>,</span>
+<span id="cb5-20"><a href=""></a>                            <span class="at">cell_size =</span> <span class="dv">2000</span>,</span>
+<span id="cb5-21"><a href=""></a>                            <span class="at">alpha =</span> .<span class="dv">99</span>,</span>
+<span id="cb5-22"><a href=""></a>                            <span class="at">palette_vir  =</span> <span class="st">"magma"</span>,</span>
+<span id="cb5-23"><a href=""></a>                            <span class="at">leg_title =</span> <span class="st">"Huevos"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-3-2">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="fu">names</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "data"     "pred"     "map"      "loc"      "dics"     "hotspots"</code></pre>
+</div>
+</div>
+<h3 id="distribuciones">Distribuciones</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a><span class="co"># x$dics</span></span>
+<span id="cb8-2"><a href=""></a>x<span class="sc">$</span>dics <span class="sc">|&gt;</span></span>
+<span id="cb8-3"><a href=""></a>    dplyr<span class="sc">::</span><span class="fu">arrange</span>(dic)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       dic                    fam
+1 39019.18 zeroinflatednbinomial1
+2 39076.68 zeroinflatednbinomial0
+3 39623.87              nbinomial
+4 39706.69             nbinomial2
+5 61410.67   zeroinflatedpoisson0
+6 61427.44   zeroinflatedpoisson1
+7 71380.90                poisson</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-3-3">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-12-1.png" width="960"></p>
 </figure>
 </div>
 </div>

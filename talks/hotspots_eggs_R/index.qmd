@@ -386,7 +386,7 @@ tibble::tibble(argumentos = c("fam",
 ```
 
 
-## [Argumentos de las funciones de deneggs]{.r-fit-text style="color:#003300;"}
+## [Argumentos de la función [deneggs::eggs_hotspots]()]{.r-fit-text style="color:#003300;"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
 ::: {.panel-tabset}
@@ -424,6 +424,66 @@ x <- deneggs::eggs_hotspots(path_lect = path_ovitraps,
 #| output: true
 names(x)
 ```
+
+## Mapa
+```{r}
+#| echo: false
+#| output: true
+x$map
+```
+
+:::
+
+
+## [Argumentos de la función [deneggs::spde_pred_map]()]{.r-fit-text style="color:#003300;"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+::: {.panel-tabset}
+
+## Código
+```{r}
+#| echo: true
+#| output: false
+# Step 1. define the path ####
+path_ovitraps <- "/Users/fdzul/Dropbox/CENAPRECE/2024/31_yucatan"
+path_coordinates <- paste(path_ovitraps, "DescargaOvitrampasMesFco.txt", sep = "/")
+
+# Step 2. run the function #### 
+library(magrittr)
+library(sf)
+x <- deneggs::spde_pred_map(path_lect = path_ovitraps,
+                            path_coord = path_coordinates,
+                            cve_ent = "31",
+                            locality = "Merida",
+                            longitude  = "Pocision_X",
+                            latitude =  "Pocision_Y",
+                            aproximation = "gaussian",
+                            integration = "eb",
+                            k = 30,
+                            plot = TRUE,
+                            week = 4,
+                            var = "Huevecillos",
+                            cell_size = 2000,
+                            alpha = .99,
+                            palette_vir  = "magma",
+                            leg_title = "Huevos")
+```
+
+## Elementos
+```{r}
+#| echo: true
+#| output: true
+names(x)
+```
+### Distribuciones
+```{r}
+#| echo: true
+#| output: true
+# x$dics
+x$dics |>
+    dplyr::arrange(dic)
+```
+
 
 ## Mapa
 ```{r}
