@@ -224,12 +224,12 @@ x <- popmex::extract_pop(year = 2022,
                                        "Tlaquepaque", "Tonalá"))
 ```
 
-## Casos/Ageb
-Paso 3. Contar la casos por Hexagono.
+## Casos/Hexágono
+Paso 3. Contar la casos por Hexágono.
 ```{r hotspots_step_3_hexagons}
 #| echo: true
 #| output: false
-# Step 3. Count the cases by hexagons ####
+# Step 3. Count the cases by hexágons ####
 library(magrittr)
 z <- denhotspots::point_to_polygons(x = xy,
                                     y = x, ##
