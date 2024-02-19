@@ -13,7 +13,7 @@ format:
 ---
 
 <h2>Modelo Estratégico de Focalización
-<br>del Dengue México
+<br>del Dengue México en R
 </h2>
 
 <h2>
@@ -314,7 +314,6 @@ hotspots <- denhotspots::gihi(x = z,
 
 :::
 
-
 ## [Hotspots de la Transmisión Persistente en R ([BachGeo](https://es.batchgeo.com/?gad_source=1&gclid=Cj0KCQiA5rGuBhCnARIsAN11vgQInSOvNL4uiOWnX_NGJ3zbrrwZwqj71oiXioCJGvkDJag9J_Loo5caAglvEALw_wcB) vs [Geocoding API](https://developers.google.com/maps/documentation/geocoding/overview))]{style="color:#003300;" .r-fit-text}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
@@ -323,7 +322,7 @@ hotspots <- denhotspots::gihi(x = z,
 <head>
 ```{=html}
 <style>
-.grid-container {
+.grid-container1 {
   display: grid;
   grid-template-columns: auto auto auto auto;
   padding: 5px;
@@ -345,7 +344,7 @@ hotspots <- denhotspots::gihi(x = z,
 <p>
 </p>
 
-::: grid-container
+::: grid-container1
 
 ::: grid-item
 Geocodificación
@@ -629,10 +628,746 @@ hotspots |>
 </body>
 </html>
 
-## [Hotspots de la Abundancia Persistente en R]{style="color:#003300;" .r-fit-text}
+
+## [Hotspots de la Transmisión Persistente en R (AGEB vs Hexágonos)]{style="color:#003300;" .r-fit-text}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
 
+<html>
+<head>
+```{=html}
+<style>
+.grid-container-hex {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  padding: 5px;
+}
+
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 5px;
+  font-size: 30px;
+  text-align: center;
+}
+</style>
+```
+</head>
+<body>
+<h1>
+</h1>
+<p>
+</p>
+
+::: grid-container-hex
+
+::: grid-item
+Geometría
+:::
+
+::: grid-item
+Merida
+:::
+
+::: grid-item
+Guadalajara
+:::
+
+::: grid-item
+Acapulco
+:::
+
+::: grid-item
+AGEBs
+:::
+
+::: grid-item
+```{r hotspots_cases_merida_google_ageb, out.height="110%", out.width="110%"}
+# Step 1. load the geocoded dataset ####
+load("/Users/fdzul/Dropbox/hotspots_2023/8.RData/denmex.RData")
+
+# Step 2. Load the locality ####
+x <- rgeomex::extract_ageb(locality = c("Mérida", "Kanasin", 
+                                        "Uman"), 
+                           cve_edo = "31")
+# Step 3. Count the cases by AGEB ####
+library(magrittr)
+z <- denhotspots::point_to_polygons(x = xy,
+                                    y = x$ageb,
+                                    ids = names(x$ageb)[-10],
+                                    time = ANO,
+                                    coords = c("long", "lat"),
+                                    crs = 4326,
+                                    dis = "DENV") 
+
+# Step 4. Calculate the hotspots ####
+hotspots <- denhotspots::gihi(x = z,
+                              id = names(z)[c(1:9)], 
+                              time = "year",
+                              dis = "DENV",
+                              gi_hi = "gi",
+                              alpha = 0.95)
+
+# Step 5. Vizualization of hotspots ####
+hotspots |>
+    denhotspots::staticmap_intensity(pal = rcartocolor::carto_pal,
+                                 pal_name = TRUE,
+                                 name = "OrYel",
+                                 breaks = 1,
+                                 dir_pal = -1,
+                                 x_leg = 0.5,
+                                 y_leg = 0.1,
+                                 ageb = TRUE) +
+  ggplot2::theme( plot.margin = ggplot2::unit(c(0, 0, 0, 0), "cm")) +
+  ggspatial::annotation_scale(style = "ticks")
 
 
+
+```
+:::
+
+::: grid-item
+```{r hotspots_cases_gudalajara_google_ageb, out.height="110%", out.width="110%"}
+# Step 1. load the geocoded dataset ####
+load("/Users/fdzul/Dropbox/hotspots_2023/8.RData/denmex.RData")
+
+# Step 2. Load the locality ####
+x <- rgeomex::extract_ageb(locality = c("Guadalajara", "Zapopan", 
+                                        "Tlaquepaque", "Tonalá"), 
+                           cve_edo = "14")
+# Step 3. Count the cases by AGEB ####
+library(magrittr)
+z <- denhotspots::point_to_polygons(x = xy,
+                                    y = x$ageb,
+                                    ids = names(x$ageb)[-10],
+                                    time = ANO,
+                                    coords = c("long", "lat"),
+                                    crs = 4326,
+                                    dis = "DENV") 
+
+# Step 4. Calculate the hotspots ####
+hotspots <- denhotspots::gihi(x = z,
+                              id = names(z)[c(1:9)], 
+                              time = "year",
+                              dis = "DENV",
+                              gi_hi = "gi",
+                              alpha = 0.95)
+
+# Step 5. Vizualization of hotspots ####
+hotspots |>
+    denhotspots::staticmap_intensity(pal = rcartocolor::carto_pal,
+                                 pal_name = TRUE,
+                                 name = "OrYel",
+                                 breaks = 1,
+                                 dir_pal = -1,
+                                 x_leg = 0.5,
+                                 y_leg = 0.1,
+                                 ageb = TRUE) +
+  ggplot2::theme( plot.margin = ggplot2::unit(c(0, 0, 0, 0), "cm")) +
+  ggspatial::annotation_scale(style = "ticks")
+```
+:::
+
+::: grid-item
+```{r hotspots_cases_acapulco_google_ageb, out.height="110%", out.width="110%"}
+# Step 1. load the geocoded dataset ####
+load("/Users/fdzul/Dropbox/hotspots_2023/8.RData/denmex.RData")
+
+# Step 2. Load the locality ####
+x <- rgeomex::extract_ageb(locality = "Acapulco de Juarez", 
+                           cve_edo = "12")
+# Step 3. Count the cases by AGEB ####
+library(magrittr)
+z <- denhotspots::point_to_polygons(x = xy,
+                                    y = x$ageb,
+                                    ids = names(x$ageb)[-10],
+                                    time = ANO,
+                                    coords = c("long", "lat"),
+                                    crs = 4326,
+                                    dis = "DENV") 
+
+# Step 4. Calculate the hotspots ####
+hotspots <- denhotspots::gihi(x = z,
+                              id = names(z)[c(1:9)], 
+                              time = "year",
+                              dis = "DENV",
+                              gi_hi = "gi",
+                              alpha = 0.95)
+
+# Step 5. Vizualization of hotspots ####
+hotspots |>
+    denhotspots::staticmap_intensity(pal = rcartocolor::carto_pal,
+                                 pal_name = TRUE,
+                                 name = "OrYel",
+                                 breaks = 1,
+                                 dir_pal = -1,
+                                 x_leg = 0.5,
+                                 y_leg = 0.1,
+                                 ageb = TRUE) +
+  ggplot2::theme( plot.margin = ggplot2::unit(c(0, 0, 0, 0), "cm")) +
+  ggspatial::annotation_scale(style = "ticks")
+```
+:::
+
+::: grid-item
+Hexágonos
+
+:::
+
+::: grid-item
+```{r hotspots_cases_merida_google_hex, out.height="110%", out.width="110%"}
+# Step 1. load the geocoded dataset ####
+load("/Users/fdzul/Dropbox/hotspots_2023/8.RData/denmex.RData")
+
+# Step 2. Load the locality ####
+x <- popmex::extract_pop(year = 2022, 
+                         cve_edo = "31",
+                         locality = c("Merida", "Uman",
+                                      "Kanasin", "Caucel",
+                                      "Cholul"))
+
+# Step 3. Count the cases by hexágons ####
+library(magrittr)
+z <- denhotspots::point_to_polygons(x = xy,
+                                    y = x, ##
+                                    ids = c("h3","population"), ###
+                                    time = ANO,
+                                    coords = c("long", "lat"),
+                                    crs = 4326,
+                                    dis = "DENV")
+sf::st_geometry(z) <- "geometry"
+
+# Step 4. Calculate the hotspots ####
+hotspots <- denhotspots::gihi(x = z,
+                              id = c("h3","population"), 
+                              time = "year",
+                              dis = "DENV",
+                              gi_hi = "gi",
+                              alpha = 0.95)
+
+# Step 5. Vizualization of hotspots ####
+hotspots |>
+    denhotspots::staticmap_intensity(pal = rcartocolor::carto_pal,
+                                     pal_name = TRUE,
+                                     name = "OrYel",
+                                     breaks = 1,
+                                     dir_pal = -1,
+                                     x_leg = 0.7,
+                                     y_leg = 0.05,
+                                     ageb = TRUE)  +
+    ggplot2::theme(plot.margin = ggplot2::unit(c(0, 0, 0, 0), "cm")) +
+    ggspatial::annotation_scale(style = "ticks")
+```
+:::
+
+::: grid-item
+```{r hotspots_cases_guadalajara_google_hex, out.height="110%", out.width="110%"}
+
+# Step 1. load the geocoded dataset ####
+load("/Users/fdzul/Dropbox/hotspots_2023/8.RData/denmex.RData")
+
+# Step 2. Load the locality ####
+x <- popmex::extract_pop(year = 2022, 
+                          cve_edo = "14",
+                          locality = c("Guadalajara", "Zapopan", 
+                                       "Tlaquepaque", "Tonalá"))
+
+# Step 3. Count the cases by hexágons ####
+library(magrittr)
+z <- denhotspots::point_to_polygons(x = xy,
+                                    y = x, ##
+                                    ids = c("h3","population"), ###
+                                    time = ANO,
+                                    coords = c("long", "lat"),
+                                    crs = 4326,
+                                    dis = "DENV")
+sf::st_geometry(z) <- "geometry"
+
+# Step 4. Calculate the hotspots ####
+hotspots <- denhotspots::gihi(x = z,
+                              id = c("h3","population"), 
+                              time = "year",
+                              dis = "DENV",
+                              gi_hi = "gi",
+                              alpha = 0.95)
+
+# Step 5. Vizualization of hotspots ####
+hotspots |>
+    denhotspots::staticmap_intensity(pal = rcartocolor::carto_pal,
+                                     pal_name = TRUE,
+                                     name = "OrYel",
+                                     breaks = 1,
+                                     dir_pal = -1,
+                                     x_leg = 0.7,
+                                     y_leg = 0.05,
+                                     ageb = TRUE)  +
+    ggplot2::theme(plot.margin = ggplot2::unit(c(0, 0, 0, 0), "cm")) +
+    ggspatial::annotation_scale(style = "ticks")
+```
+:::
+
+::: grid-item
+```{r hotspots_cases_acapulco_google_hex, out.height="110%", out.width="110%"}
+# Step 1. load the geocoded dataset ####
+load("/Users/fdzul/Dropbox/hotspots_2023/8.RData/denmex.RData")
+
+# Step 2. Load the locality ####
+x <- popmex::extract_pop(year = 2022, 
+                         cve_edo = "12",
+                         locality = "Acapulco de Juarez")
+
+# Step 3. Count the cases by hexágons ####
+library(magrittr)
+z <- denhotspots::point_to_polygons(x = xy,
+                                    y = x, ##
+                                    ids = c("h3","population"), ###
+                                    time = ANO,
+                                    coords = c("long", "lat"),
+                                    crs = 4326,
+                                    dis = "DENV")
+sf::st_geometry(z) <- "geometry"
+
+# Step 4. Calculate the hotspots ####
+hotspots <- denhotspots::gihi(x = z,
+                              id = c("h3","population"), 
+                              time = "year",
+                              dis = "DENV",
+                              gi_hi = "gi",
+                              alpha = 0.95)
+
+# Step 5. Vizualization of hotspots ####
+hotspots |>
+    denhotspots::staticmap_intensity(pal = rcartocolor::carto_pal,
+                                     pal_name = TRUE,
+                                     name = "OrYel",
+                                     breaks = 1,
+                                     dir_pal = -1,
+                                     x_leg = 0.7,
+                                     y_leg = 0.03,
+                                     ageb = TRUE)  +
+    ggplot2::theme(plot.margin = ggplot2::unit(c(0, 0, 0, 0), "cm")) +
+    ggspatial::annotation_scale(style = "ticks")
+```
+:::
+
+:::
+
+</body>
+</html>
+
+
+## [Hotspots de la Abundancia Reciente en R]{style="color:#003300;" .r-fit-text}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r}
+#| echo: true
+#| output: false
+path_ovitraps <- "/Users/fdzul/Dropbox/CENAPRECE/2024/14_jalisco"
+path_coord <- paste(path_ovitraps,
+                    "DescargaOvitrampasMesFco.txt", 
+                    sep = "/" )
+x <- deneggs::spde_inla(path_lect = path_ovitraps,
+                        path_coord = path_coord,
+                        cve_edo = "14",
+                        locality  = c("Guadalajara", "Zapopan",
+                                      "Tlaquepaque", "Tonalá"),
+                        aproximation = "gaussian",
+                        integration = "eb",
+                        fam = "zeroinflatednbinomial1",
+                        k = 80,
+                        palette_vir  = "magma",
+                        leg_title = "Huevos",
+                        plot = FALSE,
+                        hist_dataset = FALSE,
+                        weeks  = 6,
+                        cell_size = 3000,
+                        alpha = .99)
+```
+
+## [Hotspots de la Abundancia Reciente en R]{style="color:#003300;" .r-fit-text}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r}
+#| echo: true
+#| output: true
+x$map
+```
+
+## [Hotspots de la Abundancia Reciente en R]{style="color:#003300;" .r-fit-text}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+
+<html>
+<head>
+```{=html}
+<style>
+.grid-container-eggsweek {
+  display: grid;
+  grid-template-columns: auto auto;
+  padding: 5px;
+}
+
+.grid-item-eggsweek{
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 5px;
+  font-size: 30px;
+  text-align: center;
+}
+</style>
+```
+</head>
+<body>
+<h1>
+</h1>
+<p>
+</p>
+
+::: grid-container-eggsweek
+
+
+::: grid-item-eggsweek
+```{r egg_hotspots_guadalajara_2024_week1}
+path_ovitraps <- "/Users/fdzul/Dropbox/CENAPRECE/2024/14_jalisco"
+path_coord <- paste(path_ovitraps,
+                    "DescargaOvitrampasMesFco.txt", 
+                    sep = "/" )
+x <- deneggs::spde_inla(path_lect = path_ovitraps,
+                        path_coord = path_coord,
+                        cve_edo = "14",
+                        locality  = c("Guadalajara", "Zapopan",
+                                      "Tlaquepaque", "Tonalá"),
+                        aproximation = "gaussian",
+                        integration = "eb",
+                        fam = "zeroinflatednbinomial1",
+                        k = 80,
+                        palette_vir  = "magma",
+                        leg_title = "Huevos",
+                        plot = FALSE,
+                        hist_dataset = FALSE,
+                        weeks  = 1,
+                        cell_size = 3000,
+                        alpha = .99)
+x$map
+```
+:::
+
+::: grid-item-eggsweek
+```{r egg_hotspots_guadalajara_2024_week2}
+path_ovitraps <- "/Users/fdzul/Dropbox/CENAPRECE/2024/14_jalisco"
+path_coord <- paste(path_ovitraps,
+                    "DescargaOvitrampasMesFco.txt", 
+                    sep = "/" )
+x <- deneggs::spde_inla(path_lect = path_ovitraps,
+                        path_coord = path_coord,
+                        cve_edo = "14",
+                        locality  = c("Guadalajara", "Zapopan",
+                                      "Tlaquepaque", "Tonalá"),
+                        aproximation = "gaussian",
+                        integration = "eb",
+                        fam = "zeroinflatednbinomial1",
+                        k = 80,
+                        palette_vir  = "magma",
+                        leg_title = "Huevos",
+                        plot = FALSE,
+                        hist_dataset = FALSE,
+                        weeks  = 2,
+                        cell_size = 3000,
+                        alpha = .99)
+x$map
+```
+:::
+
+::: grid-item-eggsweek
+```{r egg_hotspots_guadalajara_2024_week3}
+path_ovitraps <- "/Users/fdzul/Dropbox/CENAPRECE/2024/14_jalisco"
+path_coord <- paste(path_ovitraps,
+                    "DescargaOvitrampasMesFco.txt", 
+                    sep = "/" )
+x <- deneggs::spde_inla(path_lect = path_ovitraps,
+                        path_coord = path_coord,
+                        cve_edo = "14",
+                        locality  = c("Guadalajara", "Zapopan",
+                                      "Tlaquepaque", "Tonalá"),
+                        aproximation = "gaussian",
+                        integration = "eb",
+                        fam = "zeroinflatednbinomial1",
+                        k = 80,
+                        palette_vir  = "magma",
+                        leg_title = "Huevos",
+                        plot = FALSE,
+                        hist_dataset = FALSE,
+                        weeks  = 3,
+                        cell_size = 3000,
+                        alpha = .99)
+x$map
+```
+:::
+
+::: grid-item-eggsweek
+```{r egg_hotspots_guadalajara_2024_week4}
+path_ovitraps <- "/Users/fdzul/Dropbox/CENAPRECE/2024/14_jalisco"
+path_coord <- paste(path_ovitraps,
+                    "DescargaOvitrampasMesFco.txt", 
+                    sep = "/" )
+x <- deneggs::spde_inla(path_lect = path_ovitraps,
+                        path_coord = path_coord,
+                        cve_edo = "14",
+                        locality  = c("Guadalajara", "Zapopan",
+                                      "Tlaquepaque", "Tonalá"),
+                        aproximation = "gaussian",
+                        integration = "eb",
+                        fam = "zeroinflatednbinomial1",
+                        k = 80,
+                        palette_vir  = "magma",
+                        leg_title = "Huevos",
+                        plot = FALSE,
+                        hist_dataset = FALSE,
+                        weeks  = 4,
+                        cell_size = 3000,
+                        alpha = .99)
+x$map
+```
+:::
+
+
+:::
+
+</body>
+</html>
+
+## [Hotspots de la Abundancia Reciente en R por Semana]{style="color:#003300;" .r-fit-text}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r hotspots_eggs_guadalajara_reciente_code1}
+#| echo: true
+#| output: false
+# step 1. define the path for the historic dataset 
+path_ovitraps <- "/Users/fdzul/Dropbox/CENAPRECE/2024/14_jalisco"
+path_coord <- paste(path_ovitraps, "DescargaOvitrampasMesFco.txt", sep = "/")
+library(INLA)
+library(sf)
+# Step 2. run the spde model merida
+guadalajara <- deneggs::eggs_hotspots_week(path_vect = path_ovitraps,
+                                           path_coord = path_coord,
+                                           cve_mpo = c("039", "098", 
+                                                       "101", "120"),
+                                           cve_edo = "14",
+                                           year = "2024",
+                                           hist_dataset = FALSE,
+                                           locality  = c("Guadalajara", "Zapopan",
+                                                         "Tlaquepaque", "Tonalá"),
+                                           integration_strategy = "eb",
+                                           aproximation_method = "gaussian",
+                                           fam_distribution = "zeroinflatednbinomial1",
+                                           kvalue = 20,
+                                           plot = TRUE,
+                                           palette.viridis = "viridis",
+                                           cell.size = 5000,
+                                           alpha.value = .99)
+```
+
+## [Hotspots de la Abundancia Reciente en R por Semana]{style="color:#003300;" .r-fit-text}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r hotspots_eggs_guadalajara_reciente_code2}
+#| echo: true
+#| output: false
+# Step 3. visualization
+deneggs::map_eggs_hotspots(betas = guadalajara$betas,
+                           locality = c("Guadalajara", "Zapopan",
+                                        "Tlaquepaque", "Tonalá"),
+                           cve_edo = "14",
+                           palette = rcartocolor::carto_pal,
+                           name = "SunsetDark")
+```
+
+
+
+## [Hotspots de la Abundancia Reciente en R por Semana]{style="color:#003300;" .r-fit-text}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r hotspots_eggs_guadalajara_reciente}
+#| echo: false
+#| output: true
+deneggs::map_eggs_hotspots(betas = guadalajara$betas,
+                           locality = c("Guadalajara", "Zapopan",
+                                        "Tlaquepaque", "Tonalá"),
+                           cve_edo = "14",
+                           palette = rcartocolor::carto_pal,
+                           name = "SunsetDark")
+```
+
+
+## [Hotspots de la Abundancia Persistente en R]{style="color:#003300;" .r-fit-text}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r hotspots_eggs_historic}
+deneggs::map_eggs_hotspots(betas = denmex::eggs_betas_14_jalisco,
+                           locality = c("Guadalajara", "Zapopan",
+                                        "Tlaquepaque", "Tonalá"),
+                           cve_edo = "14",
+                           palette = rcartocolor::carto_pal,
+                           name = "SunsetDark")
+```
+
+
+
+## [Identificación de Escenarios Epidemiológicos en R]{style="color:#003300;" .r-fit-text}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r escenarios_code}
+#| echo: true
+#| output: false
+# Step 1. calculate the risk ####
+risk <- denhotspots::risk_ageb(betas = denmex::eggs_betas_31_yucatan,
+                               hotspots = denmex::den_hotspots,
+                               intensity_perc = 25,
+                               locality = "Mérida",
+                               cve_edo = "31")
+
+# Step 2. map ####
+denhotspots::map_risk(risk = risk,
+                      staticmap = FALSE)
+```
+
+## [Identificación de Escenarios Epidemiológicos en R]{style="color:#003300;" .r-fit-text}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r escenarios_map}
+#| echo: false
+#| output: true
+denhotspots::map_risk(risk = risk,
+                      staticmap = FALSE)
+```
+
+
+## [Identificación de Escenarios Epidemiológicos en R]{style="color:#003300;" .r-fit-text}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+<html>
+<head>
+```{=html}
+<style>
+.grid-container-escenarios {
+  display: grid;
+  grid-template-columns: auto auto;
+  padding: 5px;
+}
+
+.grid-item-escenarios {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 5px;
+  font-size: 30px;
+  text-align: center;
+}
+</style>
+```
+</head>
+<body>
+<h1>
+</h1>
+<p>
+</p>
+
+::: grid-container-escenarios
+
+::: grid-item-escenarios
+```{r escenarios_merida}
+#| echo: false
+#| output: true
+mapview::mapviewOptions(leafletWidth = 500, 
+                        leafletHeight = 250,
+                        legend = FALSE)
+# Step 1. calculate the risk ####
+risk <- denhotspots::risk_ageb(betas = denmex::eggs_betas_31_yucatan,
+                               hotspots = denmex::den_hotspots,
+                               intensity_perc = 25,
+                               locality = "Mérida",
+                               cve_edo = "31")
+
+# Step 2. map ####
+denhotspots::map_risk(risk = risk,
+                      staticmap = FALSE)
+```
+:::
+
+::: grid-item-escenarios
+```{r escenarios_guadalajara}
+#| echo: false
+#| output: true
+mapview::mapviewOptions(leafletWidth = 500, 
+                        leafletHeight = 250,
+                        legend = FALSE)
+# Step 1. calculate the risk ####
+risk <- denhotspots::risk_ageb(betas = denmex::eggs_betas_14_jalisco,
+                               hotspots = denmex::den_hotspots,
+                               intensity_perc = 25,
+                               locality = c("Guadalajara", "Zapopan",
+                                            "Tlaquepaque", "Tonalá"),
+                               cve_edo = "14")
+
+# Step 2. map ####
+denhotspots::map_risk(risk = risk,
+                      staticmap = FALSE)
+```
+:::
+
+::: grid-item-escenarios
+```{r escenarios_acapulco}
+#| echo: false
+#| output: true
+mapview::mapviewOptions(leafletWidth = 500, 
+                        leafletHeight = 250,
+                        legend = FALSE)
+# Step 1. calculate the risk ####
+risk <- denhotspots::risk_ageb(betas = denmex::eggs_betas_12_guerrero,
+                               hotspots = denmex::den_hotspots,
+                               intensity_perc = 25,
+                               locality = "Acapulco de Juárez",
+                               cve_edo = "12")
+
+# Step 2. map ####
+denhotspots::map_risk(risk = risk,
+                      staticmap = FALSE)
+
+```
+:::
+
+::: grid-item-escenarios
+```{r escenarios_cancun}
+#| echo: false
+#| output: true
+mapview::mapviewOptions(leafletWidth = 500, 
+                        leafletHeight = 250,
+                        legend = FALSE)
+# Step 1. calculate the risk ####
+risk <- denhotspots::risk_ageb(betas = denmex::eggs_betas_23_quintana_roo,
+                               hotspots = denmex::den_hotspots,
+                               intensity_perc = 25,
+                               locality = "Cancun",
+                               cve_edo = "23")
+
+# Step 2. map ####
+denhotspots::map_risk(risk = risk,
+                      staticmap = FALSE)
+```
+:::
+
+:::
+
+</body>
+</html>
+
+
+## [Dios Botic]{style="color:#003300;"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+-   ***Bio*** : [https://fdzul.github.io/web_site_fadm/]()
+
+-   ***email*** : [felipe.dzul.m@gmail.com]()
+
+-   ***celular*** : [9999580167]()
+
+-   ***slides***: [https://calm-hummingbird-41cb33.netlify.app/talks/mia_R/#/](https://calm-hummingbird-41cb33.netlify.app/talks/mia_R/#/)
 

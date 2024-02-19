@@ -33,9 +33,11 @@ format:
 
 </h3>
 <br>
-<h4>Date: 2024-01-31 </h4>
+<h4> Created: 2024-01-31 </h4>
 
-<h4> Update: 2024-02-01</h4>
+<h4> Updated: 2024-02-01</h4>
+
+<h4> Compiled: 2024-02-01</h4>
 
 <br>
 
