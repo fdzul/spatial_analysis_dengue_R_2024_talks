@@ -35,7 +35,9 @@ format:
 <br>
 <h4>Date: 2024-02-01 </h4>
 
-<h4> Update: 2024-02-01</h4>
+<h4> Update: 2024-02-19</h4>
+
+<h4> Compiled: 2024-02-19</h4>
 
 <br>
 
@@ -50,6 +52,10 @@ format:
 
 - Conceptos Básico del Análisis Geoestadístico
 - Modelo del Análisis Geoestadístico
+- Instalación del paquete Análisis Geoestadístico
+- Argumentos de las funciones
+- Códigos, Elementos y Mapa de las funciones.
+- Ejemplo de las funciones
 
 ## Conceptos $\color{#2ECC40}s_{\color{#2ECC40}i}$, $\color{#2ECC40}D$, $\color{#2ECC40}Y_{\color{#2ECC40}{si}}$ & $\color{#2ECC40}U_{\color{#2ECC40}{si}}$
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
@@ -213,23 +219,20 @@ mesh$n
 #| output: true
 path_ovitraps <- "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/CENAPRECE/2023/14_jalisco"
 path_coord <- paste(path_ovitraps,"DescargaOvitrampasMesFco.txt", sep = "/" )
-x <- deneggs::eggs_hotspots(path_lect = path_ovitraps,
-                            cve_ent = "14",
+x <- deneggs::spde_inla(path_lect = path_ovitraps,
+                            cve_edo = "14",
                             locality  = c("Guadalajara", "Zapopan",
                                           "Tlaquepaque", "Tonalá"),
                             path_coord = path_coord,
-                            longitude  = "Pocision_X",
-                            latitude =  "Pocision_Y",
                             aproximation = "gaussian",
                             integration = "eb",
                             fam = "zeroinflatednbinomial1",
-                            k = 80,
+                            k = 40,
                             palette_vir  = "magma",
                             leg_title = "Huevos",
-                            plot = FALSE,
+                            plot = TRUE,
                             hist_dataset = FALSE,
-                            sem = 41,
-                            var = "eggs",
+                            weeks = 41,
                             cell_size = 2000,
                             alpha = .99)
 
@@ -238,7 +241,8 @@ ggplot2::ggplot() +
     ggplot2::geom_point(data = x$data,
                         ggplot2::aes(x = x$data$Pocision_X,
                                      y = x$data$Pocision_Y),
-                        col = "red")
+                        col = "red") +
+  ggspatial::annotation_scale(style = "ticks")
 ```
 
 ## Zoom Mesh de Guadalajara
@@ -252,7 +256,8 @@ ggplot2::ggplot() +
                                      y = x$data$Pocision_Y),
                         col = "red") +
     ggplot2::coord_sf(xlim = c(-103.30, -103.28),
-                      ylim = c(20.60, 20.61))
+                      ylim = c(20.60, 20.61)) +
+  ggspatial::annotation_scale(style = "ticks")
 ```
 :::
 
@@ -386,7 +391,7 @@ tibble::tibble(argumentos = c("fam",
 ```
 
 
-## [Argumentos de la función [deneggs::eggs_hotspots]()]{.r-fit-text style="color:#003300;"}
+## [Ejemplo de la función [deneggs::eggs_hotspots]()]{.r-fit-text style="color:#003300;"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
 ::: {.panel-tabset}
@@ -435,7 +440,7 @@ x$map
 :::
 
 
-## [Argumentos de la función [deneggs::spde_pred_map]()]{.r-fit-text style="color:#003300;"}
+## [Ejemplo de la función [deneggs::spde_pred_map]()]{.r-fit-text style="color:#003300;"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
 ::: {.panel-tabset}
@@ -494,6 +499,10 @@ x$map
 
 :::
 
+## [Ejemplo de la función [eggs_hotspots_week]()]{.r-fit-text style="color:#003300;"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+- Inicia el lab del modulo III
 
 ## [Dios Botic]{style="color:#003300;"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">

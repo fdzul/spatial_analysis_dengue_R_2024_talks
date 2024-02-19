@@ -33,9 +33,11 @@ format:
 
 </h3>
 <br>
-<h4>Date: 2024-01-01 </h4>
+<h4> Created: 2024-01-01 </h4>
 
-<h4> Update: 2024-02-06</h4>
+<h4> Update: 2024-02-14</h4>
+
+<h4> Compiled: 2024-02-14</h4>
 
 <br>
 
@@ -165,6 +167,11 @@ library(rhealthdiag)
 pak::pkg_install("hughjonesd/ggmagnify")
 # Verificamos la instalacion
 library(ggmagnify)
+```
+
+### renv
+```{r}
+renv::install("hughjonesd/ggmagnify")
 ```
 
 :::
