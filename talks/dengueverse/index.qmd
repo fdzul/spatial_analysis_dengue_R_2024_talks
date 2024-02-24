@@ -115,16 +115,29 @@ Es un paquete que proporciona bases de datos espaciales de la densidad poblacion
 ## [denhotspots]{style="color:#003300;"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
-## [deneggs]{style="color:#003300;"}
-<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
-
-::: {.columns}
+:::: {.columns}
 ::: {.column style="width: 40%; font-size: 80%"}
-![](https://fdzul.github.io/deneggs/)
+![](https://github.com/fdzul/denhotspots/blob/master/man/figures/logo.png?raw=true)
 :::
 
 ::: {.column style="width: 60%; font-size: 100%"}
-Es un paquete diseñado paracgenerar mapas predictivos del número de huevos en áreas donde no se realiza la colecta. Los mapas predictivos se generan mediante el análisis geoestadístico en el marco del INLA.
+El función central del paquete es realizar el análisis espacial del dengue con el estadístico espacial local $G{i}^*$
+:::
+
+::::
+
+
+
+## [deneggs]{style="color:#003300;"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+:::: {.columns}
+::: {.column style="width: 40%; font-size: 80%"}
+![](https://github.com/fdzul/deneggs/blob/master/man/figures/logo.png?raw=true)
+:::
+
+::: {.column style="width: 60%; font-size: 100%"}
+Es un paquete diseñado para generar mapas predictivos del número de huevos en áreas donde no se realiza la colecta. Los mapas predictivos se generan mediante el análisis geoestadístico en el marco del INLA.
 :::
 
 ::::
@@ -145,3 +158,13 @@ El objetivo del paquete es realizar el análisis de las bases de datos de las En
 ::::
 
 
+## [Dios Botic]{style="color:#003300;"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+-   ***Bio*** : [https://fdzul.github.io/web_site_fadm/]()
+
+-   ***email*** : [felipe.dzul.m@gmail.com]()
+
+-   ***celular*** : [9999580167]()
+
+-   ***slides***: [https://calm-hummingbird-41cb33.netlify.app/talks/dengueverse/#/](https://calm-hummingbird-41cb33.netlify.app/talks/dengueverse/#/)
