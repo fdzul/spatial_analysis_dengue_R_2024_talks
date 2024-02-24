@@ -81,6 +81,7 @@ es un universo o colección de paquetes en R para el análisis y la toma de desi
 
 :::: {.columns}
 ::: {.column style="width: 40%; font-size: 80%"}
+<a href = "https://fdzul.github.io/rgeomex/">
 ![](https://github.com/fdzul/rgeomex/blob/main/man/figures/logo.png?raw=true)
 :::
 
@@ -97,6 +98,7 @@ Es un paquete que proporciona bases de datos geográficos a diferentes niveles d
 
 :::: {.columns}
 ::: {.column style="width: 40%; font-size: 80%"}
+<a href = "https://fdzul.github.io/popmex/">
 ![](https://github.com/fdzul/popmex/blob/main/man/figures/logo.png?raw=true)
 :::
 
@@ -117,6 +119,7 @@ Es un paquete que proporciona bases de datos espaciales de la densidad poblacion
 
 :::: {.columns}
 ::: {.column style="width: 40%; font-size: 80%"}
+<a href = "https://fdzul.github.io/denhotspots/">
 ![](https://github.com/fdzul/denhotspots/blob/master/man/figures/logo.png?raw=true)
 :::
 
@@ -133,6 +136,7 @@ El función central del paquete es realizar el análisis espacial del dengue con
 
 :::: {.columns}
 ::: {.column style="width: 40%; font-size: 80%"}
+<a href = "https://fdzul.github.io/deneggs/">
 ![](https://github.com/fdzul/deneggs/blob/master/man/figures/logo.png?raw=true)
 :::
 
@@ -148,6 +152,7 @@ Es un paquete diseñado para generar mapas predictivos del número de huevos en 
 
 :::: {.columns}
 ::: {.column style="width: 40%; font-size: 80%"}
+<a href = "https://fdzul.github.io/densnv/">
 ![](https://github.com/fdzul/densnv/blob/main/docs/reference/figures/logo.png?raw=true)
 :::
 
