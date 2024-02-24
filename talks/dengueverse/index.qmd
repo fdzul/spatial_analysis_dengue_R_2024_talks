@@ -78,18 +78,18 @@ es un universo o colección de paquetes en R para el análisis y la toma de desi
 ## [rgeomex]{style="color:#003300;"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
-:::: {.columns}
 
-::: {.column style="width: 40%;}
+:::: {.columns}
+::: {.column style="width: 40%; font-size: 80%"}
 ![](https://github.com/fdzul/rgeomex/blob/main/man/figures/logo.png?raw=true)
 :::
 
 ::: {.column style="width: 60%; font-size: 100%"}
-Es un paquete que proporciona bases de datos espaciales de la densidad poblacional a diferentes niveles de resolución. Actualmente incluye del 2021 a 2023 en hexagónos de 40m de resolución (hdx_pop2023, hdx_pop2022,  hdx_pop2021, y hdx_pop2020).
+Es un paquete que proporciona bases de datos geográficos a diferentes niveles de resolución (Estatal (AGEE), Municipal (AGEM), Sectores, AGEBs, & Manzanas) del INE e INEGI. El paquete incluye funciones para extraer AGEBs, Manzanas, Sectores y Localidades.
+
 :::
 
 ::::
-
 
 ## [popmex]{style="color:#003300;"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
@@ -112,45 +112,36 @@ Es un paquete que proporciona bases de datos espaciales de la densidad poblacion
 ::::
 
 
-
-
-
-
-## [rgeomex]{style="color:#003300;"}
+## [denhotspots]{style="color:#003300;"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
+## [deneggs]{style="color:#003300;"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
-:::: {.columns}
+::: {.columns}
 ::: {.column style="width: 40%; font-size: 80%"}
-![](https://github.com/fdzul/rgeomex/blob/main/man/figures/logo.png?raw=true)
+![](https://fdzul.github.io/deneggs/)
 :::
 
 ::: {.column style="width: 60%; font-size: 100%"}
-Funciones: 
-
-  - [extract_ageb]()
-  - [extract_blocks]()
-  - [extract_sectores]()
-  - [extract_locality]()
-
+Es un paquete diseñado paracgenerar mapas predictivos del número de huevos en áreas donde no se realiza la colecta. Los mapas predictivos se generan mediante el análisis geoestadístico en el marco del INLA.
 :::
+
 ::::
 
-## [rgeomex]{style="color:#003300;"}
-<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
+## [densnv & boldenr]{style="color:#003300;"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
 :::: {.columns}
 ::: {.column style="width: 40%; font-size: 80%"}
-![](https://github.com/fdzul/rgeomex/blob/main/man/figures/logo.png?raw=true)
+![](https://github.com/fdzul/densnv/blob/main/docs/reference/figures/logo.png?raw=true)
 :::
 
 ::: {.column style="width: 60%; font-size: 100%"}
-Areas GeoEstadísticas (AGE)
-
-- AGEE (Estatales), 
-- AGEM (Municipales), 
-- AGEB (Básicas)
-
+El objetivo del paquete es realizar el análisis de las bases de datos de las Enfermedades Transmitidas por Vector, a través de graficos, tablas y mapas con el objetivo de incidir de manera directa en la toma de desiciones racionales y oportunas en los programas de ETVS
 :::
+
 ::::
+
+
